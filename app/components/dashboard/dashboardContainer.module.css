@@ -1,27 +1,23 @@
 .main_container {
-    border: 1px solid pink;
-    height: 98vh;
-    height: 98dvh;
+    height: 94vh;
+    height: 94dvh;
     min-height: 800px;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+/* Container for the HERO */
 .main_container > div:nth-child(1) {
-    background-color: pink;
-    flex-basis: 80px;
-}
-.main_container > div:nth-child(2) {
     background-color: brown;
     flex-basis: 50%;
 }
-.main_container > div:nth-child(3) {
+/* Container for the INFO */
+.main_container > div:nth-child(2) {
     background-color: purple;
     flex-basis: auto;
     flex: 1;
 }
 .main_container > div {
-    border: 1px solid red;
 }
 @media (min-width: 900px) {
     .main_container {
@@ -30,8 +26,9 @@
 @media (min-width: 1250px) {
     .main_container {
         flex-direction: row;
-    }
-    .main_container > div:nth-child(1) {
-        flex-basis: 100px;
+        width: auto;
+        flex-grow: 1;
+        height: 100vh;
+        height: 100dvh;
     }
 }

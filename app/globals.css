@@ -8,26 +8,33 @@
 }
 html {
     background-color: var(--main-background-color);
-    font-weight: 62.5%;
-    height: 4000px;
+    font-size: 62.5%;
     justify-content: center;
+    overflow-x: hidden;
 }
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  color-scheme: dark;
-  display: flex;
+    max-width: 100vw;
+    color-scheme: dark;
+    display: flex;
 }
 body {
     max-width: 2000px;
     min-width: 300px;
     width: 80%;
-    border: 1px solid wheat;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+div.hola {
+    min-width: 300px;
+    width: 100%;
+    border: 1px solid red;
+    height: 200px;
 }
 @media (min-width: 900px) {
     body {
@@ -37,5 +44,6 @@ a {
 @media (min-width: 1250px) {
     body {
         width: 90%;
+        flex-direction: row;
     }
 }
