@@ -1,5 +1,9 @@
+import DashboardContainer from "./components/dashboard/dashboardContainer";
+
 export default function Home() {
-  return (
-    <div>hola</div>
-  );
+    return (
+        <>
+            <DashboardContainer />
+        </>
+    );
 }
