@@ -10,7 +10,13 @@ export default function Menu() {
             <div className={styles.menu_bar_hamburger}>
                 <div className={styles.hamburger_icon}></div>
             </div>
-            <div className={styles.menu_bar}>bar</div>
+            <div className={styles.menu_bar}>
+                <div>ele</div>
+                <div>ele</div>
+                <div>ele</div>
+                <div>ele</div>
+                <div>ele</div>
+            </div>
         </header>
     );
 }
