@@ -7,6 +7,9 @@ export default function Menu() {
             <Link className={styles.logo} href="/">
                 AG
             </Link>
+            <div className={styles.menu_bar_hamburger}>
+                <div className={styles.hamburger_icon}></div>
+            </div>
             <div className={styles.menu_bar}>bar</div>
         </header>
     );
