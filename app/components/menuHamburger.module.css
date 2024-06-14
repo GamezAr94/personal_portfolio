@@ -1,0 +1,120 @@
+.menu_bar_hamburger {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 30;
+    cursor: pointer;
+}
+
+
+.hamburger_icon {
+    height: 4px;
+    border-radius: 9px;
+    z-index: 10;
+    transition: .3s;
+    display: flex;
+    background: white;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger_icon:nth-child(2)::before, 
+.hamburger_icon:nth-child(2)::after {
+    content: '';
+    transform-origin: center;
+    position: absolute;
+    height: 4px;
+    transition: .4s;
+    transition-delay: .2s;
+    width: 100%;
+}
+.hamburger_icon:nth-child(2).open::before, 
+.hamburger_icon:nth-child(2).open::after {
+    background-color: white;
+    width: 100%;
+}
+.hamburger_icon:nth-child(2).open::before {
+    rotate: 45deg;
+}
+.hamburger_icon:nth-child(2).open::after {
+    rotate: -45deg;
+}
+.hamburger_icon:nth-child(2).closed::before, 
+.hamburger_icon:nth-child(2).closed::after {
+    background-color: transparent;
+}
+.hamburger_icon.open:nth-child(2) {
+    background-color: transparent;
+}
+.hamburger_icon.open {
+    width: 0%;
+}
+.hamburger_icon.closed {
+    width: 100%;
+}
+
+
+
+.menu_container.container_open {
+    height: 100vh;
+    transition-duration: .3s;
+}
+.menu_container.container_closed {
+    height: 0px;
+    transition-duration: .3s;
+    transition-delay: .2s;
+}
+.menu_container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    transition: .3s;
+    position: absolute;
+    display: flex;
+    top: 58px;
+    right: 0px;
+    left: -10%;
+    margin: 0 auto;
+    width: 100vw;
+    height: 0px;
+
+    /* GLASS EFFECT
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    */
+}
+.content_menu_elements {
+    background-color: var(--main-background-color);
+    height: 400px;
+    width: 90%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14%;
+}
+.content_menu_elements > * {
+    border: 1px solid white;
+}
+@media (min-width: 900px) {
+    .menu_container {
+        top: 68px;
+    }
+    .menu_bar_hamburger {
+        width: 37px;
+        height: 27px;
+    }
+}
+@media (min-width: 1250px) {
+    .menu_container {
+        display: none;
+    }
+    .menu_bar_hamburger {
+        display: none;
+    }
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./menu.module.css";
+import MenuHamburger from "./menuHamburger";
 
 export default function Menu() {
     return (
@@ -7,9 +8,7 @@ export default function Menu() {
             <Link className={styles.logo} href="/">
                 AG
             </Link>
-            <div className={styles.menu_bar_hamburger}>
-                <div className={styles.hamburger_icon}></div>
-            </div>
+            <MenuHamburger />
             <div className={styles.menu_bar}>
                 <div>ele</div>
                 <div>ele</div>
