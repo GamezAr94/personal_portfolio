@@ -65,7 +65,7 @@
 .menu_container.container_closed {
     height: 0px;
     transition-duration: .3s;
-    transition-delay: .2s;
+    transition-delay: .1s;
 }
 .menu_container {
     display: flex;
@@ -91,7 +91,6 @@
     background-color: var(--main-background-color);
     height: 400px;
     width: 90%;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;

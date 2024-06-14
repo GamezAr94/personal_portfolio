@@ -9,21 +9,26 @@
 /* Container for the HERO */
 .main_container > div:nth-child(1) {
     background-color: brown;
-    flex-basis: 50%;
+    flex-basis: 100%;
 }
 /* Container for the INFO */
 .main_container > div:nth-child(2) {
     background-color: purple;
     flex-basis: auto;
     flex: 1;
+    display: none;
 }
 .main_container > div {
 }
 @media (min-width: 900px) {
-    .main_container {
-    }
 }
 @media (min-width: 1250px) {
+    .main_container > div:nth-child(2) {
+        display: block;
+    }
+    .main_container > div:nth-child(1) {
+        flex-basis: 60%;
+    }
     .main_container {
         flex-direction: row;
         width: auto;
