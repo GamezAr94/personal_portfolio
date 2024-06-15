@@ -1,0 +1,17 @@
+.salutation_container {
+    border: 1px solid red;
+}
+.salutation_container h2 {
+    font-size: 4.7rem;
+    font-size: clamp(4.7rem, 3vw, 6vw);
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 900px) {
+    .salutation_container h2 {
+        flex-direction: row;
+    }
+}
+@media (min-width: 1250px) {
+}

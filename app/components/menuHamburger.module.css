@@ -11,13 +11,17 @@
 }
 
 
+.hamburger_icon:nth-child(2).open::before, 
+.hamburger_icon:nth-child(2).open::after,
+.hamburger_icon {
+    background: var(--menu-btn-color);
+}
 .hamburger_icon {
     height: 4px;
     border-radius: 9px;
     z-index: 10;
     transition: .3s;
     display: flex;
-    background: white;
     justify-content: center;
     align-items: center;
 }
@@ -33,7 +37,6 @@
 }
 .hamburger_icon:nth-child(2).open::before, 
 .hamburger_icon:nth-child(2).open::after {
-    background-color: white;
     width: 100%;
 }
 .hamburger_icon:nth-child(2).open::before {

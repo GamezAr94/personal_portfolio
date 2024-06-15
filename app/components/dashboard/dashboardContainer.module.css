@@ -8,7 +8,6 @@
 }
 /* Container for the HERO */
 .main_container > div:nth-child(1) {
-    background-color: brown;
     flex-basis: 100%;
 }
 /* Container for the INFO */
@@ -17,8 +16,6 @@
     flex-basis: auto;
     flex: 1;
     display: none;
-}
-.main_container > div {
 }
 @media (min-width: 900px) {
 }

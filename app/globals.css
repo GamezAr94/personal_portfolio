@@ -1,15 +1,11 @@
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/fonts/Poppins/Poppins-Bold.ttf') format('truetype'); /* Path to regular font file */
-  font-weight: bold;
-  font-display: swap;
-}
+
 :root {
     /* Theme GREEN */
     --main-background-color: rgb(36, 41, 36);
     --secondary-color: rgb(57, 67, 57);
     --highlight-darker: rgb(168, 105, 47);
     --font-color: rgb(247, 240, 221);
+    --menu-btn-color: white;
 }
 * {
     box-sizing: border-box;
@@ -17,6 +13,7 @@
     margin: 0;
 }
 html {
+    scroll-behavior: smooth;
     font-size: 62.5%;
     color: var(--font-color);
     justify-content: center;
@@ -30,7 +27,6 @@ body {
     background-color: var(--main-background-color);
 }
 body {
-    font-family: 'Poppins', sans-serif, Arial, Helvetica;
     max-width: 2000px;
     min-width: 300px;
     width: 85%;

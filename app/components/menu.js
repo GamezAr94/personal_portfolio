@@ -5,7 +5,7 @@ import MenuHamburger from "./menuHamburger";
 export default function Menu() {
     return (
         <header className={styles.header_container}>
-            <Link className={styles.logo} href="/">
+            <Link className={styles.logo} href="#home-dashboard">
                 AG
             </Link>
             <MenuHamburger />
