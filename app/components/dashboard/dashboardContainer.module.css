@@ -24,7 +24,7 @@
         display: block;
     }
     .main_container > div:nth-child(1) {
-        flex-basis: 60%;
+        flex-basis: 70%;
     }
     .main_container {
         flex-direction: row;

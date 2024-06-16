@@ -1,5 +1,6 @@
 import styles from "./introductionHero.module.css";
 import Introduction from "./introduction";
+import HeroSection from "./heroSection";
 
 export default function IntroductionHero() {
     return (
@@ -8,7 +9,9 @@ export default function IntroductionHero() {
             <div className={styles.introduction}>
                 <Introduction />
             </div>
-            <div className={styles.hero}>hero</div>
+            <div className={styles.hero}>
+                <HeroSection />
+            </div>
         </div>
     );
 }

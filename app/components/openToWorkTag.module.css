@@ -1,0 +1,16 @@
+.tag {
+    background-color: var(--tag-color);
+    color: var(--menu-btn-color);
+    width: fit-content;
+    border-radius: 15px;
+    font-weight: 600;
+    opacity: .7;
+}
+.small {
+    -webkit-box-shadow: inset -3px -3px 3px 0px rgba(0,0,0,0.2), inset 3px 3px 3px 0px rgba(255, 255, 255, 0.3), 3px 3px 4px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset -3px -3px 3px 0px rgba(0,0,0,0.2), inset 3px 3px 3px 0px rgba(255, 255, 255, 0.3), 3px 3px 4px 0px rgba(0,0,0,0.2);
+    box-shadow: inset -3px -3px 3px 0px rgba(0,0,0,0.2), inset 3px 3px 3px 0px rgba(255, 255, 255, 0.3), 3px 3px 4px 0px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 2px #32303041;;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    padding: clamp(3px, 1vw, 3px) clamp(9px, 2vw, 12px); 
+}
