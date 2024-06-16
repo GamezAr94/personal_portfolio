@@ -1,0 +1,9 @@
+.model {
+    border: 1px solid red;
+    bottom: 30px;
+    scale: 1;
+}
+.loading_element {
+    background-color: red;
+    font-size: 2rem;
+}
