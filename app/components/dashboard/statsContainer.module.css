@@ -1,20 +1,37 @@
 .stats_container {
     position: relative;
-    background-color: red;
+    display: flex;
+    background-color: var(--secondary-container-bg);
+    box-shadow: 2px 2px 13px 1px #0000008f;
     width: 50%;
     height: 48%;
     z-index: 4;
     display: none;
+    border-radius: 36px;
+}
+.details {
+    background-color: blue;
+}
+.links {
+    background-color: #fff;
 }
 @media (min-width: 900px) {
     .stats_container {
         display: flex;
         bottom: 30px;
         left: 37px;
+        width: 55%;
+    }
+    .details {
+        flex-basis: 75%;
+    }
+    .links {
+        flex-grow: 1;
     }
 }
 @media (min-width: 1250px) {
     .stats_container {
         bottom: 17px;
+        width: 50%;
     }
 }
