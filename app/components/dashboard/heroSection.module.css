@@ -19,10 +19,10 @@
 }
 .model_3d {
     position: absolute;
-    height: 610px;
-    width: 660px;
-    bottom: 180px;
-    right: -90px;
+    height: 587px;
+    width: 444px;
+    display: none;
+    transition: .3s;
 }
 .divider {
     display: none;
@@ -64,6 +64,11 @@
         top: 100%;
         right: 0px;
     }
+    .model_3d {
+        bottom: 60%;
+        right: -55px;
+        display: flex;
+    }
 }
 @media (min-width: 1250px) {
     .hero_section_container {
@@ -103,5 +108,9 @@
         top: auto;
         bottom: 0px;
         right: 100%;
+    }
+    .model_3d {
+        bottom: 60%;
+        right: -83px;
     }
 }
