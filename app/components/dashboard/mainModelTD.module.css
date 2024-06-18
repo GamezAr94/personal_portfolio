@@ -7,3 +7,7 @@
     background-color: red;
     font-size: 2rem;
 }
+.landscape {
+    width: 300px;
+    height: 300px;
+}

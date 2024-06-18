@@ -11,7 +11,7 @@
 .landscape {
     object-fit: cover;
     object-position: 0px 0px;
-    border-radius: 36px 36px 0 0;
+    border-radius: 36% 36% 0 0;
     aspect-ratio: 9 / 3;
     width: 100%;
     height: 100%;
@@ -24,6 +24,9 @@
     bottom: 180px;
     right: -90px;
 }
+.divider {
+    display: none;
+}
 @media (min-width: 900px) {
     .hero_section_container {
         justify-content: flex-start;
@@ -31,6 +34,35 @@
     .landscape {
         height: 93%;
         border-radius: 36px;
+    }
+    .divider {
+        position: absolute;
+        display: flex;
+        width: 30%;
+        min-width: 325px;
+        height: 45%;
+        top: -5px;
+        right: -5px;
+        border-radius: 0 0 0 36px;
+        background-color: var(--main-background-color);
+    }
+    .divider::before,
+    .divider::after {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 36px;
+        background-color: transparent;
+    }
+    .divider::before {
+        right: 100%;
+        box-shadow: 30px -30px var(--main-background-color);
+    }
+    .divider::after {
+        box-shadow: 30px -30px var(--main-background-color);
+        top: 100%;
+        right: 0px;
     }
 }
 @media (min-width: 1250px) {
@@ -42,5 +74,34 @@
         width: 100%;
         height: 32vw;
         height: 423px;
+    }
+    .divider {
+        width: 30%;
+        min-width: 325px;
+        height: 53%;
+        top: auto;
+        bottom: 0px;
+        right: 0px;
+        border-radius: 36px 0 0 0;
+    }
+    .divider::before,
+    .divider::after {
+        content: '';
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 36px;
+        background-color: transparent;
+    }
+    .divider::before {
+        right: 0px;
+        bottom: 100%;
+        box-shadow: 30px 30px var(--main-background-color);
+    }
+    .divider::after {
+        box-shadow: 30px 30px var(--main-background-color);
+        top: auto;
+        bottom: 0px;
+        right: 100%;
     }
 }
