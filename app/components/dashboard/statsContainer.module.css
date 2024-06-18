@@ -1,0 +1,20 @@
+.stats_container {
+    position: relative;
+    background-color: red;
+    width: 50%;
+    height: 48%;
+    z-index: 4;
+    display: none;
+}
+@media (min-width: 900px) {
+    .stats_container {
+        display: flex;
+        bottom: 30px;
+        left: 37px;
+    }
+}
+@media (min-width: 1250px) {
+    .stats_container {
+        bottom: 17px;
+    }
+}

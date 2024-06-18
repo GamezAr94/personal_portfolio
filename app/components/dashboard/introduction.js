@@ -9,7 +9,7 @@ export default function Introduction() {
             <div className={styles.salutation_container}>
                 <h2>
                     <span>Hi!&nbsp;</span>
-                    <span>I'm Arturo.</span>
+                    <span>I&apos;m Arturo.</span>
                 </h2>
                 <h1>Full Stack Software Developer.</h1>
                 <OpenToWorkTag size="small" />
