@@ -10,7 +10,7 @@
     width: 80%;
 }
 .about_section {
-    gap: 5%;
+    gap: 3%;
     background-color: var(--secondary-color);
     width: 90%;
     height: 58%;
@@ -29,8 +29,8 @@
 .about_container {
     background-color: var(--inner-container-color);
     width: 80%;
-    height: 66%;
-    max-width: 300px;
+    height: 70%;
+    max-width: 365px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -38,8 +38,8 @@
 }
 .about_container p {
     width: 87%;
-    height: 82%;
-    font-size: clamp(1.1rem, .7vw, 1.3rem);
+    height: 90%;
+    font-size: clamp(1.1rem, .8vw, 1.3rem);
     letter-spacing: 2px;
 }
 .about_buttons {
