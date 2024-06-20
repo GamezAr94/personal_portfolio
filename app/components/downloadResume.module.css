@@ -1,0 +1,29 @@
+.button {
+    font-size: 1.8rem;
+    width: fit-content;
+    padding: 7px 20px;
+    cursor: pointer;
+    background-color: var(--contact-btn-color);
+    border: unset;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 800;
+    letter-spacing: 2px;
+    box-shadow: 3px 3px 10px 0px #00000051, inset -2px -4px 12px 0px #00000058, inset 4px 6px 5px 0px #ffffff5a;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.322);
+}
+.button span {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    font-size: 2.2rem;
+    transition: .3s;
+}
+.button:hover span {
+    rotate: 10deg;
+    scale: 1.05;
+    transition: .3s;
+}

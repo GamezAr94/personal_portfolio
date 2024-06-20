@@ -1,3 +1,5 @@
+import DownloadResume from "../downloadResume";
+import Link from "next/link";
 import styles from "./infoSectio.module.css";
 
 export default function InfoSection() {
@@ -21,7 +23,11 @@ export default function InfoSection() {
                         tristique.
                     </p>
                 </div>
-                <div className={styles.about_buttons}>holas</div>
+                <div className={styles.about_buttons}>
+                    <Link href="#">read more...</Link>
+                    <p>OR</p>
+                    <DownloadResume />
+                </div>
             </div>
             <div className={styles.skills}>
                 <h6>Skills</h6>
