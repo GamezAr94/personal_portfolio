@@ -1,3 +1,83 @@
+.button_wrapper {
+    position: relative;
+    width: 173px;
+    height: 50px;
+    z-index: 5;
+}
+.effect {
+    position: absolute;
+    background-color: var(--contact-btn-color);
+    display: flex;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#contact_filter);
+    z-index: -1;
+}
+.effect > span:nth-of-type(1),
+.effect > span:nth-of-type(2) {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: .2s;
+}
+.effect > span:nth-of-type(1) {
+    top: 0;
+    right: 10px;
+}
+.effect > span:nth-of-type(2) {
+    top: 0;
+    left: 0;
+}
+.button_wrapper:hover .effect > span:nth-of-type(1) {
+    top: 20px;
+    left: auto;
+    right: 20px;
+    transition: .3s;
+}
+.button_wrapper:hover .effect > span:nth-of-type(2) {
+    top: -30px;
+    left: -20px;
+    transition: .3s;
+}
+.effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: .3s;
+}
+.button_wrapper:hover .effect::before {
+    top: 100%;
+    transition: .6s;
+}
+.effect::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 30%;
+    height: 13px;
+    width: 13px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: 0.2s;
+}
+.button_wrapper:hover .effect::after {
+    bottom: 140%;
+    right: 20%;
+    transition: .4s;
+}
+.button_wrapper:hover .button {
+    box-shadow: unset;
+    transition: .3s;
+}
 .button {
     font-size: 1.8rem;
     width: fit-content;
@@ -13,6 +93,7 @@
     letter-spacing: 2px;
     box-shadow: 3px 3px 10px 0px #00000051, inset -2px -4px 12px 0px #00000058, inset 4px 6px 5px 0px #ffffff5a;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.322);
+    transition: .2s;
 }
 .button span {
     left: 0;
@@ -22,8 +103,8 @@
     font-size: 2.2rem;
     transition: .3s;
 }
-.button:hover span {
+.button_wrapper:hover span {
     rotate: 10deg;
-    scale: 1.05;
+    scale: 1.08;
     transition: .3s;
 }

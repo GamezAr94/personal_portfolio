@@ -13,8 +13,37 @@ export default function DownloadResume() {
     };
 
     return (
-        <button className={styles.button} onClick={handleDownload}>
-            Resume<span>💾</span>
-        </button>
+        <>
+            <div className={styles.button_wrapper}>
+                <div className={styles.effect}>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button className={styles.button} onClick={handleDownload}>
+                    Resume<span>💾</span>
+                </button>
+            </div>
+            <svg>
+                <defs>
+                    <filter id="resume_splash">
+                        <feGaussianBlur
+                            in="SourceGraphic"
+                            stdDeviation="10"
+                            result="name"
+                        />
+                        <feColorMatrix
+                            in="name"
+                            mode="matrix"
+                            values="1 0 0 0 0
+                                    0 1 0 0 0
+                                    0 0 1 0 0
+                                    0 0 0 30 -15 "
+                            result="aab"
+                        />
+                        <feBlend in="SourceGraphic" in2="aab" />
+                    </filter>
+                </defs>
+            </svg>
+        </>
     );
 }
