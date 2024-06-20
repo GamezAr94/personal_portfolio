@@ -100,9 +100,6 @@
     align-items: center;
     gap: 14%;
 }
-.content_menu_elements > * {
-    border: 1px solid white;
-}
 @media (min-width: 900px) {
     .menu_container {
         top: 68px;

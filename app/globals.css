@@ -46,7 +46,6 @@ a {
 div.hola {
     min-width: 300px;
     width: 100%;
-    border: 1px solid red;
     height: 200px;
 }
 @media (min-width: 900px) {
