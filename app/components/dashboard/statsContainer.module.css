@@ -7,8 +7,8 @@
     height: 48%;
     z-index: 4;
     display: none;
+    max-width: 450px;
     border-radius: 36px;
-    overflow: hidden;
 }
 .details {
     display: flex;
@@ -69,6 +69,12 @@
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
+}
+.tag_container {
+    position: absolute;
+    top: -7px;
+    left: -30px;
+    rotate: -14deg;
 }
 @media (min-width: 900px) {
     .stats_container {

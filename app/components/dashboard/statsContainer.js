@@ -1,9 +1,13 @@
 import Link from "next/link";
 import styles from "./statsContainer.module.css";
+import OpenToWorkTag from "../openToWorkTag";
 
 export default function StatsContainer() {
     return (
         <div className={styles.stats_container}>
+            <div className={styles.tag_container}>
+                <OpenToWorkTag size="large" />
+            </div>
             <div className={styles.details}>
                 <div className={styles.top_expertise}>
                     <p className={styles.year_xp}>
