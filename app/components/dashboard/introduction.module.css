@@ -18,17 +18,103 @@
     font-size: clamp(2rem, 4vw, 3.8rem);
     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
 }
+.button_wrapper {
+    position: relative;
+    width: 173px;
+    height: 50px;
+    z-index: 5;
+}
+.effect {
+    position: absolute;
+    background-color: var(--contact-btn-color);
+    display: flex;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#contact_filter);
+    z-index: -1;
+}
+.effect > span:nth-of-type(1),
+.effect > span:nth-of-type(2) {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: .2s;
+}
+.effect > span:nth-of-type(1) {
+    top: 0;
+    right: 10px;
+}
+.effect > span:nth-of-type(2) {
+    top: 0;
+    left: 0;
+}
+.button_wrapper:hover .effect > span:nth-of-type(1) {
+    top: 30px;
+    left: auto;
+    right: 20px;
+    transition: .3s;
+}
+.button_wrapper:hover .effect > span:nth-of-type(2) {
+    top: -30px;
+    left: -20px;
+    transition: .3s;
+}
+.effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: .3s;
+}
+.button_wrapper:hover .effect::before {
+    top: 100%;
+    transition: .6s;
+}
+.effect::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 30%;
+    height: 13px;
+    width: 13px;
+    background-color: var(--contact-btn-color);
+    border-radius: 100%;
+    transition: 0.2s;
+}
+.button_wrapper:hover .effect::after {
+    bottom: 140%;
+    right: 20%;
+    transition: .4s;
+}
+.button_wrapper:hover .contact_me {
+    box-shadow: unset;
+    font-size: 2rem;
+    transition: .2s;
+}
 .contact_me {
     background-color: var(--contact-btn-color);
     color: var(--font-color);
-    width: fit-content;
-    padding: 11px 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     font-size: 1.9rem;
     font-weight: 800;
     letter-spacing: 2px;
     box-shadow: 4px 6px 12px 0px #00000075, inset -2px -4px 12px 0px #00000073, inset 4px 6px 5px 0px #ffffff73;
     text-shadow: 2px 2px 3px rgb(0 0 0 / 35%);
+    transition: .3s;
+    z-index: 5;
 }
 @media (min-width: 700px) {
     .salutation_container h2 {
