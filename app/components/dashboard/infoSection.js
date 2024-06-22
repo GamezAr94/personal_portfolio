@@ -1,6 +1,7 @@
 import DownloadResume from "../downloadResume";
 import Link from "next/link";
 import styles from "./infoSectio.module.css";
+import SkillsContainer from "./skillsContainer";
 
 export default function InfoSection() {
     return (
@@ -31,12 +32,7 @@ export default function InfoSection() {
             </div>
             <div className={styles.skills}>
                 <h6>Skills</h6>
-                <div className={styles.skills_container}>
-                    <div>next</div>
-                    <div>react</div>
-                    <div>mongo</div>
-                    <div>three</div>
-                </div>
+                <SkillsContainer />
             </div>
         </div>
     );
