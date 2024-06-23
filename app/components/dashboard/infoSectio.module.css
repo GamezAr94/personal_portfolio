@@ -37,10 +37,10 @@
     align-items: center;
 }
 .about_container p {
-    width: 87%;
+    width: 86%;
     font-weight: 200;
     height: 90%;
-    font-size: clamp(1.1rem, .8vw, 1.3rem);
+    font-size: clamp(1.2rem, .8vw, 1.4rem);
     letter-spacing: 2px;
 }
 .about_buttons {

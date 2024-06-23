@@ -13,15 +13,13 @@ export default function InfoSection() {
                 </div>
                 <div className={styles.about_container}>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Praesent vitae tincidunt enim, eget aliquam massa. Ut
-                        rutrum enim nisi, a semper erat condimentum et.
-                        Suspendisse faucibus libero turpis, suscipit imperdiet
-                        lectus euismod eu. Interdum et malesuada fames ac ante
-                        ipsum primis in faucibus. Nam sed justo eget orci
-                        dignissim posuere. Morbi pulvinar augue dui, ac lobortis
-                        mi accumsan sed. Sed nec massa at magna convallis
-                        tristique.
+                        I'm Arturo, a front-end developer with 3+ years of
+                        experience, passionate about turning ideas into engaging
+                        digital experiences. I'm fueled by curiosity, coffee and a love
+                        for clean, efficient code. I'm a collaborative team
+                        player, always eager to learn and grow alongside
+                        talented colleagues. Let's connect and explore how I can
+                        contribute to your next project!
                     </p>
                 </div>
                 <div className={styles.about_buttons}>
@@ -37,3 +35,17 @@ export default function InfoSection() {
         </div>
     );
 }
+
+/*
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Praesent vitae tincidunt enim, eget aliquam massa. Ut
+                        rutrum enim nisi, a semper erat condimentum et.
+                        Suspendisse faucibus libero turpis, suscipit imperdiet
+                        lectus euismod eu. Interdum et malesuada fames ac ante
+                        ipsum primis in faucibus. Nam sed justo eget orci
+                        dignissim posuere. Morbi pulvinar augue dui, ac lobortis
+                        mi accumsan sed. Sed nec massa at magna convallis
+                        tristique.
+                    </p>
+*/
