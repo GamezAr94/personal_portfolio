@@ -11,7 +11,7 @@ export default function UnderlyingText({ text }) {
                 viewBox="0 0 255 5"
                 preserveAspectRatio="none">
                 <path
-                    d="M2.99975 2C116.771 1.5 178.178 1.6 252 2.5"
+                    d="M4.99975 0C116.771 0.5 178.178 1.6 252 6.0966"
                     stroke="rgb(253, 137, 1)"
                     strokeWidth="4"
                     strokeLinecap="round"
@@ -21,3 +21,7 @@ export default function UnderlyingText({ text }) {
         </span>
     );
 }
+
+/*
+                    d="M2.99975 2C116.771 1.5 178.178 1.6 252 2.5"
+*/

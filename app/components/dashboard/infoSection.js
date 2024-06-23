@@ -2,23 +2,12 @@ import DownloadResume from "../downloadResume";
 import Link from "next/link";
 import styles from "./infoSection.module.css";
 import SkillsContainer from "./skillsContainer";
+import ThemePicker from "./themePicker";
 
 export default function InfoSection() {
     return (
         <div className={styles.main_container}>
-            <div className={styles.theme_picker}>
-                <div className={styles.theme_holder}>
-                    <div className={styles.theme_container}>
-                        <div
-                            className={`${styles.options} ${styles.red}`}></div>
-                        <div
-                            className={`${styles.options} ${styles.blue}`}></div>
-                        <div
-                            className={`${styles.options} ${styles.green}`}></div>
-                    </div>
-                    <p>🎨</p>
-                </div>
-            </div>
+            <ThemePicker />
             <div className={styles.about_section}>
                 <div className={styles.about_title}>
                     <h6>About</h6>
