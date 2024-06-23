@@ -10,7 +10,7 @@
 .underline_effect svg path {
     stroke-dashoffset: 255; /* Initial state (hidden) */
     animation: draw .5s linear forwards; /* Apply the animation */
-    animation-delay: .5s;
+    animation-delay: 1s;
 }
 @keyframes draw {
     to {
