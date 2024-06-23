@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: clamp(35%, 20vw, 48%);
+    height: clamp(35%, 20vw, 55%);
 }
 .salutation_container h2 {
     display: flex;
