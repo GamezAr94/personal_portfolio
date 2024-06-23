@@ -378,7 +378,7 @@ export default function SkillsContainer() {
             render.context = null;
             render.textures = {};
         };
-    }, []);
+    }, [initialBoxPositions]);
 
     const handleReset = () => {
         const engine = engineRef.current; // Get the engine from the ref

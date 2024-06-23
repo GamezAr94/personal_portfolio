@@ -13,12 +13,12 @@ export default function InfoSection() {
                 </div>
                 <div className={styles.about_container}>
                     <p>
-                        I'm Arturo, a front-end developer with 3+ years of
+                        I&apos;m Arturo, a front-end developer with 3+ years of
                         experience, passionate about turning ideas into engaging
-                        digital experiences. I'm fueled by curiosity, coffee and a love
-                        for clean, efficient code. I'm a collaborative team
+                        digital experiences. I&apos;m fueled by curiosity, coffee and a love
+                        for clean, efficient code. I&apos;m a collaborative team
                         player, always eager to learn and grow alongside
-                        talented colleagues. Let's connect and explore how I can
+                        talented colleagues. Let&apos;s connect and explore how I can
                         contribute to your next project!
                     </p>
                 </div>
