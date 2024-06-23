@@ -1,12 +1,24 @@
 import DownloadResume from "../downloadResume";
 import Link from "next/link";
-import styles from "./infoSectio.module.css";
+import styles from "./infoSection.module.css";
 import SkillsContainer from "./skillsContainer";
 
 export default function InfoSection() {
     return (
         <div className={styles.main_container}>
-            <div className={styles.theme_picker}>hola</div>
+            <div className={styles.theme_picker}>
+                <div className={styles.theme_holder}>
+                    <div className={styles.theme_container}>
+                        <div
+                            className={`${styles.options} ${styles.red}`}></div>
+                        <div
+                            className={`${styles.options} ${styles.blue}`}></div>
+                        <div
+                            className={`${styles.options} ${styles.green}`}></div>
+                    </div>
+                    <p>🎨</p>
+                </div>
+            </div>
             <div className={styles.about_section}>
                 <div className={styles.about_title}>
                     <h6>About</h6>
@@ -15,11 +27,11 @@ export default function InfoSection() {
                     <p>
                         I&apos;m Arturo, a front-end developer with 3+ years of
                         experience, passionate about turning ideas into engaging
-                        digital experiences. I&apos;m fueled by curiosity, coffee and a love
-                        for clean, efficient code. I&apos;m a collaborative team
-                        player, always eager to learn and grow alongside
-                        talented colleagues. Let&apos;s connect and explore how I can
-                        contribute to your next project!
+                        digital experiences. I&apos;m fueled by curiosity,
+                        coffee and a love for clean, efficient code. I&apos;m a
+                        collaborative team player, always eager to learn and
+                        grow alongside talented colleagues. Let&apos;s connect
+                        and explore how I can contribute to your next project!
                     </p>
                 </div>
                 <div className={styles.about_buttons}>

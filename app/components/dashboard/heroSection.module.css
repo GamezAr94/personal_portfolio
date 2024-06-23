@@ -39,6 +39,7 @@
     display: none;
     transition: .3s;
     z-index: 5;
+    filter: drop-shadow(2px 4px 6px black);
 }
 @media (min-width: 900px) {
     .hero_section_container {

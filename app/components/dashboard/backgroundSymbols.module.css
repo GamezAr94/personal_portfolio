@@ -1,0 +1,55 @@
+.bgc {
+    position: absolute;
+    filter: blur(6px);
+    color: var(--tag-color);
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.bgc p {
+    font-size: clamp(7rem, 7vw, 10rem);
+    font-weight: 700;
+    text-wrap: nowrap;
+    position: absolute; /* Position for animation */
+}
+
+@keyframes gentleFloat {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(10px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+.bgc p:nth-child(1) {
+    top: 10vh;
+    left: 32vw;
+    rotate: 15deg;
+}
+.bgc p:nth-child(2) {
+    top: 20vh;
+    left: 52vw;
+    rotate: -10deg;
+}
+.bgc p:nth-child(1) { top: 5vh;  left: 73vw; rotate: 22deg; }
+.bgc p:nth-child(2) { top: 45vh; left: 91vw; rotate: -8deg; }
+.bgc p:nth-child(3) { top: 23vh; left: 13vw; rotate: 5deg; }
+.bgc p:nth-child(4) { top: 38vh; left: 45vw; rotate: -17deg; }
+.bgc p:nth-child(5) { top: 1vh;  left: 43vw; rotate: 11deg; }
+.bgc p:nth-child(6) { top: 52vh; left: 2vw;  rotate: -25deg; }
+
+.bgc p:nth-child(1) { top: 11vh; left: 75vw; rotate: 3deg; }
+.bgc p:nth-child(8) { top: 58vh; left: 33vw; rotate: -14deg; }
+.bgc p:nth-child(9) { top: 32vh; left: 6vw;  rotate: 28deg; }
+.bgc p:nth-child(10){ top: 2vh;  left: 88vw; rotate: -6deg; }
+.bgc p:nth-child(11){ top: 49vh; left: 50vw; rotate: 19deg; }
+.bgc p:nth-child(12){ top: 17vh; left: 26vw; rotate: -31deg; }
+
+/* Apply animation to each symbol with different start times */
+/*
+.bgc p:nth-child(2) { animation: gentleFloat 8s infinite ease-in-out; }
+.bgc p:nth-child(3) { animation: gentleFloat 10s infinite ease-in-out; animation-delay: 2s; }
+.bgc p:nth-child(4) { animation: gentleFloat 12s infinite ease-in-out; animation-delay: 4s; }
+.bgc p:nth-child(5) { animation: gentleFloat 6s infinite ease-in-out; animation-delay: 6s; }
+.bgc p:nth-child(6) { animation: gentleFloat 9s infinite ease-in-out; animation-delay: 8s; }
+.bgc p:nth-child(7) { animation: gentleFloat 7s infinite ease-in-out; animation-delay: 10s; }
+ */ 
