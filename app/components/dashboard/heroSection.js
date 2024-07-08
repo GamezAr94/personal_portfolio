@@ -20,11 +20,12 @@ export default function HeroSection() {
             <div className={styles.model_3d}>
                 <MainModel />
             </div>
-            <Image
-                className={`${styles.hero_img} ${styles.frog_goblin}`}
-                src={frog_character}
-                alt="image of the frog main character"
-            />
+            <div className={`${styles.hero_img} ${styles.frog_goblin}`}>
+                <Image
+                    src={frog_character}
+                    alt="image of the frog main character"
+                />
+            </div>
         </div>
     );
 }
