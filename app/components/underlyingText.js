@@ -21,7 +21,3 @@ export default function UnderlyingText({ text }) {
         </span>
     );
 }
-
-/*
-                    d="M2.99975 2C116.771 1.5 178.178 1.6 252 2.5"
-*/
