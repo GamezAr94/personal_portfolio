@@ -10,6 +10,10 @@
     --font-color: rgb(247, 240, 221);
     --menu-btn-color: white;
     --contact-btn-color: rgb(111, 200, 22);
+
+    --theme-hero-img-red: none;
+    --theme-hero-img-blue: none;
+    --theme-hero-img-green: flex;
 }
 * {
     box-sizing: border-box;

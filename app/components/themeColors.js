@@ -17,6 +17,10 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(200, 31, 22)",
+
+        "--theme-hero-img-red": "flex",
+        "--theme-hero-img-blue": "none",
+        "--theme-hero-img-green": "none",
     },
     blue: {
         "--main-background-color": "rgb(36, 37, 41)",
@@ -29,6 +33,10 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(200, 117, 22)",
+
+        "--theme-hero-img-red": "none",
+        "--theme-hero-img-blue": "flex",
+        "--theme-hero-img-green": "none",
     },
     green: {
         "--main-background-color": "rgb(36, 41, 36)",
@@ -41,6 +49,10 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(111, 200, 22)",
+
+        "--theme-hero-img-red": "none",
+        "--theme-hero-img-blue": "none",
+        "--theme-hero-img-green": "flex",
     },
 };
 export default handleThemeClick;

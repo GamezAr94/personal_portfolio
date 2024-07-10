@@ -56,9 +56,28 @@
     translate: -7.5% 0px;
     overflow: hidden;
 }
-.hero_img img {
-    object-fit: cover;
+.hero_img_red img {
+    translate: 0px 0px;
+    width: 350px;
+    height: 450px;
+}
+.hero_img_blue img {
+    translate: 0px 0px;
+    width: 350px;
+    height: 450px;
+}
+.hero_img_green img {
     translate: 20px 0px;
+}
+.hero_img_blue {
+    display: var(--theme-hero-img-blue);
+}
+.hero_img_red {
+    object-position: center;
+    display: var(--theme-hero-img-red);
+}
+.hero_img_green {
+    display: var(--theme-hero-img-green);
 }
 @media (min-width: 900px) {
     .hero_section_container {

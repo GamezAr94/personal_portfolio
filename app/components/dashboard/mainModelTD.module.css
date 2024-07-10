@@ -5,3 +5,13 @@
     width: 300px;
     height: 300px;
 }
+.hero_img_blue {
+    display: var(--theme-hero-img-blue);
+    translate: -40px 0px;
+}
+.hero_img_red {
+    display: var(--theme-hero-img-red);
+}
+.hero_img_green {
+    display: var(--theme-hero-img-green);
+}
