@@ -1,0 +1,33 @@
+.inner_description {
+    width: 90%;
+    min-width: 270px;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.title_content {
+    position: relative;
+    background-color: var(--font-color);
+    color: var(--darker-main-color);
+    font-size: clamp(3rem, 4vw, 3.7rem);
+    font-weight: 700;
+    width: fit-content;
+    padding: 0px 18px;
+    letter-spacing: 1px;
+}
+.desc_content {
+    font-size: clamp(2rem, 4vw, 2.2rem);
+}
+@media (min-width: 900px) {
+    .title_content {
+        position: absolute;
+        top: -60px;
+        left: -30px;
+        rotate: -10deg;
+    }
+}
+@media (min-width: 1250px) {
+}

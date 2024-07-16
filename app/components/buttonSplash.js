@@ -13,7 +13,7 @@ export default function ButtonSplash() {
                     Contact Me
                 </Link>
             </div>
-            <svg>
+            <svg className={styles.svg_element}>
                 <defs>
                     <filter id="contact_filter">
                         <feGaussianBlur

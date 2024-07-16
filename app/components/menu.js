@@ -2,13 +2,12 @@ import Link from "next/link";
 import styles from "./menu.module.css";
 import MenuHamburger from "./menuHamburger";
 import MenuItems from "./menuItems";
+import MainLogo from "./mainLogo";
 
 export default function Menu() {
     return (
         <header className={styles.header_container}>
-            <Link className={styles.logo} href="#home-dashboard">
-                AG
-            </Link>
+            <MainLogo />
             <MenuHamburger />
             <div className={styles.menu_bar}>
                 <MenuItems href="#" title="Profile" text="🫡" />

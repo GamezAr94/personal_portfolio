@@ -11,6 +11,9 @@
     --menu-btn-color: white;
     --contact-btn-color: rgb(111, 200, 22);
 
+    /*TODO I need to also include this one for the other themes*/
+    --darker-inner-color: #181d18;
+
     --theme-hero-img-red: none;
     --theme-hero-img-blue: none;
     --theme-hero-img-green: flex;
@@ -47,10 +50,13 @@ a {
     color: inherit;
     text-decoration: none;
 }
-div.hola {
+.main_sections {
     min-width: 300px;
     width: 100%;
-    height: 200px;
+    min-height: 200px;
+    z-index: 1;
+    padding-top: 30px;
+    border: 1px solid red;
 }
 @media (min-width: 900px) {
 }
