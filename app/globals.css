@@ -50,14 +50,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-.main_sections {
-    min-width: 300px;
-    width: 100%;
-    min-height: 200px;
-    z-index: 1;
-    padding-top: 30px;
-    border: 1px solid red;
-}
 @media (min-width: 900px) {
 }
 @media (min-width: 1250px) {

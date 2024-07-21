@@ -1,9 +1,9 @@
 import styles from "./underlyingText.module.css";
 
-export default function UnderlyingText({ text }) {
+export default function UnderlyingText({ text, mail }) {
     return (
         <span className={styles.underline_effect}>
-            {text}
+            {mail ? <a href="mailto:contact@arturogamez.com">{text}</a> : text}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"

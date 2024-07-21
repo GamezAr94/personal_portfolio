@@ -1,5 +1,6 @@
 import AboutMeEntry from "./components/about_section/aboutMeEntry";
 import DashboardContainer from "./components/dashboard/dashboardContainer";
+import LetsConnect from "./components/letsConnect/letsConnect";
 import Menu from "./components/menu";
 
 export default function Home() {
@@ -8,13 +9,7 @@ export default function Home() {
             <Menu />
             <DashboardContainer />
             <AboutMeEntry />
-            <div className="main_sections">hola</div>
-            <div className="main_sections">hola</div>
-            <div className="main_sections">hola</div>
-            <div className="main_sections">hola</div>
-            <div id="target-section" className="main_sections">
-                hola
-            </div>
+            <LetsConnect />
         </>
     );
 }
