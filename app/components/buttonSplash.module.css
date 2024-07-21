@@ -98,5 +98,5 @@
     z-index: 5;
 }
 .svg_element {
-    display: none;
+    position: absolute;
 }
