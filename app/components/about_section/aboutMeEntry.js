@@ -3,7 +3,7 @@ import InnerDescription from "./innerDescription";
 import PhotoAboutMe from "./photoAboutMe";
 export default function AboutMeEntry() {
     return (
-        <div className={`${styles.about_container}`}>
+        <div id="about_me_sect" className={`${styles.about_container}`}>
             <div className={styles.about_content}>
                 <InnerDescription />
             </div>

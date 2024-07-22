@@ -12,7 +12,9 @@ export default function OpenToWorkTag({ size }) {
     // TODO add the link to the contact form
     return (
         <Link href="#" className={`${styles.tag} ${size_type}`}>
-            Open To Work
+            {process.env.OPEN_TO_WORK === "true"
+                ? "Open To Work"
+                : "Currently Working"}
         </Link>
     );
 }

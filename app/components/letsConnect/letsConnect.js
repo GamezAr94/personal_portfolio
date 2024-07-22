@@ -5,7 +5,7 @@ import UnderlyingText from "../underlyingText";
 
 export default function LetsConnect() {
     return (
-        <div className={styles.contactus_container}>
+        <div id="my_interest_sect" className={styles.contactus_container}>
             <div className={styles.slogan_container}>
                 <div className={styles.big_font_container}>
                     <p className={styles.bigger_txt}>I&apos;m</p>

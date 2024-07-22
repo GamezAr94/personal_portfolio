@@ -3,7 +3,7 @@ import styles from "./underlyingText.module.css";
 export default function UnderlyingText({ text, mail }) {
     return (
         <span className={styles.underline_effect}>
-            {mail ? <a href="mailto:contact@arturogamez.com">{text}</a> : text}
+            {mail ? <a href={`mailto:${process.env.MY_EMAIL}?subject=[WebPortfolio]%20Job%20Inquiry`}>{text}</a> : text}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"

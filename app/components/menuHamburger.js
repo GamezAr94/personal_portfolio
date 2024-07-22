@@ -31,21 +31,22 @@ export default function MenuHamburger() {
                     isMenuOpen ? styles.container_open : styles.container_closed
                 }`}>
                 <div className={styles.content_menu_elements}>
-                    <p>
+                    <a href="#about_me_sect">
                         Profile <span>🫡</span>
-                    </p>
-                    <p>
+                    </a>
+                    <a href="#my_interest_sect">
                         Skills <span>🧠</span>
-                    </p>
-                    <p>
+                    </a>
+                    <a>
                         Experience <span>💼</span>
-                    </p>
-                    <p>
+                    </a>
+                    <a>
                         Projects <span>&#123; &#125;</span>
-                    </p>
-                    <p>
+                    </a>
+                    <a
+                        href={`mailto:${process.env.MY_EMAIL}?subject=[WebPortfolio]%20Job%20Inquiry`}>
                         Contact ️<span>️✉️️️</span>
-                    </p>
+                    </a>
                     <div className={styles.theme_container}>
                         <button
                             className={`${styles.options} ${styles.red}`}
