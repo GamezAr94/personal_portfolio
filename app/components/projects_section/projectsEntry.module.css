@@ -1,0 +1,108 @@
+.projects_container {
+    margin: 50px 0;
+    width: 100%;
+    height: 300px;
+    overflow-x: clip;
+}
+.divider_tape {
+    display: flex;
+    font-size: 5rem;
+    text-transform: uppercase;
+    gap: 13px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    text-wrap: nowrap;
+    width: fit-content;
+    rotate: -4deg;
+    transform-origin: left center;
+    border-top: 5px;
+    border-bottom: 5px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--font-color);
+    animation: moving-tape 35s linear 0s infinite normal forwards;
+}
+
+.under_development {
+    margin: 20px auto 0 auto;
+    position: relative;
+}
+.image_anchor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/github.png);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: 105%;
+    background-position: center;
+    box-shadow: inset 3px 1px 7px 0px #ffffff66;
+    margin: 20px auto;
+}
+.thanks {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 55px;
+}
+.message_container {
+    margin: 10px auto;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.invite,
+.text_anchor {
+    text-align: center;
+    width: 80%;
+    font-size: 1.9rem;
+    margin: 0 auto;
+}
+.text_anchor {
+    color: var(--tag-color);
+    text-decoration: underline;
+}
+cite.invite {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.message {
+    margin: 0 auto;
+    font-size: 6rem;
+    font-weight: bolder;
+    opacity: 0.3;
+    text-align: center;
+}
+@keyframes moving-tape {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-1071px);
+    }
+}
+.asterisk {
+    height: 53px;
+    color: var(--tag-color);
+}
+
+@media (min-width: 900px) {
+    .projects_container {
+        margin: 90px 0;
+    }
+}
+@media (min-width: 1250px) {
+    .projects_container {
+        margin: 110px 0;
+    }
+}
