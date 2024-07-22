@@ -24,7 +24,7 @@
 @media (min-width: 900px) {
     .title_content {
         position: absolute;
-        top: -60px;
+        top: -65px;
         left: -30px;
         rotate: -10deg;
     }
