@@ -100,7 +100,7 @@
         height: 45%;
         top: -5px;
         right: -5px;
-        border-radius: 0 0 0 36px;
+        border-radius: 0 30px 0 36px;
         background-color: var(--main-background-color);
     }
     .divider::before,
