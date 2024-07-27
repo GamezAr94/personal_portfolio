@@ -1,0 +1,123 @@
+.contact_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("/img/space2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 15px 35px var(--main-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    position: relative;
+    padding: 0px 40px;
+}
+.main_container {
+    position: relative;
+}
+.main_container:hover .first_layer {
+    transform: translate(-15px, -15px);
+    background: rgba(101, 101, 101, 0.283);
+    transition: 0.4s;
+    box-shadow: 0 8px 22px 0 rgba(24, 24, 26, 0.67);
+    border: unset;
+}
+.first_layer,
+.second_layer {
+    background: rgb(145 145 145 / 16%);
+    box-shadow: 0 8px 32px 0 rgba(24, 24, 26, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    height: 100%;
+}
+.first_layer {
+    position: absolute;
+    transform: translate(-10px, -10px);
+    z-index: -1px;
+    transition: 0.4s;
+}
+.second_layer {
+    padding: 20px 30px;
+}
+
+.title {
+    line-height: 50px;
+    font-size: clamp(5.5rem, 6vw, 9rem);
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.sub_title {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+}
+.content_form {
+    display: flex;
+    flex-direction: column;
+}
+.content_form > div {
+    border: 1px solid red;
+    width: 100%;
+}
+.contact_methods {
+    position: absolute;
+    width: 80%;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px 15%;
+    left: 0;
+    bottom: 10px;
+}
+.contact_methods > * {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 1;
+    transition: 0.3s;
+}
+.contact_methods > *:hover {
+    scale: 1.1;
+    transition: 0.3s;
+}
+.contact_methods > *::before {
+    content: "";
+    position: absolute;
+    display: flex;
+    right: 104%;
+    background-color: #fff;
+    border-radius: 100%;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+}
+.contact_methods > *:nth-child(1)::before {
+    background-image: url(/img/gmail.webp);
+}
+.contact_methods > *:nth-child(2)::before {
+    background-image: url(/img/linkedin.png);
+}
+@media (min-width: 900px) {
+}
+@media (min-width: 1250px) {
+    .contact_container {
+        width: 90%;
+        margin: 0 0 0 auto;
+        min-height: 650px;
+    }
+    .second_layer {
+        padding: 40px 50px;
+    }
+    .title {
+        margin-bottom: 10px;
+    }
+    .contact_methods {
+        bottom: 15px;
+    }
+}

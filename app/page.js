@@ -1,4 +1,5 @@
 import AboutMeEntry from "./components/about_section/aboutMeEntry";
+import ContactEntry from "./components/contact_section/contactEntry";
 import DashboardContainer from "./components/dashboard/dashboardContainer";
 import LetsConnect from "./components/letsConnect/letsConnect";
 import Menu from "./components/menu";
@@ -11,6 +12,7 @@ export default function Home() {
             <DashboardContainer />
             <AboutMeEntry />
             <LetsConnect />
+            <ContactEntry />
             <ProjectsEntry />
         </>
     );
