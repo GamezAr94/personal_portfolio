@@ -12,7 +12,7 @@ export default function ContactEntry() {
     });
     return (
         <>
-            <div className={styles.contact_container}>
+            <div className={styles.contact_container} id="contact_sect">
                 <div className={styles.main_container}>
                     <div className={styles.first_layer}></div>
                     <div className={`${styles.rock} ${styles.r1}`}></div>

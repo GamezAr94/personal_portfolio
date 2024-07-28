@@ -14,11 +14,7 @@ export default function Menu() {
                 <MenuItems href="#my_interest_sect" title="Skills" text="🧠" />
                 <MenuItems href="#" title="Experience" text="💼" />
                 <MenuItems href="#" title="Projects" text="&#123; &#125;" />
-                <MenuItems
-                    href={`mailto:${process.env.MY_EMAIL}?subject=[WebPortfolio]%20Job%20Inquiry`}
-                    title="Contact"
-                    text="️✉️️️"
-                />
+                <MenuItems href="#contact_sect" title="Contact" text="️✉️️️" />
             </div>
         </header>
     );

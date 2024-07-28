@@ -43,8 +43,7 @@ export default function MenuHamburger() {
                     <a>
                         Projects <span>&#123; &#125;</span>
                     </a>
-                    <a
-                        href={`mailto:${process.env.MY_EMAIL}?subject=[WebPortfolio]%20Job%20Inquiry`}>
+                    <a href="#contact_sect">
                         Contact ️<span>️✉️️️</span>
                     </a>
                     <div className={styles.theme_container}>

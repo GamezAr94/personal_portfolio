@@ -24,7 +24,7 @@ export default function InfoSection() {
                     </p>
                 </div>
                 <div className={styles.about_buttons}>
-                    <Link href="#">read more...</Link>
+                    <Link href="#about_me_sect">read more...</Link>
                     <p>OR</p>
                     <DownloadResume />
                 </div>

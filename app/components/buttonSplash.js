@@ -9,9 +9,7 @@ export default function ButtonSplash() {
                     <span></span>
                     <span></span>
                 </div>
-                <a
-                    href={`mailto:${process.env.MY_EMAIL}?subject=[WebPortfolio]%20Job%20Inquiry`}
-                    className={styles.contact_me}>
+                <a href="#contact_sect" className={styles.contact_me}>
                     Contact Me
                 </a>
             </div>

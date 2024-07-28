@@ -21,9 +21,9 @@ export default function StatsContainer() {
                 </div>
             </div>
             <div className={styles.links}>
-                <Link href="https://www.linkedin.com/in/arturo-gamez/"></Link>
-                <Link href="https://github.com/GamezAr94"></Link>
-                <Link href="mailto:contact@arturogamez.com?subject=[WebPortfolio]%20Job%20Inquiry"></Link>
+                <Link target="_blank" href="https://www.linkedin.com/in/arturo-gamez/"></Link>
+                <Link target="_blank" href="https://github.com/GamezAr94"></Link>
+                <Link target="_blank" href="mailto:contact@arturogamez.com?subject=[WebPortfolio]%20Job%20Inquiry"></Link>
             </div>
         </div>
     );
