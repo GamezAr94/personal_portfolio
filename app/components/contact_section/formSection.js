@@ -1,21 +1,14 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import { useState } from "react";
 import styles from "./formSection.module.css";
-import { sendEmail } from "@/lib/actions";
 
-export default function FormSection() {
+export default function FormSection({ formAction, state }) {
     const [isEmpty, setIsEmpty] = useState({
         name: false,
         email: true,
         message: true,
-    });
-    const { pending } = useFormStatus();
-    const [state, formAction] = useFormState(sendEmail, {
-        name: null,
-        email: null,
-        message: null,
     });
     function setNameStatus(e) {
         setIsEmpty((prevState) => ({
@@ -69,15 +62,22 @@ export default function FormSection() {
             {state.message && (
                 <p className={styles.error_message}>{state.message}</p>
             )}
-            <button
-                className={`${styles.submit_button} ${
-                    isEmpty.name || isEmpty.email || isEmpty.message
-                        ? styles.disabled
-                        : ""
-                }`}
-                disabled={pending}>
-                {pending ? "Submitting.." : "Send Message"}
-            </button>
+            <Submit
+                isReady={isEmpty.name || isEmpty.email || isEmpty.message}
+            />
         </form>
+    );
+}
+
+function Submit({ isReady }) {
+    const { pending } = useFormStatus();
+    return (
+        <button
+            className={`${styles.submit_button} ${
+                isReady ? styles.disabled : ""
+            }`}
+            disabled={pending}>
+            {pending ? "Submitting.." : "Send Message"}
+        </button>
     );
 }
