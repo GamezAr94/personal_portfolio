@@ -10,7 +10,6 @@ import hamburger_character from "../../../public/img/Characters/hamburger_charac
 import stuffed_character from "../../../public/img/Characters/stuffed_character.png";
 
 export default function HeroSection() {
-    //TODO: add the red and blue models
     return (
         <div className={styles.hero_section_container}>
             <div className={styles.hero_container}>

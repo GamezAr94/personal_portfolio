@@ -60,7 +60,6 @@
     align-items: center;
     justify-content: center;
 }
-.invite,
 .text_anchor {
     text-align: center;
     width: 80%;
@@ -70,11 +69,6 @@
 .text_anchor {
     color: var(--tag-color);
     text-decoration: underline;
-}
-cite.invite {
-    display: flex;
-    text-align: center;
-    justify-content: center;
 }
 .message {
     margin: 0 auto;

@@ -5,7 +5,6 @@ import ButtonSplash from "../buttonSplash";
 import UnderlyingText from "../underlyingText";
 
 export default function Introduction() {
-    // TODO set the contact me form id
     return (
         <>
             <div className={styles.salutation_container}>

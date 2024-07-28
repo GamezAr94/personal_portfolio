@@ -3,7 +3,6 @@ import styles from "./mainModelTD.module.css";
 import { Suspense } from "react";
 
 export default function MainModel() {
-    //TODO: add the red and blue models
     return (
         <>
             <Suspense

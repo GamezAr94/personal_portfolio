@@ -37,10 +37,13 @@ export default function MenuHamburger() {
                     <a href="#my_interest_sect">
                         Skills <span>🧠</span>
                     </a>
-                    <a>
+                    {/*
+                    TODO complete this section
+                    <a href="#projects_sect">
                         Experience <span>💼</span>
                     </a>
-                    <a>
+                    */}
+                    <a href="#projects_sect">
                         Projects <span>&#123; &#125;</span>
                     </a>
                     <a href="#contact_sect">

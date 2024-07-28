@@ -9,7 +9,6 @@ export default function OpenToWorkTag({ size }) {
     if (size == "large") {
         size_type = styles.large;
     }
-    // TODO add the link to the contact form
     return (
         <Link href="#contact_sect" className={`${styles.tag} ${size_type}`}>
             {process.env.OPEN_TO_WORK === "true"

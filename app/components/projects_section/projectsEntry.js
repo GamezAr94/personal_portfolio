@@ -35,7 +35,8 @@ export default function ProjectsEntry() {
                 <p className={styles.thanks}>Thank you for your interest!</p>
                 <div className={styles.message_container}>
                     <p className={styles.invite}>
-                        Don&apos;t worry, I invite you to check out my{" "}
+                        This section is under construction, but I invite you to
+                        check out my{" "}
                         <Link
                             className={styles.text_anchor}
                             href="https://github.com/GamezAr94">
@@ -48,10 +49,6 @@ export default function ProjectsEntry() {
                 <Link
                     className={styles.image_anchor}
                     href="https://github.com/GamezAr94"></Link>
-                <cite className={styles.invite}>
-                    &quot;A delayed game is eventually good, but a rushed game
-                    is forever bad.&quot;
-                </cite>
                 <p className={styles.message}>
                     This section still under development
                 </p>
