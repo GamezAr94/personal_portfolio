@@ -6,6 +6,8 @@ export default function ContactEntry() {
         <div className={styles.contact_container}>
             <div className={styles.main_container}>
                 <div className={styles.first_layer}></div>
+                <div className={`${styles.rock} ${styles.r1}`}></div>
+                <div className={`${styles.rock} ${styles.r2}`}></div>
                 <div className={styles.second_layer}>
                     <div className={styles.header_container}>
                         <p className={styles.title}>Let&apos;s talk</p>
@@ -26,6 +28,8 @@ export default function ContactEntry() {
                         </a>
                     </div>
                 </div>
+                <div className={`${styles.rock} ${styles.r3}`}></div>
+                <div className={`${styles.rock} ${styles.r4}`}></div>
             </div>
         </div>
     );
