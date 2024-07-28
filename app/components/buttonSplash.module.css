@@ -99,4 +99,5 @@
 }
 .svg_element {
     position: absolute;
+    z-index: -1;
 }
