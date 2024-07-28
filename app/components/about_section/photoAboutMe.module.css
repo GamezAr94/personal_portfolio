@@ -64,6 +64,14 @@
 .photo_container:hover {
     z-index: 3;
 }
+.photo_container:nth-child(1) {
+    translate: -10px 10px;
+    rotate: -2deg;
+}
+.photo_container:nth-child(2) {
+    translate: 10px 10px;
+    rotate: 2deg;
+}
 .photo_container {
     transition: 0.2s;
     height: 400px;

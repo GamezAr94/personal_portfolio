@@ -21,6 +21,7 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(200, 31, 22)",
+        "--darker-inner-color": "#1d1818",
 
         "--theme-hero-img-red": "flex",
         "--theme-hero-img-blue": "none",
@@ -37,6 +38,7 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(200, 117, 22)",
+        "--darker-inner-color": "#18181d",
 
         "--theme-hero-img-red": "none",
         "--theme-hero-img-blue": "flex",
@@ -53,6 +55,7 @@ const themeColors = {
         "--font-color": "rgb(247, 240, 221)",
         "--menu-btn-color": "white",
         "--contact-btn-color": "rgb(111, 200, 22)",
+        "--darker-inner-color": "#181d18",
 
         "--theme-hero-img-red": "none",
         "--theme-hero-img-blue": "none",
