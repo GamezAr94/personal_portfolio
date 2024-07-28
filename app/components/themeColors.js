@@ -4,6 +4,10 @@ const handleThemeClick = (theme) => {
         let value = themeColors[theme][property];
         document.documentElement.style.setProperty(property, value);
     }
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth", // Optional for smooth scrolling animation
+    });
 };
 const themeColors = {
     red: {
