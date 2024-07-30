@@ -1,5 +1,6 @@
 "use client";
 
+import ReCAPTCHA from "react-google-recaptcha";
 import { useFormStatus } from "react-dom";
 import { useState } from "react";
 import styles from "./formSection.module.css";
@@ -10,6 +11,11 @@ export default function FormSection({ formAction, state }) {
         email: true,
         message: true,
     });
+    const [captchaToken, setCaptchaToken] = useState(null);
+
+    const handleCaptchaChange = (token) => {
+        setCaptchaToken(token);
+    };
     function setNameStatus(e) {
         setIsEmpty((prevState) => ({
             ...prevState,
@@ -59,6 +65,10 @@ export default function FormSection({ formAction, state }) {
                     className={isEmpty.message ? "" : styles.setHeight}
                     placeholder="Message"></textarea>
             </div>
+            <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={handleCaptchaChange}
+            />
             {state.message && (
                 <p className={styles.error_message}>{state.message}</p>
             )}
