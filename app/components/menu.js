@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./menu.module.css";
 import MenuHamburger from "./menuHamburger";
 import MenuItems from "./menuItems";
