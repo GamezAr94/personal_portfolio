@@ -66,7 +66,7 @@ export default function FormSection({ formAction, state }) {
                     placeholder="Message"></textarea>
             </div>
             <ReCAPTCHA
-                sitekey={process.env.RECAPTCHA_SITE}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                 onChange={handleCaptchaChange}
             />
             {state.message && (
