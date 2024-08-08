@@ -23,60 +23,14 @@
     border-color: var(--font-color);
     animation: moving-tape 35s linear 0s infinite normal forwards;
 }
-
-.under_development {
+.projects_list {
     margin: 20px auto 0 auto;
     position: relative;
-}
-.image_anchor {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/img/github.png);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: 105%;
-    background-position: center;
-    box-shadow: inset 3px 1px 7px 0px #ffffff66;
-    margin: 20px auto;
+    flex-direction: column;
+    gap: 20px;
 }
-.thanks {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    min-width: 300px;
-    margin: 0 auto;
-    font-size: 4rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-align: center;
-    line-height: 55px;
-}
-.message_container {
-    margin: 10px auto;
-    min-width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.text_anchor {
-    text-align: center;
-    width: 80%;
-    font-size: 1.9rem;
-    margin: 0 auto;
-}
-.text_anchor {
-    color: var(--tag-color);
-    text-decoration: underline;
-}
-.message {
-    margin: 0 auto;
-    font-size: 6rem;
-    font-weight: bolder;
-    opacity: 0.3;
-    text-align: center;
-}
+
 @keyframes moving-tape {
     0% {
         transform: translateX(0px);
@@ -94,9 +48,16 @@
     .projects_container {
         margin: 90px 0;
     }
+    .projects_list {
+        gap: 35px;
+    }
 }
 @media (min-width: 1250px) {
     .projects_container {
         margin: 110px 0;
+    }
+    .projects_list {
+        width: 85%;
+        gap: 35px;
     }
 }
