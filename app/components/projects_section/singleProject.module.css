@@ -13,6 +13,7 @@
     object-fit: cover;
     width: 80%;
     height: 80%;
+    box-shadow: 4px 4px 12px 3px #00000085;
 }
 .img_project {
     aspect-ratio: 16 / 9;
@@ -37,9 +38,21 @@
 .btn_seeMore {
     margin-top: 10px;
     font-size: clamp(1.5rem, 3vw, 1.7rem);
-    font-weight: 100;
+    font-weight: 300;
+    padding: 0 5px;
     text-decoration: underline;
     cursor: pointer;
+    background-color: transparent;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    color: var(--font-color);
+    transition: 0.4s;
+    border-radius: 4px;
+}
+.btn_seeMore:hover {
+    background-color: #fff;
+    color: var(--main-background-color);
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.4s;
 }
 
 @media (min-width: 900px) {
@@ -59,6 +72,9 @@
     }
     .project_container.swapped {
         flex-direction: row-reverse;
+    }
+    .project_container.swapped .desc_project p {
+        text-align: right;
     }
     .img_project img {
         width: 90%;

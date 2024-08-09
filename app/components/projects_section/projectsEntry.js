@@ -2,7 +2,14 @@ import styles from "./projectsEntry.module.css";
 import SingleProject from "./singleProject";
 import UnderDevelopment from "../underDevelopment";
 
+import cafelokal from "@/public/img/cafelokal/cafelokal_banner_short.gif";
+import astar from "@/public/img/astar_path_finding/astar_pathfinding_result.png";
+import furelise from "@/public/img/furelise/fur_elise_banner_gif.gif";
+import lucygame from "@/public/img/lucyGame/lucyGame-gif.gif";
+import tamalyshop from "@/public/img/tamalyshop/tamalyshop_banner_gif.gif";
+/*
 import me_v1 from "@/public/img/MyPictures/myself_v1.jpg";
+*/
 
 export default function ProjectsEntry() {
     return (
@@ -36,25 +43,36 @@ export default function ProjectsEntry() {
             <div className={styles.projects_list}>
                 <SingleProject
                     title="Cafe Lokal"
-                    subtitle="UX/UI Design & Development"
-                    image={me_v1}
+                    subtitle="UX/UI Design & Freelance Development"
+                    image={cafelokal}
                 />
                 <SingleProject
-                    title="Cafe Lokal"
-                    subtitle="UX/UI Design, Development"
+                    title="A* Path Finding Algorithm"
+                    subtitle="Unity 2D, algorithm and games"
                     swapped={true}
-                    image={me_v1}
+                    image={astar}
                 />
                 <SingleProject
-                    title="Cafe Lokal"
-                    subtitle="UX/UI Design & Development"
-                    image={me_v1}
+                    title="Pâtisserie Für Elise"
+                    subtitle="UX/UI Design & Freelance Development"
+                    image={furelise}
                 />
                 <SingleProject
-                    title="Cafe Lokal"
-                    subtitle="UX/UI Design, Development"
+                    title="Lucy Game"
+                    subtitle="Unity 2D, GameJam, Light and Collisions"
                     swapped={true}
-                    image={me_v1}
+                    image={lucygame}
+                />
+                <SingleProject
+                    title="Tamaly Shop"
+                    subtitle="UX/UI Design & Freelance Development"
+                    image={tamalyshop}
+                />
+                <SingleProject
+                    title="Lucy Game"
+                    subtitle="Unity 2D, GameJam, Light and Collisions"
+                    swapped={true}
+                    image={lucygame}
                 />
             </div>
             <UnderDevelopment />
