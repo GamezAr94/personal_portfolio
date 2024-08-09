@@ -18,7 +18,9 @@ export default function SingleProject({ swapped, title, subtitle, image }) {
             <div className={styles.desc_project}>
                 <p className={styles.title_project}>{title}</p>
                 <p className={styles.subtitle_project}>{subtitle}</p>
-                <p className={styles.btn_seeMore}>Read More</p>
+                {
+                    //<p className={styles.btn_seeMore}>Read More</p>
+                }
             </div>
         </div>
     );

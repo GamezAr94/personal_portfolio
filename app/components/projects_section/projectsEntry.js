@@ -8,6 +8,7 @@ import furelise from "@/public/img/furelise/fur_elise_banner_gif.gif";
 import lucygame from "@/public/img/lucyGame/lucyGame-gif.gif";
 import tamalyshop from "@/public/img/tamalyshop/tamalyshop_banner_gif.gif";
 import bentobox from "@/public/img/bento_layout/bento_layout_desktop.png";
+import froggame from "@/public/img/frogGame/frog_game_gameplay_gif.gif";
 /*
 import me_v1 from "@/public/img/MyPictures/myself_v1.jpg";
 */
@@ -81,10 +82,10 @@ export default function ProjectsEntry() {
                     image={bentobox}
                 />
                 <SingleProject
-                    title="Lucy Game"
-                    subtitle="Unity 2D, GameJam, Light and Collisions"
+                    title="Frog Game"
+                    subtitle="Unity 2D, random position, force and speed"
                     swapped={true}
-                    image={lucygame}
+                    image={froggame}
                 />
             </div>
             <UnderDevelopment />

@@ -15,6 +15,9 @@
     height: 80%;
     box-shadow: 4px 4px 12px 3px #00000085;
 }
+.project_container .desc_project p {
+    text-align: center;
+}
 .img_project {
     aspect-ratio: 16 / 9;
 }
