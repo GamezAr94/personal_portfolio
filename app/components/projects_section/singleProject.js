@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import styles from "./singleProject.module.css";
+import { Tilt } from "@jdion/tilt-react";
 
 export default function SingleProject({
     swapped,
@@ -8,31 +10,42 @@ export default function SingleProject({
     image,
     alt,
 }) {
+    const defaultOptions = {
+        reverse: false, // reverse the tilt direction
+        max: 35, // max tilt rotation (degrees)
+        perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+        scale: 1, // 2 = 200%, 1.5 = 150%, etc..
+        speed: 2000, // Speed of the enter/exit transition
+        transition: true, // Set a transition on enter/exit.
+        axis: null, // What axis should be disabled. Can be X or Y.
+        reset: true, // If the tilt effect has to be reset on exit.
+        easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+    };
     return (
         <div
             className={`${styles.project_container} ${
                 swapped ? styles.swapped : ""
             }`}>
             <div className={styles.img_project}>
-                <picture>
-                    <source
-                        media="(min-width: 600px)"
-                        srcSet={image[0]}></source>
-                    <Image
-                        className={`${styles.insta_photo} gif`}
-                        src={image[1]}
-                        alt={alt}
-                        loading="lazy"
-                        unoptimized
-                    />
-                </picture>
+                <Tilt options={defaultOptions}>
+                    <picture>
+                        <source
+                            media="(min-width: 600px)"
+                            srcSet={image[0]}></source>
+                        <Image
+                            className={`${styles.insta_photo}`}
+                            src={image[1]}
+                            alt={alt}
+                            loading="lazy"
+                            unoptimized
+                        />
+                    </picture>
+                </Tilt>
             </div>
             <div className={styles.desc_project}>
                 <p className={styles.title_project}>{title}</p>
                 <p className={styles.subtitle_project}>{subtitle}</p>
-                {
-                    //<p className={styles.btn_seeMore}>Read More</p>
-                }
+                {<p className={styles.btn_seeMore}>Read More</p>}
             </div>
         </div>
     );

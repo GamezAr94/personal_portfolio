@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@jdion/tilt-react": "^1.0.0",
     "@splinetool/react-spline": "^3.1.0",
     "@splinetool/runtime": "^1.9.0",
     "axios": "^1.7.2",
