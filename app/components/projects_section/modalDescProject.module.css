@@ -39,7 +39,6 @@
 .images_container {
     position: absolute;
     top: -30%;
-    background-color: white;
     box-shadow: 0px 5px 10px 4px #00000061;
     height: 53%;
     min-height: 250px;
@@ -48,7 +47,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    overflow: hidden;
+    width: 90%;
+    transition: width 0.3s;
+    border-radius: 15px;
+
+    /*
+    background-color: rgb(138, 138, 138);
+    */
+
+    background: rgb(145 145 145 / 16%);
+    box-shadow: 0 8px 12px 5px rgba(24, 24, 26, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .mobile {
     display: flex;
@@ -58,21 +70,49 @@
 }
 .big_img {
     aspect-ratio: 16 / 9;
-    background-color: black;
-    width: 80%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
+
 .big_carousel {
-    background-color: black;
+    width: 98%;
+    height: 95%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
 }
+.embla__container {
+    height: 90%;
+    display: flex;
+    gap: 0px 10px;
+    align-items: center;
+    transition: 0s;
+}
+.embla__slide {
+    object-fit: contain;
+    height: 100%;
+    max-height: 350px;
+    flex: 0 0 100%;
+    /*
+    min-width: clamp(50px, 15vw, 80px);
+    max-width: 88%;
+    */
+    max-width: 90%;
+}
+
 .content_container {
     height: 70%;
     border: 1px solid red;
     width: 95%;
 }
 
+/*
 @media (min-width: 900px) {
 }
 @media (min-width: 1250px) {
+    */
+@media (min-width: 900px) {
     .desktop {
         display: flex;
     }
@@ -101,15 +141,39 @@
         top: 0px;
         bottom: 0px;
         box-shadow: 5px 0px 10px 4px #00000061;
-        height: 85%;
-        width: 50%;
+        height: 80%;
+        width: 57%;
         max-width: unset;
         margin: auto 0;
     }
     .content_container {
         height: 80%;
         border: 1px solid red;
-        width: 70%;
+        width: 65%;
+    }
+    .images_container:hover {
+        width: 130%;
+        max-width: unset;
+        transition: width 0.3s;
+    }
+    .images_container:hover .embla__slide {
+        max-width: 75%;
+        transition: 0s;
+        max-height: 499px;
+        height: 96%;
+    }
+}
+@media (min-width: 1250px) {
+    .images_container:hover {
+        width: 130%;
+        max-width: 1600px;
+        transition: width 0.3s;
+        height: 96%;
+    }
+    .images_container:hover .embla__slide {
+        max-width: 60%;
+        transition: 0s;
+        max-height: 499px;
     }
 }
 

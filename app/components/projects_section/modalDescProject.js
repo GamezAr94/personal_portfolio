@@ -2,22 +2,55 @@
 import Image from "next/image";
 import styles from "./modalDescProject.module.css";
 
+import lucygame_sm from "@/public/img/lucyGame/lucy_grab_light.png";
+import onlineIde_sm from "@/public/img/onlineIDE/more_code.png";
+
+import useEmblaCarousel from "embla-carousel-react";
+
 export default function ModalDescProject({ closeModal, details }) {
+    const [emblaRef] = useEmblaCarousel();
     return (
         <div className={styles.main_box}>
             <div onClick={closeModal} className={styles.modal_wrapper}></div>
             <div className={styles.modal_container}>
                 <div className={styles.images_container}>
-                    <div className={`${styles.big_img} ${styles.desktop}`}>
-                        IMG
-                    </div>
                     <div
-                        className={`${styles.small_carousel} ${styles.desktop}`}>
-                        carousel
+                        className={`${styles.big_img} ${styles.desktop}`}
+                        ref={emblaRef}>
+                        <div className={styles.embla__container}>
+                            <Image
+                                className={styles.embla__slide}
+                                src={onlineIde_sm}
+                                alt="hola"
+                                loading="lazy"
+                            />
+                            <Image
+                                className={styles.embla__slide}
+                                src={lucygame_sm}
+                                alt="hola"
+                                loading="lazy"
+                            />
+                            <Image
+                                className={styles.embla__slide}
+                                src={lucygame_sm}
+                                alt="hola"
+                                loading="lazy"
+                            />
+                            <Image
+                                className={styles.embla__slide}
+                                src={lucygame_sm}
+                                alt="hola"
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
-                    <div
-                        className={`${styles.big_carousel} ${styles.mobile}`}>
-                        big carousel
+                    <div className={`${styles.big_carousel} ${styles.mobile}`}>
+                        <Image
+                            className={styles.embla__slide}
+                            src={lucygame_sm}
+                            alt="hola"
+                            loading="lazy"
+                        />
                     </div>
                     {/*
                         <picture>
