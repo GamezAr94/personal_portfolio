@@ -3,10 +3,6 @@ import SingleProject from "./singleProject";
 import UnderDevelopment from "../underDevelopment";
 import projectList from "./projectsData";
 
-/*
-import me_v1 from "@/public/img/MyPictures/myself_v1.jpg";
-*/
-
 export default function ProjectsEntry() {
     return (
         <div id="projects_sect" className={styles.projects_container}>
