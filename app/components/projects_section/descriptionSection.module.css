@@ -1,0 +1,16 @@
+.main_container {
+    height: 100%;
+}
+.title {
+    font-size: clamp(3rem, 4vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+.sub_title {
+    font-size: clamp(2rem, 4vw, 2.3rem);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.icons_container {
+    margin: 20px 0;
+}

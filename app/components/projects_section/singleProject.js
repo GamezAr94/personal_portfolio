@@ -5,18 +5,10 @@ import { Tilt } from "@jdion/tilt-react";
 import { useState } from "react";
 import ModalDescProject from "./modalDescProject";
 
-export default function SingleProject({
-    swapped,
-    title,
-    subtitle,
-    image,
-    alt,
-    detObj,
-}) {
+export default function SingleProject({ swapped, projectObj }) {
     const [isShown, setShown] = useState(false);
 
     function toggeDescModal() {
-        console.log(isShown);
         setShown(!isShown);
     }
     const defaultOptions = {
@@ -32,7 +24,12 @@ export default function SingleProject({
     };
     return (
         <>
-            {isShown && <ModalDescProject closeModal={toggeDescModal} details={detObj} />}
+            {isShown && (
+                <ModalDescProject
+                    closeModal={toggeDescModal}
+                    projectObj={projectObj}
+                />
+            )}
             <div
                 className={`${styles.project_container} ${
                     swapped ? styles.swapped : ""
@@ -42,12 +39,12 @@ export default function SingleProject({
                         <picture>
                             <source
                                 media="(min-width: 600px)"
-                                srcSet={image[0]}></source>
+                                srcSet={projectObj.main_image[0]}></source>
                             <Image
                                 onClick={toggeDescModal}
                                 className={`${styles.insta_photo}`}
-                                src={image[1]}
-                                alt={alt}
+                                src={projectObj.main_image[1]}
+                                alt={projectObj.alt_main_img}
                                 loading="lazy"
                                 unoptimized
                             />
@@ -55,8 +52,10 @@ export default function SingleProject({
                     </Tilt>
                 </div>
                 <div className={styles.desc_project}>
-                    <p className={styles.title_project}>{title}</p>
-                    <p className={styles.subtitle_project}>{subtitle}</p>
+                    <p className={styles.title_project}>{projectObj.title}</p>
+                    <p className={styles.subtitle_project}>
+                        {projectObj.subtitle}
+                    </p>
                     <p className={styles.btn_seeMore} onClick={toggeDescModal}>
                         Read More
                     </p>
