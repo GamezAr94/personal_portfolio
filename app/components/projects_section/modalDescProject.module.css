@@ -93,9 +93,10 @@
 
 .content_container {
     height: 95%;
-    border: 1px solid red;
     width: 95%;
+    /* TODO 
     overflow-y: auto;
+    */
 }
 
 .buttons_controllers {
@@ -183,7 +184,6 @@
     }
     .content_container {
         height: 90%;
-        border: 1px solid red;
         width: 65%;
     }
     .images_container.full_screen {

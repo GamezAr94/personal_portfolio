@@ -25,11 +25,26 @@ export default function DescriptionSection({ projectObj }) {
             <p className={styles.title}>{projectObj.title}</p>
             <p className={styles.sub_title}>{projectObj.subtitle}</p>
             <div className={styles.icons_container}>{linksSection}</div>
-            {projectObj.project_desc.map((pTag, index) => (
-                <p key={index} className={styles.desc_container}>
-                    {pTag}
-                </p>
-            ))}
+            <div className={styles.desc_container}>
+                {projectObj.project_desc.map((pTag, index) => {
+                    const parts = pTag.split("***");
+                    return (
+                        <p key={index} className={styles.desc_p}>
+                            {parts.map((part, i) =>
+                                i % 2 === 0 ? (
+                                    part
+                                ) : (
+                                    <strong
+                                        className={styles.highlight}
+                                        key={i}>
+                                        {part}
+                                    </strong>
+                                )
+                            )}
+                        </p>
+                    );
+                })}
+            </div>
         </div>
     );
 }
