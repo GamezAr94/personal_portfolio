@@ -2,14 +2,15 @@
 import Image from "next/image";
 import styles from "./singleProject.module.css";
 import { Tilt } from "@jdion/tilt-react";
+import { useState } from "react";
+import ModalDescProject from "./modalDescProject";
 
-export default function SingleProject({
-    swapped,
-    title,
-    subtitle,
-    image,
-    alt,
-}) {
+export default function SingleProject({ swapped, projectObj }) {
+    const [isShown, setShown] = useState(false);
+
+    function toggeDescModal() {
+        setShown(!isShown);
+    }
     const defaultOptions = {
         reverse: false, // reverse the tilt direction
         max: 35, // max tilt rotation (degrees)
@@ -22,31 +23,44 @@ export default function SingleProject({
         easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
     };
     return (
-        <div
-            className={`${styles.project_container} ${
-                swapped ? styles.swapped : ""
-            }`}>
-            <div className={styles.img_project}>
-                <Tilt options={defaultOptions}>
-                    <picture>
-                        <source
-                            media="(min-width: 600px)"
-                            srcSet={image[0]}></source>
-                        <Image
-                            className={`${styles.insta_photo}`}
-                            src={image[1]}
-                            alt={alt}
-                            loading="lazy"
-                            unoptimized
-                        />
-                    </picture>
-                </Tilt>
+        <>
+            {isShown && (
+                <ModalDescProject
+                    closeModal={toggeDescModal}
+                    projectObj={projectObj}
+                />
+            )}
+            <div
+                className={`${styles.project_container} ${
+                    swapped ? styles.swapped : ""
+                }`}>
+                <div className={styles.img_project}>
+                    <Tilt options={defaultOptions}>
+                        <picture>
+                            <source
+                                media="(min-width: 600px)"
+                                srcSet={projectObj.main_image[0]}></source>
+                            <Image
+                                onClick={toggeDescModal}
+                                className={`${styles.insta_photo}`}
+                                src={projectObj.main_image[1]}
+                                alt={projectObj.alt_main_img}
+                                loading="lazy"
+                                unoptimized
+                            />
+                        </picture>
+                    </Tilt>
+                </div>
+                <div className={styles.desc_project}>
+                    <p className={styles.title_project}>{projectObj.title}</p>
+                    <p className={styles.subtitle_project}>
+                        {projectObj.subtitle}
+                    </p>
+                    <p className={styles.btn_seeMore} onClick={toggeDescModal}>
+                        Read More
+                    </p>
+                </div>
             </div>
-            <div className={styles.desc_project}>
-                <p className={styles.title_project}>{title}</p>
-                <p className={styles.subtitle_project}>{subtitle}</p>
-                {<p className={styles.btn_seeMore}>Read More</p>}
-            </div>
-        </div>
+        </>
     );
 }

@@ -24,7 +24,6 @@
 }
 .projects_list {
     margin: 20px auto 0 auto;
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;

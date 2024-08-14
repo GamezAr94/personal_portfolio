@@ -25,6 +25,7 @@
 .project_container picture {
     aspect-ratio: 16 / 9;
     max-height: 350px;
+    cursor: pointer;
 }
 .desc_project {
     aspect-ratio: 16 / 5;
