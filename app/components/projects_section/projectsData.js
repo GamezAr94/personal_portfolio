@@ -274,7 +274,7 @@ const project_list = [
             {
                 url: "https://www.youtube.com/watch?v=5cnxBd4Gq6k",
                 icon: "/img/icons/youtube.png",
-                alt: "github badge",
+                alt: "youtube badge",
             },
         ],
         project_desc: [
@@ -530,4 +530,35 @@ const project_list = [
     },
 ];
 
+/*
+    {
+        title: "title of the project",
+        subtitle: "Subtitle of the project",
+        // main img gif and fallback option for mobile
+        main_image: ["img/frogGame/frog_game_gameplay_gif.gif", froggame_sm],
+        alt_main_img:
+            "Screenshot desc for the main img",
+        gallery: [
+            {
+                img: screenshot_1,
+                alt: "Screenshot desc",
+            },
+        ],
+        // TODO Implement this
+        links: ["https://github.com/GamezAr94/Frog-Game"],
+        tech_stack: ["C#", "Unity 2D", "Krita"],
+        badges: [
+            {
+                url: "URL OF THE PROJECT",
+                icon: "/img/icons/github.png",
+                OR
+                icon: "https://res.cloudinary.com/practicaldev/image/fetch/s--FCiMeOmJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/website-up-down-green-red/http/monip.org.svg",
+                OR
+                icon: "/img/icons/youtube.png",
+                alt: "github badge",
+            },
+        ],
+        project_desc: ["***Title with asterisks***", "Description"],
+    },
+    */
 export default project_list;
