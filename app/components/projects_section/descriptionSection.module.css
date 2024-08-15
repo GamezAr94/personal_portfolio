@@ -16,6 +16,15 @@
     font-weight: 500;
     letter-spacing: 1px;
 }
+.tech_container {
+    display: flex;
+    gap: 10px;
+    font-weight: 200;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    margin-top: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+}
 .icons_container {
     margin: 15px 0;
 }

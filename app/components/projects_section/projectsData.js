@@ -66,8 +66,7 @@ import froggame_4 from "@/public/img/frogGame/4.png";
 
 const Portfolio = {
     title: "Personal Portfolio",
-    subtitle:
-        "Next.js, 3D Models & Secured with reCAPTCHA, analyzed with Google Analytics",
+    subtitle: "Next.js, 3D Models, reCAPTCHA & Google Analytics",
     // main img gif and fallback option for mobile
     main_image: ["img/personalPortfolio/portfolio_gif.gif", portfolio_1],
     alt_main_img: "Screen shot of the banner of my portfolio",
@@ -524,6 +523,9 @@ const BentoBox = {
             alt: "Screenshot of an interface of a modern layout type bento box",
         },
     ],
+    // TODO Implement this
+    links: ["https://github.com/GamezAr94/Frog-Game"],
+    tech_stack: ["React.js", "SASS", "CSS", "Figma"],
     badges: [
         {
             url: "https://github.com/GamezAr94/imposible-layout",
