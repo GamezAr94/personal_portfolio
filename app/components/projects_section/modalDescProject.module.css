@@ -35,6 +35,21 @@
     align-items: center;
     justify-content: center;
 }
+.close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    cursor: pointer;
+    scale: 1;
+    transition: 0.2s;
+    padding: 4px 7px;
+}
+.close_btn:hover {
+    color: var(--tag-color);
+    transition: 0.2s;
+}
 .images_container {
     position: absolute;
     top: -30%;
@@ -55,6 +70,7 @@
     backdrop-filter: blur(3.5px);
     -webkit-backdrop-filter: blur(3.5px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 5;
 }
 .mobile {
     display: flex;
@@ -131,12 +147,13 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     opacity: 0.6;
     scale: 1;
     transition: 0.3s;
+    padding: 5px;
 }
 .max_screen_container:hover {
     opacity: 1;
