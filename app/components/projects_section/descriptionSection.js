@@ -24,6 +24,15 @@ export default function DescriptionSection({ projectObj }) {
         <div className={styles.main_container}>
             <p className={styles.title}>{projectObj.title}</p>
             <p className={styles.sub_title}>{projectObj.subtitle}</p>
+            <div className={styles.tech_container}>
+                {projectObj.tech_stack.map((tech, index) => {
+                    return (
+                        <p className={styles.tech} key={index}>
+                            {tech}
+                        </p>
+                    );
+                })}
+            </div>
             <div className={styles.icons_container}>{linksSection}</div>
             <div className={styles.desc_container}>
                 {projectObj.project_desc.map((pTag, index) => {
