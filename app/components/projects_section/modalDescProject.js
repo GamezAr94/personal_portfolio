@@ -4,9 +4,6 @@ import styles from "./modalDescProject.module.css";
 import enter_full_screen from "@/public/img/icons/enlarge.svg";
 import exit_full_screen from "@/public/img/icons/fullscreen-exit.svg";
 
-import lucygame_sm from "@/public/img/lucyGame/lucy_grab_light.png";
-import onlineIde_sm from "@/public/img/onlineIDE/more_code.png";
-
 import React, { useCallback, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import DescriptionSection from "./descriptionSection";
@@ -25,11 +22,11 @@ export default function ModalDescProject({ closeModal, projectObj }) {
     const toggleFullScreen = () => {
         setFullScreen(!isFullScreen);
     };
-    console.log(projectObj);
     return (
         <div className={styles.main_box}>
             <div onClick={closeModal} className={styles.modal_wrapper}></div>
             <div className={styles.modal_container}>
+                <div onClick={closeModal} className={styles.close_btn}>X</div>
                 <div
                     className={`${styles.images_container}  ${styles.desktop} ${
                         isFullScreen ? styles.full_screen : ""
