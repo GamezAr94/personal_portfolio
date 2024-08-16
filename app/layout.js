@@ -1,3 +1,4 @@
+
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -15,22 +16,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <head>
-                <script
-                    async
-                    src={`https://www.googletagmanager.com/gtag/js?id=G-CK3CGFKEEN`}
-                />
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CK3CGFKEEN');
-    `,
-                    }}></script>
-            </head>
             <body className={poppins.className}>{children}</body>
         </html>
     );
