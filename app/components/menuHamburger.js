@@ -43,11 +43,11 @@ export default function MenuHamburger() {
                         Experience <span>💼</span>
                     </a>
                     */}
-                    <a href="#projects_sect">
-                        Projects <span>&#123; &#125;</span>
-                    </a>
                     <a href="#contact_sect">
                         Contact ️<span>️✉️️️</span>
+                    </a>
+                    <a href="#projects_sect">
+                        Projects <span>&#123; &#125;</span>
                     </a>
                     <div className={styles.theme_container}>
                         <button
