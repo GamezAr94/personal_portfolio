@@ -15,12 +15,12 @@ export default function Menu() {
                 {/*
                 <MenuItems href="#projects_sect" title="Experience" text="💼" />
                 */}
+                <MenuItems href="#contact_sect" title="Contact" text="️✉️️️" />
                 <MenuItems
                     href="#projects_sect"
                     title="Projects"
                     text="&#123; &#125;"
                 />
-                <MenuItems href="#contact_sect" title="Contact" text="️✉️️️" />
             </div>
         </header>
     );
