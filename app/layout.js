@@ -4,7 +4,7 @@ import "./globals.css";
 const poppins = Poppins({
     subsets: ["latin"],
     display: "swap",
-    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata = {
@@ -15,6 +15,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <script
+                    async
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-CK3CGFKEEN`}
+                />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CK3CGFKEEN');
+    `,
+                    }}></script>
+            </head>
             <body className={poppins.className}>{children}</body>
         </html>
     );
