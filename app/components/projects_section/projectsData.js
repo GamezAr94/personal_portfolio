@@ -65,6 +65,7 @@ import froggame_3 from "@/public/img/frogGame/3.png";
 import froggame_4 from "@/public/img/frogGame/4.png";
 
 const Portfolio = {
+    id: 'personal_portfolio',
     title: "Personal Portfolio",
     subtitle: "Next.js, 3D Models, reCAPTCHA & Google Analytics",
     // main img gif and fallback option for mobile
@@ -143,6 +144,7 @@ const Portfolio = {
     ],
 };
 const CafeLokal = {
+    id: 'cafe_lokal',
     title: "Cafe Lokal",
     subtitle: "UX/UI Design & Freelance Development",
     main_image: ["img/cafelokal/cafelokal_banner_short.gif", cafelokal_sm],
@@ -208,6 +210,7 @@ const CafeLokal = {
     ],
 };
 const APathFinding = {
+    id: 'a_star_path',
     title: "A* Path Finding Algorithm",
     subtitle: "Unity 2D, shortes path algorithm, and games",
     main_image: ["img/astar_path_finding/astar_alg_gif.gif", astar_sm],
@@ -263,6 +266,7 @@ const APathFinding = {
     ],
 };
 const FurElise = {
+    id: 'fur_elise',
     title: "Pâtisserie Für Elise",
     subtitle: "UX/UI Design & Freelance Development",
     main_image: ["img/furelise/fur_elise_banner_gif.gif", furelise_sm],
@@ -327,6 +331,7 @@ const FurElise = {
     ],
 };
 const LucyGame = {
+    id: 'lucy_game',
     title: "Lucy Game",
     subtitle: "Unity 2D, GameJam, Light, Masks & Collisions",
     main_image: ["img/lucyGame/lucyGame-gif.gif", lucygame_sm],
@@ -387,6 +392,7 @@ const LucyGame = {
     ],
 };
 const TamalyShop = {
+    id: 'tamaly_shop',
     title: "Tamaly Shop",
     subtitle: "UX/UI Design, E-Commerce & Freelance Development",
     main_image: ["img/tamalyshop/tamalyshop_banner_gif.gif", tamalyshop_sm],
@@ -452,6 +458,7 @@ const TamalyShop = {
     ],
 };
 const OnlineIDE = {
+    id: 'online_ide',
     title: "Online IDE",
     subtitle: "Online IDE to solve Coding Problems",
     main_image: ["img/onlineIDE/full_video_gif.gif", onlineIde_sm],
@@ -497,6 +504,7 @@ const OnlineIDE = {
     ],
 };
 const BentoBox = {
+    id: 'bento_box',
     title: "Bento Box Layout",
     subtitle: "Modern Bento Box Layout Fully Responsive",
     main_image: ["img/bento_layout/bento_layout_desktop.png", bentobox_sm],
@@ -554,6 +562,7 @@ const BentoBox = {
     ],
 };
 const FrogGame = {
+    id: 'frog_game',
     title: "Frog Game",
     subtitle: "Unity 2D, Design and Development",
     main_image: ["img/frogGame/frog_game_gameplay_gif.gif", froggame_sm],

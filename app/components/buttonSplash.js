@@ -1,7 +1,4 @@
-"use client";
-
 import styles from "./buttonSplash.module.css";
-import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function ButtonSplash({ section }) {
     return (
@@ -11,14 +8,7 @@ export default function ButtonSplash({ section }) {
                     <span></span>
                     <span></span>
                 </div>
-                <a
-                    href="#contact_sect"
-                    onClick={() =>
-                        sendGTMEvent("event", "buttonContactMeClicked", {
-                            value: section,
-                        })
-                    }
-                    className={styles.contact_me}>
+                <a href="#contact_sect" className={styles.contact_me}>
                     Contact Me
                 </a>
             </div>
