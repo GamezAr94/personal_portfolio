@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./introduction.module.css";
 import OpenToWorkTag from "../openToWorkTag";
 import ButtonSplash from "../buttonSplash";
@@ -17,7 +16,7 @@ export default function Introduction() {
                 </h1>
                 <OpenToWorkTag size="small" />
             </div>
-            <ButtonSplash />
+            <ButtonSplash section={"mainBanner"} />
         </>
     );
 }

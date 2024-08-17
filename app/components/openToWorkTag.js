@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./openToWorkTag.module.css";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function OpenToWorkTag({ size }) {
     let size_type = styles.small;
@@ -10,7 +13,14 @@ export default function OpenToWorkTag({ size }) {
         size_type = styles.large;
     }
     return (
-        <Link href="#contact_sect" className={`${styles.tag} ${size_type}`}>
+        <Link
+            onClick={() =>
+                sendGTMEvent("event", "buttonContactMeClicked", {
+                    value: "open2work_" + size,
+                })
+            }
+            href="#contact_sect"
+            className={`${styles.tag} ${size_type}`}>
             {process.env.OPEN_TO_WORK === "true"
                 ? "Open To Work"
                 : "Currently Working"}
