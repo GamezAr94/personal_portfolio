@@ -44,6 +44,7 @@ export default function FormSection({ formAction, state }) {
                     id="name"
                     name="name"
                     placeholder="Name"
+                    autoComplete="name"
                 />
             </div>
             <div className={styles.container_input}>
@@ -53,6 +54,7 @@ export default function FormSection({ formAction, state }) {
                     id="email"
                     name="email"
                     placeholder="Email"
+                    autoComplete="email"
                     required
                 />
             </div>

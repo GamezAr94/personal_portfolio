@@ -22,7 +22,7 @@ export default function InnerDescription() {
                 love to hear about your project and see how we can collaborate
                 to bring your vision to life.
             </p>
-            <ButtonSplash />
+            <ButtonSplash section={"aboutMe"} />
         </div>
     );
 }
