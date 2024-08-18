@@ -3,43 +3,11 @@
     width: 100%;
     overflow-x: clip;
 }
-.divider_tape {
-    display: flex;
-    font-size: 5rem;
-    text-transform: uppercase;
-    gap: 13px;
-    justify-content: center;
-    align-items: center;
-    font-weight: bolder;
-    text-wrap: nowrap;
-    width: fit-content;
-    rotate: -4deg;
-    transform-origin: left center;
-    border-top: 5px;
-    border-bottom: 5px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-color: var(--font-color);
-    animation: moving-tape 35s linear 0s infinite normal forwards;
-}
 .projects_list {
     margin: 20px auto 0 auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-@keyframes moving-tape {
-    0% {
-        transform: translateX(0px);
-    }
-    100% {
-        transform: translateX(-1071px);
-    }
-}
-.asterisk {
-    height: 53px;
-    color: var(--tag-color);
 }
 
 @media (min-width: 900px) {
