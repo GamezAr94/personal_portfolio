@@ -1,13 +1,13 @@
 "use client";
 import styles from "./skillsContainer.module.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useMemo, useEffect, useRef } from "react";
 import Matter from "matter-js";
 
 export default function SkillsContainer() {
     const sceneRef = useRef(null);
     const engineRef = useRef(null);
 
-    const initialBoxPositions = [
+    const initialBoxPositions = useMemo(() => [
         { x: 469, y: -198 },
         { x: 295, y: -168 },
         { x: 221, y: -146 },
@@ -36,7 +36,7 @@ export default function SkillsContainer() {
         { x: 541, y: -150 },
         { x: 458, y: -162 },
         { x: 322, y: -101 },
-    ];
+    ], []);
 
     useEffect(() => {
         const { Engine, Render, Runner, Bodies, Composite } = Matter;
@@ -404,7 +404,9 @@ export default function SkillsContainer() {
 
     return (
         <>
-            <div className={`${styles.physic_container}`} ref={sceneRef}></div>
+            <div
+                className={`${styles.physic_container}`}
+                ref={sceneRef}></div>
             <button className={styles.reset_button} onClick={handleReset}>
                 Reset
             </button>

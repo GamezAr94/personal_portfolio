@@ -5,7 +5,61 @@ import { Tilt } from "@jdion/tilt-react";
 import { useState } from "react";
 import ModalDescProject from "./modalDescProject";
 
+import { useEffect, useRef } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function SingleProject({ swapped, projectObj }) {
+    const projectRef = useRef();
+    const titleContainerRef = useRef();
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        // Animation for the parent container
+        gsap.fromTo(
+            projectRef.current,
+            {
+                x: swapped ? 500 : -500,
+                opacity: 0,
+                skewX: swapped ? -10 : 10,
+                scale: 0.7,
+            },
+            {
+                scrollTrigger: {
+                    trigger: projectRef.current,
+                    start: "top 95%",
+                    end: "20% center",
+                    scrub: 1,
+                    toggleActions: "restart none none pause",
+                    //markers: true, //Exellent way to debug the start and end point
+                },
+                skewX: 0,
+                scale: 1,
+                x: 0,
+                opacity: 1,
+                duration: 6,
+            }
+        );
+        gsap.fromTo(
+            titleContainerRef.current,
+            { x: swapped ? 500 : -500, opacity: 0, scale: 2 },
+            {
+                scrollTrigger: {
+                    trigger: titleContainerRef.current,
+                    start: "20% bottom",
+                    end: "20% center",
+                    scrub: 1,
+                    toggleActions: "restart none none pause",
+                    //markers: true, //Exellent way to debug the start and end point
+                },
+                scale: 1,
+                opacity: 1,
+                x: 0,
+                duration: 5,
+            }
+        );
+    }, [swapped]);
+
     const [isShown, setShown] = useState(false);
 
     function toggeDescModal() {
@@ -31,6 +85,7 @@ export default function SingleProject({ swapped, projectObj }) {
                 />
             )}
             <div
+                ref={projectRef}
                 className={`${styles.project_container} ${
                     swapped ? styles.swapped : ""
                 }`}>
@@ -51,7 +106,7 @@ export default function SingleProject({ swapped, projectObj }) {
                         </picture>
                     </Tilt>
                 </div>
-                <div className={styles.desc_project}>
+                <div ref={titleContainerRef} className={styles.desc_project}>
                     <p className={styles.title_project}>{projectObj.title}</p>
                     <p className={styles.subtitle_project}>
                         {projectObj.subtitle}

@@ -2,36 +2,12 @@ import styles from "./projectsEntry.module.css";
 import SingleProject from "./singleProject";
 import UnderDevelopment from "../underDevelopment";
 import projectList from "./projectsData";
+import DividerTape from "./dividerTape";
 
 export default function ProjectsEntry() {
     return (
         <div id="projects_sect" className={styles.projects_container}>
-            <div className={styles.divider_tape}>
-                <p className={styles.asterisk}>*</p>
-                <p>my work</p>
-                <p className={styles.asterisk}>*</p>
-                <p>Projects</p>
-                <p className={styles.asterisk}>*</p>
-                <p>contributions</p>
-                <p className={styles.asterisk}>*</p>
-                <p>my work</p>
-                <p className={styles.asterisk}>*</p>
-                <p>Projects</p>
-                <p className={styles.asterisk}>*</p>
-                <p>contributions</p>
-                <p className={styles.asterisk}>*</p>
-                <p>my work</p>
-                <p className={styles.asterisk}>*</p>
-                <p>Projects</p>
-                <p className={styles.asterisk}>*</p>
-                <p>contributions</p>
-                <p className={styles.asterisk}>*</p>
-                <p>my work</p>
-                <p className={styles.asterisk}>*</p>
-                <p>Projects</p>
-                <p className={styles.asterisk}>*</p>
-                <p>contributions</p>
-            </div>
+            <DividerTape />
             <div className={styles.projects_list}>
                 {projectList.map((project, index) => (
                     <SingleProject
