@@ -79,13 +79,28 @@
 .hero_img_green {
     display: var(--theme-hero-img-green);
 }
+@keyframes zoomOut {
+    0% {
+        height: 121%;
+        width: 121%;
+    }
+    100% {
+        height: 100%;
+        width: 100%;
+    }
+}
 @media (min-width: 900px) {
     .hero_section_container {
         justify-content: flex-start;
     }
+    .hero_container {
+        overflow: hidden;
+        border-radius: 25px;
+    }
     .landscape {
         height: 100%;
         border-radius: 36px;
+        animation: zoomOut 1s ease-in-out 0s 1 normal forwards;
     }
     .stats_container {
         display: flex;

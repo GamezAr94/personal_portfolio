@@ -16,11 +16,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: fadeTop2Bottom 0.7s ease-in-out 0s 1 normal forwards;
 }
 .about_title {
     position: relative;
     width: 100%;
     height: 5%;
+    z-index: 2;
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: fadeTop2Bottom 0.7s ease-in-out 0.3s 1 normal forwards;
 }
 .about_container {
     background-color: var(--inner-container-color);
@@ -31,12 +38,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: fadeTop2Bottom 0.7s ease-in-out 0.5s 1 normal forwards;
 }
 .about_container p {
     width: 86%;
     font-weight: 200;
     height: 90%;
-    font-size: clamp(1.2rem, .8vw, 1.4rem);
+    font-size: clamp(1.2rem, 0.8vw, 1.4rem);
     letter-spacing: 2px;
 }
 .about_buttons {
@@ -60,6 +71,30 @@
     border-radius: 36px;
     position: relative;
     box-shadow: 3px 3px 7px 1px rgba(0, 0, 0, 0.579);
+    scale: 1;
+    transform: translateX(200px);
+    opacity: 0;
+    animation: fadeRight2Left 1.4s ease-in-out 0.3s 1 normal forwards;
+}
+@keyframes fadeTop2Bottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes fadeRight2Left {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 .about_title h6,
 .skills h6 {
@@ -69,7 +104,9 @@
     width: fit-content;
     background-color: var(--darker-main-color);
     border-radius: 15px;
-    box-shadow: inset 3px 3px 6px 0px rgba(255, 255, 255, 0.198), inset -4px -4px 3px 0px rgba(0, 0, 0, 0.437), 3px 3px 3px 1px rgba(0, 0, 0, 0.365);
+    box-shadow: inset 3px 3px 6px 0px rgba(255, 255, 255, 0.198),
+        inset -4px -4px 3px 0px rgba(0, 0, 0, 0.437),
+        3px 3px 3px 1px rgba(0, 0, 0, 0.365);
     font-weight: 800;
     font-size: 3.5rem;
     padding: 3px 30px;
