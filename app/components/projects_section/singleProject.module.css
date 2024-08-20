@@ -63,6 +63,10 @@
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: 0.4s;
 }
+.short_desc {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 200;
+}
 
 @media (min-width: 900px) {
     .desc_project {
