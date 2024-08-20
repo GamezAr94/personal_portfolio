@@ -7,7 +7,7 @@
     margin: 20px auto 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 @media (min-width: 900px) {
@@ -15,7 +15,7 @@
         margin: 90px 0;
     }
     .projects_list {
-        gap: 35px;
+        gap: 75px;
     }
 }
 @media (min-width: 1250px) {
@@ -24,6 +24,6 @@
     }
     .projects_list {
         width: 85%;
-        gap: 35px;
+        gap: 140px;
     }
 }

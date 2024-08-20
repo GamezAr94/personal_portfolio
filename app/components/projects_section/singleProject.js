@@ -111,6 +111,7 @@ export default function SingleProject({ swapped, projectObj }) {
                     <p className={styles.subtitle_project}>
                         {projectObj.subtitle}
                     </p>
+                    <p className={styles.short_desc}>{projectObj.shortDesc}</p>
                     <p className={styles.btn_seeMore} onClick={toggeDescModal}>
                         Read More
                     </p>

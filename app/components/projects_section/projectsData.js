@@ -65,7 +65,7 @@ import froggame_3 from "@/public/img/frogGame/3.png";
 import froggame_4 from "@/public/img/frogGame/4.png";
 
 const Portfolio = {
-    id: 'personal_portfolio',
+    id: "personal_portfolio",
     title: "Personal Portfolio",
     subtitle: "Next.js, 3D Models, reCAPTCHA & Google Analytics",
     // main img gif and fallback option for mobile
@@ -113,6 +113,8 @@ const Portfolio = {
         "reCAPTCHA",
         "Google Analytics",
     ],
+    shortDesc:
+        "My interactive Next.js portfolio showcases my skills through 3D models, animations, and a focus on user experience. I've implemented modern design, and created engaging elements with Matter.js.",
     badges: [
         {
             url: "https://github.com/GamezAr94/personal_portfolio",
@@ -144,7 +146,7 @@ const Portfolio = {
     ],
 };
 const CafeLokal = {
-    id: 'cafe_lokal',
+    id: "cafe_lokal",
     title: "Cafe Lokal",
     subtitle: "UX/UI Design & Freelance Development",
     main_image: ["img/cafelokal/cafelokal_banner_short.gif", cafelokal_sm],
@@ -188,6 +190,8 @@ const CafeLokal = {
         "HTML",
         "Figma",
     ],
+    shortDesc:
+        "I led the full-stack development of Cafe Lokal's custom website, boosting their online presence and customer engagement. The project exceeded expectations, resulting in a 30% increase in website traffic and 90% positive customer feedback.",
     badges: [
         {
             url: "https://cafelokal.ca/",
@@ -210,9 +214,9 @@ const CafeLokal = {
     ],
 };
 const APathFinding = {
-    id: 'a_star_path',
+    id: "a_star_path",
     title: "A* Path Finding Algorithm",
-    subtitle: "Unity 2D, shortes path algorithm, and games",
+    subtitle: "Unity 2D, shortes path algorithm & games",
     main_image: ["img/astar_path_finding/astar_alg_gif.gif", astar_sm],
     alt_main_img:
         "Image showing the interface of a unity 2d project using the a* path finding algorithm",
@@ -248,6 +252,8 @@ const APathFinding = {
     // TODO Implement this
     links: ["https://github.com/GamezAr94/AstarPathFindingAlgorithm"],
     tech_stack: ["C#", "Unity 2D", "Krita"],
+    shortDesc:
+        "I built a Unity 2D pathfinding application showcasing my ability to implement complex algorithms and solve problems efficiently. This project highlights my proficiency in C#, data structures, and UI development, demonstrating my adaptability and problem-solving skills.",
     project_desc: [
         "Developed a Unity 2D application that calculates and visualizes the shortest path between two points on a grid-based map, even with obstacles. The algorithm efficiently determines the optimal route by evaluating neighboring tiles and prioritizing those with the lowest cost, ensuring the path is both short and avoids obstacles.",
         "***Key Features:***",
@@ -266,7 +272,7 @@ const APathFinding = {
     ],
 };
 const FurElise = {
-    id: 'fur_elise',
+    id: "fur_elise",
     title: "Pâtisserie Für Elise",
     subtitle: "UX/UI Design & Freelance Development",
     main_image: ["img/furelise/fur_elise_banner_gif.gif", furelise_sm],
@@ -307,6 +313,8 @@ const FurElise = {
         "Plugin System",
         "Figma",
     ],
+    shortDesc:
+        "I proactively redesigned a coffee shop's website using WordPress and Oxygen Builder, gaining valuable experience and demonstrating initiative. While the redesign wasn't implemented, I successfully integrated features, practiced presenting my work, and increased my confidence in using these tools for future projects.",
     badges: [
         {
             url: "https://furelise.arturogamez.com/",
@@ -331,7 +339,7 @@ const FurElise = {
     ],
 };
 const LucyGame = {
-    id: 'lucy_game',
+    id: "lucy_game",
     title: "Lucy Game",
     subtitle: "Unity 2D, GameJam, Light, Masks & Collisions",
     main_image: ["img/lucyGame/lucyGame-gif.gif", lucygame_sm],
@@ -357,6 +365,8 @@ const LucyGame = {
     // TODO Implement this
     links: ["https://github.com/GamezAr94/Lucy"],
     tech_stack: ["C#", "Unity 2D", "Figma"],
+    shortDesc:
+        "I created a Unity 2D game prototype with a firefly navigating a dark environment, showcasing my ability to implement engaging mechanics and immersive visuals. Through this project, I mastered techniques like sprite masks and random item generation, improving my skills in C#, 2D animations, and game development.",
     badges: [
         {
             url: "https://github.com/GamezAr94/Lucy",
@@ -392,7 +402,7 @@ const LucyGame = {
     ],
 };
 const TamalyShop = {
-    id: 'tamaly_shop',
+    id: "tamaly_shop",
     title: "Tamaly Shop",
     subtitle: "UX/UI Design, E-Commerce & Freelance Development",
     main_image: ["img/tamalyshop/tamalyshop_banner_gif.gif", tamalyshop_sm],
@@ -435,6 +445,8 @@ const TamalyShop = {
         "JavaScript",
         "Figma",
     ],
+    shortDesc:
+        "I built a successful e-commerce website for a new Mexican restaurant in Vancouver, enabling them to launch online ordering and delivery. The user-friendly platform led to a 40% increase in online sales within three months",
     badges: [
         {
             url: "https://tamaly-shop.com/",
@@ -458,7 +470,7 @@ const TamalyShop = {
     ],
 };
 const OnlineIDE = {
-    id: 'online_ide',
+    id: "online_ide",
     title: "Online IDE",
     subtitle: "Online IDE to solve Coding Problems",
     main_image: ["img/onlineIDE/full_video_gif.gif", onlineIde_sm],
@@ -485,6 +497,8 @@ const OnlineIDE = {
     links: [],
     tech_stack: ["React.js", "Node.js", "CSS", "SASS", "HTML"],
     badges: [],
+    shortDesc:
+        "I built an online code editor and execution environment, self-hosting it on a Raspberry Pi to satisfy my curiosity about Nginx configuration. This project allowed me to gain proficiency in integrating CodeMirror and securely handling code execution, showcasing my initiative and resourcefulness.",
     project_desc: [
         "Developed an online code editor and execution environment using React.js and Node.js, enabling users to write and run code directly in their browsers. This project was self-hosted on a Raspberry Pi using Nginx, showcasing initiative and resourcefulness. While the current implementation has limitations, it served as a valuable proof of concept and learning experience.",
         "***Key Features:***",
@@ -504,7 +518,7 @@ const OnlineIDE = {
     ],
 };
 const BentoBox = {
-    id: 'bento_box',
+    id: "bento_box",
     title: "Bento Box Layout",
     subtitle: "Modern Bento Box Layout Fully Responsive",
     main_image: ["img/bento_layout/bento_layout_desktop.png", bentobox_sm],
@@ -546,6 +560,8 @@ const BentoBox = {
             alt: "website badge",
         },
     ],
+    shortDesc:
+        "I designed and implemented a visually stunning Bento Box-inspired website layout, prioritizing content visibility and seamless responsiveness. This project honed my skills in advanced CSS and Sass, responsive design, and Figma prototyping, demonstrating my ability to create modern, user-friendly layouts.",
     project_desc: [
         "Designed and implemented a visually striking and responsive website layout inspired by the Bento Box style, showcasing a modern aesthetic and efficient information presentation. The project focused on creating a multi-section layout where key content is readily accessible without excessive scrolling.",
         "***Key Features:***",
@@ -562,7 +578,7 @@ const BentoBox = {
     ],
 };
 const FrogGame = {
-    id: 'frog_game',
+    id: "frog_game",
     title: "Frog Game",
     subtitle: "Unity 2D, Design and Development",
     main_image: ["img/frogGame/frog_game_gameplay_gif.gif", froggame_sm],
@@ -599,6 +615,8 @@ const FrogGame = {
             alt: "github badge",
         },
     ],
+    shortDesc:
+        "I'm creating an engaging Android game with a frog catching insects, showcasing my Unity game development skills. This project features intuitive controls, parallax scrolling, and custom animations. I'm actively expanding the game and using version control.",
     project_desc: [
         "Developed an engaging Android game where the player controls a frog on a quest to catch insects and boost their score. The game features touch-based controls, a variety of enemies and power-ups, and a time-based challenge,",
         "***Gameplay Mechanics:***",
