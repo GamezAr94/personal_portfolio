@@ -34,16 +34,13 @@ export default function LetsConnect() {
                         <div className={styles.loading_element}>Loading...</div>
                     }>
                     {
-                        
-                    <Spline
-                        className={`${styles.model} ${styles.hero_img_green}`}
-                        width={1720}
-                        height={1720}
-                        scene="https://draft.spline.design/f3x-fHI60lX851nv/scene.splinecode"
-                    />
-                        
-                                            
-    }
+                        <Spline
+                            className={`${styles.model} ${styles.hero_img_green}`}
+                            width={1720}
+                            height={1720}
+                            scene="https://draft.spline.design/f3x-fHI60lX851nv/scene.splinecode"
+                        />
+                    }
                 </Suspense>
             </div>
         </div>
