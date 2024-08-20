@@ -5,14 +5,44 @@ import FormSection from "./formSection";
 import { sendEmail } from "@/lib/actions";
 import SuccessMessage from "./successMessage";
 
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function ContactEntry() {
+    const bkgRef = useRef();
     const [state, formAction] = useFormState(sendEmail, {
         status: "n/a",
         message: null,
     });
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.fromTo(
+            bkgRef.current,
+            {
+                backgroundSize: "180%",
+            },
+            {
+                scrollTrigger: {
+                    trigger: bkgRef.current,
+                    start: "top bottom",
+                    end: "20% top",
+                    scrub: 1,
+                    toggleActions: "restart none none pause",
+                    //markers: true, //Exellent way to debug the start and end point
+                },
+                backgroundSize: "100%",
+                duration: 6,
+            }
+        );
+    }, []);
     return (
         <>
-            <div className={styles.contact_container} id="contact_sect">
+            <div
+                ref={bkgRef}
+                className={styles.contact_container}
+                id="contact_sect">
                 <div className={styles.main_container}>
                     <div className={styles.first_layer}></div>
                     <div className={`${styles.rock} ${styles.r1}`}></div>
