@@ -1,11 +1,69 @@
+"use client";
 import ButtonSplash from "../buttonSplash";
 import styles from "./innerDescription.module.css";
 
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function InnerDescription() {
+    const titleRef = useRef();
+    const descRef = useRef();
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        // Animation for the parent container
+        gsap.fromTo(
+            descRef.current,
+            {
+                y: 300,
+                opacity: 0,
+                scale: 0.7,
+            },
+            {
+                scrollTrigger: {
+                    trigger: descRef.current,
+                    start: "top 90%",
+                    end: "20% 70%",
+                    scrub: 1,
+                    toggleActions: "restart none none pause",
+                    //markers: true, //Exellent way to debug the start and end point
+                },
+                scale: 1,
+                y: 0,
+                opacity: 1,
+                duration: 6,
+            }
+        );
+        gsap.fromTo(
+            titleRef.current,
+            {
+                y: 500,
+                opacity: 0,
+                scale: 0.7,
+            },
+            {
+                scrollTrigger: {
+                    trigger: titleRef.current,
+                    start: "top 90%",
+                    end: "20% 80%",
+                    scrub: 1,
+                    toggleActions: "restart none none pause",
+                    //markers: true, //Exellent way to debug the start and end point
+                },
+                scale: 1,
+                y: 0,
+                opacity: 1,
+                duration: 6,
+            }
+        );
+    }, []);
+
     return (
         <div className={styles.inner_description}>
-            <p className={styles.title_content}>Who am I?</p>
-            <p className={styles.desc_content}>
+            <p ref={titleRef} className={styles.title_content}>
+                Who am I?
+            </p>
+            <p ref={descRef} className={styles.desc_content}>
                 I&apos;m Arturo, a full-stack developer with 3+ years of
                 experience, specializing in crafting user-centric web
                 applications within Linux environments. I&apos;m passionate

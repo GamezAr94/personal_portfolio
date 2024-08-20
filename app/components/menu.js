@@ -3,7 +3,6 @@ import MenuHamburger from "./menuHamburger";
 import MenuItems from "./menuItems";
 import MainLogo from "./mainLogo";
 
-//TODO change the projects_sect link
 export default function Menu() {
     return (
         <header className={styles.header_container}>
