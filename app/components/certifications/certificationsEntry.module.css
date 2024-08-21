@@ -1,0 +1,126 @@
+.certification_container {
+    width: 100%;
+    min-width: 300px;
+    min-height: 400px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 20px;
+}
+.img_certificate {
+    width: 100px;
+    height: 200px;
+    background-size: 100%;
+}
+.img_certificate.bcit {
+    background-image: url("/img/certificates/bcit.jpg");
+    width: 100px;
+    height: unset;
+    aspect-ratio: 1 / 1;
+}
+.certificate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.stamp_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.medal {
+    position: absolute;
+    font-size: 6rem;
+    animation: pulsing 2s linear 0s infinite normal forwards;
+}
+.stamp {
+    animation: rotating 20s linear 0s infinite normal forwards;
+    width: 230px;
+    height: 230px;
+}
+.stamp text {
+    color: var(--font-color);
+    font-size: 0.4rem;
+    font-weight: bolder;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+    max-width: 1000px;
+    min-width: 300px;
+}
+.list h5 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    letter-spacing: -0.5px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 300px;
+    min-width: 200px;
+    line-height: 100%;
+}
+.list .description {
+    font-size: 1.7rem;
+}
+.list ul {
+    font-size: 1.7rem;
+    font-weight: 100;
+    transform: translateX(30px);
+}
+@keyframes pulsing {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        scale: 1;
+    }
+}
+@keyframes rotating {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+@media (min-width: 900px) {
+    .certification_container {
+        flex-direction: row;
+    }
+    .certificate {
+        flex-direction: row;
+        gap: 40px;
+        width: 60%;
+    }
+    .stamp_container {
+        margin-left: 100px;
+    }
+    .img_certificate.bcit {
+        width: 125px;
+    }
+    .list h5 {
+        margin: unset;
+        text-align: left;
+    }
+}
+@media (min-width: 1250px) {
+    .certification_container {
+        width: 93%;
+        max-width: unset;
+        min-width: unset;
+    }
+    .img_certificate.bcit {
+        width: 150px;
+    }
+}
