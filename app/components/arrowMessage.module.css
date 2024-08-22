@@ -1,0 +1,58 @@
+.arrow_container {
+    position: absolute;
+    z-index: 100;
+    scale: 0.5;
+    opacity: 0;
+    animation: showing 0.4s ease calc(var(--animation-delay-timing) * 2.5s) 1
+        normal forwards;
+}
+.arrow_container p {
+    left: -20px;
+    top: 0;
+    letter-spacing: -2px;
+    margin: auto 0;
+    position: absolute;
+    font-family: stylish;
+    font-size: 2.4rem;
+    color: #f19d2b;
+    rotate: -30deg;
+    font-weight: 900;
+    scale: 0.5;
+    opacity: 0;
+    animation: showing 0.4s ease calc(var(--animation-delay-timing) * 2.7s) 1
+        normal forwards;
+}
+.arrow_container img {
+    display: flex;
+    width: 130px;
+    height: 110px;
+    rotate: 50deg;
+    transform: translate(-20px, 10px);
+    animation: rotating 0.3s ease-out calc(var(--animation-delay-timing) * 2.5s)
+        1 normal forwards;
+}
+@keyframes showing {
+    0% {
+        scale: 0.7;
+        opacity: 0;
+    }
+    80% {
+        scale: 1.1;
+        opacity: 1;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes rotating {
+    0% {
+        rotate: 50deg;
+        transform: translate(-20px, 10px);
+    }
+    100% {
+        rotate: 10deg;
+        transform: translate(0px, 0px);
+    }
+}

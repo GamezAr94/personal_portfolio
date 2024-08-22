@@ -8,6 +8,7 @@ import StatsContainer from "./statsContainer";
 import frog_character from "../../../public/img/Characters/Frog-Goblin.png";
 import hamburger_character from "../../../public/img/Characters/hamburger_character.png";
 import stuffed_character from "../../../public/img/Characters/stuffed_character.png";
+import ArrowMessage from "../arrowMessage";
 
 export default function HeroSection() {
     return (
@@ -32,6 +33,7 @@ export default function HeroSection() {
                 <div className={styles.divider}></div>
             </div>
             <div className={`${styles.model_3d}`}>
+                <ArrowMessage message="This is not me" />
                 <MainModel />
             </div>
             <div className={`${styles.hero_img} ${styles.hero_img_green}`}>

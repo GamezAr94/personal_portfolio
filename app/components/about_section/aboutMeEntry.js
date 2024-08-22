@@ -1,3 +1,4 @@
+import ArrowMessage from "../arrowMessage";
 import styles from "./aboutMeEntry.module.css";
 import InnerDescription from "./innerDescription";
 import PhotoAboutMe from "./photoAboutMe";
