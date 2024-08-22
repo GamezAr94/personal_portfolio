@@ -28,6 +28,7 @@
 }
 .about_photo {
     width: 100%;
+    position: relative;
 }
 
 @media (min-width: 900px) {
