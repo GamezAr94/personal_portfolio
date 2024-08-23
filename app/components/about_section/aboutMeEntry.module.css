@@ -20,6 +20,9 @@
     background-color: var(--darker-inner-color);
     box-shadow: 0px 0px 20px 20px var(--darker-inner-color);
 }
+.about_container > div:nth-child(1) {
+    display: none;
+}
 .about_content {
     width: 100%;
     display: flex;
@@ -32,8 +35,36 @@
 }
 
 @media (min-width: 900px) {
+    .about_container > div:nth-child(1) {
+        display: flex;
+        background-color: unset;
+        min-height: unset;
+        box-shadow: unset;
+        padding: unset;
+        right: 30px;
+        width: 100px;
+        bottom: 0;
+    }
+    .about_container > div:nth-child(1) img {
+        scale: -1 1;
+        rotate: -15deg;
+        animation: unset;
+    }
 }
 @media (min-width: 1250px) {
+    .about_container > div:nth-child(1) {
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        transform: translateX(clamp(460px, 35vw, 650px));
+    }
+    .about_container > div:nth-child(1) img {
+        scale: -1 1;
+        rotate: -15deg;
+        animation: unset;
+    }
     .about_container {
         display: flex;
         flex-direction: row;

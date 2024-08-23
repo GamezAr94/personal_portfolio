@@ -5,6 +5,7 @@ import PhotoAboutMe from "./photoAboutMe";
 export default function AboutMeEntry() {
     return (
         <div id="about_me_sect" className={`${styles.about_container}`}>
+            <ArrowMessage message="This is me!" />
             <div className={styles.about_content}>
                 <InnerDescription />
             </div>
