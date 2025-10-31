@@ -1,38 +1,26 @@
-/* Import the 3 core Tailwind layers.
-  This is the foundation of your styling.
-*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* This is the "Duality" theme system we planned.
-  We define the variables here, and components will use them.
-*/
-@layer base {
-    body {
-        @apply bg-[#F8F8F8] text-[#111827];
-    }
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
-    /* These are your "Meximalist" accent color themes.
-    Any component wrapped in a div with one of these classes
-    will change its accent color automatically.
-  */
-    .theme-magicmail {
-        --accent-color: #10b981; /* Vibrant Green */
-    }
-    .theme-ai {
-        --accent-color: #3b82f6; /* Vibrant Blue */
-    }
-    .theme-saas {
-        --accent-color: #f59e0b; /* Vibrant Amber/Orange */
-    }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
-    /* This makes the custom cursor work, by hiding the default one.
-    We will enable this when we build the cursor.
-  */
-    /*
-  body, html {
-    cursor: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
-  */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
