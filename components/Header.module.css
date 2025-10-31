@@ -10,10 +10,10 @@
 
 .nav {
     /* This replaces 'max-w-7xl' and the padding */
-    max-width: 1280px;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem 1.5rem; /* 16px 24px */
+    padding: 1rem 1rem; /* 16px 24px */
 
     /* This replaces 'flex justify-between items-center' */
     display: flex;

@@ -1,0 +1,81 @@
+.chatWindow {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    border-radius: 0.75rem; /* 12px */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Use 'calc' to make it fit the screen, 
+     respecting the header (10rem) and some bottom padding 
+  */
+    max-height: calc(100vh - 12rem);
+}
+
+.messageList {
+    flex-grow: 1;
+    padding: 1rem; /* 16px */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* 12px */
+    min-height: 300px;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem; /* 8px */
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+/* This is the AI's message style */
+.aiMessage {
+    background-color: #f3f4f6; /* gray-100 */
+    color: #1f2937; /* gray-800 */
+    align-self: flex-start;
+}
+
+/* This is the User's message style */
+.userMessage {
+    background-color: #3b82f6; /* blue-500 */
+    color: #ffffff;
+    align-self: flex-end;
+}
+
+.inputArea {
+    border-top: 1px solid #e5e7eb;
+    padding: 0.75rem; /* 12px */
+    display: flex;
+    gap: 0.75rem;
+    background-color: #f9fafb; /* gray-50 */
+}
+
+.textInput {
+    flex-grow: 1;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #1f2937;
+}
+.textInput:focus {
+    outline: 2px solid #3b82f6;
+    border-color: #3b82f6;
+}
+
+.sendButton {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.sendButton:hover {
+    background-color: #2563eb; /* blue-600 */
+}

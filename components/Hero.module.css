@@ -1,0 +1,65 @@
+.heroSection {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    /* This is our main hero container */
+    min-height: 100vh; /* Full screen height */
+    align-items: center;
+    padding: 0px 8%;
+    gap: 0 50px;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.leftColumn {
+    /* This column holds the text */
+    display: flex;
+    flex-direction: column;
+}
+
+.headline {
+    font-size: 4.5rem; /* 72px */
+    font-weight: 900;
+    line-height: 1.1;
+    color: #111827;
+}
+
+/* This is the key for the animation */
+.headlineWord {
+    display: inline-block; /* Allows us to transform the word */
+    cursor: pointer;
+    /* Adds a little space after each animated word */
+    margin-right: 0.8rem; /* 12.8px */
+}
+
+.rightColumn {
+    /* This column is empty for now */
+    /* It will hold the HeroChat component later */
+    min-height: 400px;
+}
+
+/* On screens smaller than 1024px (laptops/tablets) */
+@media (max-width: 1024px) {
+    .heroSection {
+        /* Stack to 1 column */
+        grid-template-columns: 1fr;
+        min-height: 90vh; /* Full screen height */
+        padding-top: 6rem;
+    }
+    .headline {
+        font-size: 3.75rem; /* 60px */
+        text-align: center;
+    }
+}
+
+/* On screens smaller than 640px (mobile) */
+@media (max-width: 640px) {
+    .heroSection {
+        padding-top: 3rem;
+    }
+    .headline {
+        font-size: 2.5rem; /* 40px */
+    }
+    .headlineWord {
+        margin-right: 0.5rem; /* 8px */
+    }
+}
