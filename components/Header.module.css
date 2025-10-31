@@ -1,0 +1,51 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav {
+    /* This replaces 'max-w-7xl' and the padding */
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1.5rem; /* 16px 24px */
+
+    /* This replaces 'flex justify-between items-center' */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}
+.logo:hover {
+    color: #374151;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* 24px, replaces 'space-x-6' */
+}
+
+.link {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: #374151; /* gray-700 */
+    text-decoration: none;
+}
+.link.active {
+    color: #000000;
+}
+.link:hover {
+    color: #000000;
+}
