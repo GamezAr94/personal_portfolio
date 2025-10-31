@@ -1,62 +1,38 @@
-/* Theme GREEN */
-:root {
-    --main-background-color: rgb(36, 41, 36);
-    --secondary-color: rgb(57, 67, 57);
-    --inner-container-color: rgb(45, 55, 45);
-    --darker-main-color: rgb(28, 43, 28);
-    --highlight-darker: rgb(168, 105, 47);
-    --tag-color: rgb(253, 137, 1);
-    --secondary-container-bg: rgb(63, 54, 38);
-    --font-color: rgb(247, 240, 221);
-    --menu-btn-color: white;
-    --contact-btn-color: rgb(111, 200, 22);
+/* Import the 3 core Tailwind layers.
+  This is the foundation of your styling.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    /*TODO I need to also include this one for the other themes*/
-    --darker-inner-color: #181d18;
-
-    --theme-hero-img-red: none;
-    --theme-hero-img-blue: none;
-    --theme-hero-img-green: flex;
-    --animation-delay-timing: 1;
-    --animation-duration-timing: 1;
-}
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    -webkit-tap-highlight-color: transparent;
-}
-html {
-    scroll-behavior: smooth;
-    font-size: 62.5%;
-    color: var(--font-color);
-    justify-content: center;
-    overflow-x: hidden;
-    display: flex;
-    width: 100vw; /* Ensure width matches viewport */
-}
-body {
-    color-scheme: dark;
-    display: flex;
-    background-color: var(--main-background-color);
-}
-body {
-    max-width: 2000px;
-    min-width: 300px;
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-a {
-    color: inherit;
-    text-decoration: none;
-}
-@media (min-width: 900px) {
-}
-@media (min-width: 1250px) {
+/* This is the "Duality" theme system we planned.
+  We define the variables here, and components will use them.
+*/
+@layer base {
     body {
-        width: 90%;
-        flex-direction: row;
+        @apply bg-[#F8F8F8] text-[#111827];
     }
+
+    /* These are your "Meximalist" accent color themes.
+    Any component wrapped in a div with one of these classes
+    will change its accent color automatically.
+  */
+    .theme-magicmail {
+        --accent-color: #10b981; /* Vibrant Green */
+    }
+    .theme-ai {
+        --accent-color: #3b82f6; /* Vibrant Blue */
+    }
+    .theme-saas {
+        --accent-color: #f59e0b; /* Vibrant Amber/Orange */
+    }
+
+    /* This makes the custom cursor work, by hiding the default one.
+    We will enable this when we build the cursor.
+  */
+    /*
+  body, html {
+    cursor: none;
+  }
+  */
 }
