@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
+import FloatingChat from '@/components/FloattingChat';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
             <body className={`${inter.className} antialiased`}>
                 <Header />
                 <main>{children}</main>
+                <FloatingChat />
             </body>
         </html>
     );

@@ -3,11 +3,14 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HeroChat from './HeroChat';
 
 // Import our new CSS Module
 import styles from './Hero.module.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // The headline text
 const headline =
@@ -15,6 +18,8 @@ const headline =
 
 export default function Hero() {
     const container = useRef(null);
+
+    const chatColumnRef = useRef(null);
 
     // useGSAP hook to safely set up animations
     useGSAP(
@@ -39,12 +44,38 @@ export default function Hero() {
                 // Trigger the animation on hover
                 word.addEventListener('mouseenter', () => jiggle.restart());
             });
+            ScrollTrigger.create({
+                trigger: container.current, // The whole <section> is the trigger
+                start: 'bottom 80%', // When the bottom of the hero is 80% from the top
+
+                // When you scroll PAST this point (scrolling down)
+                onEnter: () =>
+                    gsap.to(chatColumnRef.current, {
+                        autoAlpha: 0, // Fades out and sets visibility: hidden
+                        y: 30, // Moves it down 30px
+                        duration: 0.5,
+                        ease: 'power2.out',
+                    }),
+
+                // When you scroll BACK UP past this point
+                onLeaveBack: () =>
+                    gsap.to(chatColumnRef.current, {
+                        autoAlpha: 1, // Fades back in
+                        y: 0, // Returns to original position
+                        duration: 0.5,
+                        ease: 'power2.out',
+                    }),
+            });
         },
         { scope: container },
     ); // Scope the animation to this component
 
     return (
-        <section ref={container} className={styles.heroSection}>
+        <section
+            ref={container}
+            id="hero-section"
+            className={styles.heroSection}
+        >
             {/* Left Column: Text */}
             <div className={styles.leftColumn}>
                 <h1 className={styles.headline}>
@@ -66,7 +97,7 @@ export default function Hero() {
             </div>
 
             {/* Right Column: Empty (for now) */}
-            <div className={styles.rightColumn}>
+            <div className={styles.rightColumn} ref={chatColumnRef}>
                 <HeroChat />
             </div>
         </section>
