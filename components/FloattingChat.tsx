@@ -81,71 +81,84 @@ export default function FloatingChat() {
     };
 
     useGSAP(() => {
+        // --- This is the "SLIDE-IN/OUT" logic ---
+        // This part is now "state-aware" of the scroll.
+        if (isOpen) {
+            // Animate IN (slide from right)
+            gsap.to(openChatRef.current, {
+                autoAlpha: 1,
+                xPercent: 0,
+                duration: 0.4,
+                ease: 'power3.out',
+            });
+        } else {
+            // Animate OUT (slide to right)
+            gsap.to(openChatRef.current, {
+                autoAlpha: 0,
+                xPercent: 100,
+                duration: 0.3,
+                ease: 'power3.in',
+            });
+        }
+
+        // --- This is the "SCROLL-TRIGGER" logic ---
+        // It's all inside the same hook, so they work together.
         const targets = [desktopRef.current, mobileRef.current];
-        const openTarget = openChatRef.current; // Get the open chat ref
+        const openTarget = openChatRef.current;
         let st: globalThis.ScrollTrigger | null = null;
 
         const timer = setTimeout(() => {
-            // We'll create the trigger...
             st = ScrollTrigger.create({
                 trigger: '#hero-section',
-                start: 'bottom 80%',
+                start: 'bottom 78%',
 
-                // When scrolling DOWN (past hero)
+                // 3. This tells ScrollTrigger to run the onLeaveBack
+                // check IMMEDIATELY on load.
+                immediateRender: true,
+
                 onEnter: () => {
-                    // CHECK THE STATE:
+                    // When scrolling DOWN
                     if (isOpen) {
-                        // If chat is open, show the OPEN window
-                        gsap.to(openTarget, { autoAlpha: 1, duration: 0.3 });
+                        gsap.to(openTarget, { autoAlpha: 1 });
                     } else {
-                        // If chat is closed, show the CLOSED buttons
-                        gsap.to(targets, { autoAlpha: 1, duration: 0.3 });
+                        gsap.to(targets, { autoAlpha: 1 });
                     }
                 },
-
-                // When scrolling UP (back to hero)
                 onLeaveBack: () => {
-                    // CHECK THE STATE:
+                    // When scrolling UP
                     if (isOpen) {
-                        // If chat is open, hide the OPEN window
-                        gsap.to(openTarget, { autoAlpha: 0, duration: 0.3 });
+                        gsap.to(openTarget, { autoAlpha: 0, duration: 0 });
                     } else {
-                        // If chat is closed, hide the CLOSED buttons
-                        gsap.to(targets, { autoAlpha: 0, duration: 0.3 });
+                        gsap.to(targets, { autoAlpha: 0, duration: 0 });
                     }
                 },
             });
-            // --- END OF MODIFICATION ---
         }, 100);
 
-        // The cleanup function is now more important
         return () => {
             clearTimeout(timer);
-            // We must kill the ScrollTrigger when the hook re-runs
-            // to avoid memory leaks
             if (st) st.kill();
         };
     }, [isOpen]);
 
     useGSAP(() => {
-        if (isOpen) {
-            // If 'isOpen' is true, slide it IN (to 0%)
-            gsap.to(openChatRef.current, {
-                autoAlpha: 1, // Fade in
-                xPercent: 0, // Slide to its final position
-                duration: 0.4, // A little longer for a smoother feel
-                ease: 'power3.out',
-            });
-        } else {
-            // If 'isOpen' is false, slide it OUT (to 100%)
-            gsap.to(openChatRef.current, {
-                autoAlpha: 0, // Fade out
-                xPercent: 100, // Slide off-screen
-                duration: 0.3,
-                ease: 'power3.in',
-            });
-        }
-    }, [isOpen]);
+        ScrollTrigger.create({
+            trigger: '#hero-section',
+            start: 'bottom 70%',
+            onEnter: () => {
+                setIsOpen(true);
+            },
+        });
+    }, []);
+    useGSAP(() => {
+        ScrollTrigger.create({
+            trigger: '#hero-section',
+            start: 'bottom 70%',
+            onLeaveBack: () => {
+                setIsOpen(false);
+            },
+        });
+    }, []);
 
     return (
         <>

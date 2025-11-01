@@ -1,4 +1,5 @@
 .floatingBar {
+    cursor: pointer;
     /* Positioning */
     position: fixed;
     top: 0;
