@@ -1,24 +1,92 @@
-/* This is our new floating button */
-.floatingButton {
-    /* This is the "basic square" style */
-    background-color: #3b82f6; /* AI theme blue */
-    width: 60px;
-    height: 60px;
+.floatingBar {
+    /* Positioning */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /* Full viewport height */
+    z-index: 100;
+
+    /* Look & Feel */
+    width: 50px; /* Slim sidebar */
+    background-color: #252526; /* VS Code dark background */
+    border-left: 1px solid #444444;
+
+    /* Layout for icons inside */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes top/bottom icons to edges */
+    align-items: center;
+    padding: 1rem 0; /* Padding top/bottom */
+
+    /* GSAP Hook: Start hidden, let the animation show it */
+    visibility: hidden;
+    opacity: 0;
+
+    /* Smooth transition for when GSAP animates it */
+    transition: visibility 0.3s, opacity 0.3s ease-out;
+}
+
+/* * 2. MOBILE: The small tab 
+ * (Inspired by your second screenshot)
+*/
+.mobileTab {
+    /* Hide on desktop by default */
+    display: none;
 
     /* Positioning */
     position: fixed;
-    bottom: 2rem; /* 32px */
-    right: 2rem; /* 32px */
+    top: 50%; /* Center vertically */
+    right: 0;
+    transform: translateY(-50%); /* Adjust for its own height */
     z-index: 100;
 
-    /* Just to make it look a bit better */
-    border-radius: 9999px; /* A circle */
+    /* Look & Feel */
+    background-color: #333333;
+    border: 1px solid #444444;
+    padding: 1.25rem 0.5rem; /* 20px 8px */
+    border-radius: 8px 0 0 8px; /* Rounded left corners */
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     cursor: pointer;
 
-    /* This is the key to our "no animation" fix.
-    We will start it as 'hidden'.
-    GSAP's 'autoAlpha: 1' will set this to 'visible'.
-  */
+    /* GSAP Hook: Start hidden */
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s ease-out;
+}
+
+/* * 3. ICON STYLES (for both)
+*/
+.icon {
+    width: 24px;
+    height: 24px;
+    color: #cccccc;
+    cursor: pointer;
+}
+.icon:hover {
+    color: #ffffff;
+}
+/* The main "Chat" icon */
+.chatIcon {
+    width: 28px;
+    height: 28px;
+    color: var(--theme-ai, #3b82f6); /* Use AI theme color! */
+}
+.chatIcon:hover {
+    filter: brightness(1.2);
+}
+
+/* * 4. THE RESPONSIVE SWITCH
+*/
+@media (max-width: 1000px) {
+    /* On mobile, HIDE the desktop bar */
+    .floatingBar {
+        display: none;
+    }
+
+    /* On mobile, SHOW the mobile tab */
+    .mobileTab {
+        display: flex; /* 'flex' to center the icon */
+        align-items: center;
+        justify-content: center;
+    }
 }
