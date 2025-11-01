@@ -65,14 +65,52 @@
 .icon:hover {
     color: #ffffff;
 }
-/* The main "Chat" icon */
-.chatIcon {
-    width: 28px;
-    height: 28px;
-    color: var(--theme-ai, #3b82f6); /* Use AI theme color! */
+.mainIconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* 8px */
+    cursor: pointer;
 }
-.chatIcon:hover {
+
+.mainIconGradient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem; /* 36px (slightly larger than your w-8) */
+    height: 2.25rem; /* 36px */
+    border-radius: 0.25rem; /* 4px (your 'rounded') */
+
+    /* Your gradient */
+    background-image: linear-gradient(to bottom right, #4fc3f7, #f06292);
+
+    transition: all 0.2s ease-in-out;
+}
+
+/* * ADD this new style for the letter "A".
+*/
+.mainIconLetter {
+    font-size: 1rem; /* 16px (your 'text-sm' is 14px, this is a bit bigger) */
+    font-weight: 700; /* your 'font-bold' */
+    color: #ffffff; /* your 'text-white' */
+    /* This prevents the user from accidentally selecting the "A" */
+    user-select: none;
+}
+
+.mainIconContainer:hover .mainIconBackground {
     filter: brightness(1.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.iconText {
+    font-family: monospace;
+    font-size: 0.725rem; /* 10px */
+    opacity: 0.6;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    writing-mode: vertical-lr;
+    margin-top: 20px;
 }
 
 /* * 4. THE RESPONSIVE SWITCH
