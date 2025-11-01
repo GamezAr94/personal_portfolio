@@ -1,6 +1,16 @@
 // Add the new import at the top
 import Hero from '@/components/Hero';
+import PlaygroundChapter from '@/components/PlaygroundChapter';
 import ProjectChapter from '@/components/ProjectChapter';
+import { playgroundProjects } from '@/data/projects';
+
+const chapter4Data = {
+    id: 'chapter4',
+    chapterTitle: 'Chapter 4: The Playground',
+    narrative:
+        "My passion for code doesn't stop at 5 PM. I'm always experimenting.",
+    projects: playgroundProjects, // Pass in all projects
+};
 
 // --- Define the data for Chapter 1 ---
 const chapter1Data = {
@@ -46,6 +56,8 @@ export default function Home() {
       */}
 
             <ProjectChapter {...chapter1Data} />
+
+            <PlaygroundChapter {...chapter4Data} />
 
             <div style={{ height: '2000px', background: '#eee' }}>
                 <p style={{ paddingTop: '2rem' }}>

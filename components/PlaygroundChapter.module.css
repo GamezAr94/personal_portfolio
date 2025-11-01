@@ -1,0 +1,84 @@
+/* --- Base Container --- */
+.chapterContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    border-top: 1px solid #ddd;
+    overflow: visible;
+}
+
+/* --- Narrative (Intro Text) --- */
+.chapterNarrative {
+    max-width: 75ch;
+    margin: 0 0 3rem;
+}
+
+.chapterNarrative h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.chapterNarrative .word {
+    display: inline-block;
+    margin-right: 0.25em; /* Space between words */
+}
+
+.chapterNarrative .letter {
+    display: inline-block;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.chapterNarrative p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* --- Playground Grid --- */
+.playgroundGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* --- "Show More" Button --- */
+.showMoreContainer {
+    text-align: center;
+    margin-top: 3rem;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.ctaButton {
+    /* Copied from our main style */
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    cursor: none;
+    color: #222; /* --color-text */
+    background-color: #fff;
+    border: 2px solid #eee;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    margin-top: 2.5rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ctaButton:hover {
+    background-color: #ff6b6b; /* --color-orange */
+    color: #fff;
+    border-color: #ff6b6b;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 6px 6px 0 0 #16db93, /* --color-teal */ -6px -6px 0 0 #ffd93d; /* --color-yellow */
+}

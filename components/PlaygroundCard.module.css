@@ -1,0 +1,86 @@
+.playgroundItem {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+}
+
+.playgroundItem:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 6px 6px 0 0 #16db93, /* --color-teal */ -6px -6px 0 0 #ff6b6b; /* --color-orange */
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    border-bottom: 1px solid #eee;
+    overflow: hidden; /* Ensure Next/Image respects border radius */
+}
+
+.playgroundImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key for consistent image sizes */
+}
+
+.playgroundItemContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* This makes the card bodies equal height */
+}
+
+.playgroundItemContent h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.playgroundItemContent p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* This pushes the button to the bottom */
+}
+
+.aiAskButton {
+    margin-top: auto; /* Pushes button to bottom */
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+
+    /* Copied from our main style */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #e6007e; /* --color-magenta */
+    color: #e6007e;
+    background-color: transparent;
+    border-radius: 8px;
+    cursor: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.aiAskButton svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.aiAskButton:hover {
+    background-color: #e6007e;
+    color: #fff;
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 4px 4px 0 0 #ff6b6b; /* --color-orange */
+}
