@@ -19,3 +19,9 @@ body {
 .theme-saas {
     --accent-color: #f59e0b;
 }
+
+body main > div > section {
+    max-width: 2000px;
+    margin: 0px auto;
+    padding: 0px 8%;
+}

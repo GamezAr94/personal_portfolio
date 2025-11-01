@@ -1,0 +1,198 @@
+/* --- Base Container --- */
+.chapterContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    border-top: 1px solid #ddd;
+    /* Fixes potential sticky bugs */
+    overflow: visible;
+}
+
+/* --- Narrative (Intro Text) --- */
+.chapterNarrative {
+    max-width: 75ch;
+    margin: 0 0 3rem;
+}
+
+.chapterNarrative h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    /* GSAP: H2 text is split into letters, so we need to style them */
+}
+
+.chapterNarrative .word {
+    display: inline-block;
+    margin-right: 0.25em; /* Space between words */
+}
+
+.chapterNarrative .letter {
+    display: inline-block;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.chapterNarrative p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* --- Project Layout Grid --- */
+.projectLayout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* --- Left Column: Description --- */
+
+/* **FIX HERE**: Replaced SASS nesting '& > *' with valid CSS */
+.projectDescription > * {
+    /* Set initial state for all children */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.projectDescription h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.projectDescription p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.techTag {
+    display: inline-block;
+    background-color: #eee;
+    color: #444;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.techTag:hover {
+    background-color: #16db93; /* --color-teal */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- AI Ask Button --- */
+.aiAskButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif; /* Ensure font is inherited */
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #e6007e; /* --color-magenta */
+    color: #e6007e;
+    background-color: transparent;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.aiAskButton svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.aiAskButton:hover {
+    background-color: #e6007e;
+    color: #fff;
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 4px 4px 0 0 #ff6b6b; /* --color-orange */
+}
+
+.aiAskButton:hover svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Scrollytelling Feature List --- */
+.projectFeaturesList {
+    margin-top: 4rem;
+}
+
+.featureItem {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    opacity: 0.3; /* Start dim */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.98);
+}
+
+.featureItem.isActive {
+    opacity: 1; /* Become active on scroll */
+    transform: scale(1.03);
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.featureItem h4 {
+    font-size: 1.25rem;
+    color: #222; /* --color-text */
+    margin-bottom: 0.5rem;
+}
+
+.featureItem p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0; /* Reset margin */
+}
+
+/* --- Right Column: Visual --- */
+.projectVisual {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+
+    /* This is the magic! */
+    position: sticky;
+    top: 120px;
+}
+
+.projectVisual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+.projectVisual:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 8px 8px 0 0 #ff6b6b, /* --color-orange */ -8px -8px 0 0 #16db93; /* --color-teal */
+}
+
+.projectVisual:hover img {
+    transform: scale(1.1);
+}

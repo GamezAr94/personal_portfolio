@@ -4,16 +4,11 @@
     /* This is our main hero container */
     min-height: 100vh; /* Full screen height */
     align-items: center;
-    padding: 0px 8%;
     gap: 0 50px;
-    max-width: 2000px;
-    margin: 0 auto;
 }
 
-.leftColumn {
-    /* This column holds the text */
-    display: flex;
-    flex-direction: column;
+.leftColumn h1 {
+    margin-bottom: 0px;
 }
 
 .headline {
@@ -31,12 +26,25 @@
     margin-right: 0.8rem; /* 12.8px */
 }
 
+.subtitle {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.6;
+    color: #4b5563; /* gray-600 */
+    margin-top: 2rem; /* 32px */
+    max-width: 36rem; /* 576px */
+}
+
 .rightColumn {
     /* This column is empty for now */
     /* It will hold the HeroChat component later */
     min-height: 400px;
 }
 
+@media (max-width: 1350px) {
+    .subtitle {
+        display: none;
+    }
+}
 /* On screens smaller than 1024px (laptops/tablets) */
 @media (max-width: 1024px) {
     .heroSection {

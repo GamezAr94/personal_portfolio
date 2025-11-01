@@ -58,6 +58,11 @@ export default function Hero() {
                         </span>
                     ))}
                 </h1>
+                <p className={styles.subtitle}>
+                    Welcome to my digital workshop. You can explore my projects
+                    below, or start a conversation with my AI assistant right
+                    here.
+                </p>
             </div>
 
             {/* Right Column: Empty (for now) */}
