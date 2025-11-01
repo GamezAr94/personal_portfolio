@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,19 +10,44 @@ import styles from './FloatingChat.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 // (We put these here so we don't need new files)
-const ArrowIcon = () => (
+const MaximizeIcon = () => (
     <svg
-        className={styles.icon}
-        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
+        fill="none"
         stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={styles.icon}
     >
-        <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M13 5l7 7-7 7M5 5l7 7-7 7"
-        />
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <polyline points="9 21 3 21 3 15"></polyline>
+        <line x1="21" x2="14" y1="3" y2="10"></line>
+        <line x1="3" x2="10" y1="21" y2="14"></line>
+    </svg>
+);
+
+// 3. ADD your new 'Minimize2' (Close) icon
+const MinimizeIcon = () => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={styles.icon}
+    >
+        <polyline points="4 14 10 14 10 20"></polyline>
+        <polyline points="20 10 14 10 14 4"></polyline>
+        <line x1="14" x2="21" y1="10" y2="3"></line>
+        <line x1="3" x2="10" y1="21" y2="14"></line>
     </svg>
 );
 const MobileArrowIcon = () => (
@@ -44,56 +69,120 @@ const MobileArrowIcon = () => (
 );
 
 export default function FloatingChat() {
+    const [isOpen, setIsOpen] = useState(false);
+
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
+
+    const openChatRef = useRef(null);
+
+    const toggleChat = () => {
+        setIsOpen(!isOpen);
+    };
+
     useGSAP(() => {
         const targets = [desktopRef.current, mobileRef.current];
-        // ADD THIS 'setTimeout' WRAPPER:
-        // This delays the animation setup until the *next tick*,
-        // giving React time to render the '#hero-section'
+        const openTarget = openChatRef.current; // Get the open chat ref
+        let st: globalThis.ScrollTrigger | null = null;
+
         const timer = setTimeout(() => {
-            ScrollTrigger.create({
+            // We'll create the trigger...
+            st = ScrollTrigger.create({
                 trigger: '#hero-section',
                 start: 'bottom 80%',
 
-                onEnter: () =>
-                    gsap.to(targets, { autoAlpha: 1, duration: 0.3 }),
-                onLeaveBack: () =>
-                    gsap.to(targets, { autoAlpha: 0, duration: 0.3 }),
-            });
-        }, 100); // Wait 100ms, just to be safe.
+                // When scrolling DOWN (past hero)
+                onEnter: () => {
+                    // CHECK THE STATE:
+                    if (isOpen) {
+                        // If chat is open, show the OPEN window
+                        gsap.to(openTarget, { autoAlpha: 1, duration: 0.3 });
+                    } else {
+                        // If chat is closed, show the CLOSED buttons
+                        gsap.to(targets, { autoAlpha: 1, duration: 0.3 });
+                    }
+                },
 
-        // This is important: clear the timer if the component unmounts
-        return () => clearTimeout(timer);
-    }, []);
+                // When scrolling UP (back to hero)
+                onLeaveBack: () => {
+                    // CHECK THE STATE:
+                    if (isOpen) {
+                        // If chat is open, hide the OPEN window
+                        gsap.to(openTarget, { autoAlpha: 0, duration: 0.3 });
+                    } else {
+                        // If chat is closed, hide the CLOSED buttons
+                        gsap.to(targets, { autoAlpha: 0, duration: 0.3 });
+                    }
+                },
+            });
+            // --- END OF MODIFICATION ---
+        }, 100);
+
+        // The cleanup function is now more important
+        return () => {
+            clearTimeout(timer);
+            // We must kill the ScrollTrigger when the hook re-runs
+            // to avoid memory leaks
+            if (st) st.kill();
+        };
+    }, [isOpen]);
+
+    useGSAP(() => {
+        if (isOpen) {
+            // If 'isOpen' is true, show the open window
+            gsap.to(openChatRef.current, { autoAlpha: 1, duration: 0.3 });
+        } else {
+            // If 'isOpen' is false, hide it
+            gsap.to(openChatRef.current, { autoAlpha: 0, duration: 0.3 });
+        }
+    }, [isOpen]);
 
     return (
         <>
             {/* --- DESKTOP VERSION --- */}
-            <div
-                ref={desktopRef} // 5. Assign desktop ref
-                className={styles.floatingBar}
-            >
-                <div style={{ cursor: 'pointer' }}>
-                    <ArrowIcon />
-                </div>
-                <div className={styles.mainIconContainer}>
-                    <div className={styles.mainIconGradient}>
-                        {/* We're using the "A" from your code */}
-                        <span className={styles.mainIconLetter}>A</span>
+            {!isOpen && (
+                <div
+                    ref={desktopRef}
+                    className={styles.floatingBar}
+                    onClick={toggleChat}
+                >
+                    <div style={{ cursor: 'pointer' }}>
+                        <MaximizeIcon />
                     </div>
-                    <span className={styles.iconText}>AI Assistant</span>
+                    <div className={styles.mainIconContainer}>
+                        <div className={styles.mainIconGradient}>
+                            <span className={styles.mainIconLetter}>A</span>
+                        </div>
+                        <span className={styles.iconText}>AI Assistant</span>
+                    </div>
+                    <div></div>
                 </div>
-                <div></div> {/* Spacer */}
-            </div>
+            )}
+
+            {!isOpen && (
+                <div
+                    ref={mobileRef}
+                    className={styles.mobileTab}
+                    onClick={toggleChat}
+                >
+                    <MobileArrowIcon />
+                </div>
+            )}
 
             {/* --- MOBILE VERSION --- */}
-            <div
-                ref={mobileRef} // 6. Assign mobile ref
-                className={styles.mobileTab}
-            >
-                <MobileArrowIcon />
-            </div>
+            {isOpen && (
+                <div ref={openChatRef} className={styles.openChatWindow}>
+                    <div className={styles.openChatHeader}>
+                        <span className={styles.openChatTitle}>Arturo AI</span>
+                        <div style={{ cursor: 'pointer' }} onClick={toggleChat}>
+                            <MinimizeIcon />
+                        </div>
+                    </div>
+                    <div className={styles.openChatBody}>
+                        <p>Chat messages will go here...</p>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
