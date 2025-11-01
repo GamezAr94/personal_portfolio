@@ -145,9 +145,6 @@
     /* Layout for content inside */
     display: flex;
     flex-direction: column;
-
-    /* GSAP Hook: Start hidden */
-    visibility: hidden;
     opacity: 0;
 }
 

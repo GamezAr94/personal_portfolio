@@ -129,11 +129,21 @@ export default function FloatingChat() {
 
     useGSAP(() => {
         if (isOpen) {
-            // If 'isOpen' is true, show the open window
-            gsap.to(openChatRef.current, { autoAlpha: 1, duration: 0.3 });
+            // If 'isOpen' is true, slide it IN (to 0%)
+            gsap.to(openChatRef.current, {
+                autoAlpha: 1, // Fade in
+                xPercent: 0, // Slide to its final position
+                duration: 0.4, // A little longer for a smoother feel
+                ease: 'power3.out',
+            });
         } else {
-            // If 'isOpen' is false, hide it
-            gsap.to(openChatRef.current, { autoAlpha: 0, duration: 0.3 });
+            // If 'isOpen' is false, slide it OUT (to 100%)
+            gsap.to(openChatRef.current, {
+                autoAlpha: 0, // Fade out
+                xPercent: 100, // Slide off-screen
+                duration: 0.3,
+                ease: 'power3.in',
+            });
         }
     }, [isOpen]);
 
@@ -170,19 +180,17 @@ export default function FloatingChat() {
             )}
 
             {/* --- MOBILE VERSION --- */}
-            {isOpen && (
-                <div ref={openChatRef} className={styles.openChatWindow}>
-                    <div className={styles.openChatHeader}>
-                        <span className={styles.openChatTitle}>Arturo AI</span>
-                        <div style={{ cursor: 'pointer' }} onClick={toggleChat}>
-                            <MinimizeIcon />
-                        </div>
-                    </div>
-                    <div className={styles.openChatBody}>
-                        <p>Chat messages will go here...</p>
+            <div ref={openChatRef} className={styles.openChatWindow}>
+                <div className={styles.openChatHeader}>
+                    <span className={styles.openChatTitle}>Arturo AI</span>
+                    <div style={{ cursor: 'pointer' }} onClick={toggleChat}>
+                        <MinimizeIcon />
                     </div>
                 </div>
-            )}
+                <div className={styles.openChatBody}>
+                    <p>Chat messages will go here...</p>
+                </div>
+            </div>
         </>
     );
 }
