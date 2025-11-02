@@ -51,19 +51,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Hero />
 
-            {/* We keep this "fake" div so we can still test
-          the Header's scroll animation 
-      */}
-
             <ProjectChapter {...chapter1Data} />
 
             <PlaygroundChapter {...chapter4Data} />
-
-            <div style={{ height: '2000px', background: '#eee' }}>
-                <p style={{ paddingTop: '2rem' }}>
-                    This is just a tall block of content.
-                </p>
-            </div>
         </div>
     );
 }

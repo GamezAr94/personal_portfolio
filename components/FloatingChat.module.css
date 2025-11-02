@@ -135,7 +135,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 440px; /* A good width, like your screenshot */
+    width: 380px; /* A good width, like your screenshot */
     height: 100vh; /* Full height */
     z-index: 100;
 
