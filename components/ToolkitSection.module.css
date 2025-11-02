@@ -1,0 +1,98 @@
+.toolkitSection {
+    border-top: 1px solid #ddd;
+    overflow: hidden; /* Contains animations */
+}
+
+.textCenter {
+    text-align: center;
+    max-width: 65ch;
+    margin: 0 auto 3rem auto;
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* H2 "Wave" Animation styles */
+.word {
+    display: inline-block;
+    margin-right: 0.25em; /* Space between words */
+}
+
+.letter {
+    display: inline-block;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.toolkitGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.toolkitCard {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.techBadge {
+    display: inline-block;
+    background-color: #eee;
+    color: #444;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default; /* So it doesn't look clickable */
+}
+
+/* This is the "Maximalist" hover touch */
+.techBadge:hover {
+    background-color: #16db93; /* --color-teal */
+    color: #fff;
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 3px 3px 0 0 #ffd93d; /* --color-yellow */
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .toolkitGrid {
+        grid-template-columns: 1fr;
+    }
+}

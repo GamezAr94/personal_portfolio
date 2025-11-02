@@ -1,6 +1,5 @@
 /* --- Base Container --- */
 .chapterContainer {
-    margin: 0 auto;
     border-top: 1px solid #ddd;
     overflow: visible;
 }
@@ -63,7 +62,6 @@
     text-decoration: none;
     border: none;
     font-family: 'Poppins', sans-serif;
-    cursor: none;
     color: #222; /* --color-text */
     background-color: #fff;
     border: 2px solid #eee;

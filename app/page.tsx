@@ -1,7 +1,9 @@
 // Add the new import at the top
+import AboutSection from '@/components/AboutSection';
 import Hero from '@/components/Hero';
 import PlaygroundChapter from '@/components/PlaygroundChapter';
 import ProjectChapter from '@/components/ProjectChapter';
+import ToolkitSection from '@/components/ToolkitSection';
 import { playgroundProjects } from '@/data/projects';
 
 const chapter4Data = {
@@ -15,9 +17,9 @@ const chapter4Data = {
 // --- Define the data for Chapter 1 ---
 const chapter1Data = {
     id: 'projects',
-    chapterTitle: 'Chapter 1: The Foundation',
+    chapterTitle: 'Chapter 1: Intelligent Dashboards',
     narrative:
-        'It all starts with a solid foundation. I build reliable, scalable systems that solve complex, real-world problems.',
+        'My Solid foundation. I build reliable, scalable systems that solve complex, real-world problems.',
     projectTitle: 'PWA Dashboard for MagicMail',
     projectDescription:
         'A real-time progressive web app dashboard for a mail server. It allows admins to monitor server health, track spam reports live, and manage user accounts and push notifications from any device.',
@@ -50,6 +52,10 @@ export default function Home() {
         // We still keep the outer div for alignment
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Hero />
+
+            <AboutSection />
+
+            <ToolkitSection />
 
             <ProjectChapter {...chapter1Data} />
 
