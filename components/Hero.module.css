@@ -10,6 +10,10 @@
 .leftColumn h1 {
     margin-bottom: 0px;
 }
+.leftColumn h1 span:nth-child(5),
+.leftColumn h1 span:nth-child(7) {
+    color: #16a34a;
+}
 
 .headline {
     font-size: 4.5rem; /* 72px */
@@ -52,6 +56,10 @@
         grid-template-columns: 1fr;
         min-height: 90vh; /* Full screen height */
         padding-top: 5rem;
+    }
+    .howdy {
+        margin: 0 atuo;
+        text-align: center;
     }
     .headline {
         font-size: 3.75rem; /* 60px */

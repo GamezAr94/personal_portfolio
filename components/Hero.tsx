@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // The headline text
 const headline =
-    "Hi, I'm Arturo. I'm a full-stack engineer building playful and intelligent digital experiences.";
+    'Software Developer. I build engaging and intelligent digital experiences.';
 
 export default function Hero() {
     const container = useRef(null);
@@ -78,6 +78,7 @@ export default function Hero() {
         >
             {/* Left Column: Text */}
             <div className={styles.leftColumn}>
+                <p className={styles.howdy}>👋 Hi, I'm Arturo Gamez</p>
                 <h1 className={styles.headline}>
                     {/* Split the headline text into individual <span>s */}
                     {headline.split(' ').map((word, index) => (
@@ -90,9 +91,8 @@ export default function Hero() {
                     ))}
                 </h1>
                 <p className={styles.subtitle}>
-                    Welcome to my digital workshop. You can explore my projects
-                    below, or start a conversation with my AI assistant right
-                    here.
+                    You're in my digital workshop. Explore my projects or ask my
+                    AI assistant about me and my work.
                 </p>
             </div>
 

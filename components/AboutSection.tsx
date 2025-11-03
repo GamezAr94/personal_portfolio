@@ -110,31 +110,38 @@ const AboutSection: React.FC = () => {
                     <h2 ref={h2Ref}>A Bit About Me</h2>
                     <div ref={textContentRef}>
                         <p>
-                            I'm a builder with a dual soul. I have the vibrant,
-                            passionate, and yes, sometimes{' '}
-                            <span className={styles.highlightMagenta}>
-                                maximalist
-                            </span>{' '}
-                            energy of my Mexican roots. But I live and work in
-                            Vancouver, where I've embraced the calm, focused,
-                            and purposeful{' '}
+                            I'm a software developer who thrives on
+                            understanding the "why"—the deep user and business
+                            needs behind every feature. My motto is "what you
+                            can measure, you can control," and I apply that by
+                            writing{' '}
                             <span className={styles.highlightTeal}>
-                                minimalism
+                                clean, efficient
+                            </span>
+                            , and team-friendly code.
+                        </p>
+                        <p>
+                            While I'm a front-end specialist who loves a{' '}
+                            <span className={styles.highlightMagenta}>
+                                good design challenge
                             </span>{' '}
-                            of the Pacific Northwest.
+                            (especially pixel-perfect UIs), I'm also a curious
+                            problem-solver who enjoys tackling HackerRank
+                            puzzles.
                         </p>
                         <p>
-                            This blend defines my work. I build clean, robust,
-                            and scalable systems (the minimalist part) that are
-                            brought to life with delightful animations,
-                            intelligent features, and a user experience that
-                            just <em>feels</em> good (the maximalist part).
-                        </p>
-                        <p>
-                            When I'm not coding, you'll find me exploring the
-                            mountains, experimenting with new recipes, or diving
-                            deep into a new AI paper. I'm always looking for new
-                            challenges.
+                            As a BCIT-trained developer based in Vancouver, I'm
+                            looking for a role with clear goals on a
+                            collaborative team of smart, passionate people. I'm
+                            excited to grow, learn, and build{' '}
+                            <span className={styles.highlightTeal}>
+                                scalable
+                            </span>
+                            ,{' '}
+                            <span className={styles.highlightMagenta}>
+                                user-centric
+                            </span>{' '}
+                            applications.
                         </p>
                     </div>
                 </div>

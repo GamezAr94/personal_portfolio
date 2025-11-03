@@ -5,7 +5,7 @@ import styles from './HeroChat.module.css';
 
 // A simple ASCII art for the "Playful" touch
 const asciiArt = `
-    _    ____ ____ ___ 
+    _    ____ _____ ___ 
    / \\  |  _ \\_   _|_ _|
   / _ \\ | |_) || |  | | 
  / ___ \\|  _ < | |  | | 
@@ -35,7 +35,7 @@ export default function HeroChat() {
                     <strong>Arturo-AI:</strong>
                     <p>
                         Hi there! I'm Arturo's digital assistant. You can ask me
-                        anything about his projects.
+                        anything about Arturo and his projects.
                     </p>
                 </div>
 
