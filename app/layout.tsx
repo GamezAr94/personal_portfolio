@@ -20,7 +20,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             {/* The installer correctly set up the font in the body */}
             <body className={`${inter.className} antialiased`}>
                 <Header />

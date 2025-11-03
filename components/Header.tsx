@@ -56,6 +56,21 @@ export default function Header() {
                     Arturo Gamez
                 </Link>
 
+                <nav className={styles.mainNav}>
+                    <Link href="/" className={styles.navLink}>
+                        Home
+                    </Link>
+                    <Link href="/#about" className={styles.navLink}>
+                        About
+                    </Link>
+                    <Link href="/#projects" className={styles.navLink}>
+                        Projects
+                    </Link>
+                    <Link href="/#contact" className={styles.navLink}>
+                        Contact
+                    </Link>
+                </nav>
+
                 {/* Right Side: Language Links */}
                 <div className={styles.links}>
                     <Link

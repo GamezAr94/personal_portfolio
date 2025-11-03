@@ -47,11 +47,11 @@
 }
 /* On screens smaller than 1024px (laptops/tablets) */
 @media (max-width: 1024px) {
-    .heroSection {
+    body main > div > section.heroSection {
         /* Stack to 1 column */
         grid-template-columns: 1fr;
         min-height: 90vh; /* Full screen height */
-        padding-top: 6rem;
+        padding-top: 5rem;
     }
     .headline {
         font-size: 3.75rem; /* 60px */

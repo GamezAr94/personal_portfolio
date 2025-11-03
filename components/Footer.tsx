@@ -78,7 +78,11 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
             </p>
 
             {/* --- New Contact Form --- */}
-            <form className={styles.contactForm} onSubmit={handleSubmit}>
+            <form
+                id="contact"
+                className={styles.contactForm}
+                onSubmit={handleSubmit}
+            >
                 <div className={styles.formGroup}>
                     <label htmlFor="name">Name</label>
                     <input
