@@ -52,6 +52,12 @@
 .textColumn > div > * {
     opacity: 0;
     transform: translateY(40px);
+    opacity: 0;
+    transform: translateY(0);
+}
+.aboutWord {
+    opacity: 0;
+    display: inline-block;
 }
 
 .textColumn p {
