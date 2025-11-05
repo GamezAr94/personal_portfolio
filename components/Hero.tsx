@@ -9,6 +9,7 @@ import HeroChat from './HeroChat';
 
 // Import our new CSS Module
 import styles from './Hero.module.css';
+import AnimatedText from './AnimatedText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,10 +91,12 @@ export default function Hero() {
                         </span>
                     ))}
                 </h1>
-                <p className={styles.subtitle}>
-                    You're in my digital workshop. Explore my projects or ask my
-                    AI assistant about me and my work.
-                </p>
+                <AnimatedText triggerRef={container} animDuration={0.4}>
+                    <p className={styles.subtitle}>
+                        You're in my digital workshop. Explore my projects or
+                        ask my AI assistant about me and my work.
+                    </p>
+                </AnimatedText>
             </div>
 
             {/* Right Column: Empty (for now) */}

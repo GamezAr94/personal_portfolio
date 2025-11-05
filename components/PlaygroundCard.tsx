@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './PlaygroundCard.module.css';
 import Image from 'next/image'; // Use Next.js Image for optimization
+import AnimatedText from './AnimatedText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +66,9 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
             </div>
             <div className={styles.playgroundItemContent}>
                 <h4>{title}</h4>
-                <p>{description}</p>
+                <AnimatedText triggerRef={cardRef}>
+                    <p>{description}</p>
+                </AnimatedText>
                 <button className={styles.aiAskButton} onClick={handleAskClick}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

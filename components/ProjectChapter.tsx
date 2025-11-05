@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './ProjectChapter.module.css';
+import AnimatedText from './AnimatedText';
 
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -181,7 +182,12 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
             <div className={styles.projectLayout}>
                 <div className={styles.projectDescription} ref={descriptionRef}>
                     <h3>{projectTitle}</h3>
-                    <p>{projectDescription}</p>
+                    <AnimatedText
+                        triggerRef={descriptionRef}
+                        animDuration={0.3}
+                    >
+                        <p>{projectDescription}</p>
+                    </AnimatedText>
 
                     <div className={styles.techTags}>
                         {techTags.map((tag) => (
@@ -219,7 +225,12 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                         {features.map((feature, index) => (
                             <div key={index} className={styles.featureItem}>
                                 <h4>{feature.title}</h4>
-                                <p>{feature.description}</p>
+                                <AnimatedText
+                                    triggerRef={featuresListRef}
+                                    animDuration={0.2}
+                                >
+                                    <p>{feature.description}</p>
+                                </AnimatedText>
                             </div>
                         ))}
                     </div>

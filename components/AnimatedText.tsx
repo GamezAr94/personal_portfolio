@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useRef, useEffect, Children, cloneElement } from 'react';
+import React, { useRef, Children, cloneElement } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -47,11 +47,13 @@ type AnimatedTextProps = {
     children: React.ReactNode;
     // An optional prop to use a parent element as the trigger
     triggerRef?: React.RefObject<HTMLDivElement | null>;
+    animDuration?: number;
 };
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({
     children,
     triggerRef,
+    animDuration = 0.1,
 }) => {
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -93,7 +95,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
                 // Stagger-fade in the words
                 tl.to(words, {
                     opacity: 1,
-                    duration: 0.1,
+                    duration: animDuration,
                     stagger: 0.025,
                     ease: 'none',
                 });
