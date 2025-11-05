@@ -1,0 +1,179 @@
+/* --- Base Section --- */
+.experienceSection {
+    border-top: 1px solid #ddd;
+    overflow: hidden; /* Contains animations */
+}
+
+/* --- Narrative (Copied from ToolkitSection) --- */
+.narrative {
+    text-align: center;
+    max-width: 65ch;
+    margin: 0 auto 3rem auto;
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* H2 "Wave" Animation styles (Copied from ToolkitSection) */
+.word {
+    display: inline-block;
+    margin-right: 0.25em; /* Space between words */
+}
+
+.letter {
+    display: inline-block;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.narrative p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+    /* GSAP: Initial state */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* --- Timeline Container --- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 80ch; /* A bit wider for job descriptions */
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+/* --- Individual Job Item (Card) --- */
+.jobItem {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    padding: 2rem 2.5rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* GSAP: Initial state (copied from ToolkitCard) */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+}
+
+/* "Meximalist" hover effect */
+.jobItem:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 4px 4px 0 0 #e6007e, /* --color-magenta */ -4px -4px 0 0 #16db93; /* --color-teal */
+}
+
+.jobHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap; /* For responsive */
+}
+
+.jobHeader h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    color: #222;
+}
+
+.jobHeader span {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+    flex-shrink: 0; /* Prevents company name from wrapping */
+}
+
+.jobDates {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e6007e; /* --color-magenta */
+    margin-bottom: 1.5rem;
+}
+
+.jobItem p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* --- Tech Tags (Copied from ProjectChapter) --- */
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.techTag {
+    display: inline-block;
+    background-color: #eee;
+    color: #444;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.techTag:hover {
+    background-color: #16db93; /* --color-teal */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- AI Ask Button (Copied from ProjectChapter) --- */
+.aiAskButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #e6007e; /* --color-magenta */
+    color: #e6007e;
+    background-color: transparent;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 0; /* Adjusted from 1rem */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.aiAskButton svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.aiAskButton:hover {
+    background-color: #e6007e;
+    color: #fff;
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 4px 4px 0 0 #ff6b6b; /* --color-orange */
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .jobItem {
+        padding: 1.5rem;
+    }
+
+    .jobHeader h3 {
+        font-size: 1.25rem;
+    }
+
+    .jobHeader span {
+        font-size: 0.9rem;
+    }
+}

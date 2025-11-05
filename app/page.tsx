@@ -1,5 +1,6 @@
 // Add the new import at the top
 import AboutSection from '@/components/AboutSection';
+import ExperienceSection from '@/components/ExperienceSection';
 import Hero from '@/components/Hero';
 import PlaygroundChapter from '@/components/PlaygroundChapter';
 import ProjectChapter from '@/components/ProjectChapter';
@@ -56,6 +57,8 @@ export default function Home() {
             <AboutSection />
 
             <ToolkitSection />
+
+            <ExperienceSection />
 
             <ProjectChapter {...chapter1Data} />
 
