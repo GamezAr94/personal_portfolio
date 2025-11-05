@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ExperienceSection.module.css';
+import AnimatedText from './AnimatedText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -150,7 +151,9 @@ const ExperienceSection: React.FC = () => {
                             <span>{job.company}</span>
                         </div>
                         <span className={styles.jobDates}>{job.dates}</span>
-                        <p>{job.description}</p>
+                        <AnimatedText triggerRef={timelineRef}>
+                            <p>{job.description}</p>
+                        </AnimatedText>
 
                         {/* --- 8. Re-using ProjectChapter styles --- */}
                         <div className={styles.techTags}>

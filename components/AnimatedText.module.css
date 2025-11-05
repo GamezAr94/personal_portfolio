@@ -1,0 +1,17 @@
+/* components/AnimatedText.module.css */
+
+.word {
+    opacity: 0;
+    display: inline-block;
+}
+
+/* We'll apply this class to the children (<p> tags)
+  to set their initial state.
+*/
+.paragraph {
+    opacity: 0;
+    /* This transform matches the one in your AboutSection.module.css,
+      so the effect will be identical.
+    */
+    transform: translateY(40px);
+}
