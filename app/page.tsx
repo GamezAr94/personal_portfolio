@@ -62,6 +62,8 @@ export default function Home() {
 
             <ProjectChapter {...chapter1Data} />
 
+            <ProjectChapter {...chapter1Data} />
+
             <PlaygroundChapter {...chapter4Data} />
         </div>
     );

@@ -51,9 +51,6 @@
 /* GSAP: Initial state for paragraphs */
 .textColumn > div > * {
     opacity: 0;
-    transform: translateY(40px);
-    opacity: 0;
-    transform: translateY(0);
 }
 .aboutWord {
     opacity: 0;
@@ -98,10 +95,7 @@
 
     .imageColumn {
         order: -1; /* Puts image on top on mobile */
-    }
-
-    .profileImage {
-        max-width: 250px;
+        display: flex;
     }
 
     .textColumn {

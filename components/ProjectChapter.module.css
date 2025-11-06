@@ -11,10 +11,10 @@
     margin: 0 0 3rem;
 }
 
-.chapterNarrative h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
+.chapterNarrative h5 {
+    font-size: clamp(1rem, 5vw, 1.2rem);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     /* GSAP: H2 text is split into letters, so we need to style them */
 }
 
@@ -31,12 +31,14 @@
 }
 
 .chapterNarrative p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 1.7;
     color: #555;
     /* GSAP: Initial state */
     opacity: 0;
     transform: translateY(40px);
+    margin-top: 0.2rem;
+    font-style: italic;
 }
 
 /* --- Project Layout Grid --- */
@@ -57,7 +59,7 @@
 }
 
 .projectDescription h3 {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }

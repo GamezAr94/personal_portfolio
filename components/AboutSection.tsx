@@ -160,7 +160,7 @@ const AboutSection: React.FC = () => {
                 {/* --- Image Column --- */}
                 <div className={styles.imageColumn} ref={imageRef}>
                     <Image
-                        src="" // Placeholder
+                        src="/img/about_me_image.jpg" // Placeholder
                         alt="A professional photo of Arturo Gamez"
                         width={400}
                         height={400}

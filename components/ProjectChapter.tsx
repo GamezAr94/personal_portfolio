@@ -175,7 +175,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     return (
         <section id={id} className={styles.chapterContainer} ref={sectionRef}>
             <div className={styles.chapterNarrative}>
-                <h2 ref={h2Ref}>{chapterTitle}</h2>
+                <h5 ref={h2Ref}>{chapterTitle}</h5>
                 <p ref={pRef}>"{narrative}"</p>
             </div>
 
