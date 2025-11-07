@@ -182,6 +182,7 @@ export default function Home() {
             <Hero />
 
             <AboutSection />
+            {/*
 
             <ToolkitSection />
 
@@ -194,6 +195,9 @@ export default function Home() {
             <ProjectChapter {...chapter3Data} />
 
             <PlaygroundChapter {...chapter4Data} />
+
+
+    */}
         </div>
     );
 }

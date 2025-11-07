@@ -1,0 +1,14 @@
+{
+    "Navigation": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "AboutSection": {
+        "title": "A Bit About Me",
+        "p1": "I'm a software developer who thrives on understanding the \"why\"—the deep user and business needs behind every feature. My motto is \"what you can measure, you can control,\" and I apply that by writing <teal>clean, efficient</teal>, and team-friendly code.",
+        "p2": "While I'm a front-end specialist who loves a <magenta>good design challenge</magenta> (especially pixel-perfect UIs), I'm also a curious problem-solver who enjoys tackling HackerRank puzzles.",
+        "p3": "As a BCIT-trained developer based in Vancouver, I'm looking for a role with clear goals on a collaborative team of smart, passionate people. I'm excited to grow, learn, and build <teal>scalable</teal>, <magenta>user-centric</magenta> applications."
+    }
+}

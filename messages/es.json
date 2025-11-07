@@ -1,0 +1,14 @@
+{
+    "Navigation": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "AboutSection": {
+        "title": "Un Poco Sobre Mí",
+        "p1": "Soy un desarrollador de software que prospera entendiendo el \"porqué\": las profundas necesidades del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y amigable para el equipo.",
+        "p2": "Aunque soy un especialista en front-end al que le encantan los <magenta>buenos desafíos de diseño</magenta> (especialmente las interfaces de usuario perfectas a nivel de píxel), también soy un solucionador de problemas curioso que disfruta abordando acertijos de HackerRank.",
+        "p3": "Como desarrollador formado en BCIT con sede en Vancouver, estoy buscando un puesto con objetivos claros en un equipo colaborativo de personas inteligentes y apasionadas. Estoy emocionado por crecer, aprender y construir aplicaciones <teal>escalables</teal> y <magenta>centradas en el usuario</magenta>."
+    }
+}

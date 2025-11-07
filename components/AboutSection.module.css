@@ -20,6 +20,7 @@
 .profileImage {
     border-radius: 50%;
     width: 100%;
+    height: auto;
     max-width: 400px;
     margin: 0 auto;
     aspect-ratio: 1/1;
@@ -38,7 +39,6 @@
 /* H2 "Wave" Animation styles (copied from your other components) */
 .textColumn .word {
     display: inline-block;
-    margin-right: 0.25em; /* Space between words */
 }
 
 .textColumn .letter {

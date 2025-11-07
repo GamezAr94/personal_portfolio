@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,12 +8,39 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Import our new CSS Module
 import styles from './Header.module.css';
 
+import { useTranslations, useLocale } from 'next-intl';
+import { Link, usePathname } from '../navigation';
+import { locales } from '../i18n';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
     const headerRef = useRef(null);
 
-    // GSAP animation logic - THIS REMAINS THE SAME
+    const t = useTranslations('Navigation');
+    const locale = useLocale(); // This tells us the current locale (e.g., "en")
+    const pathname = usePathname(); // This is the value that was buggy (e.g., "/es", "/fr", or "/")
+
+    // This logic is safer and doesn't use useLocale()
+    let cleanPathname = pathname;
+
+    // We check against ALL locales, not just the current one
+    for (const lang of locales) {
+        const prefix = `/${lang}`;
+        if (pathname.startsWith(prefix)) {
+            // Found a prefix (e.g., "/es/projects" starts with "/es")
+            cleanPathname = pathname.slice(prefix.length); // Slices it to "/projects"
+            break; // Stop looping
+        }
+    }
+
+    // If the path was just "/es", slicing it leaves "",
+    // so we set it to "/"
+    if (cleanPathname === '') {
+        cleanPathname = '/';
+    }
+
+    // GSAP animation logic
     useGSAP(
         () => {
             ScrollTrigger.create({
@@ -58,33 +84,35 @@ export default function Header() {
 
                 <nav className={styles.mainNav}>
                     <Link href="/" className={styles.navLink}>
-                        Home
+                        {t('home')}
                     </Link>
                     <Link href="/#about" className={styles.navLink}>
-                        About
+                        {t('about')}
                     </Link>
                     <Link href="/#projects" className={styles.navLink}>
-                        Projects
+                        {t('projects')}
                     </Link>
                     <Link href="/#contact" className={styles.navLink}>
-                        Contact
+                        {t('contact')}
                     </Link>
                 </nav>
 
                 {/* Right Side: Language Links */}
                 <div className={styles.links}>
-                    <Link
-                        href="/"
-                        className={`${styles.link} ${styles.active}`}
-                    >
-                        EN
-                    </Link>
-                    <Link href="/" className={styles.link}>
-                        ES
-                    </Link>
-                    <Link href="/" className={styles.link}>
-                        FR
-                    </Link>
+                    {locales.map((lang) => (
+                        <Link
+                            key={lang}
+                            // 1. Pass the clean pathname to href
+                            href={cleanPathname}
+                            // 2. Pass the target language to the 'locale' prop
+                            locale={lang}
+                            className={`${styles.link} ${
+                                locale === lang ? styles.active : ''
+                            }`}
+                        >
+                            {lang.toUpperCase()}
+                        </Link>
+                    ))}
                 </div>
             </nav>
         </header>

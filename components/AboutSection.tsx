@@ -7,6 +7,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './AboutSection.module.css';
 
+import { useTranslations } from 'next-intl';
+
 gsap.registerPlugin(ScrollTrigger);
 
 // This function recursively traverses DOM nodes
@@ -51,6 +53,8 @@ const wrapWordsInSpans = (
 };
 
 const AboutSection: React.FC = () => {
+    const t = useTranslations('AboutSection');
+
     // ... all your existing refs (sectionRef, imageRef, h2Ref, textContentRef) ...
     const sectionRef = useRef<HTMLElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
@@ -65,13 +69,23 @@ const AboutSection: React.FC = () => {
                 // ... your existing wave animation code ...
                 const originalText = h2.textContent || '';
                 let newHTML = '';
-                originalText.split(' ').forEach((word) => {
+                // Save the words to a variable
+                const words = originalText.split(' ');
+
+                // Add "index" to the forEach loop
+                words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
                     word.split('').forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
                     wordHTML += '</span>';
                     newHTML += wordHTML;
+
+                    // ✅ ADD THIS IF-STATEMENT
+                    // This adds the space back, unless it's the very last word
+                    if (index < words.length - 1) {
+                        newHTML += ' ';
+                    }
                 });
                 h2.innerHTML = newHTML;
 
@@ -151,7 +165,7 @@ const AboutSection: React.FC = () => {
                 });
             }
         },
-        { scope: sectionRef },
+        { scope: sectionRef, dependencies: [t] },
     );
 
     return (
@@ -170,42 +184,42 @@ const AboutSection: React.FC = () => {
 
                 {/* --- Text Column --- */}
                 <div className={styles.textColumn}>
-                    <h2 ref={h2Ref}>A Bit About Me</h2>
+                    <h2 ref={h2Ref}>{t('title')}</h2>
                     {/* This ref is all you need for the JSX */}
                     <div ref={textContentRef}>
                         <p>
-                            I'm a software developer who thrives on
-                            understanding the "why"—the deep user and business
-                            needs behind every feature. My motto is "what you
-                            can measure, you can control," and I apply that by
-                            writing{' '}
-                            <span className={styles.highlightTeal}>
-                                clean, efficient
-                            </span>
-                            , and team-friendly code.
+                            {t.rich('p1', {
+                                teal: (chunks) => (
+                                    <span className={styles.highlightTeal}>
+                                        {chunks}
+                                    </span>
+                                ),
+                            })}
                         </p>
                         <p>
-                            While I'm a front-end specialist who loves a{' '}
-                            <span className={styles.highlightMagenta}>
-                                good design challenge
-                            </span>{' '}
-                            (especially pixel-perfect UIs), I'm also a curious
-                            problem-solver who enjoys tackling HackerRank
-                            puzzles.
+                            {/* Use t.rich() to replace <magenta> tags */}
+                            {t.rich('p2', {
+                                magenta: (chunks) => (
+                                    <span className={styles.highlightMagenta}>
+                                        {chunks}
+                                    </span>
+                                ),
+                            })}
                         </p>
                         <p>
-                            As a BCIT-trained developer based in Vancouver, I'm
-                            looking for a role with clear goals on a
-                            collaborative team of smart, passionate people. I'm
-                            excited to grow, learn, and build{' '}
-                            <span className={styles.highlightTeal}>
-                                scalable
-                            </span>
-                            ,{' '}
-                            <span className={styles.highlightMagenta}>
-                                user-centric
-                            </span>{' '}
-                            applications.
+                            {/* Use t.rich() for multiple tags */}
+                            {t.rich('p3', {
+                                teal: (chunks) => (
+                                    <span className={styles.highlightTeal}>
+                                        {chunks}
+                                    </span>
+                                ),
+                                magenta: (chunks) => (
+                                    <span className={styles.highlightMagenta}>
+                                        {chunks}
+                                    </span>
+                                ),
+                            })}
                         </p>
                     </div>
                 </div>
