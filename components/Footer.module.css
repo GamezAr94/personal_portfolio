@@ -38,6 +38,12 @@
 
 .formGroup {
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.formGroup input,
+.formGroup textarea {
+    width: unset;
 }
 
 .formGroup label {
