@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './Footer.module.css';
 
+import { useTranslations } from 'next-intl';
+
 gsap.registerPlugin(ScrollTrigger);
 
 // --- Component Props ---
@@ -14,6 +16,8 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
+    const t = useTranslations('Footer');
+
     const footerRef = useRef<HTMLElement>(null);
     const copyrightYear = new Date().getFullYear();
 
@@ -49,7 +53,8 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
     // Form submission handler
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('Sending...');
+
+        setStatus(t('form_status_sending'));
 
         // This is where you'll send the data to your Next.js API route
         // Example: /api/contact
@@ -59,23 +64,20 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             // On success
-            setStatus('Message sent successfully!');
+            setStatus(t('form_status_success'));
             setName('');
             setEmail('');
             setMessage('');
         } catch (error) {
             // On error
-            setStatus('Something went wrong. Please try again.');
+            setStatus(t('form_status_error'));
         }
     };
 
     return (
         <footer className={styles.contactContainer} ref={footerRef}>
-            <h2>Get in Touch</h2>
-            <p>
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities. Feel free to reach out.
-            </p>
+            <h2>{t('title')}</h2>
+            <p>{t('subtitle')}</p>
 
             {/* --- New Contact Form --- */}
             <form
@@ -84,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
                 onSubmit={handleSubmit}
             >
                 <div className={styles.formGroup}>
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">{t('form_name')}</label>{' '}
                     <input
                         type="text"
                         id="name"
@@ -95,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">{t('form_email')}</label>{' '}
                     <input
                         type="email"
                         id="email"
@@ -106,7 +108,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">{t('form_message')}</label>{' '}
                     <textarea
                         id="message"
                         className={styles.textarea}
@@ -119,7 +121,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
 
                 {/* Submit button uses .ctaButton styles */}
                 <button type="submit" className={styles.ctaButton}>
-                    Send Message
+                    {t('form_button')}{' '}
                 </button>
 
                 {status && <p className={styles.formStatus}>{status}</p>}
@@ -135,7 +137,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
             </div>
 
             <div className={styles.footerCopyright}>
-                © {copyrightYear} Arturo Gamez. Built with playful energy.
+                © {copyrightYear} Arturo Gamez. {t('copyright')}
             </div>
         </footer>
     );

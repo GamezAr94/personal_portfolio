@@ -96,5 +96,17 @@
         "p6_title": "GLSL Shader Art",
         "p6_desc": "Learning fragment shaders to create generative art. This one is based on Perlin noise.",
         "p6_aiQuery": "What is 'GLSL Shader Art'?"
+    },
+    "Footer": {
+        "title": "Get in Touch",
+        "subtitle": "I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out.",
+        "form_name": "Name",
+        "form_email": "Email",
+        "form_message": "Message",
+        "form_button": "Send Message",
+        "form_status_sending": "Sending...",
+        "form_status_success": "Message sent successfully!",
+        "form_status_error": "Something went wrong. Please try again.",
+        "copyright": "Built with playful energy."
     }
 }

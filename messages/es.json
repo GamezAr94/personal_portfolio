@@ -96,5 +96,17 @@
         "p6_title": "Arte con Shaders GLSL",
         "p6_desc": "Aprendiendo fragment shaders para crear arte generativo. Este se basa en el ruido Perlin.",
         "p6_aiQuery": "¿Qué es 'Arte con Shaders GLSL'?"
+    },
+    "Footer": {
+        "title": "Ponte en Contacto",
+        "subtitle": "Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades. No dudes en contactarme.",
+        "form_name": "Nombre",
+        "form_email": "Correo Electrónico",
+        "form_message": "Mensaje",
+        "form_button": "Enviar Mensaje",
+        "form_status_sending": "Enviando...",
+        "form_status_success": "¡Mensaje enviado con éxito!",
+        "form_status_error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+        "copyright": "Construido con energía lúdica."
     }
 }

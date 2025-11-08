@@ -96,5 +96,17 @@
         "p6_title": "Art Shader GLSL",
         "p6_desc": "Apprentissage des fragment shaders pour créer de l'art génératif. Celui-ci est basé sur le bruit de Perlin.",
         "p6_aiQuery": "Qu'est-ce que 'l'Art Shader GLSL' ?"
+    },
+    "Footer": {
+        "title": "Contactez-moi",
+        "subtitle": "Je suis toujours ouvert à la discussion de nouveaux projets, d'idées créatives ou d'opportunités. N'hésitez pas à me contacter.",
+        "form_name": "Nom",
+        "form_email": "Email",
+        "form_message": "Message",
+        "form_button": "Envoyer le Message",
+        "form_status_sending": "Envoi en cours...",
+        "form_status_success": "Message envoyé avec succès !",
+        "form_status_error": "Quelque chose s'est mal passé. Veuillez réessayer.",
+        "copyright": "Construit avec une énergie ludique."
     }
 }
