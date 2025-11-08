@@ -5,6 +5,11 @@
         "projects": "Proyectos",
         "contact": "Contacto"
     },
+    "Hero": {
+        "howdy": "👋 Hola, soy Arturo Gamez",
+        "headline": "Desarrollador de Software. Construyo experiencias digitales atractivas e inteligentes.",
+        "subtitle": "Estás en mi taller digital. Explora mis proyectos o pregúntale a mi asistente de IA sobre mí y mi trabajo."
+    },
     "AboutSection": {
         "title": "Un Poco Sobre Mí",
         "p1": "Soy un desarrollador de software que prospera entendiendo el \"porqué\": las profundas necesidades del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y amigable para el equipo.",

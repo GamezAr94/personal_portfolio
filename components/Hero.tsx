@@ -11,16 +11,17 @@ import HeroChat from './HeroChat';
 import styles from './Hero.module.css';
 import AnimatedText from './AnimatedText';
 
-gsap.registerPlugin(ScrollTrigger);
+import { useTranslations } from 'next-intl';
 
-// The headline text
-const headline =
-    'Software Developer. I build engaging and intelligent digital experiences.';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
     const container = useRef(null);
 
     const chatColumnRef = useRef(null);
+
+    const t = useTranslations('Hero');
+    const headline = t('headline');
 
     // useGSAP hook to safely set up animations
     useGSAP(
@@ -68,7 +69,7 @@ export default function Hero() {
                     }),
             });
         },
-        { scope: container },
+        { scope: container, dependencies: [t] },
     ); // Scope the animation to this component
 
     return (
@@ -79,7 +80,7 @@ export default function Hero() {
         >
             {/* Left Column: Text */}
             <div className={styles.leftColumn}>
-                <p className={styles.howdy}>👋 Hi, I'm Arturo Gamez</p>
+                <p className={styles.howdy}>{t('howdy')}</p>{' '}
                 <h1 className={styles.headline}>
                     {/* Split the headline text into individual <span>s */}
                     {headline.split(' ').map((word, index) => (
@@ -92,10 +93,7 @@ export default function Hero() {
                     ))}
                 </h1>
                 <AnimatedText triggerRef={container} animDuration={0.4}>
-                    <p className={styles.subtitle}>
-                        You're in my digital workshop. Explore my projects or
-                        ask my AI assistant about me and my work.
-                    </p>
+                    <p className={styles.subtitle}>{t('subtitle')}</p>
                 </AnimatedText>
             </div>
 

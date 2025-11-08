@@ -5,6 +5,11 @@
         "projects": "Projects",
         "contact": "Contact"
     },
+    "Hero": {
+        "howdy": "👋 Hi, I'm Arturo Gamez",
+        "headline": "Software Developer. I build engaging and intelligent digital experiences.",
+        "subtitle": "You're in my digital workshop. Explore my projects or ask my AI assistant about me and my work."
+    },
     "AboutSection": {
         "title": "A Bit About Me",
         "p1": "I'm a software developer who thrives on understanding the \"why\"—the deep user and business needs behind every feature. My motto is \"what you can measure, you can control,\" and I apply that by writing <teal>clean, efficient</teal>, and team-friendly code.",

@@ -5,6 +5,11 @@
         "projects": "Projets",
         "contact": "Contact"
     },
+    "Hero": {
+        "howdy": "👋 Bonjour, je suis Arturo Gamez",
+        "headline": "Développeur de Logiciels. Je crée des expériences numériques engageantes et intelligentes.",
+        "subtitle": "Vous êtes dans mon atelier numérique. Explorez mes projets ou demandez à mon assistant IA à propos de moi et de mon travail."
+    },
     "AboutSection": {
         "title": "Un Peu Sur Moi",
         "p1": "Je suis un développeur de logiciels qui s'épanouit en comprenant le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et convivial pour l'équipe.",
