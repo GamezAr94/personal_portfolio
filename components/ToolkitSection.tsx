@@ -5,13 +5,14 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ToolkitSection.module.css';
+import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Data for the toolkit
 const toolCategories = [
     {
-        title: 'Frontend',
+        title: 'frontend',
         tools: [
             'React',
             'Next.js',
@@ -24,7 +25,7 @@ const toolCategories = [
         ],
     },
     {
-        title: 'Backend',
+        title: 'backend',
         tools: [
             'Node.js',
             'Python',
@@ -37,7 +38,7 @@ const toolCategories = [
         ],
     },
     {
-        title: 'Databases & Tools',
+        title: 'databases',
         tools: [
             'PostgreSQL',
             'MySQL',
@@ -52,6 +53,7 @@ const toolCategories = [
 ];
 
 const ToolkitSection: React.FC = () => {
+    const t = useTranslations('ToolkitSection');
     const sectionRef = useRef<HTMLElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
     const pRef = useRef<HTMLParagraphElement>(null);
@@ -62,15 +64,21 @@ const ToolkitSection: React.FC = () => {
             // --- 1. H2 "Wave" Animation ---
             const h2 = h2Ref.current;
             if (h2) {
-                const originalText = h2.textContent || '';
+                const originalText = t('title');
                 let newHTML = '';
-                originalText.split(' ').forEach((word) => {
+
+                const words = originalText.split(' ');
+                words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
                     word.split('').forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
                     wordHTML += '</span>';
                     newHTML += wordHTML;
+
+                    if (index < words.length - 1) {
+                        newHTML += ' ';
+                    }
                 });
                 h2.innerHTML = newHTML;
 
@@ -123,7 +131,7 @@ const ToolkitSection: React.FC = () => {
                 });
             }
         },
-        { scope: sectionRef },
+        { scope: sectionRef, dependencies: [t] },
     );
 
     return (
@@ -134,18 +142,17 @@ const ToolkitSection: React.FC = () => {
         >
             <div className={styles.textCenter}>
                 <h2 className={styles.title} ref={h2Ref}>
-                    My Toolkit
+                    {t('title')}
                 </h2>
-                <p ref={pRef}>
-                    I'm always learning, but these are the technologies I'm most
-                    comfortable with.
-                </p>
+                <p ref={pRef}>{t('subtitle')}</p>
             </div>
 
             <div className={styles.toolkitGrid} ref={gridRef}>
                 {toolCategories.map((category) => (
                     <div key={category.title} className={styles.toolkitCard}>
-                        <h3 className={styles.cardTitle}>{category.title}</h3>
+                        <h3 className={styles.cardTitle}>
+                            {t(category.title)}
+                        </h3>
                         <div className={styles.tagsContainer}>
                             {category.tools.map((tool) => (
                                 <span key={tool} className={styles.techBadge}>

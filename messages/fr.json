@@ -10,5 +10,12 @@
         "p1": "Je suis un développeur de logiciels qui s'épanouit en comprenant le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et convivial pour l'équipe.",
         "p2": "Bien que je sois un spécialiste du front-end qui aime les <magenta>bons défis de conception</magenta> (en particulier les interfaces utilisateur parfaites au pixel près), je suis aussi un solutionneur de problèmes curieux qui aime s'attaquer aux énigmes de HackerRank.",
         "p3": "En tant que développeur formé au BCIT et basé à Vancouver, je recherche un poste avec des objectifs clairs au sein d'une équipe collaborative de personnes intelligentes et passionnées. Je suis enthousiaste à l'idée de grandir, d'apprendre et de créer des applications <teal>évolutives</teal> et <magenta>centrées sur l'utilisateur</magenta>."
+    },
+    "ToolkitSection": {
+        "title": "Ma Boîte à Outils",
+        "subtitle": "J'apprends toujours, mais ce sont les technologies avec lesquelles je suis le plus à l'aise.",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "databases": "Bases de Données et Outils"
     }
 }
