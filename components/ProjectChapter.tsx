@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './ProjectChapter.module.css';
 import AnimatedText from './AnimatedText';
 
+import { useTranslations } from 'next-intl';
+
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +49,8 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     imageUrl,
     imageAlt,
 }) => {
+    const t = useTranslations('ProjectChapters');
+
     // Refs for all animated elements
     const sectionRef = useRef<HTMLElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
@@ -61,15 +65,21 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
             // --- 1. H2 "Wave" Animation ---
             const h2 = h2Ref.current;
             if (h2) {
-                const originalText = h2.textContent || '';
+                const originalText = chapterTitle;
                 let newHTML = '';
-                originalText.split(' ').forEach((word) => {
+
+                const words = originalText.split(' ');
+                words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
                     word.split('').forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
                     wordHTML += '</span>';
                     newHTML += wordHTML;
+
+                    if (index < words.length - 1) {
+                        newHTML += ' ';
+                    }
                 });
                 h2.innerHTML = newHTML;
 
@@ -170,7 +180,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
         return () => {
             ctx.revert(); // Revert all animations and kill ScrollTriggers
         };
-    }, []); // Empty dependency array ensures this runs once on mount
+    }, [chapterTitle, features]); // Empty dependency array ensures this runs once on mount
 
     return (
         <section id={id} className={styles.chapterContainer} ref={sectionRef}>
@@ -215,7 +225,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                         >
                             <path d="M12 2L14.39 8.39L21 10.39L16.39 14.39L17.61 21L12 17.61L6.39 21L7.61 14.39L3 10.39L9.61 8.39L12 2z" />
                         </svg>
-                        Ask AI about this project
+                        {t('aiButton')}{' '}
                     </button>
 
                     <div

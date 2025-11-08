@@ -5,7 +5,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import PlaygroundCard from './PlaygroundCard';
 import styles from './PlaygroundChapter.module.css';
-import { type PlaygroundProject } from '@/data/projects'; // Import the type
+import { type PlaygroundProject } from '@/data/projects';
+
+import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +33,8 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
     projects,
     //onAskAI,
 }) => {
+    const t = useTranslations('ProjectChapters');
+
     // State to manage how many projects are visible
     const [visibleCount, setVisibleCount] = useState(PROJECTS_TO_SHOW);
 
@@ -55,15 +59,21 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
             // --- 1. H2 "Wave" Animation ---
             const h2 = h2Ref.current;
             if (h2) {
-                const originalText = h2.textContent || '';
+                const originalText = chapterTitle;
                 let newHTML = '';
-                originalText.split(' ').forEach((word) => {
+
+                const words = originalText.split(' ');
+                words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
                     word.split('').forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
                     wordHTML += '</span>';
                     newHTML += wordHTML;
+
+                    if (index < words.length - 1) {
+                        newHTML += ' ';
+                    }
                 });
                 h2.innerHTML = newHTML;
 
@@ -115,7 +125,7 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
         }, sectionRef); // Scope animations
 
         return () => ctx.revert(); // Cleanup
-    }, []);
+    }, [chapterTitle, narrative]);
 
     // Refresh ScrollTrigger when new projects are added
     useEffect(() => {
@@ -145,7 +155,7 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                         onClick={handleShowMore}
                         className={styles.ctaButton}
                     >
-                        See More Experiments
+                        {t('playground_showMore')}{' '}
                     </button>
                 </div>
             )}

@@ -1,3 +1,4 @@
+// /i18n.ts
 import { getRequestConfig } from 'next-intl/server';
 
 // Your supported languages
@@ -10,8 +11,8 @@ export default getRequestConfig(async ({ locale }) => {
     if (locale && locales.includes(locale)) {
         resolvedLocale = locale;
     } else {
-        // If locale is undefined or not in the list (e.g., '/de'),
-        // default to 'en'.
+        // If locale is undefined or not in the list,
+        // default to 'en'. This is correct for the build process.
         resolvedLocale = 'en';
     }
 
