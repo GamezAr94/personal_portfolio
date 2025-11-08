@@ -74,6 +74,27 @@
         "c3_f4_desc": "Diagnostiqué y resolví problemas complejos y no obvios en todos los niveles, desde un conflicto de resolución de DNS a nivel de Docker (resuelto en `daemon.json`) hasta problemas de compatibilidad de Steam del lado del cliente.",
         "c4_title": "Capítulo 4: El Patio de Recreo",
         "c4_narrative": "Mi pasión por el código no se detiene a las 5 PM. Siempre estoy experimentando.",
-        "playground_showMore": "Ver Más Experimentos"
+        "playground_showMore": "Ver Más Experimentos",
+        "playground_aiButton": "Preguntar a la IA sobre esto"
+    },
+    "Playground": {
+        "p1_title": "Juego 2D en Unity",
+        "p1_desc": "Un sencillo juego de plataformas 2D construido en Unity con C#. Solo un proyecto de fin de semana divertido para explorar la física del juego y el pixel art.",
+        "p1_aiQuery": "¿Qué es este proyecto 'Juego 2D en Unity'?",
+        "p2_title": "Servidor Raspberry Pi",
+        "p2_desc": "Un servidor Pi-hole casero con Linux para bloquear anuncios en toda la red. (¡Y para alojar mi configuración de VIM!)",
+        "p2_aiQuery": "Háblame más sobre el 'Servidor Raspberry Pi'.",
+        "p3_title": "Mi Configuración de VIM",
+        "p3_desc": "Mi (muy) personal configuración de VIM/Neovim. Está en constante evolución, al igual que mis otros proyectos.",
+        "p3_aiQuery": "¿Qué tiene de especial su 'Configuración de VIM'?",
+        "p4_title": "Sintetizador de Audio Web",
+        "p4_desc": "Explorando la API de Web Audio construyendo un sintetizador reproducible con filtros y efectos en el navegador.",
+        "p4_aiQuery": "Háblame sobre el proyecto 'Sintetizador de Audio Web'.",
+        "p5_title": "Bot de Twitter con IA",
+        "p5_desc": "Un pequeño bot de Node.js que genera y publica arte procedural en Twitter una vez al día. Impulsado por un backend de C#.",
+        "p5_aiQuery": "Háblame sobre el 'Bot de Twitter con IA'.",
+        "p6_title": "Arte con Shaders GLSL",
+        "p6_desc": "Aprendiendo fragment shaders para crear arte generativo. Este se basa en el ruido Perlin.",
+        "p6_aiQuery": "¿Qué es 'Arte con Shaders GLSL'?"
     }
 }

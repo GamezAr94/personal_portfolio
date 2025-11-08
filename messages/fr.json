@@ -74,6 +74,27 @@
         "c3_f4_desc": "J'ai diagnostiqué et résolu des problèmes complexes et non évidents à tous les niveaux, d'un conflit de résolveur DNS au niveau de Docker (résolu dans `daemon.json`) à des problèmes de compatibilité Steam côté client.",
         "c4_title": "Chapitre 4 : Le Terrain de Jeu",
         "c4_narrative": "Ma passion pour le code ne s'arrête pas à 17h. J'expérimente en permanence.",
-        "playground_showMore": "Voir Plus d'Expériences"
+        "playground_showMore": "Voir Plus d'Expériences",
+        "playground_aiButton": "Demander à l'IA à ce sujet"
+    },
+    "Playground": {
+        "p1_title": "Jeu 2D Unity",
+        "p1_desc": "Un simple jeu de plateforme 2D construit avec Unity en C#. Juste un projet de week-end amusant pour explorer la physique du jeu et le pixel art.",
+        "p1_aiQuery": "Qu'est-ce que ce projet 'Jeu 2D Unity' ?",
+        "p2_title": "Serveur Raspberry Pi",
+        "p2_desc": "Un serveur Pi-hole fait maison sous Linux pour bloquer les publicités sur l'ensemble du réseau. (Et pour héberger ma configuration VIM !)",
+        "p2_aiQuery": "Parlez-moi davantage du 'Serveur Raspberry Pi'.",
+        "p3_title": "Ma Configuration VIM",
+        "p3_desc": "Ma configuration (très) personnelle de VIM/Neovim. Elle est en constante évolution, tout comme mes autres projets.",
+        "p3_aiQuery": "Qu'y a-t-il de si spécial dans sa 'Configuration VIM' ?",
+        "p4_title": "Synthé Audio Web",
+        "p4_desc": "Exploration de l'API Web Audio en construisant un synthétiseur jouable avec des filtres et des effets dans le navigateur.",
+        "p4_aiQuery": "Parlez-moi du projet 'Synthé Audio Web'.",
+        "p5_title": "Bot Twitter IA",
+        "p5_desc": "Un petit bot Node.js qui génère et publie de l'art procédural sur Twitter une fois par jour. Propulsé par un backend C#.",
+        "p5_aiQuery": "Parlez-moi du 'Bot Twitter IA'.",
+        "p6_title": "Art Shader GLSL",
+        "p6_desc": "Apprentissage des fragment shaders pour créer de l'art génératif. Celui-ci est basé sur le bruit de Perlin.",
+        "p6_aiQuery": "Qu'est-ce que 'l'Art Shader GLSL' ?"
     }
 }

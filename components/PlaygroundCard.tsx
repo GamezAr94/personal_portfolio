@@ -7,6 +7,8 @@ import styles from './PlaygroundCard.module.css';
 import Image from 'next/image'; // Use Next.js Image for optimization
 import AnimatedText from './AnimatedText';
 
+import { useTranslations } from 'next-intl';
+
 gsap.registerPlugin(ScrollTrigger);
 
 type PlaygroundCardProps = {
@@ -14,7 +16,7 @@ type PlaygroundCardProps = {
     imageAlt: string;
     title: string;
     description: string;
-    aiQuery: string;
+    //aiQuery: string;
     // We'll pass the 'onAskAI' function from the parent
     //onAskAI: (query: string) => void;
 };
@@ -24,9 +26,11 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
     imageAlt,
     title,
     description,
-    aiQuery,
+    //aiQuery,
     //onAskAI,
 }) => {
+    const t = useTranslations('ProjectChapters');
+
     const cardRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -83,7 +87,7 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
                     >
                         <path d="M12 2L14.39 8.39L21 10.39L16.39 14.39L17.61 21L12 17.61L6.39 21L7.61 14.39L3 10.39L9.61 8.39L12 2z" />
                     </svg>
-                    Ask AI about this
+                    {t('playground_aiButton')}{' '}
                 </button>
             </div>
         </div>

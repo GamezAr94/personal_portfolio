@@ -18,7 +18,6 @@
 
 .chapterNarrative .word {
     display: inline-block;
-    margin-right: 0.25em; /* Space between words */
 }
 
 .chapterNarrative .letter {

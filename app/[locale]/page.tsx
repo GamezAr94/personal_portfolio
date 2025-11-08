@@ -5,7 +5,8 @@ import Hero from '@/components/Hero';
 import PlaygroundChapter from '@/components/PlaygroundChapter';
 import ProjectChapter from '@/components/ProjectChapter';
 import ToolkitSection from '@/components/ToolkitSection';
-import { playgroundProjects } from '@/data/projects';
+
+const PLAYGROUND_PROJECT_COUNT = 6;
 
 export default async function Home({ params }: { params: { locale: string } }) {
     const unwrappedParams = await params;
@@ -13,6 +14,10 @@ export default async function Home({ params }: { params: { locale: string } }) {
     const t = await getTranslations({
         locale: unwrappedParams.locale,
         namespace: 'ProjectChapters',
+    });
+    const t_playground = await getTranslations({
+        locale: unwrappedParams.locale,
+        namespace: 'Playground',
     });
 
     const chapter1Data = {
@@ -32,8 +37,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
             'Mantine UI',
         ],
         aiQuery: t('c1_aiQuery'),
-        imageUrl:
-            'https://placehold.co/600x450/007BFF/FFFFFF?text=Fazume.com+UI',
+        imageUrl: '/img/playground/raspberry-pi.jpg',
         imageAlt: 'Screenshot of the Fazume.com AI Resume Analyzer dashboard.',
         features: [
             { title: t('c1_f1_title'), description: t('c1_f1_desc') },
@@ -59,7 +63,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
             'Square API',
         ],
         aiQuery: t('c2_aiQuery'),
-        imageUrl: 'https://placehold.co/600x450/7A2048/FFFFFF?text=Tamaly+Shop',
+        imageUrl: '/img/playground/raspberry-pi.jpg',
         imageAlt: 'Screenshot of the Tamaly Shop e-commerce website.',
         features: [
             { title: t('c2_f1_title'), description: t('c2_f1_desc') },
@@ -85,8 +89,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
             'Jellyfin',
         ],
         aiQuery: t('c3_aiQuery'),
-        imageUrl:
-            'https://placehold.co/600x450/DE3163/FFFFFF?text=Homelab+Infra',
+        imageUrl: '/img/playground/raspberry-pi.jpg',
         imageAlt:
             'A diagram of the homelab Docker and networking architecture.',
         features: [
@@ -96,12 +99,34 @@ export default async function Home({ params }: { params: { locale: string } }) {
             { title: t('c3_f4_title'), description: t('c3_f4_desc') },
         ],
     };
+    // Put your image paths from the /public folder here, in order (p1 to p6).
+    const playgroundImageUrls = [
+        '/img/playground/unity-game.jpg', // p1
+        '/img/playground/raspberry-pi.jpg', // p2
+        '/img/playground/vim-config.jpg', // p3
+        '/img/playground/web-synth.jpg', // p4
+        '/img/playground/twitter-bot.jpg', // p5
+        '/img/playground/glsl-art.jpg', // p6
+    ];
+    const playgroundProjects = Array.from(
+        { length: PLAYGROUND_PROJECT_COUNT },
+        (_, i) => {
+            const index = i + 1; // 1-based index
+            return {
+                title: t_playground(`p${index}_title`),
+                description: t_playground(`p${index}_desc`),
+                aiQuery: t_playground(`p${index}_aiQuery`),
+                imageUrl: playgroundImageUrls[i], // TODO: Add your image URLs
+                imageAlt: t_playground(`p${index}_title`),
+            };
+        },
+    );
 
     const chapter4Data = {
         id: 'chapter4',
         chapterTitle: t('c4_title'),
-        narrative: t('c4_narrative'),
-        projects: playgroundProjects, // This data is still hard-coded
+        narrative: t('c4_narrative'), // This data is still hard-coded
+        projects: playgroundProjects,
     };
 
     return (

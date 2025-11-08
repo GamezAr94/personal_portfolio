@@ -74,6 +74,27 @@
         "c3_f4_desc": "Diagnosed and resolved complex, non-obvious issues at all levels, from a Docker-level DNS resolver conflict (solved in `daemon.json`) to client-side Steam compatibility problems.",
         "c4_title": "Chapter 4: The Playground",
         "c4_narrative": "My passion for code doesn't stop at 5 PM. I'm always experimenting.",
-        "playground_showMore": "See More Experiments"
+        "playground_showMore": "See More Experiments",
+        "playground_aiButton": "Ask AI about this"
+    },
+    "Playground": {
+        "p1_title": "Unity 2D Game",
+        "p1_desc": "A simple 2D platformer built in Unity with C#. Just a fun weekend project to explore game physics and pixel art.",
+        "p1_aiQuery": "What's this 'Unity 2D Game' project?",
+        "p2_title": "Raspberry Pi Server",
+        "p2_desc": "A home-brewed, Linux-powered Pi-hole server to block ads network-wide. (And to host my VIM config!)",
+        "p2_aiQuery": "Tell me more about the 'Raspberry Pi Server'.",
+        "p3_title": "My VIM Config",
+        "p3_desc": "My (very) opinionated VIM/Neovim setup. It's constantly evolving, just like my other projects.",
+        "p3_aiQuery": "What's so special about his 'VIM Config'?",
+        "p4_title": "Web Audio Synth",
+        "p4_desc": "Exploring the Web Audio API by building a playable synthesizer with filters and effects in the browser.",
+        "p4_aiQuery": "Tell me about the 'Web Audio Synth' project.",
+        "p5_title": "AI Twitter Bot",
+        "p5_desc": "A small Node.js bot that generates and posts procedural art to Twitter once a day. Powered by C# backend.",
+        "p5_aiQuery": "Tell me about the 'AI Twitter Bot'.",
+        "p6_title": "GLSL Shader Art",
+        "p6_desc": "Learning fragment shaders to create generative art. This one is based on Perlin noise.",
+        "p6_aiQuery": "What is 'GLSL Shader Art'?"
     }
 }
