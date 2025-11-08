@@ -17,5 +17,20 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "databases": "Databases & Tools"
+    },
+    "ExperienceSection": {
+        "title": "My Experience",
+        "subtitle": "Where I've applied my skills.",
+        "aiButton": "Ask AI about this role",
+        "job1_title": "Full-Stack Developer",
+        "job1_company": "Your Current Company",
+        "job1_dates": "2021 - Present",
+        "job1_description": "As a full-stack developer for the large-scale MagicMail platform, I spearheaded the development of a new administrative PWA dashboard, replacing a 12-page legacy interface with a streamlined, single-page application. This new dashboard saves administrators ~3 hours daily by consolidating key metrics into one view, utilizing a custom PWA with a WebSocket API and push notifications. I also enhanced platform-wide security by architecting and implementing modern features like DKIM and Domain Health Check tools, protecting data for over 400+ ISPs. Finally, I improved application performance by refactoring complex, +3-second data queries into asynchronous background tasks and much more.",
+        "job1_aiQuery": "Tell me about the Full-Stack Developer role at MagicMail",
+        "job2_title": "Freelance Web Developer",
+        "job2_company": "Self-Employed",
+        "job2_dates": "2019 - 2021",
+        "job2_description": "As an independent full-stack developer and consultant, I managed the full project lifecycle for 3 clients, from initial concept and UI/UX design to final launch. I engineered and delivered 3 bespoke web applications in 9 months. My key projects included building a client's first-ever e-commerce platform to support their 60+ product catalog and +30 events online.",
+        "job2_aiQuery": "What kind of projects did Arturo do as a freelancer?"
     }
 }

@@ -7,42 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ExperienceSection.module.css';
 import AnimatedText from './AnimatedText';
 
-gsap.registerPlugin(ScrollTrigger);
+import { useTranslations } from 'next-intl';
 
-// --- 1. Your Experience Data ---
-// We can store this here for now. Later, we'll move it to a data file for i18n.
-const jobData = [
-    {
-        title: 'Full-Stack Developer',
-        company: 'Your Current Company',
-        dates: '2021 - Present',
-        description:
-            'As a full-stack developer for the large-scale MagicMail platform, I spearheaded the development of a new administrative PWA dashboard, replacing a 12-page legacy interface with a streamlined, single-page application. This new dashboard saves administrators ~3 hours daily by consolidating key metrics into one view, utilizing a custom PWA with a WebSocket API and push notifications. I also enhanced platform-wide security by architecting and implementing modern features like DKIM and Domain Health Check tools, protecting data for over 400+ ISPs. Finally, I improved application performance by refactoring complex, +3-second data queries into asynchronous background tasks and much more.',
-        tags: [
-            'PostgreSQL',
-            'VIM',
-            'Bash',
-            'Perl',
-            'PHP',
-            'JS',
-            'CSS',
-            'SASS',
-            'Linux',
-            'Agile',
-            'HTML',
-        ],
-        aiQuery: 'Tell me about the Full-Stack Developer role at MagicMail',
-    },
-    {
-        title: 'Freelance Web Developer',
-        company: 'Self-Employed',
-        dates: '2019 - 2021',
-        description:
-            "As an independent full-stack developer and consultant, I managed the full project lifecycle for 3 clients, from initial concept and UI/UX design to final launch. I engineered and delivered 3 bespoke web applications in 9 months. My key projects included building a client's first-ever e-commerce platform to support their 60+ product catalog and +30 events online.",
-        tags: ['JavaScript', 'PHP', 'WordPress', 'SCSS', 'MySQL', 'Git'],
-        aiQuery: 'What kind of projects did Arturo do as a freelancer?',
-    },
-];
+gsap.registerPlugin(ScrollTrigger);
 
 // --- 2. The AI Ask Button SVG ---
 // Re-using the same star icon from your other components
@@ -64,6 +31,40 @@ const AiIcon = () => (
 
 // --- 3. The Component ---
 const ExperienceSection: React.FC = () => {
+    const t = useTranslations('ExperienceSection');
+    const jobData = [
+        {
+            key: 'job1', // Added a key for React
+            title: t('job1_title'),
+            company: t('job1_company'),
+            dates: t('job1_dates'),
+            description: t('job1_description'),
+            tags: [
+                'PostgreSQL',
+                'VIM',
+                'Bash',
+                'Perl',
+                'PHP',
+                'JS',
+                'CSS',
+                'SASS',
+                'Linux',
+                'Agile',
+                'HTML',
+            ],
+            aiQuery: t('job1_aiQuery'),
+        },
+        {
+            key: 'job2',
+            title: t('job2_title'),
+            company: t('job2_company'),
+            dates: t('job2_dates'),
+            description: t('job2_description'),
+            tags: ['JavaScript', 'PHP', 'WordPress', 'SCSS', 'MySQL', 'Git'],
+            aiQuery: t('job2_aiQuery'),
+        },
+    ];
+
     // --- 4. Refs for Animation ---
     const sectionRef = useRef<HTMLElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
@@ -76,15 +77,21 @@ const ExperienceSection: React.FC = () => {
             // --- H2 "Wave" Animation (Copied from your ToolkitSection) ---
             const h2 = h2Ref.current;
             if (h2) {
-                const originalText = h2.textContent || '';
+                const originalText = t('title');
                 let newHTML = '';
-                originalText.split(' ').forEach((word) => {
+                const words = originalText.split(' ');
+
+                words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
                     word.split('').forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
                     wordHTML += '</span>';
                     newHTML += wordHTML;
+
+                    if (index < words.length - 1) {
+                        newHTML += ' ';
+                    }
                 });
                 h2.innerHTML = newHTML;
 
@@ -137,7 +144,7 @@ const ExperienceSection: React.FC = () => {
                 });
             }
         },
-        { scope: sectionRef },
+        { scope: sectionRef, dependencies: [t] },
     );
 
     return (
@@ -149,9 +156,9 @@ const ExperienceSection: React.FC = () => {
             {/* --- 6. Narrative Header (Same as Toolkit) --- */}
             <div className={styles.narrative}>
                 <h2 className={styles.title} ref={h2Ref}>
-                    My Experience
+                    {t('title')}{' '}
                 </h2>
-                <p ref={pRef}>Where I've applied my skills.</p>
+                <p ref={pRef}>{t('subtitle')}</p>
             </div>
 
             {/* --- 7. Timeline Container --- */}
@@ -167,7 +174,7 @@ const ExperienceSection: React.FC = () => {
                             triggerRef={timelineRef}
                             animDuration={0.2}
                         >
-                            <p>{job.description}</p>
+                            <p>{job.description}</p>{' '}
                         </AnimatedText>
 
                         {/* --- 8. Re-using ProjectChapter styles --- */}
@@ -185,7 +192,7 @@ const ExperienceSection: React.FC = () => {
                             data-query={job.aiQuery}
                         >
                             <AiIcon />
-                            Ask AI about this role
+                            {t('aiButton')}{' '}
                         </button>
                     </div>
                 ))}

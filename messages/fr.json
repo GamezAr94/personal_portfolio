@@ -17,5 +17,20 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "databases": "Bases de Données et Outils"
+    },
+    "ExperienceSection": {
+        "title": "Mon Expérience",
+        "subtitle": "Où j'ai appliqué mes compétences.",
+        "aiButton": "Demander à l'IA à propos de ce rôle",
+        "job1_title": "Développeur Full-Stack",
+        "job1_company": "Votre Entreprise Actuelle",
+        "job1_dates": "2021 - Aujourd'hui",
+        "job1_description": "En tant que développeur full-stack pour la plateforme à grande échelle MagicMail, j'ai dirigé le développement d'un nouveau tableau de bord PWA administratif, remplaçant une interface existante de 12 pages par une application monopage optimisée. Ce nouveau tableau de bord fait gagner aux administrateurs environ 3 heures par jour en consolidant les métriques clés en une seule vue, en utilisant une PWA personnalisée avec une API WebSocket et des notifications push. J'ai également amélioré la sécurité de la plateforme en concevant et en mettant en œuvre des fonctionnalités modernes telles que les outils DKIM et de vérification de l'état du domaine, protégeant ainsi les données de plus de 400 FAI. Enfin, j'ai amélioré les performances de l'application en refactorisant des requêtes de données complexes de +3 secondes en tâches de fond asynchrones, et bien plus encore.",
+        "job1_aiQuery": "Parlez-moi du rôle de Développeur Full-Stack chez MagicMail",
+        "job2_title": "Développeur Web Freelance",
+        "job2_company": "Indépendant",
+        "job2_dates": "2019 - 2021",
+        "job2_description": "En tant que développeur full-stack indépendant et consultant, j'ai géré le cycle de vie complet des projets pour 3 clients, du concept initial et du design UI/UX au lancement final. J'ai conçu et livré 3 applications web sur mesure en 9 mois. Mes projets clés comprenaient la création de la toute première plateforme de commerce électronique d'un client pour soutenir son catalogue de plus de 60 produits et plus de 30 événements en ligne.",
+        "job2_aiQuery": "Quel genre de projets Arturo a-t-il réalisés en tant que freelance ?"
     }
 }

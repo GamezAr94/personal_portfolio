@@ -17,5 +17,20 @@
         "frontend": "Frontend",
         "backend": "Backend",
         "databases": "Bases de Datos y Herramientas"
+    },
+    "ExperienceSection": {
+        "title": "Mi Experiencia",
+        "subtitle": "Donde he aplicado mis habilidades.",
+        "aiButton": "Preguntar a la IA sobre este puesto",
+        "job1_title": "Desarrollador Full-Stack",
+        "job1_company": "Compañía Actual",
+        "job1_dates": "2021 - Presente",
+        "job1_description": "Como desarrollador full-stack para la plataforma a gran escala MagicMail, lideré el desarrollo de un nuevo panel de PWA administrativo, reemplazando una interfaz de 12 páginas con una aplicación de una sola página optimizada. Este nuevo panel ahorra a los administradores ~3 horas diarias al consolidar métricas clave en una sola vista, utilizando una PWA personalizada con una API WebSocket y notificaciones push. También mejoré la seguridad de toda la plataforma diseñando e implementando características modernas como herramientas DKIM y de Verificación de Salud de Dominio, protegiendo datos de más de 400 ISPs. Finalmente, mejoré el rendimiento de la aplicación refactorizando consultas de datos complejas de +3 segundos en tareas de fondo asíncronas y mucho más.",
+        "job1_aiQuery": "Háblame sobre el puesto de Desarrollador Full-Stack en MagicMail",
+        "job2_title": "Desarrollador Web Freelance",
+        "job2_company": "Autónomo",
+        "job2_dates": "2019 - 2021",
+        "job2_description": "Como desarrollador full-stack independiente y consultor, gestioné el ciclo de vida completo del proyecto para 3 clientes, desde el concepto inicial y el diseño UI/UX hasta el lanzamiento final. Diseñé y entregué 3 aplicaciones web a medida en 9 meses. Mis proyectos clave incluyeron la construcción de la primera plataforma de comercio electrónico de un cliente para dar soporte a su catálogo de más de 60 productos y más de 30 eventos en línea.",
+        "job2_aiQuery": "¿Qué tipo de proyectos hizo Arturo como freelance?"
     }
 }

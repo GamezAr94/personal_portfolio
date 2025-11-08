@@ -20,7 +20,6 @@
 /* H2 "Wave" Animation styles (Copied from ToolkitSection) */
 .word {
     display: inline-block;
-    margin-right: 0.25em; /* Space between words */
 }
 
 .letter {
