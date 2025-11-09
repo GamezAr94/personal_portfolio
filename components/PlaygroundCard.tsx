@@ -70,7 +70,7 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
             </div>
             <div className={styles.playgroundItemContent}>
                 <h4>{title}</h4>
-                <AnimatedText triggerRef={cardRef}>
+                <AnimatedText triggerRef={cardRef} animDuration={0.02}>
                     <p>{description}</p>
                 </AnimatedText>
                 <button className={styles.aiAskButton} onClick={handleAskClick}>

@@ -81,7 +81,6 @@ const AboutSection: React.FC = () => {
                     wordHTML += '</span>';
                     newHTML += wordHTML;
 
-                    // ✅ ADD THIS IF-STATEMENT
                     // This adds the space back, unless it's the very last word
                     if (index < words.length - 1) {
                         newHTML += ' ';
@@ -153,8 +152,8 @@ const AboutSection: React.FC = () => {
                     // Stagger-fade in each word
                     tl.to(words, {
                         opacity: 1,
-                        duration: 0.1, // How long each word takes to fade in
-                        stagger: 0.025, // The delay between each word
+                        duration: 0.01, // How long each word takes to fade in
+                        stagger: 0.02, // The delay between each word
                         ease: 'none',
                     });
 

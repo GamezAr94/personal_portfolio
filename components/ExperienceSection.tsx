@@ -172,7 +172,7 @@ const ExperienceSection: React.FC = () => {
                         <span className={styles.jobDates}>{job.dates}</span>
                         <AnimatedText
                             triggerRef={timelineRef}
-                            animDuration={0.2}
+                            animDuration={0.02}
                         >
                             <p>{job.description}</p>{' '}
                         </AnimatedText>

@@ -194,7 +194,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                     <h3>{projectTitle}</h3>
                     <AnimatedText
                         triggerRef={descriptionRef}
-                        animDuration={0.3}
+                        animDuration={0.02}
                     >
                         <p>{projectDescription}</p>
                     </AnimatedText>
@@ -237,7 +237,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                                 <h4>{feature.title}</h4>
                                 <AnimatedText
                                     triggerRef={featuresListRef}
-                                    animDuration={0.2}
+                                    animDuration={0.05}
                                 >
                                     <p>{feature.description}</p>
                                 </AnimatedText>

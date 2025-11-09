@@ -95,8 +95,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
                 // Stagger-fade in the words
                 tl.to(words, {
                     opacity: 1,
-                    duration: animDuration,
-                    stagger: 0.025,
+                    duration: 0.01,
+                    stagger: animDuration,
                     ease: 'none',
                 });
 

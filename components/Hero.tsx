@@ -92,7 +92,7 @@ export default function Hero() {
                         </span>
                     ))}
                 </h1>
-                <AnimatedText triggerRef={container} animDuration={0.4}>
+                <AnimatedText triggerRef={container} animDuration={0.04}>
                     <p className={styles.subtitle}>{t('subtitle')}</p>
                 </AnimatedText>
             </div>
