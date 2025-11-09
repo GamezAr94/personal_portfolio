@@ -5,11 +5,18 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import PlaygroundCard from './PlaygroundCard';
 import styles from './PlaygroundChapter.module.css';
-import { type PlaygroundProject } from '@/data/projects';
 
 import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(ScrollTrigger);
+
+type PlaygroundProject = {
+    imageUrl: string;
+    imageAlt: string;
+    title: string;
+    description: string;
+    aiQuery: string;
+};
 
 // --- Component Props ---
 type PlaygroundChapterProps = {

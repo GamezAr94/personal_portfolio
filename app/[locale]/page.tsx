@@ -6,7 +6,7 @@ import PlaygroundChapter from '@/components/PlaygroundChapter';
 import ProjectChapter from '@/components/ProjectChapter';
 import ToolkitSection from '@/components/ToolkitSection';
 
-const PLAYGROUND_PROJECT_COUNT = 6;
+const PLAYGROUND_PROJECT_COUNT = 9;
 
 export default async function Home({ params }: { params: { locale: string } }) {
     const unwrappedParams = await params;
