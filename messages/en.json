@@ -77,10 +77,10 @@
         "c3_f3_desc": "Built a \"set-it-and-forget-it\" system using Portainer for UI management, Glances for real-time monitoring, and Duplicati for automated, encrypted (AES-256) daily backups to Google Drive.",
         "c3_f4_title": "Advanced Network Troubleshooting",
         "c3_f4_desc": "Diagnosed and resolved complex, non-obvious issues at all levels, from a Docker-level DNS resolver conflict (solved in `daemon.json`) to client-side Steam compatibility problems.",
-        "c4_title": "Chapter 4: The Playground",
-        "c4_narrative": "My passion for code doesn't stop at 5 PM. I'm always experimenting.",
-        "playground_showMore": "See More Experiments",
-        "playground_aiButton": "Ask AI about this"
+        "c4_title": "Chapter 4: The Experiment Lab",
+        "c4_narrative": "My passion for code doesn't stop at 5 PM. I'm always building, testing, and learning.",
+        "playground_showMore": "See More Projects",
+        "playground_aiButton": "Ask AI about this projects"
     },
     "Playground": {
         "p1_title": "This Portfolio (Next.js & RAG Bot)",
@@ -121,6 +121,6 @@
         "form_status_sending": "Sending...",
         "form_status_success": "Message sent successfully!",
         "form_status_error": "Something went wrong. Please try again.",
-        "copyright": "Built with playful energy."
+        "copyright": "Built with curiosity and code."
     }
 }

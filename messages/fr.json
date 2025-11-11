@@ -12,8 +12,8 @@
     },
     "AboutSection": {
         "title": "Un Peu Sur Moi",
-        "p1": "Je suis un développeur de logiciels qui s'épanouit en comprenant le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et convivial pour l'équipe.",
-        "p2": "Bien que je sois un spécialiste du front-end qui aime les <magenta>bons défis de conception</magenta> (en particulier les interfaces utilisateur parfaites au pixel près), je suis aussi un solutionneur de problèmes curieux qui aime s'attaquer aux énigmes de HackerRank.",
+        "p1": "Je suis un développeur de logiciels passionné par le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et facile à maintenir en équipe.",
+        "p2": "Bien que je sois un spécialiste du front-end qui aime les <magenta>beaux défis de conception</magenta> (en particulier les interfaces utilisateur pixel-perfect), je suis aussi un solutionneur de problèmes curieux qui aime s'attaquer aux énigmes de HackerRank.",
         "p3": "En tant que développeur formé au BCIT et basé à Vancouver, je recherche un poste avec des objectifs clairs au sein d'une équipe collaborative de personnes intelligentes et passionnées. Je suis enthousiaste à l'idée de grandir, d'apprendre et de créer des applications <teal>évolutives</teal> et <magenta>centrées sur l'utilisateur</magenta>."
     },
     "ToolkitSection": {
@@ -65,7 +65,7 @@
         "c2_f3_title": "Partenaire Technologique de Service Complet",
         "c2_f3_desc": "J'ai agi en tant que partenaire technologique complet pour le lancement de leur entreprise, m'occupant de tout, du développement de thèmes PHP personnalisés à la configuration de leurs e-mails de domaine professionnel.",
         "c3_title": "Chapitre 3 : DevOps et Infrastructure",
-        "c3_narrative": "Je ne me contente pas de créer des applications ; je comprends le métal sur lequel elles tournent. Je conçois, déploie et automatise l'ensemble de la pile d'infrastructure depuis le système d'exploitation.",
+        "c3_narrative": "Je ne me contente pas de créer des applications ; je comprends l'infrastructure sur laquelle elles tournent. J'architecture, déploie et automatise l'ensemble de la pile d'infrastructure depuis le système d'exploitation.",
         "c3_p_title": "Homelab Docker avec Serveur de Jeu et Plateforme Média",
         "c3_p_desc": "J'ai conçu un homelab robuste et à faible consommation sur un Raspberry Pi 4. J'ai conteneurisé une pile multi-services avec Docker Compose, y compris un serveur de jeu Terraria en direct pour mes amis et un serveur multimédia personnel Jellyfin. L'ensemble de la pile est sécurisé, surveillé et sauvegardé automatiquement.",
         "c3_aiQuery": "Posez-moi des questions sur la configuration sécurisée du tunnel VPN.",
@@ -77,9 +77,9 @@
         "c3_f3_desc": "J'ai construit un système \"configurer et oublier\" utilisant Portainer pour la gestion de l'interface utilisateur, Glances pour la surveillance en temps réel, et Duplicati pour des sauvegardes quotidiennes chiffrées (AES-256) et automatisées vers Google Drive.",
         "c3_f4_title": "Dépannage Réseau Avancé",
         "c3_f4_desc": "J'ai diagnostiqué et résolu des problèmes complexes et non évidents à tous les niveaux, d'un conflit de résolveur DNS au niveau de Docker (résolu dans `daemon.json`) à des problèmes de compatibilité Steam côté client.",
-        "c4_title": "Chapitre 4 : Le Terrain de Jeu",
+        "c4_title": "Chapitre 4 : Le Laboratoire",
         "c4_narrative": "Ma passion pour le code ne s'arrête pas à 17h. J'expérimente en permanence.",
-        "playground_showMore": "Voir Plus d'Expériences",
+        "playground_showMore": "Voir Plus d'Expérimentations",
         "playground_aiButton": "Demander à l'IA à ce sujet"
     },
     "Playground": {
@@ -120,6 +120,6 @@
         "form_status_sending": "Envoi en cours...",
         "form_status_success": "Message envoyé avec succès !",
         "form_status_error": "Quelque chose s'est mal passé. Veuillez réessayer.",
-        "copyright": "Construit avec une énergie ludique."
+        "copyright": "Construit avec curiosité et code."
     }
 }

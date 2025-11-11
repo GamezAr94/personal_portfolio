@@ -12,9 +12,9 @@
     },
     "AboutSection": {
         "title": "Un Poco Sobre Mí",
-        "p1": "Soy un desarrollador de software que prospera entendiendo el \"porqué\": las profundas necesidades del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y amigable para el equipo.",
-        "p2": "Aunque soy un especialista en front-end al que le encantan los <magenta>buenos desafíos de diseño</magenta> (especialmente las interfaces de usuario perfectas a nivel de píxel), también soy un solucionador de problemas curioso que disfruta abordando acertijos de HackerRank.",
-        "p3": "Como desarrollador formado en BCIT con sede en Vancouver, estoy buscando un puesto con objetivos claros en un equipo colaborativo de personas inteligentes y apasionadas. Estoy emocionado por crecer, aprender y construir aplicaciones <teal>escalables</teal> y <magenta>centradas en el usuario</magenta>."
+        "p1": "Soy un desarrollador de software al que le apasiona entender el \"porqué\": las necesidades profundas del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y colaborativo.",
+        "p2": "Aunque mi especialidad es el front-end y me encantan los <magenta>buenos retos de diseño</magenta> (especialmente las interfaces pixel-perfect), también soy una persona curiosa que disfruta resolviendo problemas en HackerRank.",
+        "p3": "Como desarrollador formado en BCIT y basado en Vancouver, busco un rol con objetivos claros en un equipo colaborativo de personas inteligentes y apasionadas. Me emociona la idea de crecer, aprender y construir aplicaciones <teal>escalables</teal> y <magenta>centradas en el usuario</magenta>."
     },
     "ToolkitSection": {
         "title": "Mi Kit de Herramientas",
@@ -41,7 +41,7 @@
     "ProjectChapters": {
         "aiButton": "Preguntar a la IA sobre este proyecto",
         "c1_title": "Capítulo 1: Ingeniería de IA y SaaS",
-        "c1_narrative": "De la idea al lanzamiento. Arquitecto, construyo y despliego aplicaciones completas, potenciadas por IA y listas para producción desde cero.",
+        "c1_narrative": "De la idea al lanzamiento. Diseño, construyo y despliego aplicaciones completas, potenciadas por IA y listas para producción desde cero.",
         "c1_p_title": "Analizador de CV con IA - Fazume.com",
         "c1_p_desc": "Una aplicación SaaS full-stack lista para producción que concebí, diseñé y lancé. Fazume.com utiliza la API Gemini de Google para analizar el \"perfil maestro\" de un usuario contra una descripción de trabajo, generando instantáneamente un currículum perfectamente adaptado y compatible con ATS. La plataforma en vivo incluye autenticación completa de Supabase e integración de pagos de Stripe.",
         "c1_aiQuery": "Cuéntame más sobre la integración de Stripe en Fazume.com.",
@@ -65,7 +65,7 @@
         "c2_f3_title": "Socio Tecnológico de Servicio Completo",
         "c2_f3_desc": "Actué como un socio tecnológico completo para el lanzamiento de su negocio, encargándome de todo, desde el desarrollo de temas PHP personalizados hasta la configuración de sus correos electrónicos de dominio profesional.",
         "c3_title": "Capítulo 3: DevOps e Infraestructura",
-        "c3_narrative": "No solo construyo aplicaciones; entiendo el metal sobre el que corren. Arquitecto, despliego y automatizo toda la pila de infraestructura desde el sistema operativo hacia arriba.",
+        "c3_narrative": "No solo construyo aplicaciones; entiendo la infraestructura sobre la que corren. Diseño, despliego y automatizo toda la pila de infraestructura desde el sistema operativo.",
         "c3_p_title": "Homelab de Docker con Servidor de Juegos y Plataforma Multimedia",
         "c3_p_desc": "Diseñé un homelab robusto de bajo consumo en una Raspberry Pi 4. Contenericé una pila de múltiples servicios con Docker Compose, incluyendo un servidor de juegos Terraria en vivo para mis amigos y un servidor multimedia personal Jellyfin. Toda la pila está asegurada, monitoreada y respaldada automáticamente.",
         "c3_aiQuery": "Pregúntame sobre la configuración segura del túnel VPN.",
@@ -77,9 +77,9 @@
         "c3_f3_desc": "Construí un sistema de \"configurar y olvidar\" usando Portainer para la gestión de la interfaz de usuario, Glances para el monitoreo en tiempo real y Duplicati para copias de seguridad diarias cifradas (AES-256) y automatizadas a Google Drive.",
         "c3_f4_title": "Solución de Problemas de Red Avanzados",
         "c3_f4_desc": "Diagnostiqué y resolví problemas complejos y no obvios en todos los niveles, desde un conflicto de resolución de DNS a nivel de Docker (resuelto en `daemon.json`) hasta problemas de compatibilidad de Steam del lado del cliente.",
-        "c4_title": "Capítulo 4: El Patio de Recreo",
-        "c4_narrative": "Mi pasión por el código no se detiene a las 5 PM. Siempre estoy experimentando.",
-        "playground_showMore": "Ver Más Experimentos",
+        "c4_title": "Capítulo 4: El Laboratorio",
+        "c4_narrative": "Mi pasión por el código no termina a las 5 PM. Siempre estoy experimentando.",
+        "playground_showMore": "Ver Más Projectos",
         "playground_aiButton": "Preguntar a la IA sobre esto"
     },
     "Playground": {
@@ -121,6 +121,6 @@
         "form_status_sending": "Enviando...",
         "form_status_success": "¡Mensaje enviado con éxito!",
         "form_status_error": "Algo salió mal. Por favor, inténtalo de nuevo.",
-        "copyright": "Construido con energía lúdica."
+        "copyright": "Construido con curiosidad y código."
     }
 }
