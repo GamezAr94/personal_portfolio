@@ -9,7 +9,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 12rem);
+    height: calc(100vh - 30rem);
 }
 
 /* This is the fake "window bar" with traffic lights */

@@ -1,17 +1,8 @@
 'use client';
 
+import AsciiArtTitle from './AsciiArtTitle';
 // We just import the new styles. The name is the same.
 import styles from './HeroChat.module.css';
-
-// A simple ASCII art for the "Playful" touch
-const asciiArt = `
-    _    ____ _____ ___ 
-   / \\  |  _ \\_   _|_ _|
-  / _ \\ | |_) || |  | | 
- / ___ \\|  _ < | |  | | 
-/_/   \\_\\_| \\_\\|_| |___|
-                        
-`;
 
 export default function HeroChat() {
     return (
@@ -28,7 +19,7 @@ export default function HeroChat() {
             {/* The Message List */}
             <div className={styles.messageList}>
                 {/* The ASCII Art */}
-                <div className={styles.asciiArt}>{asciiArt}</div>
+                <AsciiArtTitle title="ARTIC" />
 
                 {/* AI Message */}
                 <div className={styles.aiMessage}>

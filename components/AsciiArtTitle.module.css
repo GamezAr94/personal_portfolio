@@ -1,0 +1,22 @@
+.asciiArt {
+    font-family: monospace;
+    font-weight: 700;
+    white-space: pre; /* This is crucial for ASCII art */
+    font-size: clamp(0.4rem, 0.6vw, 0.6rem);
+
+    background: linear-gradient(to right, #63b3ed, #825be8, #d63af9, #f56565);
+    -webkit-background-clip: text; /* For Webkit browsers */
+    background-clip: text;
+    color: transparent; /* Hide the original text color */
+}
+@media (max-width: 1025px) {
+    .asciiArt {
+        font-size: clamp(0.5rem, 1vw, 0.7rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .asciiArt {
+        font-size: clamp(0.3rem, 1.4vw, 0.6rem);
+    }
+}
