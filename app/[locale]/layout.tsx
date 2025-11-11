@@ -4,18 +4,15 @@ import '../globals.css';
 import Header from '@/components/Header';
 import FloatingChat from '@/components/FloattingChat';
 import Footer from '@/components/Footer';
-
-// Import the provider and message loader
-import { NextIntlClientProvider } from 'next-intl';
-//import { getMessages } from 'next-intl/server';
+import Providers from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '700', '900'] });
 
 // REPLACE the existing 'metadata' object with this one:
 export const metadata: Metadata = {
-    title: 'Arturo Gamez - Playful Engineer',
+    title: 'Arturo Gamez - Software Developer',
     description:
-        'A full-stack engineer building playful and intelligent digital experiences.',
+        'A full-stack developer building intelligent digital experiences.',
 };
 
 export default async function RootLayout({
@@ -36,6 +33,12 @@ export default async function RootLayout({
         messages = (await import(`../../messages/en.json`)).default;
     }
 
+    const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!recaptchaSiteKey) {
+        // Un simple aviso para nosotros en la consola de Vercel si se nos olvida
+        console.error('ERROR: Missing NEXT_PUBLIC_RECAPTCHA_SITE_KEY env var');
+    }
+
     return (
         <html
             lang={locale}
@@ -44,12 +47,16 @@ export default async function RootLayout({
         >
             {/* The installer correctly set up the font in the body */}
             <body className={`${inter.className} antialiased`}>
-                <NextIntlClientProvider messages={messages} locale={locale}>
+                <Providers
+                    locale={locale}
+                    messages={messages}
+                    recaptchaSiteKey={recaptchaSiteKey || 'dummy-key'}
+                >
                     <Header />
                     <main>{children}</main>
                     <FloatingChat />
                     <Footer githubUrl="string" linkedinUrl="string" />
-                </NextIntlClientProvider>
+                </Providers>
             </body>
         </html>
     );

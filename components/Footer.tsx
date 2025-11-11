@@ -7,6 +7,8 @@ import styles from './Footer.module.css';
 
 import { useTranslations } from 'next-intl';
 
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+
 gsap.registerPlugin(ScrollTrigger);
 
 // --- Component Props ---
@@ -26,6 +28,11 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState(''); // For success/error messages
+
+    // Usamos un nombre engañoso para el bot, como si fuera un "asunto"
+    const [subjectLine, setSubjectLine] = useState('');
+
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     // GSAP Animation
     useEffect(() => {
@@ -56,18 +63,47 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
 
         setStatus(t('form_status_sending'));
 
+        // --- Verificación de reCaptcha ---
+        if (!executeRecaptcha) {
+            console.error('reCaptcha hook no está listo');
+            setStatus(t('form_status_error'));
+            return;
+        }
+
+        // Genera el token solo cuando el usuario envía
+        const token = await executeRecaptcha('contactForm');
+
         // This is where you'll send the data to your Next.js API route
         // Example: /api/contact
         try {
-            // ** SIMULATED API CALL for the prototype **
-            // In production, you'd 'await fetch(...)' here
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                    honeypot: subjectLine,
+                    token,
+                }),
+            });
 
-            // On success
-            setStatus(t('form_status_success'));
-            setName('');
-            setEmail('');
-            setMessage('');
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Éxito
+                setStatus(t('form_status_success'));
+                setName('');
+                setEmail('');
+                setMessage('');
+                setSubjectLine('');
+            } else {
+                // Error del servidor o de reCaptcha
+                console.error('Error del servidor:', data.error);
+                setStatus(t('form_status_error'));
+            }
         } catch (error) {
             // On error
             setStatus(t('form_status_error'));
@@ -85,6 +121,19 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
                 className={styles.contactForm}
                 onSubmit={handleSubmit}
             >
+                <div className={styles.honeypotField}>
+                    <label htmlFor="subject_line">Subject</label>
+                    <input
+                        type="text"
+                        id="subject_line"
+                        name="subject_line"
+                        value={subjectLine}
+                        onChange={(e) => setSubjectLine(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                    />
+                </div>
+
                 <div className={styles.formGroup}>
                     <label htmlFor="name">{t('form_name')}</label>{' '}
                     <input
