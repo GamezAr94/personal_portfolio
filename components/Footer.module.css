@@ -2,7 +2,7 @@
 .contactContainer {
     background-color: #222222; /* --color-text */
     color: #f8f8f8; /* --color-bg */
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 3rem 2rem;
     text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -129,10 +129,78 @@
     transform: scale(1.1) translateY(-3px);
 }
 
+.recaptchaNotice {
+    margin-top: 4rem;
+    font-size: 0.8rem; /* Un poco más pequeño */
+    color: #777; /* Mismo color que el copyright */
+    max-width: 450px; /* Para que se ajuste bien */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.recaptchaNotice a {
+    color: #999; /* Un poco más claro */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.recaptchaNotice a:hover {
+    color: #fff;
+}
+
 .footerCopyright {
     margin-top: 3rem;
     font-size: 0.9rem;
     color: #777;
+}
+
+/* Contenedor para el mensaje de éxito */
+.successMessageContainer {
+    /* Oculto por defecto, GSAP lo mostrará */
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+
+    /* Centra el contenido */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Ocupa el espacio que dejó el formulario */
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    min-height: 400px; /* Dale una altura mínima */
+    text-align: center;
+}
+
+.successIcon {
+    color: #16db93; /* --color-teal */
+    margin-bottom: 1.5rem;
+}
+
+.successTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.successSubtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 50ch;
+    margin: 0 auto 2.5rem;
+    color: #ccc;
+}
+
+/* Un estilo específico para el mensaje de error */
+.formStatusError {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ff6b6b; /* Un color rojo para errores */
+    text-align: center;
 }
 
 /* Esto oculta el campo para humanos pero los bots lo ven */

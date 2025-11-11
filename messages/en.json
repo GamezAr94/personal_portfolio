@@ -121,6 +121,7 @@
         "form_status_sending": "Sending...",
         "form_status_success": "Message sent successfully!",
         "form_status_error": "Something went wrong. Please try again.",
-        "copyright": "Built with curiosity and code."
+        "copyright": "Built with curiosity and code.",
+        "recaptchaNotice": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service</termsLink> apply."
     }
 }

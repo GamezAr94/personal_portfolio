@@ -120,6 +120,7 @@
         "form_status_sending": "Envoi en cours...",
         "form_status_success": "Message envoyé avec succès !",
         "form_status_error": "Quelque chose s'est mal passé. Veuillez réessayer.",
-        "copyright": "Construit avec curiosité et code."
+        "copyright": "Construit avec curiosité et code.",
+        "recaptchaNotice": "Ce site est protégé par reCAPTCHA et les <privacyLink>Règles de confidentialité</privacyLink> et les <termsLink>Conditions d'utilisation</termsLink> de Google s'appliquent."
     }
 }

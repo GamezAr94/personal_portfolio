@@ -40,3 +40,7 @@ h4 {
     margin: 0;
     padding: 0;
 }
+
+.grecaptcha-badge {
+    display: none !important;
+}
