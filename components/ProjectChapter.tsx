@@ -7,6 +7,7 @@ import styles from './ProjectChapter.module.css';
 import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -26,8 +27,10 @@ type ProjectChapterProps = {
     projectTitle: string;
     projectDescription: string;
     techTags: string[]; // ["C#", "PHP", "Linux"]
-    aiQuery: string; // "Tell me more about the 'MagicMail' project."
-
+    q1Key: string;
+    q2Key: string;
+    onLeaveBack_q1Key: string;
+    onLeaveBack_q2Key: string;
     // Scrollytelling Features
     features: Feature[]; // [{ title: "...", description: "..." }]
 
@@ -44,12 +47,18 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     projectTitle,
     projectDescription,
     techTags,
-    aiQuery,
+    q1Key,
+    q2Key,
+    onLeaveBack_q1Key,
+    onLeaveBack_q2Key,
     features,
     imageUrl,
     imageAlt,
 }) => {
     const t = useTranslations('ProjectChapters');
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions, toggleChat, sendMessage } = useChat();
 
     // Refs for all animated elements
     const sectionRef = useRef<HTMLElement>(null);
@@ -174,13 +183,47 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                     });
                 });
             }
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: 'top 50%',
+                end: 'bottom 50%',
+
+                onEnter: () => {
+                    setContextualQuestions([t_chat(q1Key), t_chat(q2Key)]);
+                },
+                onLeaveBack: () => {
+                    // Esto es un poco más complicado, ya que no sabemos qué
+                    // sección estaba antes. Podría ser 'Experience' o 'ProjectChapter'.
+                    // Por ahora, lo pondremos a 'Experience' como valor seguro.
+                    // Podríamos mejorar esto luego si es necesario.
+                    setContextualQuestions([
+                        t_chat(onLeaveBack_q1Key),
+                        t_chat(onLeaveBack_q2Key),
+                    ]);
+                },
+            });
         }, sectionRef); // Scope all GSAP selectors to this component
 
         // Clean up ScrollTrigger instances on unmount
         return () => {
             ctx.revert(); // Revert all animations and kill ScrollTriggers
         };
-    }, [chapterTitle, features]); // Empty dependency array ensures this runs once on mount
+    }, [
+        chapterTitle,
+        features,
+        q1Key,
+        q2Key,
+        onLeaveBack_q1Key,
+        onLeaveBack_q2Key,
+        t_chat,
+        setContextualQuestions,
+    ]); // Empty dependency array ensures this runs once on mount
+
+    const handleAiButtonClick = () => {
+        const question = t_chat(q1Key); // Usa la pregunta principal
+        sendMessage(question); // Envía la pregunta al chat
+        toggleChat(true); // Abre el chat si está cerrado
+    };
 
     return (
         <section id={id} className={styles.chapterContainer} ref={sectionRef}>
@@ -211,7 +254,10 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                       to your main AI chat component's context or state
                       when this is clicked.
                     */}
-                    <button className={styles.aiAskButton} data-query={aiQuery}>
+                    <button
+                        className={styles.aiAskButton}
+                        onClick={handleAiButtonClick}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"

@@ -8,6 +8,7 @@ import styles from './ExperienceSection.module.css';
 import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +33,10 @@ const AiIcon = () => (
 // --- 3. The Component ---
 const ExperienceSection: React.FC = () => {
     const t = useTranslations('ExperienceSection');
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions } = useChat();
+
     const jobData = [
         {
             key: 'job1', // Added a key for React
@@ -143,8 +148,30 @@ const ExperienceSection: React.FC = () => {
                     },
                 });
             }
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: 'top 50%',
+                end: 'bottom 50%',
+
+                onEnter: () => {
+                    setContextualQuestions([
+                        t_chat('q_experience_1'),
+                        t_chat('q_experience_2'),
+                    ]);
+                },
+                onLeaveBack: () => {
+                    // Volvemos a las preguntas de 'Toolkit'
+                    setContextualQuestions([
+                        t_chat('q_toolkit_1'),
+                        t_chat('q_toolkit_2'),
+                    ]);
+                },
+            });
         },
-        { scope: sectionRef, dependencies: [t] },
+        {
+            scope: sectionRef,
+            dependencies: [t, t_chat, setContextualQuestions],
+        },
     );
 
     return (

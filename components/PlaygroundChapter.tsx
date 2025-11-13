@@ -7,6 +7,7 @@ import PlaygroundCard from './PlaygroundCard';
 import styles from './PlaygroundChapter.module.css';
 
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +42,9 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
     //onAskAI,
 }) => {
     const t = useTranslations('ProjectChapters');
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions } = useChat();
 
     // State to manage how many projects are visible
     const [visibleCount, setVisibleCount] = useState(PROJECTS_TO_SHOW);
@@ -129,10 +133,30 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                     },
                 });
             }
+
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: 'top 50%',
+                end: 'bottom 50%', // (No importa mucho el 'end' aquí)
+
+                onEnter: () => {
+                    setContextualQuestions([
+                        t_chat('q_playground_1'),
+                        t_chat('q_playground_2'),
+                    ]);
+                },
+                onLeaveBack: () => {
+                    // Volvemos a las preguntas de 'Project Chapter 3'
+                    setContextualQuestions([
+                        t_chat('q_projects_ch3_1'),
+                        t_chat('q_projects_ch3_2'),
+                    ]);
+                },
+            });
         }, sectionRef); // Scope animations
 
         return () => ctx.revert(); // Cleanup
-    }, [chapterTitle, narrative]);
+    }, [chapterTitle, narrative, t_chat, setContextualQuestions]);
 
     // Refresh ScrollTrigger when new projects are added
     useEffect(() => {
@@ -148,11 +172,7 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
 
             <div className={styles.playgroundGrid}>
                 {projectsToShow.map((project, index) => (
-                    <PlaygroundCard
-                        key={index}
-                        {...project}
-                        //onAskAI={onAskAI}
-                    />
+                    <PlaygroundCard key={index} {...project} />
                 ))}
             </div>
 

@@ -133,7 +133,13 @@
         "q_toolkit_2": "What backend technologies does he know?",
         "q_experience_1": "Tell me about his role at MagicMail",
         "q_experience_2": "What did he do as a freelancer?",
-        "q_projects_1": "What technologies does this project use?",
-        "q_projects_2": "What was the biggest challenge in this project?"
+        "q_projects_ch1_1": "What is Fazume.com?",
+        "q_projects_ch1_2": "Tell me about the AI integration on Fazume.com",
+        "q_projects_ch2_1": "How does the Tamaly Shop E-commerce site work?",
+        "q_projects_ch2_2": "How did you integrate Square POS with WooCommerce?",
+        "q_projects_ch3_1": "What is the Docker Homelab project?",
+        "q_projects_ch3_2": "Ask about the secure VPN setup",
+        "q_playground_1": "What is this 'Experiment Lab'?",
+        "q_playground_2": "Tell me about the RAG bot for this portfolio"
     }
 }

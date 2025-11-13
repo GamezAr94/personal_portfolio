@@ -5,7 +5,9 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ToolkitSection.module.css';
+
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,6 +56,10 @@ const toolCategories = [
 
 const ToolkitSection: React.FC = () => {
     const t = useTranslations('ToolkitSection');
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions } = useChat();
+
     const sectionRef = useRef<HTMLElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);
     const pRef = useRef<HTMLParagraphElement>(null);
@@ -130,8 +136,30 @@ const ToolkitSection: React.FC = () => {
                     },
                 });
             }
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: 'top 50%',
+                end: 'bottom 50%',
+
+                onEnter: () => {
+                    setContextualQuestions([
+                        t_chat('q_toolkit_1'),
+                        t_chat('q_toolkit_2'),
+                    ]);
+                },
+                onLeaveBack: () => {
+                    // Volvemos a las preguntas de 'About'
+                    setContextualQuestions([
+                        t_chat('q_about_1'),
+                        t_chat('q_about_2'),
+                    ]);
+                },
+            });
         },
-        { scope: sectionRef, dependencies: [t] },
+        {
+            scope: sectionRef,
+            dependencies: [t, t_chat, setContextualQuestions],
+        },
     );
 
     return (
