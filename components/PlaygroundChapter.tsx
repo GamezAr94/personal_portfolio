@@ -39,7 +39,6 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
     chapterTitle,
     narrative,
     projects,
-    //onAskAI,
 }) => {
     const t = useTranslations('ProjectChapters');
     const t_chat = useTranslations('ChatQuestions');

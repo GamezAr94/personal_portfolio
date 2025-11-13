@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './Footer.module.css';
 
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -39,6 +40,10 @@ const SuccessIcon = () => (
 
 const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
     const t = useTranslations('Footer');
+
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions, toggleChat } = useChat();
 
     const footerRef = useRef<HTMLElement>(null);
     const copyrightYear = new Date().getFullYear();
@@ -114,6 +119,25 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
                     ease: 'power2.out',
                 });
         }
+
+        ScrollTrigger.create({
+            trigger: footerRef.current,
+            start: 'top 50%',
+            end: 'bottom 10%', // (No importa mucho el 'end' aquí)
+
+            onEnter: () => {
+                setContextualQuestions([]);
+                toggleChat(false);
+            },
+            onLeaveBack: () => {
+                toggleChat(true);
+                // Volvemos a las preguntas de 'Project Chapter 3'
+                setContextualQuestions([
+                    t_chat('q_playground_1'),
+                    t_chat('q_playground_2'),
+                ]);
+            },
+        });
     }, [status, t]); // Se ejecuta cada vez que 'status' cambia
 
     // --- 3. Crea una función para resetear el formulario ---

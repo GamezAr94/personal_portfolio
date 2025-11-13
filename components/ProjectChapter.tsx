@@ -8,6 +8,7 @@ import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
 import { useChat } from '@/context/ChatContext';
+import AskAiButton from './AskAiButton';
 
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -58,7 +59,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     const t = useTranslations('ProjectChapters');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions, toggleChat, sendMessage } = useChat();
+    const { setContextualQuestions } = useChat();
 
     // Refs for all animated elements
     const sectionRef = useRef<HTMLElement>(null);
@@ -219,12 +220,6 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
         setContextualQuestions,
     ]); // Empty dependency array ensures this runs once on mount
 
-    const handleAiButtonClick = () => {
-        const question = t_chat(q1Key); // Usa la pregunta principal
-        sendMessage(question); // Envía la pregunta al chat
-        toggleChat(true); // Abre el chat si está cerrado
-    };
-
     return (
         <section id={id} className={styles.chapterContainer} ref={sectionRef}>
             <div className={styles.chapterNarrative}>
@@ -250,29 +245,12 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                         ))}
                     </div>
 
-                    {/* NOTE: You'll need to pass the 'data-query' prop
-                      to your main AI chat component's context or state
-                      when this is clicked.
-                    */}
-                    <button
-                        className={styles.aiAskButton}
-                        onClick={handleAiButtonClick}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M12 2L14.39 8.39L21 10.39L16.39 14.39L17.61 21L12 17.61L6.39 21L7.61 14.39L3 10.39L9.61 8.39L12 2z" />
-                        </svg>
-                        {t('aiButton')}{' '}
-                    </button>
+                    <AskAiButton
+                        questionKey={q1Key} // Pasa la clave de la pregunta
+                        className={styles.aiAskButton} // Pasa el estilo
+                        textNamespace="ProjectChapters"
+                        textKey="aiButton"
+                    />
 
                     <div
                         className={styles.projectFeaturesList}

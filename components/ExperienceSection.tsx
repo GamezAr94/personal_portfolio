@@ -9,26 +9,9 @@ import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
 import { useChat } from '@/context/ChatContext';
+import AskAiButton from './AskAiButton';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// --- 2. The AI Ask Button SVG ---
-// Re-using the same star icon from your other components
-const AiIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M12 2L14.39 8.39L21 10.39L16.39 14.39L17.61 21L12 17.61L6.39 21L7.61 14.39L3 10.39L9.61 8.39L12 2z" />
-    </svg>
-);
 
 // --- 3. The Component ---
 const ExperienceSection: React.FC = () => {
@@ -57,7 +40,7 @@ const ExperienceSection: React.FC = () => {
                 'Agile',
                 'HTML',
             ],
-            aiQuery: t('job1_aiQuery'),
+            aiQueryKey: t('job1_aiQuery'),
         },
         {
             key: 'job2',
@@ -66,7 +49,7 @@ const ExperienceSection: React.FC = () => {
             dates: t('job2_dates'),
             description: t('job2_description'),
             tags: ['JavaScript', 'PHP', 'WordPress', 'SCSS', 'MySQL', 'Git'],
-            aiQuery: t('job2_aiQuery'),
+            aiQueryKey: t('job2_aiQuery'),
         },
     ];
 
@@ -214,13 +197,12 @@ const ExperienceSection: React.FC = () => {
                         </div>
 
                         {/* --- 9. Re-using ProjectChapter styles --- */}
-                        <button
+                        <AskAiButton
+                            questionKey={job.aiQueryKey}
                             className={styles.aiAskButton}
-                            data-query={job.aiQuery}
-                        >
-                            <AiIcon />
-                            {t('aiButton')}{' '}
-                        </button>
+                            textNamespace="ExperienceSection"
+                            textKey="aiButton"
+                        />
                     </div>
                 ))}
             </div>
