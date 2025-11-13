@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './AboutSection.module.css';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +57,7 @@ const AboutSection: React.FC = () => {
     const t = useTranslations('AboutSection');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions } = useChat();
+    const { setContextualQuestions } = useChatAPI();
 
     // ... all your existing refs (sectionRef, imageRef, h2Ref, textContentRef) ...
     const sectionRef = useRef<HTMLElement>(null);

@@ -7,7 +7,7 @@ import PlaygroundCard from './PlaygroundCard';
 import styles from './PlaygroundChapter.module.css';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +43,7 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
     const t = useTranslations('ProjectChapters');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions } = useChat();
+    const { setContextualQuestions } = useChatAPI();
 
     // State to manage how many projects are visible
     const [visibleCount, setVisibleCount] = useState(PROJECTS_TO_SHOW);

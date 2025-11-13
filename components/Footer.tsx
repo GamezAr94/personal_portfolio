@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './Footer.module.css';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -43,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ githubUrl, linkedinUrl }) => {
 
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions, toggleChat } = useChat();
+    const { setContextualQuestions, toggleChat } = useChatAPI();
 
     const footerRef = useRef<HTMLElement>(null);
     const copyrightYear = new Date().getFullYear();

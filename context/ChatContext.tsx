@@ -1,68 +1,73 @@
 // context/ChatContext.tsx
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+// IMPORTANTE: ¡Añade useCallback!
+import React, {
+    createContext,
+    useContext,
+    useState,
+    ReactNode,
+    useCallback,
+    useMemo,
+} from 'react';
 
-// Definimos los tipos de datos
-
-// Tipo para un solo mensaje
+// --- 1. Definimos los tipos de datos (SIN CAMBIOS) ---
 export interface ChatMessage {
     role: 'user' | 'ai';
     content: string;
 }
 
-// Tipo para todo el estado del contexto
-export interface ChatContextState {
-    messages: ChatMessage[];
-    isOpen: boolean; // ¿Está abierta la ventana del chat lateral?
-    isLoading: boolean; // ¿Está el AI "pensando"?
-    contextualQuestions: string[]; // Las preguntas de ejemplo
+// --- 2. SEPARAMOS LOS TIPOS DE ESTADO Y DE API ---
 
-    // Funciones que los componentes pueden llamar
+// Tipo para el ESTADO (datos que cambian)
+export interface ChatState {
+    messages: ChatMessage[];
+    isOpen: boolean;
+    isLoading: boolean;
+    contextualQuestions: string[];
+}
+
+// Tipo para la API (funciones que NO cambian)
+export interface ChatAPI {
     toggleChat: (open?: boolean) => void;
     sendMessage: (message: string) => Promise<void>;
     setContextualQuestions: (questions: string[]) => void;
 }
 
-// Creamos el Context
-// Lo creamos con un valor 'undefined' por defecto.
-// Daremos un error si se intenta usar fuera del Provider.
-export const ChatContext = createContext<ChatContextState | undefined>(
-    undefined,
-);
+// --- 3. CREAMOS DOS CONTEXTOS ---
+export const ChatStateContext = createContext<ChatState | undefined>(undefined);
+export const ChatAPIContext = createContext<ChatAPI | undefined>(undefined);
 
-// Este componente envolverá nuestra app y contendrá toda la lógica.
-
+// --- 4. ACTUALIZAMOS EL PROVIDER ---
 interface ChatProviderProps {
     children: ReactNode;
 }
 
 export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
+    // Los 'useState' siguen viviendo aquí, igual que antes
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [contextualQuestions, setContextualQuestions] = useState<string[]>(
+    const [contextualQuestions, _setContextualQuestions] = useState<string[]>(
         [],
     );
 
-    const toggleChat = (open?: boolean) => {
-        // Si se pasa un valor (true/false), úsalo.
-        // Si no, simplemente invierte el valor actual.
+    // --- 5. ENVOLVEMOS TODAS LAS FUNCIONES CON 'useCallback' ---
+    // Esto garantiza que sus referencias no cambien entre re-renders.
+
+    const toggleChat = useCallback((open?: boolean) => {
         setIsOpen((prev) => (open !== undefined ? open : !prev));
-    };
+    }, []); // Dependencia vacía = nunca cambia
 
-    const sendMessage = async (content: string) => {
-        if (isLoading) return; // No enviar si ya está cargando
-
-        // Añade el mensaje del usuario al historial
+    const sendMessage = useCallback(async (content: string) => {
+        // Usamos 'setIsLoading' y 'setMessages' en modo de función
+        // para que 'sendMessage' no necesite depender de 'isLoading' o 'messages'.
+        setIsLoading(true);
         const userMessage: ChatMessage = { role: 'user', content };
         setMessages((prev) => [...prev, userMessage]);
-        setIsLoading(true);
 
-        // Aquí es donde llamaremos a nuestra API real
-        // Por ahora, solo simulamos una respuesta de la IA.
-        await new Promise((resolve) => setTimeout(resolve, 1500)); // Simula 1.5s de espera
-
+        // Mock API call (igual que antes)
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         const aiResponse: ChatMessage = {
             role: 'ai',
             content: `Respuesta de prueba para: "${content}"`,
@@ -70,32 +75,60 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 
         setMessages((prev) => [...prev, aiResponse]);
         setIsLoading(false);
-        // --- FIN DE LA LÓGICA MOCK ---
-    };
+    }, []); // Dependencia vacía = nunca cambia
 
-    // El valor que proveeremos a todos los componentes hijos
-    const value = {
-        messages,
-        isOpen,
-        isLoading,
-        contextualQuestions,
-        toggleChat,
-        sendMessage,
-        setContextualQuestions,
-    };
+    const setContextualQuestions = useCallback(
+        (questions: string[]) => {
+            _setContextualQuestions(questions);
+        },
+        [_setContextualQuestions],
+    ); // Dependencia vacía = nunca cambia
 
+    // --- 6. SEPARAMOS LOS VALORES PARA CADA PROVIDER ---
+    const stateValue = useMemo(
+        () => ({
+            messages,
+            isOpen,
+            isLoading,
+            contextualQuestions,
+        }),
+        [messages, isOpen, isLoading, contextualQuestions],
+    );
+
+    const apiValue = useMemo(
+        () => ({
+            toggleChat,
+            sendMessage,
+            setContextualQuestions,
+        }),
+        [toggleChat, sendMessage, setContextualQuestions],
+    );
+
+    // --- 7. ANIDAMOS LOS DOS PROVIDERS ---
     return (
-        <ChatContext.Provider value={value}>{children}</ChatContext.Provider>
+        <ChatAPIContext.Provider value={apiValue}>
+            <ChatStateContext.Provider value={stateValue}>
+                {children}
+            </ChatStateContext.Provider>
+        </ChatAPIContext.Provider>
     );
 };
 
-// --- 4. Creamos un Hook personalizado ---
-// Esto hace que sea más fácil usar el contexto sin tener que
-// importar 'useContext' y 'ChatContext' en cada archivo.
-export const useChat = () => {
-    const context = useContext(ChatContext);
+// --- 8. CREAMOS DOS HOOKS SEPARADOS ---
+export const useChatState = () => {
+    const context = useContext(ChatStateContext);
     if (context === undefined) {
-        throw new Error('useChat debe ser usado dentro de un ChatProvider');
+        throw new Error(
+            'useChatState debe ser usado dentro de un ChatProvider',
+        );
+    }
+    return context;
+};
+
+export const useChatAPI = () => {
+    const context = useContext(ChatAPIContext);
+    if (context === undefined) {
+        throw new Error('useChatAPI debe ser usado dentro de un ChatProvider');
     }
     return context;
 };

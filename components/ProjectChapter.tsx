@@ -7,7 +7,7 @@ import styles from './ProjectChapter.module.css';
 import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 import AskAiButton from './AskAiButton';
 
 // Register GSAP plugin
@@ -59,7 +59,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     const t = useTranslations('ProjectChapters');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions } = useChat();
+    const { setContextualQuestions } = useChatAPI();
 
     // Refs for all animated elements
     const sectionRef = useRef<HTMLElement>(null);

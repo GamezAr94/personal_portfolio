@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ToolkitSection.module.css';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +58,7 @@ const ToolkitSection: React.FC = () => {
     const t = useTranslations('ToolkitSection');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions } = useChat();
+    const { setContextualQuestions } = useChatAPI();
 
     const sectionRef = useRef<HTMLElement>(null);
     const h2Ref = useRef<HTMLHeadingElement>(null);

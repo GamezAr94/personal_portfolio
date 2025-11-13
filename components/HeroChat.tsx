@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, FormEvent, useRef, useEffect } from 'react';
-import { useChat } from '@/context/ChatContext';
-
+import { useChatState, useChatAPI } from '@/context/ChatContext';
 import AsciiArtTitle from './AsciiArtTitle';
 // We just import the new styles. The name is the same.
 import styles from './HeroChat.module.css';
@@ -20,7 +19,8 @@ const TypingIndicator = () => (
 
 export default function HeroChat() {
     // Obtenemos el estado y las funciones de nuestro "cerebro" global
-    const { messages, isLoading, sendMessage } = useChat();
+    const { messages, isLoading } = useChatState();
+    const { sendMessage } = useChatAPI();
 
     // Esto controla lo que el usuario está escribiendo
     const [input, setInput] = useState('');

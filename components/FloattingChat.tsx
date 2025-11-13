@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './FloatingChat.module.css';
 import heroChatStyles from './HeroChat.module.css';
 
-import { useChat } from '@/context/ChatContext';
+import { useChatState, useChatAPI } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,14 +85,8 @@ const TypingIndicator = () => (
 );
 
 export default function FloatingChat() {
-    const {
-        messages,
-        isLoading,
-        isOpen, // <-- Obtenemos 'isOpen' del contexto
-        toggleChat, // <-- Obtenemos 'toggleChat' del contexto
-        sendMessage,
-        contextualQuestions,
-    } = useChat();
+    const { messages, isLoading, isOpen, contextualQuestions } = useChatState();
+    const { toggleChat, sendMessage } = useChatAPI();
 
     const [input, setInput] = useState('');
 

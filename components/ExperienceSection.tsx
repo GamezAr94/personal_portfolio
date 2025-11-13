@@ -8,7 +8,7 @@ import styles from './ExperienceSection.module.css';
 import AnimatedText from './AnimatedText';
 
 import { useTranslations } from 'next-intl';
-import { useChat } from '@/context/ChatContext';
+import { useChatAPI } from '@/context/ChatContext';
 import AskAiButton from './AskAiButton';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +18,7 @@ const ExperienceSection: React.FC = () => {
     const t = useTranslations('ExperienceSection');
     const t_chat = useTranslations('ChatQuestions');
 
-    const { setContextualQuestions } = useChat();
+    const { setContextualQuestions } = useChatAPI();
 
     const jobData = [
         {

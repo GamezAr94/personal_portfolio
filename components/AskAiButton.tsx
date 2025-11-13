@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useChat } from '@/context/ChatContext';
+import { useChatState, useChatAPI } from '@/context/ChatContext';
 import { useTranslations } from 'next-intl';
 
 // 1. Definimos el ícono aquí mismo para que el componente sea autocontenido
@@ -39,29 +39,30 @@ type AskAiButtonProps = {
 const AskAiButton: React.FC<AskAiButtonProps> = ({
     questionKey,
     className,
-    textNamespace = 'ProjectChapters', // Usamos 'ProjectChapters' como default
-    textKey = 'aiButton', // Usamos 'aiButton' como default
+    textNamespace = 'ProjectChapters',
+    textKey = 'aiButton',
 }) => {
-    // 3. Obtenemos los hooks que necesitamos
-    const t_chat = useTranslations('ChatQuestions'); // Para traducir la pregunta
-    const t_btn = useTranslations(textNamespace); // Para traducir el texto del botón
+    const t_chat = useTranslations('ChatQuestions');
+    const t_btn = useTranslations(textNamespace);
 
-    const { sendMessage, toggleChat, isLoading } = useChat();
+    // --- 2. USA LOS DOS HOOKS ---
+    const { isLoading } = useChatState(); // Obtenemos el estado
+    const { sendMessage, toggleChat } = useChatAPI(); // Obtenemos las funciones
 
-    // 4. La lógica del clic, ahora genérica
+    // La lógica del clic no cambia, ¡pero ahora es segura!
     const handleClick = () => {
-        if (isLoading) return; // ¡Previene el spam!
+        if (isLoading) return;
 
-        const question = t_chat(questionKey); // Traduce la clave de la pregunta
-        sendMessage(question); // Envía la pregunta
-        toggleChat(true); // Abre el chat
+        const question = t_chat(questionKey);
+        sendMessage(question);
+        toggleChat(true);
     };
 
     return (
         <button
-            className={className} // 5. Usa el estilo del componente padre
+            className={className}
             onClick={handleClick}
-            disabled={isLoading} // 6. Se deshabilita solo si la IA está cargando
+            disabled={isLoading} // Sigue funcionando igual
         >
             <AiIcon />
             {t_btn(textKey)}
