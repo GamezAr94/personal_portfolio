@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './AboutSection.module.css';
 
 import { useTranslations } from 'next-intl';
+import { useChat } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,6 +55,9 @@ const wrapWordsInSpans = (
 
 const AboutSection: React.FC = () => {
     const t = useTranslations('AboutSection');
+    const t_chat = useTranslations('ChatQuestions');
+
+    const { setContextualQuestions } = useChat();
 
     // ... all your existing refs (sectionRef, imageRef, h2Ref, textContentRef) ...
     const sectionRef = useRef<HTMLElement>(null);
@@ -163,8 +167,37 @@ const AboutSection: React.FC = () => {
                     }
                 });
             }
+
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: 'top 50%', // Cuando la parte superior de la sección esté en medio de la pantalla
+                end: 'bottom 50%', // Cuando la parte inferior de la sección esté en medio de la pantalla
+
+                // Cuando el usuario entra en la sección
+                onEnter: () => {
+                    setContextualQuestions([
+                        t_chat('q_about_1'),
+                        t_chat('q_about_2'),
+                    ]);
+                },
+                // Cuando el usuario sale de la sección (volviendo hacia arriba)
+                onLeaveBack: () => {
+                    /*  setContextualQuestions([
+                        t_chat('q_default_1'), // Vuelve a las preguntas por defecto
+                        t_chat('q_default_2'),
+                    ]);*/
+                    setContextualQuestions([]);
+                },
+                // Cuando el usuario sale de la sección (yendo hacia abajo)
+                onLeave: () => {
+                    // (Dejamos que la siguiente sección ponga sus propias preguntas)
+                },
+            });
         },
-        { scope: sectionRef, dependencies: [t] },
+        {
+            scope: sectionRef,
+            dependencies: [t, t_chat, setContextualQuestions],
+        },
     );
 
     return (

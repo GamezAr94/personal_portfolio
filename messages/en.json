@@ -123,5 +123,17 @@
         "form_status_error": "Something went wrong. Please try again.",
         "copyright": "Built with curiosity and code.",
         "recaptchaNotice": "This site is protected by reCAPTCHA and the Google <privacyLink>Privacy Policy</privacyLink> and <termsLink>Terms of Service</termsLink> apply."
+    },
+    "ChatQuestions": {
+        "q_default_1": "What projects has Arturo built?",
+        "q_default_2": "What's his professional experience?",
+        "q_about_1": "Tell me more about Arturo",
+        "q_about_2": "Where is Arturo from?",
+        "q_toolkit_1": "What are his strongest frontend skills?",
+        "q_toolkit_2": "What backend technologies does he know?",
+        "q_experience_1": "Tell me about his role at MagicMail",
+        "q_experience_2": "What did he do as a freelancer?",
+        "q_projects_1": "What technologies does this project use?",
+        "q_projects_2": "What was the biggest challenge in this project?"
     }
 }
