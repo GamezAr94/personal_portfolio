@@ -1,10 +1,49 @@
 'use client';
 
+import React, { useState, FormEvent, useRef, useEffect } from 'react';
+import { useChat } from '@/context/ChatContext';
+
 import AsciiArtTitle from './AsciiArtTitle';
 // We just import the new styles. The name is the same.
 import styles from './HeroChat.module.css';
 
+const TypingIndicator = () => (
+    <div className={styles.aiMessage}>
+        <strong>Arturo-AI:</strong>
+        <div className={styles.typingIndicator}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+);
+
 export default function HeroChat() {
+    // Obtenemos el estado y las funciones de nuestro "cerebro" global
+    const { messages, isLoading, sendMessage } = useChat();
+
+    // Esto controla lo que el usuario está escribiendo
+    const [input, setInput] = useState('');
+
+    // Esto nos da una referencia al DIV que contiene los mensajes
+    const messageListRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (messageListRef.current) {
+            // Hacemos scroll hasta el fondo cada vez que 'messages' cambia
+            messageListRef.current.scrollTop =
+                messageListRef.current.scrollHeight;
+        }
+    }, [messages, isLoading]); // Se activa si llegan mensajes nuevos o si empieza a escribir
+
+    const handleSend = (e: FormEvent) => {
+        e.preventDefault(); // Evita que la página se recargue al enviar el form
+        if (!input.trim() || isLoading) return; // No enviar vacío o si ya está cargando
+
+        sendMessage(input); // Llama a la función del contexto global
+        setInput(''); // Limpia el input local
+    };
+
     return (
         <div className={styles.terminalWindow}>
             {/* Terminal Header */}
@@ -17,7 +56,7 @@ export default function HeroChat() {
             </div>
 
             {/* The Message List */}
-            <div className={styles.messageList}>
+            <div className={styles.messageList} ref={messageListRef}>
                 {/* The ASCII Art */}
                 <AsciiArtTitle title="ARTIC" />
 
@@ -31,23 +70,52 @@ export default function HeroChat() {
                 </div>
 
                 {/* User Message */}
-                <div className={styles.userMessage}>
-                    <span className={styles.userPrompt}>&gt;</span>
-                    <span className={styles.userText}>Cool!</span>
-                </div>
+                {messages.map((msg, index) => (
+                    <div
+                        key={index}
+                        className={
+                            msg.role === 'user'
+                                ? styles.userMessage
+                                : styles.aiMessage
+                        }
+                    >
+                        {msg.role === 'user' ? (
+                            <>
+                                <span className={styles.userPrompt}>&gt;</span>
+                                <span className={styles.userText}>
+                                    {msg.content}
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <strong>Arturo-AI:</strong>
+                                <p>{msg.content}</p>
+                            </>
+                        )}
+                    </div>
+                ))}
+
+                {/* --- NUEVO: Muestra el indicador de "escribiendo..." --- */}
+                {isLoading && <TypingIndicator />}
             </div>
 
             {/* Input Bar */}
-            <div className={styles.inputArea}>
+            {/* Usamos un <form> para que 'Enter' funcione automáticamente */}
+            <form className={styles.inputArea} onSubmit={handleSend}>
                 <span className={styles.promptSymbol}>&gt;</span>
                 <input
                     type="text"
                     placeholder="Ask about a project..."
                     className={styles.textInput}
+                    value={input} // Controlado por React
+                    onChange={(e) => setInput(e.target.value)} // Actualiza el estado
+                    disabled={isLoading} // Deshabilita el input mientras la IA responde
                 />
-                {/* The send button is here, but hidden by the CSS */}
-                <button className={styles.sendButton}>Send</button>
-            </div>
+                {/* El botón ahora es de tipo "submit" */}
+                <button type="submit" className={styles.sendButton}>
+                    Send
+                </button>
+            </form>
         </div>
     );
 }

@@ -169,3 +169,46 @@
         white-space: nowrap; /* Prevent text from wrapping */
     }
 }
+
+/* Contenedor para los 3 puntos */
+.typingIndicator {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0; /* Un poco de espacio vertical */
+}
+
+/* Los 3 puntos */
+.typingIndicator span {
+    height: 8px;
+    width: 8px;
+    background-color: #a0aec0; /* Mismo color que el 'strong' (gray-500) */
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+
+    /* ¡Aquí está la animación! */
+    animation: bounce 1.3s infinite ease-in-out;
+}
+
+/* Hacemos que cada punto empiece en un momento diferente */
+.typingIndicator span:nth-of-type(1) {
+    animation-delay: -0.3s;
+}
+
+.typingIndicator span:nth-of-type(2) {
+    animation-delay: -0.15s;
+}
+
+/* Definición de la animación "bounce" */
+@keyframes bounce {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

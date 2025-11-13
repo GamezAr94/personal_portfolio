@@ -1,11 +1,15 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect, FormEvent } from 'react';
+
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from './FloatingChat.module.css';
+import heroChatStyles from './HeroChat.module.css';
+
+import { useChat } from '@/context/ChatContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,17 +72,35 @@ const MobileArrowIcon = () => (
     </svg>
 );
 
+// Reusamos los estilos del 'heroChatStyles'
+const TypingIndicator = () => (
+    <div className={heroChatStyles.aiMessage}>
+        <strong>Arturo-AI:</strong>
+        <div className={heroChatStyles.typingIndicator}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+);
+
 export default function FloatingChat() {
-    const [isOpen, setIsOpen] = useState(false);
+    const {
+        messages,
+        isLoading,
+        isOpen, // <-- Obtenemos 'isOpen' del contexto
+        toggleChat, // <-- Obtenemos 'toggleChat' del contexto
+        sendMessage,
+        contextualQuestions,
+    } = useChat();
+
+    const [input, setInput] = useState('');
 
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
-
     const openChatRef = useRef(null);
 
-    const toggleChat = () => {
-        setIsOpen(!isOpen);
-    };
+    const messageListRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         // --- This is the "SLIDE-IN/OUT" logic ---
@@ -146,7 +168,7 @@ export default function FloatingChat() {
             trigger: '#hero-section',
             start: 'bottom 70%',
             onEnter: () => {
-                setIsOpen(true);
+                toggleChat(true);
             },
         });
     }, []);
@@ -155,10 +177,32 @@ export default function FloatingChat() {
             trigger: '#hero-section',
             start: 'bottom 70%',
             onLeaveBack: () => {
-                setIsOpen(false);
+                toggleChat(false);
             },
         });
-    }, []);
+    }, [toggleChat]);
+
+    useEffect(() => {
+        if (messageListRef.current) {
+            messageListRef.current.scrollTop =
+                messageListRef.current.scrollHeight;
+        }
+    }, [messages, isLoading]);
+
+    //HandleSend (copiado de HeroChat)
+    const handleSend = (e: FormEvent) => {
+        e.preventDefault();
+        if (!input.trim() || isLoading) return;
+        sendMessage(input);
+        setInput('');
+    };
+
+    // Handle para botones de preguntas
+    const handleContextualClick = (question: string) => {
+        if (isLoading) return; // No hacer nada si ya está cargando
+        sendMessage(question); // Envía la pregunta directamente
+        // No limpiamos el input, por si el usuario estaba escribiendo
+    };
 
     return (
         <>
@@ -167,7 +211,7 @@ export default function FloatingChat() {
                 <div
                     ref={desktopRef}
                     className={styles.floatingBar}
-                    onClick={toggleChat}
+                    onClick={() => toggleChat()}
                 >
                     <div style={{ cursor: 'pointer' }}>
                         <MaximizeIcon />
@@ -186,7 +230,7 @@ export default function FloatingChat() {
                 <div
                     ref={mobileRef}
                     className={styles.mobileTab}
-                    onClick={toggleChat}
+                    onClick={() => toggleChat()}
                 >
                     <MobileArrowIcon />
                 </div>
@@ -196,13 +240,85 @@ export default function FloatingChat() {
             <div ref={openChatRef} className={styles.openChatWindow}>
                 <div className={styles.openChatHeader}>
                     <span className={styles.openChatTitle}>Arturo AI</span>
-                    <div style={{ cursor: 'pointer' }} onClick={toggleChat}>
+                    <div
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => toggleChat()}
+                    >
+                        {' '}
                         <MinimizeIcon />
                     </div>
                 </div>
-                <div className={styles.openChatBody}>
-                    <p>Chat messages will go here...</p>
+                <div className={styles.openChatBody} ref={messageListRef}>
+                    {/* Mensaje de bienvenida estático */}
+                    <div className={heroChatStyles.aiMessage}>
+                        <strong>Arturo-AI:</strong>
+                        <p>
+                            Hi! I'm Arturo's digital assistant. How can I help?
+                        </p>
+                    </div>
+
+                    {/* Historial de chat dinámico */}
+                    {messages.map((msg, index) => (
+                        <div
+                            key={index}
+                            // Reusamos los estilos de HeroChat
+                            className={
+                                msg.role === 'user'
+                                    ? heroChatStyles.userMessage
+                                    : heroChatStyles.aiMessage
+                            }
+                        >
+                            {msg.role === 'user' ? (
+                                <>
+                                    <span className={heroChatStyles.userPrompt}>
+                                        &gt;
+                                    </span>
+                                    <span className={heroChatStyles.userText}>
+                                        {msg.content}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <strong>Arturo-AI:</strong>
+                                    <p>{msg.content}</p>
+                                </>
+                            )}
+                        </div>
+                    ))}
+
+                    {/* Indicador de "escribiendo..." */}
+                    {isLoading && <TypingIndicator />}
                 </div>
+
+                {/* --- NUEVO: Sección de Preguntas Contextuales --- */}
+                <div className={styles.contextualQuestions}>
+                    {contextualQuestions.map((q, i) => (
+                        <button
+                            key={i}
+                            onClick={() => handleContextualClick(q)}
+                            className={styles.questionButton}
+                            disabled={isLoading}
+                        >
+                            {q}
+                        </button>
+                    ))}
+                </div>
+
+                {/* --- NUEVO: Formulario de Input (copiado de HeroChat) --- */}
+                <form className={styles.inputArea} onSubmit={handleSend}>
+                    <span className={styles.promptSymbol}>&gt;</span>
+                    <input
+                        type="text"
+                        placeholder="Ask a question..."
+                        className={styles.textInput}
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        disabled={isLoading}
+                    />
+                    <button type="submit" className={styles.sendButton}>
+                        Send
+                    </button>
+                </form>
             </div>
         </>
     );
