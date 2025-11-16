@@ -19,20 +19,20 @@ export default function Providers({
     recaptchaSiteKey,
 }: ProvidersProps) {
     return (
-        <ChatProvider>
-            <GoogleReCaptchaProvider
-                reCaptchaKey={recaptchaSiteKey}
-                scriptProps={{
-                    async: false,
-                    defer: false,
-                    appendTo: 'head',
-                    nonce: undefined,
-                }}
-            >
+        <GoogleReCaptchaProvider
+            reCaptchaKey={recaptchaSiteKey}
+            scriptProps={{
+                async: false,
+                defer: false,
+                appendTo: 'head',
+                nonce: undefined,
+            }}
+        >
+            <ChatProvider>
                 <NextIntlClientProvider messages={messages} locale={locale}>
                     {children}
                 </NextIntlClientProvider>
-            </GoogleReCaptchaProvider>
-        </ChatProvider>
+            </ChatProvider>
+        </GoogleReCaptchaProvider>
     );
 }
