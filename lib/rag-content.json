@@ -1,0 +1,25 @@
+{
+    "aboutMe": [
+        "I'm a software developer who thrives on understanding the 'why'—the deep user and business needs behind every feature.",
+        "My motto is 'what you can measure, you can control,' and I apply that by writing clean, efficient, and team-friendly code.",
+        "While I'm a front-end specialist who loves a good design challenge (especially pixel-perfect UIs), I'm also a curious problem-solver who enjoys tackling HackerRank puzzles.",
+        "As a BCIT-trained developer based in Vancouver, I'm looking for a role with clear goals on a collaborative team of smart, passionate people. I'm excited to grow, learn, and build scalable, user-centric applications.",
+        "I am Mexican, born and raised in Mexico, and I moved to Canada 8 years ago. I live in Vancouver. I speak Spanish (native), English (C1), and am learning French (A2)."
+    ],
+    "experience_magicmail": [
+        "As a full-stack developer for the large-scale MagicMail platform, I spearheaded the development of a new administrative PWA dashboard, replacing a 12-page legacy interface with a streamlined, single-page application. This new dashboard saves administrators ~3 hours daily by consolidating key metrics into one view, utilizing a custom PWA with a WebSocket API and push notifications.",
+        "I also enhanced platform-wide security by architecting and implementing modern features like DKIM and Domain Health Check tools, protecting data for over 400+ ISPs."
+    ],
+    "projects_fazume": [
+        "AI Resume Analyzer - Fazume.com. A full-stack, production-ready SaaS application I conceived, architected, and launched. Fazume.com uses Google's Gemini API to analyze a user's 'master profile' against a job description, instantly generating a perfectly tailored, ATS-friendly resume.",
+        "The live platform includes full Supabase auth and Stripe payment integration.",
+        "Advanced AI Prompt Engineering: Engineered a complex prompt for the Gemini API to return a strict, predictable JSON schema, ensuring 100% reliable resume generation from two data sources.",
+        "Full Stripe Payment System: Architected a complete monetization system with Stripe for token packs and subscriptions, including a robust webhook endpoint for securely provisioning services."
+    ],
+    "projects_homelab": [
+        "Docker Homelab with Game Server & Media Platform. I architected a low-power, robust homelab on a Raspberry Pi 4.",
+        "I containerized a multi-service stack with Docker Compose, including a live Terraria game server for my friends and a Jellyfin personal media server.",
+        "Secure Network Architecture: Architected a secure network where all services are containerized. I routed all outbound traffic through a Gluetun (VPN) container, isolating and protecting the entire homelab stack.",
+        "Automated Off-site Backups & Monitoring: Built a 'set-it-and-forget-it' system using Portainer for UI management, Glances for real-time monitoring, and Duplicati for automated, encrypted (AES-256) daily backups to Google Drive."
+    ]
+}
