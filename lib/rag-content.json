@@ -1,20 +1,75 @@
 {
-    "aboutMe": [
-        "I'm a software developer who thrives on understanding the 'why'—the deep user and business needs behind every feature.",
-        "My motto is 'what you can measure, you can control,' and I apply that by writing clean, efficient, and team-friendly code.",
-        "While I'm a front-end specialist who loves a good design challenge (especially pixel-perfect UIs), I'm also a curious problem-solver who enjoys tackling HackerRank puzzles.",
-        "As a BCIT-trained developer based in Vancouver, I'm looking for a role with clear goals on a collaborative team of smart, passionate people. I'm excited to grow, learn, and build scalable, user-centric applications.",
-        "I am Mexican, born and raised in Mexico, and I moved to Canada 8 years ago. I live in Vancouver. I speak Spanish (native), English (C1), and am learning French (A2)."
+    "meta_identity": {
+        "who_is_the_chatbot": [
+            "I am a custom RAG (Retrieval-Augmented Generation) system powered by the Google Gemini API.",
+            "I was created by Arturo to help hiring managers and visitors understand his skills, passions, and background in depth.",
+            "Technically, I am built using Next.js, CSS, and a custom embedding system leveraging the Google API.",
+            "If you want to reach out to Arturo directly, you can use the contact form here: https://www.arturogamez.com/#contact",
+            "To see his work in detail, you can browse his main projects here: https://www.arturogamez.com/#projects"
+        ],
+        "who_is_arturo": [
+            "Arturo is a Full-Stack Developer originally from Mexico, now based in Vancouver, Canada.",
+            "He thrives on understanding the 'why'—the deep user and business needs behind every feature.",
+            "While he is a front-end specialist who loves a good design challenge (especially pixel-perfect UIs), he is also a curious problem-solver who enjoys tackling HackerRank puzzles.",
+            "Professional History: His coding journey began at 17 at the university IPN in Mexico. He moved to Canada to formalize his education at BCIT, earning three key certificates (CSC, ACIS, AWD). During COVID, he freelanced for small businesses before landing his first full-time role at LinuxMagic.",
+            "The 'Why': Arturo codes because he loves figuring out how things work. He finds it amazing—almost like magic—to build something complex and see it come to life.",
+            "He is a lifelong learner. He speaks Native Spanish, English (C1), and is learning French (A2)."
+        ],
+        "portfolio_philosophy": [
+            "This portfolio design is a fusion of two worlds: 'Mexican Maximalism' (how I call it 'Meximalism') and 'Vancouver Minimalism'.",
+            "Meximalism represents his heritage: vibrant colors, shapes, and textures found in Mexican homes and celebrations. This shows up in the site's rich micro-interactions.",
+            "Vancouver Minimalism represents his life in Canada: the appreciation for elegance, cleanliness, and structure. This shows up in the site's clean UI and architecture.",
+            "The Goal: A site that looks minimalist at first glance but hides a maximalist, intelligent essence through AI and interactive animations."
+        ]
+    },
+    "technical_skills_context": {
+        "frontend_mastery": [
+            "GSAP (GreenSock): Arturo's go-to library for animations. He prefers it over standard CSS for its precise control over timelines and complex sequencing. He uses it to build the 'rich micro-interactions' that define his Meximalist style.",
+            "React & Next.js: His standard for building scalable, interactive UIs.",
+            "CSS/SASS: Deep knowledge of styling architectures beyond just using frameworks."
+        ],
+        "backend_and_languages": [
+            "C# (.NET): Experienced in building Windows Forms applications connected to SQL databases, and interactive 2D games in Unity.",
+            "Python: Used primarily for AI experiments and IoT automation projects on Raspberry Pi.",
+            "PHP: Professional experience maintaining and refactoring legacy codebases in a production ISP environment.",
+            "Bash: Heavily used for automating daily workflows and server management tasks."
+        ],
+        "database_philosophy": [
+            "Relational Database Focus: Strong background in SQL systems. He uses PostgreSQL in his current enterprise role, Supabase for modern SaaS projects, and MySQL for WordPress implementations.",
+            "He values data integrity and structured schemas."
+        ],
+        "devops_and_tools": [
+            "Linux (Ubuntu): His daily driver for both personal and professional work. He is comfortable living in the terminal.",
+            "Editor Workflow: Arturo is a pragmatist. At work, he uses Vim directly for server environments. Ideally, he uses Visual Studio Code with a Vim plugin to combine modern IDE features with the efficiency of Vim keybindings.",
+            "Docker & Kubernetes: Practical experience orchestrating microservices, specifically demonstrated in his complex Raspberry Pi homelab architecture."
+        ]
+    },
+    "personal_background": [
+        "Hobbies: Arturo loves to experiment and discover new things. His main hobbies are going to the gym, reading biographies and philosophy, prototyping games in unity2D, and learning photography with his phone.",
+        "Sports & Gaming: He used to practice Parkour and still loves the discipline. He is also an avid gamer, reaching Platinum rank in League of Legends.",
+        "Soft Skills ('The Helper'): Arturo considers himself a helper. He always lends a hand to teammates and prioritizes understanding their mental process over just imposing his own solutions.",
+        "Collaboration Style: He believes there are hundreds of ways to solve a problem. Even if he disagrees with a solution, he strives to understand *why* a teammate chose it before explaining his own perspective."
     ],
     "experience_magicmail": [
         "As a full-stack developer for the large-scale MagicMail platform, I spearheaded the development of a new administrative PWA dashboard, replacing a 12-page legacy interface with a streamlined, single-page application. This new dashboard saves administrators ~3 hours daily by consolidating key metrics into one view, utilizing a custom PWA with a WebSocket API and push notifications.",
         "I also enhanced platform-wide security by architecting and implementing modern features like DKIM and Domain Health Check tools, protecting data for over 400+ ISPs."
     ],
-    "projects_fazume": [
-        "AI Resume Analyzer - Fazume.com. A full-stack, production-ready SaaS application I conceived, architected, and launched. Fazume.com uses Google's Gemini API to analyze a user's 'master profile' against a job description, instantly generating a perfectly tailored, ATS-friendly resume.",
-        "The live platform includes full Supabase auth and Stripe payment integration.",
-        "Advanced AI Prompt Engineering: Engineered a complex prompt for the Gemini API to return a strict, predictable JSON schema, ensuring 100% reliable resume generation from two data sources.",
-        "Full Stripe Payment System: Architected a complete monetization system with Stripe for token packs and subscriptions, including a robust webhook endpoint for securely provisioning services."
+    "freelance_experience": [
+        "Role: Independent Full-Stack Developer & Consultant (2019 - 2021).",
+        "Client Base: Small and medium businesses in Vancouver, specifically coffee shops and restaurants like 'Tamaly Shop' and 'Cafe Lokal'.",
+        "The 'Proactive' Strategy: Arturo identified businesses with poor or non-existent web presence. He proactively designed modern mockups for them *before* making contact, then pitched the solution. This high-value approach was highly successful.",
+        "COVID-19 Pivot: Leveraged the urgent need for digital transformation during the pandemic to help brick-and-mortar businesses survive by moving sales online.",
+        "Full-Service Scope: He didn't just code; he handled hosting, maintenance, and crucially, trained the non-technical staff to manage their own inventory and content, ensuring long-term client independence."
+    ],
+    "fazume": [
+        "Project Name: Fazume.com (AI Resume Analyzer).",
+        "Overview: A production-ready SaaS that tailored resumes to job descriptions using AI. It included full auth, database persistence, and monetization.",
+        "AI Architecture: Leveraged Gemini's native JSON mode to enforce structured output, paired with strict Zod validation on the backend. This 'defense in depth' strategy prevented AI hallucinations and ensured data integrity before it ever reached the resume renderer.",
+        "Key Challenge (PDF Engine): The hardest technical hurdle was the PDF generation. Arturo initially attempted to build a custom 'direct-edit' PDF system but identified it as over-engineered. He pivoted to a form-based input with `@react-pdf/renderer`, solving complex cross-browser rendering and aspect ratio issues.",
+        "Performance Decisions: Observed that high-quality initial AI generation reduced the need for user edits, making the 'live preview' performance cost acceptable for the MVP. Future optimization plans include implementing debounced rendering inputs.",
+        "Security: Implemented Row Level Security (RLS) policies in Supabase, ensuring data isolation at the database level—the industry standard for multi-tenant SaaS.",
+        "UX Strategy: Faced the 'Cold Start' problem where users needed to input lots of data before seeing value. Focused on tuning the onboarding flow to reduce this friction.",
+        "Monetization: Integrated Stripe webhooks to handle asynchronous payment events, decoupling the financial transaction from the user session for reliability."
     ],
     "projects_homelab": [
         "Docker Homelab with Game Server & Media Platform. I architected a low-power, robust homelab on a Raspberry Pi 4.",

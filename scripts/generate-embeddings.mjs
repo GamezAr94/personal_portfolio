@@ -1,27 +1,21 @@
-// NOTE: we have to run this command in terminal every time we change the lib/rag-content.json file
-// so that we will have our chat brain up to date
-// node scripts/generate-embeddings.mjs
+// to create the embeddings we need to rung this script in the terminal:
+// node --env-file=.env scripts/generate-embeddings.mjs
 
-// import 'dotenv/config';
+// scripts/generate-embeddings.mjs
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { promises as fs } from 'fs';
 import path from 'path';
 
 // --- Configuration ---
-// Make sure to add GEMINI_API_KEY to your .env file
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
     throw new Error('GEMINI_API_KEY is not set in your .env file');
 }
 
-// File paths
 const INPUT_FILE = path.join(process.cwd(), 'lib/rag-content.json');
 const OUTPUT_FILE = path.join(process.cwd(), 'lib/embeddings.json');
 // ---------------------
 
-/**
- * Simple utility function to calculate dot product
- */
 function dotProduct(vecA, vecB) {
     let product = 0;
     for (let i = 0; i < vecA.length; i++) {
@@ -30,9 +24,6 @@ function dotProduct(vecA, vecB) {
     return product;
 }
 
-/**
- * Simple utility function to calculate vector magnitude
- */
 function magnitude(vec) {
     let sumOfSquares = 0;
     for (let i = 0; i < vec.length; i++) {
@@ -41,16 +32,38 @@ function magnitude(vec) {
     return Math.sqrt(sumOfSquares);
 }
 
-/**
- * Calculates the cosine similarity between two vectors.
- */
 function cosineSimilarity(vecA, vecB) {
     return dotProduct(vecA, vecB) / (magnitude(vecA) * magnitude(vecB));
 }
 
 /**
- * The main function to generate and save embeddings
+ * Recursively extracts text chunks from a nested JSON object.
+ * This handles both arrays ["text", "text"] and nested objects { key: [...] }
  */
+function extractChunks(data, parentKey = '') {
+    const chunks = [];
+
+    for (const [key, value] of Object.entries(data)) {
+        // Create a source key like "meta_identity.who_is_arturo"
+        const currentKey = parentKey ? `${parentKey}.${key}` : key;
+
+        if (Array.isArray(value)) {
+            // It's an array of strings (our text chunks)
+            for (const text of value) {
+                chunks.push({
+                    source: currentKey,
+                    content: text,
+                });
+            }
+        } else if (typeof value === 'object' && value !== null) {
+            // It's a nested object (like meta_identity), recurse deeper
+            chunks.push(...extractChunks(value, currentKey));
+        }
+    }
+
+    return chunks;
+}
+
 async function generateEmbeddings() {
     console.log('--- Starting Embedding Generation ---');
 
@@ -71,21 +84,14 @@ async function generateEmbeddings() {
 
     const content = JSON.parse(rawContent);
 
-    // 2. Flatten the content into individual text chunks
-    const chunks = [];
-    for (const [key, texts] of Object.entries(content)) {
-        for (const text of texts) {
-            chunks.push({
-                source: key, // e.g., "aboutMe", "projects_fazume"
-                content: text,
-            });
-        }
-    }
+    // 2. Flatten the content (Updated to handle nested objects!)
+    const chunks = extractChunks(content);
 
     console.log(`Found ${chunks.length} total text chunks to embed.`);
 
     // 3. Generate embeddings for each chunk
     const embeddings = [];
+    // We'll batch them slightly just to be safe/clean, though not strictly necessary for small files
     for (const chunk of chunks) {
         try {
             const result = await model.embedContent(chunk.content);
@@ -107,7 +113,7 @@ async function generateEmbeddings() {
 
     console.log(`Successfully generated ${embeddings.length} embeddings.`);
 
-    // 4. Save the final array to the output file
+    // 4. Save the final array
     try {
         await fs.writeFile(OUTPUT_FILE, JSON.stringify(embeddings, null, 2));
         console.log(`Embeddings saved successfully to: ${OUTPUT_FILE}`);
@@ -116,7 +122,7 @@ async function generateEmbeddings() {
         console.error(e);
     }
 
-    // 5. (Self-test) Let's test it!
+    // 5. Self-Test
     console.log('--- Running Self-Test ---');
     if (embeddings.length < 2) {
         console.log(
@@ -125,11 +131,10 @@ async function generateEmbeddings() {
         return;
     }
 
-    // Compare the first chunk ("aboutMe") to the last chunk (e.g., "projects_homelab")
+    // Compare the first chunk to the last chunk
     const firstEmbedding = embeddings[0].embedding;
     const lastEmbedding = embeddings[embeddings.length - 1].embedding;
 
-    // Let's also embed a test query
     const testQuery = 'Tell me about your server';
     const queryEmbedding = (await model.embedContent(testQuery)).embedding
         .values;
@@ -138,10 +143,17 @@ async function generateEmbeddings() {
     const simToLast = cosineSimilarity(queryEmbedding, lastEmbedding);
 
     console.log(`Test Query: "${testQuery}"`);
-    console.log(`Similarity to "aboutMe": ${simToFirst.toFixed(4)}`);
-    console.log(`Similarity to "projects_homelab": ${simToLast.toFixed(4)}`);
+    console.log(
+        `Similarity to first chunk (${
+            embeddings[0].source
+        }): ${simToFirst.toFixed(4)}`,
+    );
+    console.log(
+        `Similarity to last chunk (${
+            embeddings[embeddings.length - 1].source
+        }): ${simToLast.toFixed(4)}`,
+    );
     console.log('--- Embedding Generation Complete ---');
 }
 
-// Run the function
 generateEmbeddings();
