@@ -1,13 +1,14 @@
-'use client';
+"use client";
 
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import styles from './PlaygroundCard.module.css';
-import Image from 'next/image'; // Use Next.js Image for optimization
-import AnimatedText from './AnimatedText';
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import styles from "./PlaygroundCard.module.css";
+import Image from "next/image"; // Use Next.js Image for optimization
+import AnimatedText from "./AnimatedText";
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
+import AskAiButton from "./AskAiButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ type PlaygroundCardProps = {
     imageAlt: string;
     title: string;
     description: string;
-    //aiQuery: string;
+    aiQuery: string;
     // We'll pass the 'onAskAI' function from the parent
     //onAskAI: (query: string) => void;
 };
@@ -26,10 +27,11 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
     imageAlt,
     title,
     description,
-    //aiQuery,
+    aiQuery,
     //onAskAI,
 }) => {
-    const t = useTranslations('ProjectChapters');
+    const t = useTranslations("ProjectChapters");
+    const t_chat = useTranslations("ChatQuestions");
 
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -42,12 +44,12 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
                 y: 0,
                 scale: 1,
                 duration: 1,
-                ease: 'elastic.out(1, 0.5)',
+                ease: "elastic.out(1, 0.5)",
                 // Use ScrollTrigger to trigger animation when the card scrolls into view
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 90%',
-                    toggleActions: 'restart pause resume pause',
+                    start: "top 90%",
+                    toggleActions: "restart pause resume pause",
                 },
             });
         }
@@ -73,22 +75,10 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
                 <AnimatedText triggerRef={cardRef} animDuration={0.02}>
                     <p>{description}</p>
                 </AnimatedText>
-                <button className={styles.aiAskButton} onClick={handleAskClick}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <path d="M12 2L14.39 8.39L21 10.39L16.39 14.39L17.61 21L12 17.61L6.39 21L7.61 14.39L3 10.39L9.61 8.39L12 2z" />
-                    </svg>
-                    {t('playground_aiButton')}{' '}
-                </button>
+                <AskAiButton
+                    questionKey={aiQuery}
+                    className={styles.aiAskButton}
+                />
             </div>
         </div>
     );

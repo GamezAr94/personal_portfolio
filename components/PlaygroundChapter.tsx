@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import PlaygroundCard from './PlaygroundCard';
-import styles from './PlaygroundChapter.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import PlaygroundCard from "./PlaygroundCard";
+import styles from "./PlaygroundChapter.module.css";
 
-import { useTranslations } from 'next-intl';
-import { useChatAPI } from '@/context/ChatContext';
+import { useTranslations } from "next-intl";
+import { useChatAPI } from "@/context/ChatContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type PlaygroundProject = {
-    imageUrl: string;
-    imageAlt: string;
     title: string;
     description: string;
     aiQuery: string;
+    imageUrl: string;
+    imageAlt: string;
 };
 
 // --- Component Props ---
@@ -40,8 +40,8 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
     narrative,
     projects,
 }) => {
-    const t = useTranslations('ProjectChapters');
-    const t_chat = useTranslations('ChatQuestions');
+    const t = useTranslations("ProjectChapters");
+    const t_chat = useTranslations("ChatQuestions");
 
     const { setContextualQuestions } = useChatAPI();
 
@@ -70,19 +70,19 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
             const h2 = h2Ref.current;
             if (h2) {
                 const originalText = chapterTitle;
-                let newHTML = '';
+                let newHTML = "";
 
-                const words = originalText.split(' ');
+                const words = originalText.split(" ");
                 words.forEach((word, index) => {
                     let wordHTML = `<span class=${styles.word}>`;
-                    word.split('').forEach((char) => {
+                    word.split("").forEach((char) => {
                         wordHTML += `<span class=${styles.letter}>${char}</span>`;
                     });
-                    wordHTML += '</span>';
+                    wordHTML += "</span>";
                     newHTML += wordHTML;
 
                     if (index < words.length - 1) {
-                        newHTML += ' ';
+                        newHTML += " ";
                     }
                 });
                 h2.innerHTML = newHTML;
@@ -92,12 +92,12 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    ease: 'power2.out',
+                    ease: "power2.out",
                     stagger: 0.05,
                     scrollTrigger: {
                         trigger: h2,
-                        start: 'top 85%',
-                        toggleActions: 'restart pause resume pause',
+                        start: "top 85%",
+                        toggleActions: "restart pause resume pause",
                     },
                 });
             }
@@ -109,11 +109,11 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                     y: 0,
                     duration: 0.8,
                     delay: 0.2,
-                    ease: 'power2.out',
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: pRef.current,
-                        start: 'top 90%',
-                        toggleActions: 'restart pause resume pause',
+                        start: "top 90%",
+                        toggleActions: "restart pause resume pause",
                     },
                 });
             }
@@ -124,31 +124,31 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    ease: 'power2.out',
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: showMoreRef.current,
-                        start: 'top 95%',
-                        toggleActions: 'restart pause resume pause',
+                        start: "top 95%",
+                        toggleActions: "restart pause resume pause",
                     },
                 });
             }
 
             ScrollTrigger.create({
                 trigger: sectionRef.current,
-                start: 'top 50%',
-                end: 'bottom 50%', // (No importa mucho el 'end' aquí)
+                start: "top 50%",
+                end: "bottom 50%", // (No importa mucho el 'end' aquí)
 
                 onEnter: () => {
                     setContextualQuestions([
-                        t_chat('q_playground_1'),
-                        t_chat('q_playground_2'),
+                        t_chat("q_playground_1"),
+                        t_chat("q_playground_2"),
                     ]);
                 },
                 onLeaveBack: () => {
                     // Volvemos a las preguntas de 'Project Chapter 3'
                     setContextualQuestions([
-                        t_chat('q_projects_ch3_1'),
-                        t_chat('q_projects_ch3_2'),
+                        t_chat("q_projects_ch3_1"),
+                        t_chat("q_projects_ch3_2"),
                     ]);
                 },
             });
@@ -181,7 +181,7 @@ const PlaygroundChapter: React.FC<PlaygroundChapterProps> = ({
                         onClick={handleShowMore}
                         className={styles.ctaButton}
                     >
-                        {t('playground_showMore')}{' '}
+                        {t("playground_showMore")}{" "}
                     </button>
                 </div>
             )}

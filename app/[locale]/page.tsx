@@ -19,6 +19,10 @@ export default async function Home({ params }: { params: { locale: string } }) {
         locale: unwrappedParams.locale,
         namespace: "Playground",
     });
+    const t_chat_question = await getTranslations({
+        locale: unwrappedParams.locale,
+        namespace: "ChatQuestions",
+    });
 
     const chapter1Data = {
         id: "projects",
@@ -124,9 +128,9 @@ export default async function Home({ params }: { params: { locale: string } }) {
             return {
                 title: t_playground(`p${index}_title`),
                 description: t_playground(`p${index}_desc`),
-                aiQuery: t_playground(`p${index}_aiQuery`),
                 imageUrl: playgroundImageUrls[i], // TODO: Add your image URLs
                 imageAlt: t_playground(`p${index}_title`),
+                aiQuery: t_chat_question(`q_playground_${index}`),
             };
         },
     );

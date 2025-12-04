@@ -39,7 +39,7 @@
 /* --- Playground Grid --- */
 .playgroundGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -60,7 +60,7 @@
     font-weight: 600;
     text-decoration: none;
     border: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #222; /* --color-text */
     background-color: #fff;
     border: 2px solid #eee;
@@ -75,5 +75,7 @@
     color: #fff;
     border-color: #ff6b6b;
     transform: scale(1.1) rotate(-3deg);
-    box-shadow: 6px 6px 0 0 #16db93, /* --color-teal */ -6px -6px 0 0 #ffd93d; /* --color-yellow */
+    box-shadow:
+        6px 6px 0 0 #16db93,
+        /* --color-teal */ -6px -6px 0 0 #ffd93d; /* --color-yellow */
 }

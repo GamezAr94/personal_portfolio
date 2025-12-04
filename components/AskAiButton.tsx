@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useChatState, useChatAPI } from '@/context/ChatContext';
-import { useTranslations } from 'next-intl';
+import React from "react";
+import { useChatState, useChatAPI } from "@/context/ChatContext";
+import { useTranslations } from "next-intl";
 
 // 1. Definimos el ícono aquí mismo para que el componente sea autocontenido
 const AiIcon = () => (
@@ -39,21 +39,18 @@ type AskAiButtonProps = {
 const AskAiButton: React.FC<AskAiButtonProps> = ({
     questionKey,
     className,
-    textNamespace = 'ProjectChapters',
-    textKey = 'aiButton',
+    textNamespace = "ProjectChapters",
+    textKey = "aiButton",
 }) => {
-    const t_chat = useTranslations('ChatQuestions');
     const t_btn = useTranslations(textNamespace);
 
-    // --- 2. USA LOS DOS HOOKS ---
-    const { isLoading } = useChatState(); // Obtenemos el estado
-    const { sendMessage, toggleChat } = useChatAPI(); // Obtenemos las funciones
+    const { isLoading } = useChatState();
+    const { sendMessage, toggleChat } = useChatAPI();
 
-    // La lógica del clic no cambia, ¡pero ahora es segura!
     const handleClick = () => {
         if (isLoading) return;
 
-        const question = t_chat(questionKey);
+        const question = questionKey;
         sendMessage(question);
         toggleChat(true);
     };
