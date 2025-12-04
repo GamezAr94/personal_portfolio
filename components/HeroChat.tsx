@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState, FormEvent, useRef, useEffect } from 'react';
-import { useChatState, useChatAPI } from '@/context/ChatContext';
-import AsciiArtTitle from './AsciiArtTitle';
+import React, { useState, FormEvent, useRef, useEffect } from "react";
+import { useChatState, useChatAPI } from "@/context/ChatContext";
+import AsciiArtTitle from "./AsciiArtTitle";
 // We just import the new styles. The name is the same.
-import styles from './HeroChat.module.css';
+import styles from "./HeroChat.module.css";
 
 const TypingIndicator = () => (
     <div className={styles.aiMessage}>
@@ -23,10 +23,22 @@ export default function HeroChat() {
     const { sendMessage } = useChatAPI();
 
     // Esto controla lo que el usuario está escribiendo
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState("");
+
+    const inputRef = useRef<HTMLInputElement>(null);
 
     // Esto nos da una referencia al DIV que contiene los mensajes
     const messageListRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!isLoading) {
+            // Wait 10ms for the input to re-enable, then focus
+            const timeoutId = setTimeout(() => {
+                inputRef.current?.focus();
+            }, 10);
+            return () => clearTimeout(timeoutId);
+        }
+    }, [isLoading]);
 
     useEffect(() => {
         if (messageListRef.current) {
@@ -41,7 +53,7 @@ export default function HeroChat() {
         if (!input.trim() || isLoading) return; // No enviar vacío o si ya está cargando
 
         sendMessage(input); // Llama a la función del contexto global
-        setInput(''); // Limpia el input local
+        setInput(""); // Limpia el input local
     };
 
     return (
@@ -74,12 +86,12 @@ export default function HeroChat() {
                     <div
                         key={index}
                         className={
-                            msg.role === 'user'
+                            msg.role === "user"
                                 ? styles.userMessage
                                 : styles.aiMessage
                         }
                     >
-                        {msg.role === 'user' ? (
+                        {msg.role === "user" ? (
                             <>
                                 <span className={styles.userPrompt}>&gt;</span>
                                 <span className={styles.userText}>
@@ -105,6 +117,7 @@ export default function HeroChat() {
                 <span className={styles.promptSymbol}>&gt;</span>
                 <input
                     type="text"
+                    ref={inputRef}
                     placeholder="Ask about a project..."
                     className={styles.textInput}
                     value={input} // Controlado por React

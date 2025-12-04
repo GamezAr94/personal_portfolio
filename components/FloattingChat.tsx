@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useRef, useState, useEffect, FormEvent } from 'react';
+import { useRef, useState, useEffect, FormEvent } from "react";
 
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import styles from './FloatingChat.module.css';
-import heroChatStyles from './HeroChat.module.css';
+import styles from "./FloatingChat.module.css";
+import heroChatStyles from "./HeroChat.module.css";
 
-import { useChatState, useChatAPI } from '@/context/ChatContext';
+import { useChatState, useChatAPI } from "@/context/ChatContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,13 +88,25 @@ export default function FloatingChat() {
     const { messages, isLoading, isOpen, contextualQuestions } = useChatState();
     const { toggleChat, sendMessage } = useChatAPI();
 
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState("");
 
     const desktopRef = useRef(null);
     const mobileRef = useRef(null);
     const openChatRef = useRef(null);
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
     const messageListRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!isLoading) {
+            // Wait 10ms for the input to re-enable, then focus
+            const timeoutId = setTimeout(() => {
+                inputRef.current?.focus();
+            }, 10);
+            return () => clearTimeout(timeoutId);
+        }
+    }, [isLoading]);
 
     useGSAP(() => {
         // --- This is the "SLIDE-IN/OUT" logic ---
@@ -105,7 +117,7 @@ export default function FloatingChat() {
                 autoAlpha: 1,
                 xPercent: 0,
                 duration: 0.4,
-                ease: 'power3.out',
+                ease: "power3.out",
             });
         } else {
             // Animate OUT (slide to right)
@@ -113,7 +125,7 @@ export default function FloatingChat() {
                 autoAlpha: 0,
                 xPercent: 100,
                 duration: 0.3,
-                ease: 'power3.in',
+                ease: "power3.in",
             });
         }
 
@@ -125,8 +137,8 @@ export default function FloatingChat() {
 
         const timer = setTimeout(() => {
             st = ScrollTrigger.create({
-                trigger: '#hero-section',
-                start: 'bottom 78%',
+                trigger: "#hero-section",
+                start: "bottom 78%",
 
                 // 3. This tells ScrollTrigger to run the onLeaveBack
                 // check IMMEDIATELY on load.
@@ -159,8 +171,8 @@ export default function FloatingChat() {
 
     useGSAP(() => {
         ScrollTrigger.create({
-            trigger: '#hero-section',
-            start: 'bottom 70%',
+            trigger: "#hero-section",
+            start: "bottom 70%",
             onEnter: () => {
                 toggleChat(true);
             },
@@ -168,8 +180,8 @@ export default function FloatingChat() {
     }, []);
     useGSAP(() => {
         ScrollTrigger.create({
-            trigger: '#hero-section',
-            start: 'bottom 70%',
+            trigger: "#hero-section",
+            start: "bottom 70%",
             onLeaveBack: () => {
                 toggleChat(false);
             },
@@ -188,7 +200,7 @@ export default function FloatingChat() {
         e.preventDefault();
         if (!input.trim() || isLoading) return;
         sendMessage(input);
-        setInput('');
+        setInput("");
     };
 
     // Handle para botones de preguntas
@@ -207,7 +219,7 @@ export default function FloatingChat() {
                     className={styles.floatingBar}
                     onClick={() => toggleChat()}
                 >
-                    <div style={{ cursor: 'pointer' }}>
+                    <div style={{ cursor: "pointer" }}>
                         <MaximizeIcon />
                     </div>
                     <div className={styles.mainIconContainer}>
@@ -235,10 +247,10 @@ export default function FloatingChat() {
                 <div className={styles.openChatHeader}>
                     <span className={styles.openChatTitle}>Arturo AI</span>
                     <div
-                        style={{ cursor: 'pointer' }}
+                        style={{ cursor: "pointer" }}
                         onClick={() => toggleChat()}
                     >
-                        {' '}
+                        {" "}
                         <MinimizeIcon />
                     </div>
                 </div>
@@ -257,12 +269,12 @@ export default function FloatingChat() {
                             key={index}
                             // Reusamos los estilos de HeroChat
                             className={
-                                msg.role === 'user'
+                                msg.role === "user"
                                     ? heroChatStyles.userMessage
                                     : heroChatStyles.aiMessage
                             }
                         >
-                            {msg.role === 'user' ? (
+                            {msg.role === "user" ? (
                                 <>
                                     <span className={heroChatStyles.userPrompt}>
                                         &gt;
@@ -305,6 +317,7 @@ export default function FloatingChat() {
                         type="text"
                         placeholder="Ask a question..."
                         className={styles.textInput}
+                        ref={inputRef}
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         disabled={isLoading}
