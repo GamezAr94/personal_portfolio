@@ -1,10 +1,10 @@
 // app/api/chat/route.ts
-import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { NextResponse } from "next/server";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // --- Import our new embeddings file ---
 // We can import the JSON file directly
-import embeddings from '@/lib/embeddings.json';
+import embeddings from "@/lib/embeddings.json";
 
 // If a match isn't at least this similar, we won't send it to the LLM.
 // Start with 0.25 and adjust based on your logs.
@@ -54,16 +54,16 @@ function cosineSimilarity(vecA: number[], vecB: number[]): number {
 // --- Initialize Gemini ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
-    throw new Error('GEMINI_API_KEY is not set in your .env file');
+    throw new Error("GEMINI_API_KEY is not set in your .env file");
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 // We need two models: one for embedding, one for chatting
 const embeddingModel = genAI.getGenerativeModel({
-    model: 'text-embedding-004',
+    model: "text-embedding-004",
 });
 const chatModel = genAI.getGenerativeModel({
-    model: 'gemini-2.0-flash',
+    model: "gemini-2.0-flash",
 });
 // -------------------------
 
@@ -74,14 +74,14 @@ export async function POST(request: Request) {
 
         // --- 1. Security: Honeypot (REUSED) ---
         if (honeypot) {
-            console.log('Bot de chat detectado por honeypot.');
-            return NextResponse.json({ success: true, message: 'OK' });
+            console.log("Bot de chat detectado por honeypot.");
+            return NextResponse.json({ success: true, message: "OK" });
         }
 
         // --- 2. Security: reCaptcha v3 (REUSED) ---
         if (!token) {
             return NextResponse.json(
-                { error: 'reCaptcha token is missing.' },
+                { error: "reCaptcha token is missing." },
                 { status: 400 },
             );
         }
@@ -89,18 +89,18 @@ export async function POST(request: Request) {
         const recaptchaResponse = await fetch(
             `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
             {
-                method: 'POST',
+                method: "POST",
             },
         );
         const recaptchaData = await recaptchaResponse.json();
 
         if (!recaptchaData.success || recaptchaData.score < 0.8) {
             console.warn(
-                'Chat reCaptcha verification failed. Score:',
+                "Chat reCaptcha verification failed. Score:",
                 recaptchaData.score,
             );
             return NextResponse.json(
-                { error: 'reCaptcha verification failed.' },
+                { error: "reCaptcha verification failed." },
                 { status: 403 },
             );
         }
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
         const userEmbedding = userEmbeddingResult.embedding.values;
 
         // --- 4. RAG: Find Relevant Context (Retrieval) ---
-        console.log('Finding relevant context...');
+        console.log("Finding relevant context...");
 
         // Calculate similarity scores for all chunks
         const similarities = embeddings.map((entry) => {
@@ -136,7 +136,7 @@ export async function POST(request: Request) {
         );
 
         if (topMatch.score < MIN_SIMILARITY_SCORE) {
-            console.log('Score too low. Skipping Chat API.');
+            console.log("Score too low. Skipping Chat API.");
             // Return a hardcoded response immediately
             return NextResponse.json({
                 success: true,
@@ -148,7 +148,7 @@ export async function POST(request: Request) {
         const topContext = similarities.slice(0, 3);
 
         console.log(
-            'Top 3 relevant chunks:',
+            "Top 3 relevant chunks:",
             topContext.map((c) => ({ source: c.source, score: c.score })),
         );
 
@@ -157,31 +157,43 @@ export async function POST(request: Request) {
         // This is our new, lean, single-call prompt
         const prompt = `
       You are Arturo's personal portfolio assistant.
+      You are helpful, professional, but warm and friendly.
+      You answer concisely but with descriptive detail when needed.
+
+      **Style Guidelines:**
+      - keep your answers short and friendly, try to give the most relevant information to the user only wihtout generating too much text
+
       Using ONLY the following context, answer the user's question.
       Do not make up any information.
-      **Please respond in the same language as the user's question Spanish, English or French ONLY.**
+      **Please respond in the same language as the user's question (EN, ES or FR).**
 
       Context:
-      ${topContext.map((c) => `- ${c.content}`).join('\n')}
+      ${topContext.map((c) => `- ${c.content}`).join("\n")}
 
       User Question:
       ${content}
 
       Answer:
     `;
+        /*
+        **Style Guidelines:**
+        - Use Markdown formatting (bolding, bullet points) to make long answers easier to read.
+        - If the answer covers multiple topics (like Bio + Hobbies + Experience), break them into separate paragraphs or lists.
+        - Keep the tone "minimalist" in structure but "maximalist" in content depth.
+        */
 
-        console.log('Generating AI response...');
+        console.log("Generating AI response...");
         const result = await chatModel.generateContent(prompt);
         const aiResponse = result.response.text();
 
         return NextResponse.json({ success: true, message: aiResponse });
     } catch (error) {
-        console.error('Error in chat API:', error);
+        console.error("Error in chat API:", error);
         if (error instanceof Error) {
             return NextResponse.json({ error: error.message }, { status: 500 });
         }
         return NextResponse.json(
-            { error: 'Unknown server error' },
+            { error: "Unknown server error" },
             { status: 500 },
         );
     }

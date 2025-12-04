@@ -1,80 +1,153 @@
 {
     "meta_identity": {
         "who_is_the_chatbot": [
-            "I am a custom RAG (Retrieval-Augmented Generation) system powered by the Google Gemini API.",
-            "I was created by Arturo to help hiring managers and visitors understand his skills, passions, and background in depth.",
-            "Technically, I am built using Next.js, CSS, and a custom embedding system leveraging the Google API.",
-            "If you want to reach out to Arturo directly, you can use the contact form here: https://www.arturogamez.com/#contact",
-            "To see his work in detail, you can browse his main projects here: https://www.arturogamez.com/#projects"
+            "I am a custom RAG (Retrieval-Augmented Generation) system powered by the Google Gemini API. I was created by Arturo to help hiring managers and visitors understand his skills, passions, and background in depth. Technically, I am built using Next.js, CSS, and a custom embedding system leveraging the Google API. If you want to reach out to Arturo directly, you can use the contact form here: https://www.arturogamez.com/#contact. To see his work in detail, you can browse his main projects here: https://www.arturogamez.com/#projects"
         ],
         "who_is_arturo": [
-            "Arturo is a Full-Stack Developer originally from Mexico, now based in Vancouver, Canada.",
-            "He thrives on understanding the 'why'—the deep user and business needs behind every feature.",
-            "While he is a front-end specialist who loves a good design challenge (especially pixel-perfect UIs), he is also a curious problem-solver who enjoys tackling HackerRank puzzles.",
-            "Professional History: His coding journey began at 17 at the university IPN in Mexico. He moved to Canada to formalize his education at BCIT, earning three key certificates (CSC, ACIS, AWD). During COVID, he freelanced for small businesses before landing his first full-time role at LinuxMagic.",
-            "The 'Why': Arturo codes because he loves figuring out how things work. He finds it amazing—almost like magic—to build something complex and see it come to life.",
-            "He is a lifelong learner. He speaks Native Spanish, English (C1), and is learning French (A2)."
+            "Arturo Gamez is a Full-Stack Developer originally from Mexico, now based and live in Vancouver, Canada. He thrives on understanding the 'why'—the deep user and business needs behind every feature. While he is a front-end specialist who loves a good design challenge (especially pixel-perfect UIs), he is also a curious problem-solver who enjoys tackling HackerRank puzzles. Professional History: His coding journey began at 17 at IPN in Mexico. He moved to Canada to formalize his education at BCIT, earning three key certificates (CSC, ACIS, AWD). During COVID, he freelanced for small businesses before landing his first full-time role at LinuxMagic. The 'Why': Arturo codes because he loves figuring out how things work. He finds it amazing—almost like magic—to build something complex and see it come to life. He is a lifelong learner who dreams of participating in a GameJam. He speaks Native Spanish, English (C1), and is learning French (A2)."
         ],
         "portfolio_philosophy": [
-            "This portfolio design is a fusion of two worlds: 'Mexican Maximalism' (how I call it 'Meximalism') and 'Vancouver Minimalism'.",
-            "Meximalism represents his heritage: vibrant colors, shapes, and textures found in Mexican homes and celebrations. This shows up in the site's rich micro-interactions.",
-            "Vancouver Minimalism represents his life in Canada: the appreciation for elegance, cleanliness, and structure. This shows up in the site's clean UI and architecture.",
-            "The Goal: A site that looks minimalist at first glance but hides a maximalist, intelligent essence through AI and interactive animations."
+            "This portfolio design is a fusion of two worlds: 'Mexican Maximalism' (Meximalism) and 'Vancouver Minimalism'. Meximalism represents his heritage: vibrant colors, shapes, and textures found in Mexican homes and celebrations. This shows up in the site's rich micro-interactions. Vancouver Minimalism represents his life in Canada: the appreciation for elegance, cleanliness, and structure. This shows up in the site's clean UI and architecture. The Goal: A site that looks minimalist at first glance but hides a maximalist, intelligent essence through AI and interactive animations."
+        ]
+    },
+    "hiring_logistics": {
+        "visa_status": [
+            "[Visa Status] Current Status: Arturo is currently working in Vancouver on a Closed Work Permit with LinuxMagic.",
+            "[Visa Status] Mobility: He is actively open to changing companies. As a Mexican national, he utilizes the CUSMA (formerly NAFTA) agreement to make hiring simple.",
+            "[Visa Status] CUSMA Eligibility: Because he holds a Computer Systems Engineering degree and is a Mexican citizen, he qualifies for the CUSMA Professional category."
+        ],
+        "what_is_cusma": [
+            "[What is CUSMA?] Definition: CUSMA (Canada-United States-Mexico Agreement) is the successor to NAFTA. It allows Canadian employers to hire Mexican professionals without a Labour Market Impact Assessment (LMIA).",
+            "[What is CUSMA?] Hiring Benefit: For an employer, this means the hiring process is fast, low-cost, and does not require proving that no Canadian could do the job. It is a streamlined visa process specifically for engineers and IT professionals."
         ]
     },
     "technical_skills_context": {
+        "comprehensive_tech_stack": [
+            "[Tech Stack] Languages: JavaScript (ES6+), TypeScript, PHP (Legacy & Modern), Python, C#, Bash, SQL, HTML5, CSS3.",
+            "[Tech Stack] Frontend Frameworks & Libs: Next.js (App Router), React, GSAP (GreenSock Animation Platform), Tailwind CSS, SASS/SCSS, Bootstrap, jQuery.",
+            "[Tech Stack] Backend & Database: Node.js, .NET Framework, PostgreSQL, Supabase, MySQL, SQLite, RESTful APIs, WebSockets.",
+            "[Tech Stack] DevOps & Tools: Docker, Kubernetes (K8s), Linux (Ubuntu/Debian), Vim/Neovim, Git, GitHub Actions, Vercel, Portainer, Nginx, Apache.",
+            "[Tech Stack] Creative & Other: Unity 2D (Game Dev), Adobe Photoshop (Basic), Figma (Developer Handoff)."
+        ],
         "frontend_mastery": [
-            "GSAP (GreenSock): Arturo's go-to library for animations. He prefers it over standard CSS for its precise control over timelines and complex sequencing. He uses it to build the 'rich micro-interactions' that define his Meximalist style.",
-            "React & Next.js: His standard for building scalable, interactive UIs.",
-            "CSS/SASS: Deep knowledge of styling architectures beyond just using frameworks."
-        ],
-        "backend_and_languages": [
-            "C# (.NET): Experienced in building Windows Forms applications connected to SQL databases, and interactive 2D games in Unity.",
-            "Python: Used primarily for AI experiments and IoT automation projects on Raspberry Pi.",
-            "PHP: Professional experience maintaining and refactoring legacy codebases in a production ISP environment.",
-            "Bash: Heavily used for automating daily workflows and server management tasks."
-        ],
-        "database_philosophy": [
-            "Relational Database Focus: Strong background in SQL systems. He uses PostgreSQL in his current enterprise role, Supabase for modern SaaS projects, and MySQL for WordPress implementations.",
-            "He values data integrity and structured schemas."
-        ],
-        "devops_and_tools": [
-            "Linux (Ubuntu): His daily driver for both personal and professional work. He is comfortable living in the terminal.",
-            "Editor Workflow: Arturo is a pragmatist. At work, he uses Vim directly for server environments. Ideally, he uses Visual Studio Code with a Vim plugin to combine modern IDE features with the efficiency of Vim keybindings.",
-            "Docker & Kubernetes: Practical experience orchestrating microservices, specifically demonstrated in his complex Raspberry Pi homelab architecture."
+            "[Skill Detail - Frontend] GSAP: Arturo uses GreenSock (GSAP) extensively for complex timelines and micro-interactions, preferring it over CSS animations for precise control.",
+            "[Skill Detail - Frontend] React/Next.js: His standard toolset for building scalable, server-rendered applications with SEO optimization.",
+            "[Skill Detail - Frontend] CSS Architecture: He has deep experience structuring CSS/SASS in large codebases, not just relying on utility classes."
         ]
     },
-    "personal_background": [
-        "Hobbies: Arturo loves to experiment and discover new things. His main hobbies are going to the gym, reading biographies and philosophy, prototyping games in unity2D, and learning photography with his phone.",
-        "Sports & Gaming: He used to practice Parkour and still loves the discipline. He is also an avid gamer, reaching Platinum rank in League of Legends.",
-        "Soft Skills ('The Helper'): Arturo considers himself a helper. He always lends a hand to teammates and prioritizes understanding their mental process over just imposing his own solutions.",
-        "Collaboration Style: He believes there are hundreds of ways to solve a problem. Even if he disagrees with a solution, he strives to understand *why* a teammate chose it before explaining his own perspective."
-    ],
-    "experience_magicmail": [
-        "As a full-stack developer for the large-scale MagicMail platform, I spearheaded the development of a new administrative PWA dashboard, replacing a 12-page legacy interface with a streamlined, single-page application. This new dashboard saves administrators ~3 hours daily by consolidating key metrics into one view, utilizing a custom PWA with a WebSocket API and push notifications.",
-        "I also enhanced platform-wide security by architecting and implementing modern features like DKIM and Domain Health Check tools, protecting data for over 400+ ISPs."
-    ],
+    "professional_execution": {
+        "magicmail_role_comprehensive": [
+            "[Experience: MagicMail at LinuxMagic] Role Overview: Operates as a Full-Stack Developer within a high-availability ISP environment, managing the lifecycle of features from proposal to deployment.",
+            "[Experience: MagicMail at LinuxMagic] Core Duties: Responsible for planning features, writing technical proposals, investigating legacy bugs (Perl/PHP), and coordinating with the team to meet deadlines.",
+            "[Experience: MagicMail at LinuxMagic] Specific Tech Usage: At MagicMail, he specifically uses PHP and Perl for backend logic, and Vanilla JS/HTML/CSS for the frontend PWA. He does NOT use React or GSAP in this specific role, as it relies on legacy stability.",
+            "[Experience: MagicMail at LinuxMagic] Infrastructure: He manages server-side automation using Bash scripts and interacts frequently with PostgreSQL databases."
+        ]
+    },
+
     "freelance_experience": [
-        "Role: Independent Full-Stack Developer & Consultant (2019 - 2021).",
-        "Client Base: Small and medium businesses in Vancouver, specifically coffee shops and restaurants like 'Tamaly Shop' and 'Cafe Lokal'.",
-        "The 'Proactive' Strategy: Arturo identified businesses with poor or non-existent web presence. He proactively designed modern mockups for them *before* making contact, then pitched the solution. This high-value approach was highly successful.",
-        "COVID-19 Pivot: Leveraged the urgent need for digital transformation during the pandemic to help brick-and-mortar businesses survive by moving sales online.",
-        "Full-Service Scope: He didn't just code; he handled hosting, maintenance, and crucially, trained the non-technical staff to manage their own inventory and content, ensuring long-term client independence."
+        "Role: Independent Full-Stack Developer & Consultant (2019 - 2021). Client Base: Small and medium businesses in Vancouver, specifically coffee shops and restaurants like 'Tamaly Shop' and 'Cafe Lokal'. The 'Proactive' Strategy: Arturo identified businesses with poor or non-existent web presence. He proactively designed modern mockups for them *before* making contact, then pitched the solution. This high-value approach was highly successful. COVID-19 Pivot: Leveraged the urgent need for digital transformation during the pandemic to help brick-and-mortar businesses survive by moving sales online. Full-Service Scope: He didn't just code; he handled hosting, maintenance, and crucially, trained the non-technical staff to manage their own inventory and content, ensuring long-term client independence."
     ],
-    "fazume": [
-        "Project Name: Fazume.com (AI Resume Analyzer).",
-        "Overview: A production-ready SaaS that tailored resumes to job descriptions using AI. It included full auth, database persistence, and monetization.",
-        "AI Architecture: Leveraged Gemini's native JSON mode to enforce structured output, paired with strict Zod validation on the backend. This 'defense in depth' strategy prevented AI hallucinations and ensured data integrity before it ever reached the resume renderer.",
-        "Key Challenge (PDF Engine): The hardest technical hurdle was the PDF generation. Arturo initially attempted to build a custom 'direct-edit' PDF system but identified it as over-engineered. He pivoted to a form-based input with `@react-pdf/renderer`, solving complex cross-browser rendering and aspect ratio issues.",
-        "Performance Decisions: Observed that high-quality initial AI generation reduced the need for user edits, making the 'live preview' performance cost acceptable for the MVP. Future optimization plans include implementing debounced rendering inputs.",
-        "Security: Implemented Row Level Security (RLS) policies in Supabase, ensuring data isolation at the database level—the industry standard for multi-tenant SaaS.",
-        "UX Strategy: Faced the 'Cold Start' problem where users needed to input lots of data before seeing value. Focused on tuning the onboarding flow to reduce this friction.",
-        "Monetization: Integrated Stripe webhooks to handle asynchronous payment events, decoupling the financial transaction from the user session for reliability."
+
+    "project_deep_dives": {
+        "fazume": [
+            "Project Name: Fazume.com (AI Resume Analyzer). Overview: A production-ready SaaS that tailored resumes to job descriptions using AI. It included full auth, database persistence, and monetization. AI Architecture: Leveraged Gemini's native JSON mode to enforce structured output, paired with strict Zod validation on the backend. This 'defense in depth' strategy prevented AI hallucinations and ensured data integrity before it ever reached the resume renderer. Key Challenge (PDF Engine): The hardest technical hurdle was the PDF generation. Arturo initially attempted to build a custom 'direct-edit' PDF system but identified it as over-engineered. He pivoted to a form-based input with `@react-pdf/renderer`, solving complex cross-browser rendering and aspect ratio issues. Performance Decisions: Observed that high-quality initial AI generation reduced the need for user edits, making the 'live preview' performance cost acceptable for the MVP. Security: Implemented Row Level Security (RLS) policies in Supabase. Monetization: Integrated Stripe webhooks to handle asynchronous payment events."
+        ],
+        "magicmail": [
+            "Project Name: MagicMail PWA Dashboard. Role: Full-Stack Developer. Impact: Saved administrators ~3 hours daily by consolidating 12 legacy pages into one streamlined PWA. Tech Stack: PWA, WebSocket API, Push Notifications. Key Challenge: Refactoring legacy PHP code for 400+ ISPs without causing downtime or breaking backward compatibility. Security: Architected modern security tools like DKIM and Domain Health Checks to protect sensitive ISP data."
+        ],
+        "homelab": [
+            "Project Name: Docker Homelab. Hardware: Raspberry Pi 4. Infrastructure: Docker Compose, Portainer, Glances, Duplicati. Services: Jellyfin (Media), Terraria Server (Gaming), Gluetun (VPN). Key Challenge: Debugging a Docker-level DNS resolver conflict that required deep diagnosis of the `daemon.json` configuration. Networking: Architected a secure tunnel where all outbound traffic is routed through a VPN container for privacy."
+        ],
+        "tamaly_shop": [
+            "Project Name: Tamaly Shop E-commerce. Tech Stack: WordPress, WooCommerce, Square POS API, Elementor. Key Challenge: Building a custom integration between the physical Square POS system and the WooCommerce database to ensure real-time inventory synchronization. Role: Full-service technology partner, handling everything from the custom PHP theme development to domain email setup and staff training."
+        ]
+    },
+
+    "personal_background": [
+        "Hobbies & Personality: Arturo loves to experiment and discover new things. His main hobbies are going to the gym, reading biographies and philosophy, prototyping games in Unity 2D, and learning photography with his phone. Sports & Gaming: He used to practice Parkour and still loves the discipline. He is also an avid gamer, reaching Platinum rank in League of Legends. Soft Skills ('The Helper'): Arturo considers himself a helper. He always lends a hand to teammates and prioritizes understanding their mental process over just imposing his own solutions. Collaboration Style: He believes there are hundreds of ways to solve a problem. Even if he disagrees with a solution, he strives to understand *why* a teammate chose it before explaining his own perspective."
     ],
-    "projects_homelab": [
-        "Docker Homelab with Game Server & Media Platform. I architected a low-power, robust homelab on a Raspberry Pi 4.",
-        "I containerized a multi-service stack with Docker Compose, including a live Terraria game server for my friends and a Jellyfin personal media server.",
-        "Secure Network Architecture: Architected a secure network where all services are containerized. I routed all outbound traffic through a Gluetun (VPN) container, isolating and protecting the entire homelab stack.",
-        "Automated Off-site Backups & Monitoring: Built a 'set-it-and-forget-it' system using Portainer for UI management, Glances for real-time monitoring, and Duplicati for automated, encrypted (AES-256) daily backups to Google Drive."
+
+    "cafe_lokal": [
+        "Cafe Lokal Project Name: Cafe Lokal Website (cafelokal.com).",
+        "Cafe Lokal Role: A complete end-to-end engagement where Arturo acted as the Project Manager, Creative Director, Photographer, and Sole Developer.",
+        "Cafe Lokal Architecture (The Static Pivot): Arturo initially architected a database-driven backend but pivoted to a high-performance static architecture after analyzing the client's actual update frequency. By removing the MySQL dependency, he eliminated database maintenance overhead and achieved near-instant load times.",
+        "Cafe Lokal Tech Stack: Built with 'Vanilla' HTML, CSS, and JavaScript without heavy frameworks. This decision ensured a lightweight footprint perfect for mobile users on variable data connections.",
+        "Cafe Lokal SEO Strategy: Implemented advanced Local SEO techniques, including Schema.org (JSON-LD) structured data for 'LocalBusiness'. This helps the cafe rank higher in Google Maps and local search results—a critical business metric for a physical location.",
+        "Cafe Lokal Performance: Focused heavily on image optimization (using his own professional photography) and lazy loading strategies to maintain a high Google PageSpeed score despite the image-heavy design.",
+        "Cafe Lokal Client Impact: Delivered a bespoke, maintenance-free digital presence that authentically reflects the cafe's brand, moving them away from generic, slow templates."
+    ],
+    "frog_game": [
+        "Frog Game Project Name: Frog Game (Android Mobile).",
+        "Frog Game Overview: An infinite arcade-style mobile game built in Unity 2D. The player controls a frog using complex touch gestures to catch insects while avoiding enemies.",
+        "Frog Game Architecture (Event-Driven): Implemented a decoupled Observer Pattern (Event System). Instead of rigid dependencies where the Player script calls the Game Manager directly, components broadcast events (e.g., `onEndingGame`, `onMovingFrog`). This prevents 'spaghetti code' and makes the system modular and easy to extend.",
+        "Frog Game Input Engineering: Developed a custom gesture recognition engine from scratch. Unlike standard button inputs, this system calculates the velocity and vector of the user's finger drag. A fast vertical swipe triggers a tongue attack (where swipe speed determines attack range), while horizontal swipes handle movement. Simple taps update the frog's facing direction.",
+        "Frog Game Performance Optimization: Initially built with standard `Instantiate`/`Destroy` methods for rapid prototyping. Arturo later refactored the entire spawn system to use **Object Pooling**, significantly reducing Garbage Collection spikes and ensuring smooth 60fps performance on mobile devices.",
+        "Frog Game Mechanics: Features include a Parallax scrolling background for depth, Coroutine-based animation timing for the tongue's extension/retraction (state management without blocking the main thread), and a dynamic 'Combo' system."
+    ],
+    "astar_pathfinding": [
+        "A* Pathfinding Project Name: A* Pathfinding Visualizer (C# & Unity).",
+        "A* Pathfinding Overview: A custom implementation of the A* (A-Star) search algorithm built from scratch in C# within the Unity 2D engine. The project was designed as a computer science experiment to visualize how heuristic search algorithms navigate grid-based maps.",
+        "A* Pathfinding Algorithm Logic: Implemented the core A* loop using G (cost from start), H (heuristic cost to end), and F (total cost) scores. Arturo experimented with different heuristics, swapping between 'Manhattan Distance' (standard for 4-way grids) and 'Euclidean Distance' (better for the 8-way movement allowed in this project) to observe the impact on path naturalness.",
+        "A* Pathfinding Visualization Tools: Engineered a robust debugging suite (`AStarDebugger`) that instantiates visual indicators for every node in the open/closed sets. It renders real-time arrows pointing to parent nodes and displays raw F/G/H scores on the grid, allowing for a step-by-step visual audit of the algorithm's decision-making process.",
+        "A* Pathfinding Performance Analysis: While the initial implementation used a simple `HashSet` and LINQ-based sorting (`OrderBy`) to find the lowest-cost node, Arturo identified this as an O(N) bottleneck. He recognizes that for a scalable, production-grade RTS game, this should be refactored into a Binary Heap or Priority Queue to achieve O(log N) performance.",
+        "A* Pathfinding Unity Integration: Bridged the gap between Unity's physical world and the logical data grid using `camera.ScreenToWorldPoint` and `tileMap.WorldToCell`. This allowed users to dynamically paint 'walls' and 'water' tiles with mouse clicks, instantly triggering a path recalculation."
+    ],
+    "portfolio": [
+        "Portfolio Project Name: Personal Portfolio 2025 (This Website).",
+        "Portfolio Overview: A maximalist/minimalist showcase built with Next.js 16 (App Router), featuring a custom-built RAG AI assistant and complex GSAP animations.",
+        "Portfolio Architecture (Dual Chat State): Engineered a 'teleporting' chat interface that morphs from a static Hero component to a floating sidebar. Solved state synchronization challenges by hoisting state to a global Context, ensuring conversation history persists seamlessly during the transition.",
+        "Portfolio Engineering Challenge (Scroll Sync): The hardest UI challenge in the portfolio was orchestrating the 'handoff' animation between the Hero Chat and Floating Chat. Required precise GSAP timeline management to ensure the floating chat didn't trigger its 'open' animation prematurely while scrolling back up.",
+        "Portfolio Engineering Challenge (i18n Routing): Implemented `next-intl` for trilingual support (EN/ES/FR). Debugged a critical routing issue where language prefixes were being concatenated (e.g., `/en/es`) instead of replaced. Solved by refining the middleware path rewriting logic.",
+        "Portfolio AI Architecture (The 'Lean' RAG): Deliberately chose to build a custom RAG system from scratch for this portfolio instead of using heavy libraries like LangChain or vector DBs like Pinecone. By using a local JSON index and a custom Node.js embedding script, he achieved zero latency, zero cost, and total control over the data pipeline.",
+        "Portfolio UX Details: Prevented full-page refreshes on form submission by intercepting events and using optimistic UI updates, ensuring the chat feels like a native app."
+    ],
+    "homelab": [
+        "Project Name: Docker Homelab. This is an enterprise-grade self-hosting ecosystem.",
+        "Homelab Hardware: Running on a Raspberry Pi 4 Model B (8GB RAM) booting from a high-speed MicroSD, with a 4TB SSD for persistent data storage.",
+        "Homelab Infrastructure: A fully containerized ecosystem using Docker and Docker Compose, managed via Portainer. The system orchestrates multiple interconnected microservices with strict resource limits.",
+        "Homelab Networking (VPN Sidecar): Architected a secure 'sidecar' network pattern using Gluetun within the Docker stack. Sensitive traffic is routed exclusively through an encrypted VPN tunnel.",
+        "Homelab Security (Kill Switch): If the VPN connection drops in the Homelab, the container's network interface locks down automatically, preventing any data leakage.",
+        "Homelab Engineering Challenge (DNS): Encountered a critical issue in the Homelab where the Docker daemon could not resolve registry URLs. Diagnosed it as a resolver conflict and fixed it by configuring a custom `/etc/docker/daemon.json` to enforce Google DNS (8.8.8.8).",
+        "Homelab Gaming: This Raspberry Pi also hosts a dedicated Terraria server (TShock) with automated world management.",
+        "Homelab Extras: The setup functions as a retro-gaming console (RetroPi) and a Steam Remote Play endpoint, allowing high-end PC gaming streaming to the living room TV.",
+        "Homelab Backups: Implemented a '3-2-1' backup strategy for the Homelab. Critical data is backed up locally to the SSD and encrypted (AES-256) before being uploaded to Google Drive nightly via Duplicati.",
+        "Homelab Observability: Deployed Glances for real-time system monitoring (CPU, I/O, Thermal performance) to ensure the Raspberry Pi stays within safe operating limits."
+    ],
+    "magicmail_dashboard": [
+        "Cluster Dashboard Project Name: Email Cluster Administrative Dashboard PWA.",
+        "Cluster Dashboard Overview: A real-time, single-page application (SPA) built to visualize the health and status of the proprietary email cluster. It replaced a 12-page legacy interface with a single, unified view.",
+        "Cluster Dashboard Architecture (Real-Time): Built a high-performance frontend that consumes data from a custom C++ WebSocket server. The system handles 7 different data channels (System Overview, SMTP Stats, User Events, etc.) simultaneously.",
+        "Cluster Dashboard Frontend Engineering: Developed the entire frontend from scratch without using heavy frameworks like React or Vue. Instead, I built a custom component architecture using vanilla JavaScript, PHP for initial server-side rendering (SSR), and Sass modules for scoped styling. This 'Zero-Dependency' approach was chosen to ensure long-term maintainability within the legacy ecosystem.",
+        "Cluster Dashboard Networking Challenge (WebSocket Proxying): A major hurdle was configuring the WebSocket connection (`wss://`) in a strictly controlled ISP environment. The PWA requires SSL to function (Service Workers), but local development servers used self-signed certificates. I coordinated with the infrastructure team to provision valid SSL certificates and configured Apache to correctly proxy Secure WebSocket traffic to the internal C++ backend.",
+        "Cluster Dashboard Resilience (Exponential Backoff): Engineered a robust connection manager in JavaScript. If the WebSocket connection drops, the dashboard immediately enters a 'Reconnecting' state (showing loading spinners) and attempts to reconnect using an exponential backoff strategy (1s, 2s, 4s...) to prevent flooding the server during an outage.",
+        "Cluster Dashboard PWA & Push Notifications: Implemented a full Progressive Web App (PWA) implementation with a custom Service Worker (`sw.js`). This allows administrators to 'install' the dashboard on their devices. I also built a Push Notification system using VAPID keys to send critical server alerts (e.g., 'High Mail Queue') directly to admin devices, even when the browser is closed.",
+        "Cluster Dashboard Data Design: I defined the JSON schema contract between the C++ backend and the frontend. I negotiated a flexible data format with the C++ team that allowed for future scalability, ensuring the frontend could handle new data types (like 'System Events') without breaking existing charts.",
+        "Cluster Dashboard UI/UX: Designed a 'High-Density' information layout with dark/light mode theming using CSS Variables and Sass maps. The interface uses Chart.js for visualization and features a responsive grid layout that adapts from large control-room screens to mobile devices."
+    ],
+    "domain_health": [
+        "Domain Health Project Name: Domain Health Dashboard.",
+        "Domain Health Overview: A proactive monitoring system designed to audit the health of domains hosted on the proprietary email platform. It runs automated checks (DNS, Registrar, etc.) to identify misconfigurations before they cause service interruptions.",
+        "Domain Health Architecture (Asynchronous Processing): Solved the 'long-running process' challenge by decoupling the scan execution from the user interface. Using PHP and AJAX, scans run in the background without locking the browser, allowing administrators to trigger audits on large domain lists and return later for results.",
+        "Domain Health Data Strategy (Last Known State): Implemented a 'Last Known State' persistence model. Instead of storing an infinite history of every scan, the database updates to reflect the most recent health status. This keeps the database performant while ensuring administrators always see the current operational reality.",
+        "Domain Health UX: Engineered a dashboard that categorizes complex technical errors into actionable groups (e.g., 'Missing A Record', 'Invalid TTL'), reducing the cognitive load for support staff trying to diagnose issues.",
+        "Domain Health Impact: Transformed domain troubleshooting from a reactive, manual process (waiting for a customer complaint) into a proactive, automated workflow."
+    ],
+    "mfa_system": [
+        "MFA System Project Name: ClientID Mailbox Locking Interface.",
+        "MFA System Overview: A user-facing security dashboard designed to democratize access to an advanced 'Device Locking' (ClientID) backend. The feature allows non-technical users to restrict mailbox access exclusively to trusted devices, effectively blocking unauthorized login attempts even if passwords are compromised.",
+        "MFA System Architecture (State Machine): Designed a robust PHP-based state machine to manage a complex multi-step 'Wizard' workflow. The system enforces strict transitions between states (e.g., Unlocked, Device Selection, Confirmation Logic), ensuring users cannot skip critical security validation steps while registering their devices.",
+        "MFA System UX Challenge: The underlying security technology was powerful but 'unwieldy' for end-users. I engineered a simplified 'Click-to-Lock' experience that automatically detects the current browser's cookie signature ('Register Self') and presents a curated list of historical devices for approval.",
+        "MFA System Security Logic: Implemented MITM (Man-in-the-Middle) protection mechanisms including strict HTTP Referrer validation and session integrity checks to ensure the security interface itself could not be spoofed.",
+        "MFA System Impact: Transformed a complex, support-heavy server feature into a self-service product. This reduced the 'hand-holding' burden on ISP support teams and helped smaller ISPs meet cyber-insurance requirements for Multi-Factor Authentication.",
+        "MFA System Tech Stack: Built with PHP for server-side rendering, integrated with a proprietary C-based backend library via a custom wrapper, and uses Cookie-based device fingerprinting for identification."
+    ],
+    "dkim_manager": [
+        "DKIM Manager Project Name: Self-Service DKIM Automation Module",
+        "DKIM Manager Overview: A security feature integrated into a proprietary email administration platform that allows administrators to manage DomainKeys Identified Mail (DKIM) settings autonomously. This system reduced manual support tickets by automating the generation and deployment of cryptographic keys.",
+        "DKIM Manager Impact: Saved the support team approximately 6 hours per week by eliminating manual key generation requests. It empowered customers to secure their email domains immediately, removing the need for support intervention.",
+        "DKIM Manager Architecture (Distributed Sync): Engineered a cluster-aware synchronization system. Designed a scheduled asynchronous process to propagate DKIM configurations from the central management interface to all edge servers. This polling architecture ensured high reliability across the distributed infrastructure without introducing the complexity of a push-notification service.",
+        "DKIM Manager Security Engineering: Implemented a 'Least Privilege' access model to ensure the web application could generate cryptographic keys without requiring root access. The system supports both Global Keys (persistent) and Per-Domain Keys (rotatable), with built-in logic to safely handle key revocation.",
+        "DKIM Manager Legacy Integration Challenge: The feature required integration into a complex, pre-existing legacy framework. I performed deep architectural analysis to map the internal plugin structure, implemented the new feature seamlessly, and produced comprehensive documentation to aid future development.",
+        "DKIM Manager Business Logic: Implemented complex validation rules to ensure DKIM could only be enabled if strict pre-requisites (such as DNS record verification and domain ownership) were met, proactively preventing misconfiguration and email delivery failures."
     ]
 }

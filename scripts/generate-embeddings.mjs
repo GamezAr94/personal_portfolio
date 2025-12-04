@@ -2,18 +2,18 @@
 // node --env-file=.env scripts/generate-embeddings.mjs
 
 // scripts/generate-embeddings.mjs
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { promises as fs } from "fs";
+import path from "path";
 
 // --- Configuration ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 if (!GEMINI_API_KEY) {
-    throw new Error('GEMINI_API_KEY is not set in your .env file');
+    throw new Error("GEMINI_API_KEY is not set in your .env file");
 }
 
-const INPUT_FILE = path.join(process.cwd(), 'lib/rag-content.json');
-const OUTPUT_FILE = path.join(process.cwd(), 'lib/embeddings.json');
+const INPUT_FILE = path.join(process.cwd(), "lib/rag-content.json");
+const OUTPUT_FILE = path.join(process.cwd(), "lib/embeddings.json");
 // ---------------------
 
 function dotProduct(vecA, vecB) {
@@ -40,7 +40,7 @@ function cosineSimilarity(vecA, vecB) {
  * Recursively extracts text chunks from a nested JSON object.
  * This handles both arrays ["text", "text"] and nested objects { key: [...] }
  */
-function extractChunks(data, parentKey = '') {
+function extractChunks(data, parentKey = "") {
     const chunks = [];
 
     for (const [key, value] of Object.entries(data)) {
@@ -55,7 +55,7 @@ function extractChunks(data, parentKey = '') {
                     content: text,
                 });
             }
-        } else if (typeof value === 'object' && value !== null) {
+        } else if (typeof value === "object" && value !== null) {
             // It's a nested object (like meta_identity), recurse deeper
             chunks.push(...extractChunks(value, currentKey));
         }
@@ -65,15 +65,15 @@ function extractChunks(data, parentKey = '') {
 }
 
 async function generateEmbeddings() {
-    console.log('--- Starting Embedding Generation ---');
+    console.log("--- Starting Embedding Generation ---");
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+    const model = genAI.getGenerativeModel({ model: "text-embedding-004" });
 
     // 1. Read the structured RAG content
     let rawContent;
     try {
-        rawContent = await fs.readFile(INPUT_FILE, 'utf-8');
+        rawContent = await fs.readFile(INPUT_FILE, "utf-8");
     } catch (e) {
         console.error(`Error reading input file: ${INPUT_FILE}`);
         console.error(
@@ -123,10 +123,10 @@ async function generateEmbeddings() {
     }
 
     // 5. Self-Test
-    console.log('--- Running Self-Test ---');
+    console.log("--- Running Self-Test ---");
     if (embeddings.length < 2) {
         console.log(
-            'Not enough embeddings to run a similarity test. Skipping.',
+            "Not enough embeddings to run a similarity test. Skipping.",
         );
         return;
     }
@@ -135,7 +135,7 @@ async function generateEmbeddings() {
     const firstEmbedding = embeddings[0].embedding;
     const lastEmbedding = embeddings[embeddings.length - 1].embedding;
 
-    const testQuery = 'Tell me about your server';
+    const testQuery = "Tell me about your server";
     const queryEmbedding = (await model.embedContent(testQuery)).embedding
         .values;
 
@@ -153,7 +153,7 @@ async function generateEmbeddings() {
             embeddings[embeddings.length - 1].source
         }): ${simToLast.toFixed(4)}`,
     );
-    console.log('--- Embedding Generation Complete ---');
+    console.log("--- Embedding Generation Complete ---");
 }
 
 generateEmbeddings();
