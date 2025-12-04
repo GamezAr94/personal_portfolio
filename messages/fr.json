@@ -138,7 +138,14 @@
         "q_projects_ch2_2": "Comment avez-vous intégré Square POS à WooCommerce ?",
         "q_projects_ch3_1": "Qu'est-ce que le projet Docker Homelab ?",
         "q_projects_ch3_2": "Parlez-moi de la configuration du tunnel VPN",
-        "q_playground_1": "Qu'est-ce que ce 'Laboratoire' ?",
-        "q_playground_2": "Parlez-moi du bot RAG de ce portfolio"
+        "q_playground_1": "Dis-moi comment Arturo a implémenté le bot RAG pour ce portfolio",
+        "q_playground_2": "Dis-moi comment Arturo a implémenté l'interface de gestion DKIM de Magicmail",
+        "q_playground_3": "Dis-moi comment Arturo a implémenté le tableau de bord de santé du domaine de Magicmail",
+        "q_playground_4": "Dis-moi comment Arturo a implémenté le système automatisé de surveillance du spam de Magicmail",
+        "q_playground_5": "Dis-moi comment Arturo a implémenté le système de verrouillage de boîte aux lettres MFA de Magicmail",
+        "q_playground_6": "Dis-moi comment Arturo a implémenté l'IDE en ligne Full-Stack de Magicmail",
+        "q_playground_7": "Dis-moi comment Arturo a implémenté le visualiseur de recherche de chemin A* de Magicmail",
+        "q_playground_8": "Dis-moi comment Arturo a implémenté le site web personnalisé de Cafe Local de Magicmail",
+        "q_playground_9": "Dis-moi comment Arturo a implémenté le prototype de mécanique de jeu C# de Magicmail"
     }
 }
