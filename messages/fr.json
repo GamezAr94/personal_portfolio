@@ -19,10 +19,10 @@
         "suggestion_3": "Comment a-t-il implémenté le bot RAG ?"
     },
     "AboutSection": {
-        "title": "Un Peu Sur Moi",
-        "p1": "Je suis un développeur de logiciels passionné par le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et facile à maintenir en équipe.",
-        "p2": "Bien que je sois un spécialiste du front-end qui aime les <magenta>beaux défis de conception</magenta> (en particulier les interfaces utilisateur pixel-perfect), je suis aussi un solutionneur de problèmes curieux qui aime s'attaquer aux énigmes de HackerRank.",
-        "p3": "En tant que développeur formé au BCIT et basé à Vancouver, je recherche un poste avec des objectifs clairs au sein d'une équipe collaborative de personnes intelligentes et passionnées. Je suis enthousiaste à l'idée de grandir, d'apprendre et de créer des applications <teal>évolutives</teal> et <magenta>centrées sur l'utilisateur</magenta>."
+        "title": "À Propos de Moi",
+        "p1": "Je suis un développeur qui cherche à comprendre le \"pourquoi\"—les besoins profonds des utilisateurs et de l'entreprise. Je crois que <teal>les grands logiciels reposent sur la fiabilité</teal>, un principe que j'applique en écrivant du code propre, efficace et robuste.",
+        "p2": "Bien que je sois spécialiste en <magenta>architecture front-end</magenta> et en interfaces pixel-perfect, ma curiosité me pousse vers le bas niveau. Je me passionne pour la compréhension du matériel, explorant activement la **programmation système et l'ingénierie graphique**.",
+        "p3": "Développeur formé au BCIT et basé à Vancouver, je cherche une équipe collaborative avec des objectifs clairs. Je suis enthousiaste à l'idée de bâtir des applications <teal>performantes</teal> et <magenta>évolutives</magenta> qui résolvent de vrais problèmes."
     },
     "ToolkitSection": {
         "title": "Ma Boîte à Outils",

@@ -19,10 +19,10 @@
         "suggestion_3": "¿Cómo implementó el bot RAG?"
     },
     "AboutSection": {
-        "title": "Un Poco Sobre Mí",
-        "p1": "Soy un desarrollador de software al que le apasiona entender el \"porqué\": las necesidades profundas del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y colaborativo.",
-        "p2": "Aunque mi especialidad es el front-end y me encantan los <magenta>buenos retos de diseño</magenta> (especialmente las interfaces pixel-perfect), también soy una persona curiosa que disfruta resolviendo problemas en HackerRank.",
-        "p3": "Como desarrollador formado en BCIT y basado en Vancouver, busco un rol con objetivos claros en un equipo colaborativo de personas inteligentes y apasionadas. Me emociona la idea de crecer, aprender y construir aplicaciones <teal>escalables</teal> y <magenta>centradas en el usuario</magenta>."
+        "title": "Sobre Mí",
+        "p1": "Soy un desarrollador que se enfoca en entender el \"porqué\"—las necesidades reales del usuario y del negocio. Creo firmemente que <teal>el buen software debe ser predecible</teal>, y aplico esto escribiendo código limpio, eficiente y confiable.",
+        "p2": "Aunque me especializo en <magenta>arquitectura front-end</magenta> e interfaces visuales precisas, mi curiosidad me lleva a profundizar más. Me apasiona entender el funcionamiento interno de la máquina, explorando activamente la **programación de sistemas y la ingeniería gráfica**.",
+        "p3": "Como desarrollador graduado de BCIT en Vancouver, busco un equipo colaborativo con objetivos claros. Me entusiasma crecer, aprender y construir aplicaciones <teal>rápidas</teal> y <magenta>escalables</magenta> que resuelvan problemas reales."
     },
     "ToolkitSection": {
         "title": "Mi Kit de Herramientas",
