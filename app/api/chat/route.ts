@@ -9,6 +9,7 @@ import embeddings from "@/lib/embeddings.json";
 // If a match isn't at least this similar, we won't send it to the LLM.
 // Start with 0.25 and adjust based on your logs.
 const MIN_SIMILARITY_SCORE = 0.35;
+const MAX_WORD_LIMIT = 30;
 
 // --- Simple RAG/Vector Search Utilities ---
 // (We put these here to keep the file self-contained)
@@ -76,6 +77,19 @@ export async function POST(request: Request) {
         if (honeypot) {
             console.log("Bot de chat detectado por honeypot.");
             return NextResponse.json({ success: true, message: "OK" });
+        }
+
+        // We split by whitespace to count words roughly
+        const wordCount = content.trim().split(/\s+/).length;
+
+        console.log(wordCount);
+        if (wordCount > MAX_WORD_LIMIT) {
+            console.warn(`Blocked message with ${wordCount} words.`);
+            return NextResponse.json({
+                success: true, // We say true so the frontend doesn't crash, but we send a warning message
+                message:
+                    "Whoa, that's a long message! Please keep your question under 100 words so I can answer it accurately.",
+            });
         }
 
         // --- 2. Security: reCaptcha v3 (REUSED) ---

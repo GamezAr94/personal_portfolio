@@ -10,6 +10,14 @@
         "headline": "Software Developer. I build engaging and intelligent digital experiences.",
         "subtitle": "You're in my digital workshop. Explore my projects or ask my AI assistant about me and my work."
     },
+    "HeroChat": {
+        "ai_greeting": "Hi! I'm Arturo's digital assistant. I have access to his resume and portfolio data.",
+        "system_note": "NOTE: Context is not retained between messages. Please reference the specific project or topic in every question.",
+        "input_placeholder": "Ask about a specific project...",
+        "suggestion_1": "What are Arturo's backend skills?",
+        "suggestion_2": "Tell me about the Docker Homelab.",
+        "suggestion_3": "How did he implement the RAG bot?"
+    },
     "AboutSection": {
         "title": "A Bit About Me",
         "p1": "I'm a software developer who thrives on understanding the \"why\"—the deep user and business needs behind every feature. My motto is \"what you can measure, you can control,\" and I apply that by writing <teal>clean, efficient</teal>, and team-friendly code.",

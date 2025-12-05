@@ -10,6 +10,14 @@
         "headline": "Desarrollador de Software. Construyo experiencias digitales atractivas e inteligentes.",
         "subtitle": "Estás en mi taller digital. Explora mis proyectos o pregúntale a mi asistente de IA sobre mí y mi trabajo."
     },
+    "HeroChat": {
+        "ai_greeting": "¡Hola! Soy el asistente digital de Arturo. Tengo acceso a su currículum y a su portafolio.",
+        "system_note": "NOTA: No se guarda el contexto entre mensajes. Por favor, menciona el proyecto o tema específico en cada pregunta.",
+        "input_placeholder": "Pregunta sobre un proyecto específico...",
+        "suggestion_1": "¿Cuáles son las habilidades backend de Arturo?",
+        "suggestion_2": "Cuéntame sobre el Homelab con Docker.",
+        "suggestion_3": "¿Cómo implementó el bot RAG?"
+    },
     "AboutSection": {
         "title": "Un Poco Sobre Mí",
         "p1": "Soy un desarrollador de software al que le apasiona entender el \"porqué\": las necesidades profundas del usuario y del negocio detrás de cada función. Mi lema es \"lo que puedes medir, puedes controlar\", y lo aplico escribiendo código <teal>limpio, eficiente</teal> y colaborativo.",

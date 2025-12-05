@@ -5,6 +5,7 @@ import { useChatState, useChatAPI } from "@/context/ChatContext";
 import AsciiArtTitle from "./AsciiArtTitle";
 // We just import the new styles. The name is the same.
 import styles from "./HeroChat.module.css";
+import { useTranslations } from "next-intl";
 
 const TypingIndicator = () => (
     <div className={styles.aiMessage}>
@@ -21,6 +22,8 @@ export default function HeroChat() {
     // Obtenemos el estado y las funciones de nuestro "cerebro" global
     const { messages, isLoading } = useChatState();
     const { sendMessage } = useChatAPI();
+    const t = useTranslations("HeroChat");
+    const suggestionKeys = ["suggestion_1", "suggestion_2", "suggestion_3"];
 
     // Esto controla lo que el usuario está escribiendo
     const [input, setInput] = useState("");
@@ -56,6 +59,11 @@ export default function HeroChat() {
         setInput(""); // Limpia el input local
     };
 
+    const handleSuggestionClick = (text: string) => {
+        if (isLoading) return;
+        sendMessage(text);
+    };
+
     return (
         <div className={styles.terminalWindow}>
             {/* Terminal Header */}
@@ -75,10 +83,29 @@ export default function HeroChat() {
                 {/* AI Message */}
                 <div className={styles.aiMessage}>
                     <strong>Arturo-AI:</strong>
-                    <p>
-                        Hi there! I'm Arturo's digital assistant. You can ask me
-                        anything about Arturo and his projects.
-                    </p>
+                    {/* 1. Main Greeting */}
+                    <p>{t("ai_greeting")}</p>
+
+                    {/* 2. Context Warning / System Note */}
+                    <p className={styles.systemNote}>{t("system_note")}</p>
+
+                    {/* 3. Suggestions (Only shown if history is empty) */}
+                    {messages.length === 0 && (
+                        <div className={styles.suggestionList}>
+                            {suggestionKeys.map((key) => (
+                                <button
+                                    key={key}
+                                    className={styles.suggestionButton}
+                                    onClick={() =>
+                                        handleSuggestionClick(t(key))
+                                    }
+                                    disabled={isLoading}
+                                >
+                                    {t(key)}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* User Message */}
@@ -118,7 +145,7 @@ export default function HeroChat() {
                 <input
                     type="text"
                     ref={inputRef}
-                    placeholder="Ask about a project..."
+                    placeholder={t("input_placeholder")}
                     className={styles.textInput}
                     value={input} // Controlado por React
                     onChange={(e) => setInput(e.target.value)} // Actualiza el estado

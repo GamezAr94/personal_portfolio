@@ -10,6 +10,14 @@
         "headline": "Développeur de Logiciels. Je crée des expériences numériques engageantes et intelligentes.",
         "subtitle": "Vous êtes dans mon atelier numérique. Explorez mes projets ou demandez à mon assistant IA à propos de moi et de mon travail."
     },
+    "HeroChat": {
+        "ai_greeting": "Bonjour ! Je suis l'assistant numérique d'Arturo. J'ai accès à son CV et à son portfolio.",
+        "system_note": "NOTE : Le contexte n'est pas conservé entre les messages. Veuillez mentionner le projet ou le sujet spécifique dans chaque question.",
+        "input_placeholder": "Posez une question sur un projet spécifique...",
+        "suggestion_1": "Quelles sont les compétences backend d'Arturo ?",
+        "suggestion_2": "Parlez-moi du Homelab Docker.",
+        "suggestion_3": "Comment a-t-il implémenté le bot RAG ?"
+    },
     "AboutSection": {
         "title": "Un Peu Sur Moi",
         "p1": "Je suis un développeur de logiciels passionné par le \"pourquoi\" : les besoins profonds de l'utilisateur et de l'entreprise derrière chaque fonctionnalité. Ma devise est \"ce que vous pouvez mesurer, vous pouvez contrôler\", et je l'applique en écrivant du code <teal>propre, efficace</teal> et facile à maintenir en équipe.",
@@ -86,6 +94,7 @@
         "p1_title": "Ce Portfolio (Next.js & RAG Bot)",
         "p1_desc": "Ce site lui-même est un projet que j'ai construit à partir de zéro avec Next.js et TypeScript. L'assistant de chat est une implémentation RAG personnalisée qui se connecte à l'API Gemini pour répondre aux questions sur ma carrière.",
         "p1_aiQuery": "Comment as-tu construit le bot RAG pour ce portfolio ?",
+        "p2_title": "Interface de gestion DKIM",
         "p2_desc": "Une interface utilisateur en libre-service que j'ai conçue pour la plateforme d'administration MagicMail avec PHP, JS et Bash. Elle permet aux utilisateurs de gérer leurs propres paramètres DKIM (sécurité e-mail), automatisant un processus manuel qui nécessitait auparavant un ticket de support.",
         "p2_aiQuery": "Comment cette fonctionnalité DKIM a-t-elle fait gagner du temps à l'équipe de support ?",
         "p3_title": "Tableau de Bord de Santé des Domaines",
