@@ -24,10 +24,12 @@
     opacity: 0;
 
     /* Smooth transition for when GSAP animates it */
-    transition: visibility 0.3s, opacity 0.3s ease-out;
+    transition:
+        visibility 0.3s,
+        opacity 0.3s ease-out;
 }
 
-/* * 2. MOBILE: The small tab 
+/* * 2. MOBILE: The small tab
  * (Inspired by your second screenshot)
 */
 .mobileTab {
@@ -52,7 +54,9 @@
     /* GSAP Hook: Start hidden */
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s ease-out;
+    transition:
+        visibility 0.3s,
+        opacity 0.3s ease-out;
 }
 
 /* * 3. ICON STYLES (for both)
@@ -157,6 +161,16 @@
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #444444;
     flex-shrink: 0; /* Prevents header from shrinking */
+}
+
+.header_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.header_avatar_img {
+    border-radius: 50%;
 }
 
 .openChatTitle {

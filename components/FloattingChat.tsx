@@ -10,6 +10,8 @@ import styles from "./FloatingChat.module.css";
 import heroChatStyles from "./HeroChat.module.css";
 
 import { useChatState, useChatAPI } from "@/context/ChatContext";
+import Image from "next/image";
+import avatar_icon from "@/public/img/avatar_icon.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -257,7 +259,16 @@ export default function FloatingChat() {
                 onClick={handleContainerClick}
             >
                 <div className={styles.openChatHeader}>
-                    <span className={styles.openChatTitle}>Arturo AI</span>
+                    <div className={styles.header_container}>
+                        <Image
+                            src={avatar_icon}
+                            alt="an avatar icon of myself in anime style"
+                            height={50}
+                            width={50}
+                            className={styles.header_avatar_img}
+                        />
+                        <span className={styles.openChatTitle}>Arturo AI</span>
+                    </div>
                     <div
                         style={{ cursor: "pointer" }}
                         onClick={() => toggleChat()}
