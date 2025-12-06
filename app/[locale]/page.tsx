@@ -44,7 +44,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch1_2",
         onLeaveBack_q1Key: "q_experience_1",
         onLeaveBack_q2Key: "q_experience_2",
-        imageUrl: "/img/playground/raspberry-pi.jpg",
+        imageUrl: "img/projects/fazume_banner_screenshot.png",
         imageAlt: "Screenshot of the Fazume.com AI Resume Analyzer dashboard.",
         features: [
             { title: t("c1_f1_title"), description: t("c1_f1_desc") },
@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch2_2",
         onLeaveBack_q1Key: "q_projects_ch1_1",
         onLeaveBack_q2Key: "q_projects_ch1_2",
-        imageUrl: "/img/playground/raspberry-pi.jpg",
+        imageUrl: "img/projects/tamalyshop_banner.jpg",
         imageAlt: "Screenshot of the Tamaly Shop e-commerce website.",
         features: [
             { title: t("c2_f1_title"), description: t("c2_f1_desc") },
@@ -102,7 +102,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch3_2",
         onLeaveBack_q1Key: "q_projects_ch2_1",
         onLeaveBack_q2Key: "q_projects_ch2_2",
-        imageUrl: "/img/playground/raspberry-pi.jpg",
+        imageUrl: "img/projects/Portainer_homelab.png",
         imageAlt:
             "A diagram of the homelab Docker and networking architecture.",
         features: [
@@ -114,12 +114,16 @@ export default async function Home({ params }: { params: { locale: string } }) {
     };
     // Put your image paths from the /public folder here, in order (p1 to p6).
     const playgroundImageUrls = [
-        "/img/playground/unity-game.jpg", // p1
+        "/img/projects/portfolio_hero_screenshot.png",
+        "/img/projects/dkim_diagram.png", // p1
         "/img/playground/raspberry-pi.jpg", // p2
-        "/img/playground/vim-config.jpg", // p3
-        "/img/playground/web-synth.jpg", // p4
-        "/img/playground/twitter-bot.jpg", // p5
-        "/img/playground/glsl-art.jpg", // p6
+        "/img/projects/automated_spam_representation_rayso.png", // p1
+        "/img/projects/MFA_representation_rayso.png", // p1
+        "/img/projects/IDE_banner.png", // p1
+        "/img/projects/astar_pathfinding_result.png", // p1
+        "/img/projects/cafelokal_banner.jpg", // p1
+        //"/img/projects/lucy_game.jpg", // p1
+        "/img/projects/frog_game.jpg", // p1
     ];
     const playgroundProjects = Array.from(
         { length: PLAYGROUND_PROJECT_COUNT },
