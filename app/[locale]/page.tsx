@@ -184,12 +184,16 @@ export default async function Home({ params }: { params: { locale: string } }) {
         "https://github.com/GamezAr94/AstarPathFindingAlgorithm", // p7
         null, // p8
         //"/img/projects/lucy_game.jpg", // p9
-        "https://github.com/GamezAr94/Frog-Game", // p9
+        "https://github.com/GamezAr94/Frog-Game;https://github.com/GamezAr94/Lucy;https://www.youtube.com/watch?v=5cnxBd4Gq6k", // p9
     ];
     const playgroundProjects = Array.from(
         { length: PLAYGROUND_PROJECT_COUNT },
         (_, i) => {
             const index = i + 1; // 1-based index
+            if (index == 3) {
+                // TODO ART: we need to find an image for this section and enable it again
+                return;
+            }
             return {
                 title: t_playground(`p${index}_title`),
                 description: t_playground(`p${index}_desc`),
