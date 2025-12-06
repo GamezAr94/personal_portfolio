@@ -64,6 +64,7 @@ const embeddingModel = genAI.getGenerativeModel({
     model: "text-embedding-004",
 });
 const chatModel = genAI.getGenerativeModel({
+    //model: "gemini-1.5-flash",
     model: "gemini-2.0-flash",
 });
 // -------------------------

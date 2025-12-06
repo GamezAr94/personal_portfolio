@@ -2,14 +2,16 @@ import { getTranslations } from "next-intl/server";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import Hero from "@/components/Hero";
-import PlaygroundChapter from "@/components/PlaygroundChapter";
+import PlaygroundChapter, {
+    PlaygroundProject,
+} from "@/components/PlaygroundChapter";
 import ProjectChapter from "@/components/ProjectChapter";
 import ToolkitSection from "@/components/ToolkitSection";
 
 const PLAYGROUND_PROJECT_COUNT = 9;
 
 export default async function Home({ params }: { params: { locale: string } }) {
-    const unwrappedParams = await params;
+    const unwrappedParams = params;
 
     const t = await getTranslations({
         locale: unwrappedParams.locale,
@@ -192,18 +194,18 @@ export default async function Home({ params }: { params: { locale: string } }) {
             const index = i + 1; // 1-based index
             if (index == 3) {
                 // TODO ART: we need to find an image for this section and enable it again
-                return;
+                return undefined;
             }
             return {
                 title: t_playground(`p${index}_title`),
                 description: t_playground(`p${index}_desc`),
-                images: playgroundImageUrls[i],
-                linksGit: linksToProject[i],
+                images: playgroundImageUrls[i] || [],
+                linksGit: linksToProject[i] || null,
                 imageAlt: t_playground(`p${index}_title`),
                 aiQuery: t_chat_question(`q_playground_${index}`),
             };
         },
-    );
+    ).filter((p): p is PlaygroundProject => p !== undefined);
 
     const chapter4Data = {
         id: "chapter4",

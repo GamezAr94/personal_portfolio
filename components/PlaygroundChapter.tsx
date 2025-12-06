@@ -11,7 +11,7 @@ import { useChatAPI } from "@/context/ChatContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type PlaygroundProject = {
+export type PlaygroundProject = {
     title: string;
     description: string;
     aiQuery: string;
