@@ -9,6 +9,7 @@ import AnimatedText from "./AnimatedText";
 import { useTranslations } from "next-intl";
 import { useChatAPI } from "@/context/ChatContext";
 import AskAiButton from "./AskAiButton";
+import Image from "next/image";
 
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -56,7 +57,6 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     imageUrl,
     imageAlt,
 }) => {
-    const t = useTranslations("ProjectChapters");
     const t_chat = useTranslations("ChatQuestions");
 
     const { setContextualQuestions } = useChatAPI();
@@ -224,7 +224,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
         <section id={id} className={styles.chapterContainer} ref={sectionRef}>
             <div className={styles.chapterNarrative}>
                 <h5 ref={h2Ref}>{chapterTitle}</h5>
-                <p ref={pRef}>"{narrative}"</p>
+                <p ref={pRef}>&quot;{narrative}&quot;</p>
             </div>
 
             <div className={styles.projectLayout}>
@@ -271,7 +271,12 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                 </div>
 
                 <div className={styles.projectVisual} ref={visualRef}>
-                    <img src={imageUrl} alt={imageAlt} />
+                    <Image
+                        width={1700}
+                        height={1000}
+                        src={imageUrl}
+                        alt={imageAlt}
+                    />
                 </div>
             </div>
         </section>

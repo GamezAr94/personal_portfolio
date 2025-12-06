@@ -44,7 +44,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch1_2",
         onLeaveBack_q1Key: "q_experience_1",
         onLeaveBack_q2Key: "q_experience_2",
-        imageUrl: "img/projects/fazume_banner_screenshot.png",
+        imageUrl: "/img/projects/fazume_banner_screenshot.png",
         imageAlt: "Screenshot of the Fazume.com AI Resume Analyzer dashboard.",
         features: [
             { title: t("c1_f1_title"), description: t("c1_f1_desc") },
@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch2_2",
         onLeaveBack_q1Key: "q_projects_ch1_1",
         onLeaveBack_q2Key: "q_projects_ch1_2",
-        imageUrl: "img/projects/tamalyshop_banner.jpg",
+        imageUrl: "/img/projects/tamalyshop_banner.jpg",
         imageAlt: "Screenshot of the Tamaly Shop e-commerce website.",
         features: [
             { title: t("c2_f1_title"), description: t("c2_f1_desc") },
@@ -102,7 +102,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch3_2",
         onLeaveBack_q1Key: "q_projects_ch2_1",
         onLeaveBack_q2Key: "q_projects_ch2_2",
-        imageUrl: "img/projects/Portainer_homelab.png",
+        imageUrl: "/img/projects/Portainer_homelab.png",
         imageAlt:
             "A diagram of the homelab Docker and networking architecture.",
         features: [

@@ -284,7 +284,8 @@ export default function FloatingChat() {
                     <div className={heroChatStyles.aiMessage}>
                         <strong>Arturo-AI:</strong>
                         <p>
-                            Hi! I'm Arturo's digital assistant. How can I help?
+                            Hi! I&apos;m Arturo&apos;s digital assistant. How
+                            can I help?
                         </p>
                     </div>
 
