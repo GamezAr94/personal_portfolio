@@ -12,6 +12,7 @@ import heroChatStyles from "./HeroChat.module.css";
 import { useChatState, useChatAPI } from "@/context/ChatContext";
 import Image from "next/image";
 import avatar_icon from "@/public/img/avatar_icon.png";
+import { useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,6 +90,7 @@ const TypingIndicator = () => (
 export default function FloatingChat() {
     const { messages, isLoading, isOpen, contextualQuestions } = useChatState();
     const { toggleChat, sendMessage } = useChatAPI();
+    const locale = useLocale();
 
     const [input, setInput] = useState("");
 
@@ -201,14 +203,14 @@ export default function FloatingChat() {
     const handleSend = (e: FormEvent) => {
         e.preventDefault();
         if (!input.trim() || isLoading) return;
-        sendMessage(input);
+        sendMessage(input, locale);
         setInput("");
     };
 
     // Handle para botones de preguntas
     const handleContextualClick = (question: string) => {
         if (isLoading) return; // No hacer nada si ya está cargando
-        sendMessage(question); // Envía la pregunta directamente
+        sendMessage(question, locale);
         // No limpiamos el input, por si el usuario estaba escribiendo
     };
 

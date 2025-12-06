@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, FormEvent, useRef, useEffect } from "react";
+import { useState, FormEvent, useRef, useEffect } from "react";
 import { useChatState, useChatAPI } from "@/context/ChatContext";
 import AsciiArtTitle from "./AsciiArtTitle";
 // We just import the new styles. The name is the same.
 import styles from "./HeroChat.module.css";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const TypingIndicator = () => (
     <div className={styles.aiMessage}>
@@ -24,6 +24,8 @@ export default function HeroChat() {
     const { sendMessage } = useChatAPI();
     const t = useTranslations("HeroChat");
     const suggestionKeys = ["suggestion_1", "suggestion_2", "suggestion_3"];
+
+    const locale = useLocale();
 
     // Esto controla lo que el usuario está escribiendo
     const [input, setInput] = useState("");
@@ -55,13 +57,13 @@ export default function HeroChat() {
         e.preventDefault(); // Evita que la página se recargue al enviar el form
         if (!input.trim() || isLoading) return; // No enviar vacío o si ya está cargando
 
-        sendMessage(input); // Llama a la función del contexto global
+        sendMessage(input, locale); // Llama a la función del contexto global
         setInput(""); // Limpia el input local
     };
 
     const handleSuggestionClick = (text: string) => {
         if (isLoading) return;
-        sendMessage(text);
+        sendMessage(text, locale);
     };
 
     const handleContainerClick = () => {

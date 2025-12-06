@@ -1,5 +1,5 @@
 // context/ChatContext.tsx
-'use client';
+"use client";
 
 // IMPORTANTE: ¡Añade useCallback!
 import React, {
@@ -10,12 +10,12 @@ import React, {
     useCallback,
     useMemo,
     useRef,
-} from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+} from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 // --- Definimos los tipos de datos ---
 export interface ChatMessage {
-    role: 'user' | 'ai';
+    role: "user" | "ai";
     content: string;
 }
 
@@ -32,7 +32,7 @@ export interface ChatState {
 // Tipo para la API (funciones que NO cambian)
 export interface ChatAPI {
     toggleChat: (open?: boolean) => void;
-    sendMessage: (message: string) => Promise<void>;
+    sendMessage: (message: string, locale?: string) => Promise<void>;
     setContextualQuestions: (questions: string[]) => void;
 }
 
@@ -55,7 +55,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 
     const { executeRecaptcha } = useGoogleReCaptcha();
     // Este ref guardará un valor honeypot falso, no es necesario un estado
-    const honeypotRef = useRef('');
+    const honeypotRef = useRef("");
 
     // Esto garantiza que sus referencias no cambien entre re-renders.
 
@@ -64,10 +64,10 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
     }, []); // Dependencia vacía = nunca cambia
 
     const sendMessage = useCallback(
-        async (content: string) => {
+        async (content: string, locale: string = "en") => {
             // --- Seguridad: reCaptcha ---
             if (!executeRecaptcha) {
-                console.error('Chat reCaptcha hook no está listo');
+                console.error("Chat reCaptcha hook is not ready");
                 // Podríamos mostrar un error, pero por ahora solo salimos
                 return;
             }
@@ -75,21 +75,22 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
             // Usamos 'setIsLoading' y 'setMessages' en modo de función
             // para que 'sendMessage' no necesite depender de 'isLoading' o 'messages'.
             setIsLoading(true);
-            const userMessage: ChatMessage = { role: 'user', content };
+            const userMessage: ChatMessage = { role: "user", content };
             setMessages((prev) => [...prev, userMessage]);
 
             try {
                 // Genera el token JUSTO antes de enviar
-                const token = await executeRecaptcha('chatSubmit');
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
+                const token = await executeRecaptcha("chatSubmit");
+                const response = await fetch("/api/chat", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
                         content: content,
                         honeypot: honeypotRef.current, // Envía el valor del honeypot
                         token: token, // Envía el token de reCaptcha
+                        locale: locale,
                     }),
                 });
 
@@ -98,27 +99,27 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
                 if (response.ok && data.success) {
                     // Éxito: usa la respuesta de la API
                     const aiResponse: ChatMessage = {
-                        role: 'ai',
+                        role: "ai",
                         content: data.message, // Usamos el mensaje de nuestra API
                     };
                     setMessages((prev) => [...prev, aiResponse]);
                 } else {
                     // Error: muestra un mensaje de error en el chat
-                    console.error('Error de la API de chat:', data.error);
+                    console.error("Error de la API de chat:", data.error);
                     const aiErrorResponse: ChatMessage = {
-                        role: 'ai',
+                        role: "ai",
                         content:
-                            'Lo siento, algo salió mal. Por favor, inténtalo de nuevo más tarde.',
+                            "Sorry, something went wrong. Please, try again latter.",
                     };
                     setMessages((prev) => [...prev, aiErrorResponse]);
                 }
             } catch (error) {
                 // Error de red
-                console.error('Error de red en el chat:', error);
+                console.error("Error de red en el chat:", error);
                 const aiErrorResponse: ChatMessage = {
-                    role: 'ai',
+                    role: "ai",
                     content:
-                        'Error de conexión. Por favor, revisa tu internet.',
+                        "Network error. Please, check your network connection or try again latter.",
                 };
                 setMessages((prev) => [...prev, aiErrorResponse]);
             } finally {
@@ -170,9 +171,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
 export const useChatState = () => {
     const context = useContext(ChatStateContext);
     if (context === undefined) {
-        throw new Error(
-            'useChatState debe ser usado dentro de un ChatProvider',
-        );
+        throw new Error("useChatState must be used with a ChatProvider");
     }
     return context;
 };
@@ -180,7 +179,7 @@ export const useChatState = () => {
 export const useChatAPI = () => {
     const context = useContext(ChatAPIContext);
     if (context === undefined) {
-        throw new Error('useChatAPI debe ser usado dentro de un ChatProvider');
+        throw new Error("useChatState must be used with a ChatProvider");
     }
     return context;
 };

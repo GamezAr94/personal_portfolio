@@ -71,7 +71,7 @@ const chatModel = genAI.getGenerativeModel({
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { content, honeypot, token } = body;
+        const { content, honeypot, token, locale } = body;
 
         // --- 1. Security: Honeypot (REUSED) ---
         if (honeypot) {
@@ -82,7 +82,6 @@ export async function POST(request: Request) {
         // We split by whitespace to count words roughly
         const wordCount = content.trim().split(/\s+/).length;
 
-        console.log(wordCount);
         if (wordCount > MAX_WORD_LIMIT) {
             console.warn(`Blocked message with ${wordCount} words.`);
             return NextResponse.json({
@@ -145,10 +144,6 @@ export async function POST(request: Request) {
 
         const topMatch = similarities[0]; // The single best match
 
-        console.log(
-            `Query: "${content}" | Top Score: ${topMatch.score.toFixed(4)}`,
-        );
-
         if (topMatch.score < MIN_SIMILARITY_SCORE) {
             console.log("Score too low. Skipping Chat API.");
             // Return a hardcoded response immediately
@@ -161,10 +156,21 @@ export async function POST(request: Request) {
 
         const topContext = similarities.slice(0, 3);
 
+        /*
         console.log(
             "Top 3 relevant chunks:",
             topContext.map((c) => ({ source: c.source, score: c.score })),
         );
+        */
+
+        // Map the locale code to a full language name
+        const languageMap: Record<string, string> = {
+            en: "English",
+            es: "Spanish",
+            fr: "French",
+        };
+        // Default to English if the code is missing or unknown
+        const targetLanguage = languageMap[locale] || "English";
 
         // --- 5. RAG: Generate the Answer (Generation) ---
 
@@ -179,7 +185,7 @@ export async function POST(request: Request) {
 
       Using ONLY the following context, answer the user's question.
       Do not make up any information.
-      **Please respond in the same language as the user's question (EN, ES or FR).**
+      **IMPORTANT: You MUST respond in ${targetLanguage}.**
 
       Context:
       ${topContext.map((c) => `- ${c.content}`).join("\n")}
