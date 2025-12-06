@@ -159,7 +159,6 @@ export default function HeroChat() {
                     value={input} // Controlado por React
                     onChange={(e) => setInput(e.target.value)} // Actualiza el estado
                     disabled={isLoading} // Deshabilita el input mientras la IA responde
-                    maxLength={30}
                 />
                 {/* El botón ahora es de tipo "submit" */}
                 <button type="submit" className={styles.sendButton}>

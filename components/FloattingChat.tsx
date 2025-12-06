@@ -210,6 +210,14 @@ export default function FloatingChat() {
         // No limpiamos el input, por si el usuario estaba escribiendo
     };
 
+    const handleContainerClick = () => {
+        // UX Improvement: Only focus if the user isn't trying to highlight/select text to copy.
+        const selection = window.getSelection();
+        if (selection && selection.toString().length > 0) return;
+
+        inputRef.current?.focus();
+    };
+
     return (
         <>
             {/* --- DESKTOP VERSION --- */}
@@ -243,7 +251,11 @@ export default function FloatingChat() {
             )}
 
             {/* --- MOBILE VERSION --- */}
-            <div ref={openChatRef} className={styles.openChatWindow}>
+            <div
+                ref={openChatRef}
+                className={styles.openChatWindow}
+                onClick={handleContainerClick}
+            >
                 <div className={styles.openChatHeader}>
                     <span className={styles.openChatTitle}>Arturo AI</span>
                     <div
