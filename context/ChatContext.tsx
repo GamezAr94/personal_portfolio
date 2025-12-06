@@ -109,7 +109,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
                     const aiErrorResponse: ChatMessage = {
                         role: "ai",
                         content:
-                            "Sorry, something went wrong. Please, try again latter.",
+                            "I'm sorry, something went wrong. I may have reached my daily limit for AI responses. Please try again later. Thank you for your interest!",
                     };
                     setMessages((prev) => [...prev, aiErrorResponse]);
                 }

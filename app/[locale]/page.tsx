@@ -10,19 +10,23 @@ import ToolkitSection from "@/components/ToolkitSection";
 
 const PLAYGROUND_PROJECT_COUNT = 9;
 
-export default async function Home({ params }: { params: { locale: string } }) {
-    const unwrappedParams = params;
+export default async function Home({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
 
     const t = await getTranslations({
-        locale: unwrappedParams.locale,
+        locale,
         namespace: "ProjectChapters",
     });
     const t_playground = await getTranslations({
-        locale: unwrappedParams.locale,
+        locale,
         namespace: "Playground",
     });
     const t_chat_question = await getTranslations({
-        locale: unwrappedParams.locale,
+        locale,
         namespace: "ChatQuestions",
     });
 
