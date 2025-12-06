@@ -64,8 +64,16 @@ export default function HeroChat() {
         sendMessage(text);
     };
 
+    const handleContainerClick = () => {
+        // UX Improvement: Only focus if the user isn't trying to highlight/select text to copy.
+        const selection = window.getSelection();
+        if (selection && selection.toString().length > 0) return;
+
+        inputRef.current?.focus();
+    };
+
     return (
-        <div className={styles.terminalWindow}>
+        <div className={styles.terminalWindow} onClick={handleContainerClick}>
             {/* Terminal Header */}
             <div className={styles.terminalHeader}>
                 <div className={`${styles.trafficLight} ${styles.red}`}></div>
@@ -96,9 +104,10 @@ export default function HeroChat() {
                                 <button
                                     key={key}
                                     className={styles.suggestionButton}
-                                    onClick={() =>
-                                        handleSuggestionClick(t(key))
-                                    }
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleSuggestionClick(t(key));
+                                    }}
                                     disabled={isLoading}
                                 >
                                     {t(key)}
@@ -150,6 +159,7 @@ export default function HeroChat() {
                     value={input} // Controlado por React
                     onChange={(e) => setInput(e.target.value)} // Actualiza el estado
                     disabled={isLoading} // Deshabilita el input mientras la IA responde
+                    maxLength={30}
                 />
                 {/* El botón ahora es de tipo "submit" */}
                 <button type="submit" className={styles.sendButton}>
