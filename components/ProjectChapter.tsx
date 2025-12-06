@@ -20,6 +20,11 @@ type Feature = {
     description: string;
 };
 
+type ProjectImage = {
+    url: string;
+    alt: string;
+};
+
 type ProjectChapterProps = {
     id: string; // HTML id like "projects" or "chapter2"
     chapterTitle: string; // "Chapter 1: The Foundation"
@@ -37,8 +42,7 @@ type ProjectChapterProps = {
     features: Feature[]; // [{ title: "...", description: "..." }]
 
     // Visual
-    imageUrl: string;
-    imageAlt: string;
+    images: ProjectImage[];
 };
 
 // --- The Reusable Component ---
@@ -54,8 +58,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
     onLeaveBack_q1Key,
     onLeaveBack_q2Key,
     features,
-    imageUrl,
-    imageAlt,
+    images,
 }) => {
     const t_chat = useTranslations("ChatQuestions");
 
@@ -203,6 +206,61 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                     ]);
                 },
             });
+
+            if (visualRef.current && images.length > 1) {
+                const imageElements = visualRef.current.querySelectorAll("img");
+
+                // Create a timeline that is tied to the scroll progress of the WHOLE section
+                // This allows the images to cycle evenly as you read through the content.
+                const scrubTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionRef.current, // The whole chapter is the track
+                        start: "top top", // Adjust: Start changing when section hits top
+                        end: "bottom 60%", // Finish changing when section ends
+                        scrub: true, // Binds animation progress to scrollbar
+                    },
+                });
+
+                // Loop through images (skipping the first one which is already visible)
+                // and fade them in one by one.
+                // Note: We use imageElements array from the DOM
+                imageElements.forEach((img, i) => {
+                    if (i === 0) return; // Skip first image
+
+                    scrubTl.to({}, { duration: 20 });
+
+                    // Calculate a step value to space them out evenly?
+                    // GSAP Timeline automatically sequences them.
+                    scrubTl.to(img, {
+                        opacity: 1,
+                        ease: "none", // Linear transition for direct control
+                        duration: 5, // The duration is relative in a scrubbed timeline
+                    });
+
+                    // the previous image to fade OUT as this one fades IN:
+                    scrubTl.to(
+                        imageElements[i - 1],
+                        { opacity: 0, duration: 1 },
+                        "<",
+                    );
+                });
+            }
+
+            // --- KEEP: Your existing "Enter" animation for the Visual wrapper ---
+            // This animates the whole block entering, not the swapping inside it.
+            if (visualRef.current) {
+                gsap.to(visualRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "elastic.out(1, 0.5)",
+                    scrollTrigger: {
+                        trigger: visualRef.current,
+                        start: "top 85%",
+                        toggleActions: "restart pause resume pause",
+                    },
+                });
+            }
         }, sectionRef); // Scope all GSAP selectors to this component
 
         // Clean up ScrollTrigger instances on unmount
@@ -218,6 +276,7 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
         onLeaveBack_q2Key,
         t_chat,
         setContextualQuestions,
+        images,
     ]); // Empty dependency array ensures this runs once on mount
 
     return (
@@ -271,12 +330,18 @@ const ProjectChapter: React.FC<ProjectChapterProps> = ({
                 </div>
 
                 <div className={styles.projectVisual} ref={visualRef}>
-                    <Image
-                        width={1700}
-                        height={1000}
-                        src={imageUrl}
-                        alt={imageAlt}
-                    />
+                    {images.map((img, index) => (
+                        <Image
+                            key={index}
+                            // Use a high priority for the first image only
+                            priority={index === 0}
+                            width={1700}
+                            height={1000}
+                            src={img.url}
+                            alt={img.alt}
+                            // We don't need absolute classes here if using the Grid CSS trick
+                        />
+                    ))}
                 </div>
             </div>
         </section>

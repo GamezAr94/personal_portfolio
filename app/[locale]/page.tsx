@@ -44,8 +44,20 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch1_2",
         onLeaveBack_q1Key: "q_experience_1",
         onLeaveBack_q2Key: "q_experience_2",
-        imageUrl: "/img/projects/fazume_banner_screenshot.png",
-        imageAlt: "Screenshot of the Fazume.com AI Resume Analyzer dashboard.",
+        images: [
+            {
+                url: "/img/projects/fazume_banner_screenshot.png",
+                alt: "main dashboard of fazume",
+            },
+            {
+                url: "/img/projects/fazume_editor_ss.png",
+                alt: "screenshot of the fazume editor pdf dashboard",
+            },
+            {
+                url: "/img/projects/fazume_review_ss.png",
+                alt: "fazume screenshot of the fazume review tips and tricks",
+            },
+        ],
         features: [
             { title: t("c1_f1_title"), description: t("c1_f1_desc") },
             { title: t("c1_f2_title"), description: t("c1_f2_desc") },
@@ -73,8 +85,16 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch2_2",
         onLeaveBack_q1Key: "q_projects_ch1_1",
         onLeaveBack_q2Key: "q_projects_ch1_2",
-        imageUrl: "/img/projects/tamalyshop_banner.jpg",
-        imageAlt: "Screenshot of the Tamaly Shop e-commerce website.",
+        images: [
+            {
+                url: "/img/projects/tamalyshop_banner.jpg",
+                alt: "Screenshot of the Tamaly Shop e-commerce website.",
+            },
+            {
+                url: "/img/projects/tamalyshop_shop.png",
+                alt: "Screenshot of the Tamaly Shop e-commerce menu.",
+            },
+        ],
         features: [
             { title: t("c2_f1_title"), description: t("c2_f1_desc") },
             { title: t("c2_f2_title"), description: t("c2_f2_desc") },
@@ -102,9 +122,20 @@ export default async function Home({ params }: { params: { locale: string } }) {
         q2Key: "q_projects_ch3_2",
         onLeaveBack_q1Key: "q_projects_ch2_1",
         onLeaveBack_q2Key: "q_projects_ch2_2",
-        imageUrl: "/img/projects/Portainer_homelab.png",
-        imageAlt:
-            "A diagram of the homelab Docker and networking architecture.",
+        images: [
+            {
+                url: "/img/projects/Portainer_homelab.png",
+                alt: "A diagram of the homelab Docker portainer.",
+            },
+            {
+                url: "/img/projects/homelab_tubesync.png",
+                alt: "A diagram of the homelab Docker tubesync.",
+            },
+            {
+                url: "/img/projects/homelab_duplicaty_v2.png",
+                alt: "A diagram of the homelab Docker duplicaty.",
+            },
+        ],
         features: [
             { title: t("c3_f1_title"), description: t("c3_f1_desc") },
             { title: t("c3_f2_title"), description: t("c3_f2_desc") },
