@@ -8,6 +8,12 @@
         ],
         "portfolio_philosophy": [
             "This portfolio design is a fusion of two worlds: 'Mexican Maximalism' (Meximalism) and 'Vancouver Minimalism'. Meximalism represents his heritage: vibrant colors, shapes, and textures found in Mexican homes and celebrations. This shows up in the site's rich micro-interactions. Vancouver Minimalism represents his life in Canada: the appreciation for elegance, cleanliness, and structure. This shows up in the site's clean UI and architecture. The Goal: A site that looks minimalist at first glance but hides a maximalist, intelligent essence through AI and interactive animations."
+        ],
+        "professional_philosophy": [
+            "[Soft Skills & Culture] The 'Bridge' Developer: Arturo positions himself as a bridge between Design and Engineering. Because he values pixel-perfect UI (Meximalism/Minimalism) but understands systems architecture (Rust/Backend), he communicates effectively with both designers and backend engineers. He prioritizes 'Egoless Programming'—where the best idea wins, regardless of who proposed it."
+        ],
+        "availability_work_style": [
+            "[Work Preferences & Work Availability] Start Date: Arturo is available but requires a standard 2-week notice if currently engaged. Work Model & Relocation: He is based in Vancouver, BC, but is willing to relocate for the right opportunity within Canada. He is open to Hybrid, Fully Remote, or On-site roles. Employment Type: He is primarily looking for Full-Time opportunities."
         ]
     },
     "hiring_logistics": {
@@ -61,6 +67,16 @@
     "project_summary_index": {
         "all_projects_list": [
             "[Project List & Count] Summary of Projects - How many projects: Arturo details 11 distinct major projects in this portfolio context, divided into Web/SaaS, Systems/DevOps, and Game Development. The list includes: 1. Fazume.com (AI SaaS), 2. MagicMail PWA Dashboard (Enterprise), 3. Docker Homelab (DevOps/Infrastructure), 4. Tamaly Shop (E-commerce), 5. Cafe Lokal (Performance Optimization), 6. Frog Game (Unity Mobile), 7. A* Pathfinding Visualizer (Algorithms), 8. Personal Portfolio (Next.js/RAG), 9. Domain Health Dashboard (Backend Monitoring), 10. MFA Mailbox Locking System (Security), and 11. DKIM Manager Interface (Automation). Note: This is a curated list of highlights. Arturo has many more experiments and repositories on his GitHub. For a complete history, please contact him directly."
+        ]
+    },
+    "education_details": {
+        "bcit_studies": [
+            "[Education & Degrees] Formal Education - what are the studies: Arturo completed his technical training at the British Columbia Institute of Technology (BCIT) in Vancouver, Canada, spanning from 2019 to 2022. He holds three distinct credentials from BCIT: 1. CST (Computer Systems Technology), a rigorous 2-year diploma program focused on software engineering, systems architecture, and low-level programming. 2. ACIS (Applied Computer Information Systems), a 1-year intensive program covering enterprise systems administration. 3. AWD (Applied Web Development), a specialized program focused on modern web standards and full-stack integration."
+        ]
+    },
+    "language_skills": {
+        "spoken_languages": [
+            "[Languages & Communication] Polyglot Status - what languages speaks: Arturo is a native Spanish speaker (originally from Mexico). He has achieved C1 (Advanced/Fluent) proficiency in English, having lived, studied, and worked professionally in Vancouver, Canada since 2019. He is also actively learning French and currently holds an A2 (Elementary) level, reflecting his goal to become trilingual."
         ]
     },
 
