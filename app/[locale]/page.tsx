@@ -145,16 +145,34 @@ export default async function Home({ params }: { params: { locale: string } }) {
     };
     // Put your image paths from the /public folder here, in order (p1 to p6).
     const playgroundImageUrls = [
-        "/img/projects/portfolio_hero_screenshot.png", //p1
-        "/img/projects/dkim_diagram.png", // p2
-        "/img/playground/raspberry-pi.jpg", // p3
-        "/img/projects/automated_spam_representation_rayso.png", // p4
-        "/img/projects/MFA_representation_rayso.png", // p5
-        "/img/projects/IDE_banner.png", // p6
-        "/img/projects/astar_pathfinding_result.png", // p7
-        "/img/projects/cafelokal_banner.jpg", // p8
-        //"/img/projects/lucy_game.jpg", // p9
-        "/img/projects/frog_game.jpg", // p9
+        ["/img/projects/portfolio_hero_screenshot.png"], //p1
+        ["/img/projects/dkim_diagram.png"], // p2
+        ["/img/playground/raspberry-pi.jpg"], // p3
+        ["/img/projects/automated_spam_representation_rayso.png"], // p4
+        ["/img/projects/MFA_representation_rayso.png"], // p5
+        [
+            "/img/projects/ide_video_gif.gif",
+            "/img/projects/ide_error.png",
+            "/img/projects/IDE_banner.png",
+        ], // p6
+        [
+            "/img/projects/astar_alg_gif.gif",
+            "/img/projects/astar_pathfinding_result.png",
+            "/img/projects/astar_debug.png",
+        ], // p7
+        [
+            "/img/projects/cafelokal_banner_short.gif",
+            "/img/projects/cafelokal_sections.png",
+            "/img/projects/cafelokal_banner.jpg",
+        ], // p8
+        [
+            "/img/projects/lucyGame-gif.gif",
+            "/img/projects/lucy_grab_light.png",
+            "/img/projects/lucy_game.jpg",
+            "/img/projects/frog_game_gameplay_gif.gif",
+            "/img/projects/frog_game.jpg",
+            "/img/projects/frog_game_view.png",
+        ], // p9
     ];
     const linksToProject = [
         "https://github.com/GamezAr94/personal_portfolio", //p1
@@ -175,7 +193,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
             return {
                 title: t_playground(`p${index}_title`),
                 description: t_playground(`p${index}_desc`),
-                imageUrl: playgroundImageUrls[i],
+                images: playgroundImageUrls[i],
                 linksGit: linksToProject[i],
                 imageAlt: t_playground(`p${index}_title`),
                 aiQuery: t_chat_question(`q_playground_${index}`),
@@ -186,7 +204,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
     const chapter4Data = {
         id: "chapter4",
         chapterTitle: t("c4_title"),
-        narrative: t("c4_narrative"), // This data is still hard-coded
+        narrative: t("c4_narrative"),
         projects: playgroundProjects,
     };
 

@@ -15,8 +15,9 @@ type PlaygroundProject = {
     title: string;
     description: string;
     aiQuery: string;
-    imageUrl: string;
+    images: string[];
     imageAlt: string;
+    linksGit: string | null;
 };
 
 // --- Component Props ---

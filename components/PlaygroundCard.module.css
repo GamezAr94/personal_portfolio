@@ -14,7 +14,9 @@
 
 .playgroundItem:hover {
     transform: scale(1.05) rotate(2deg);
-    box-shadow: 6px 6px 0 0 #16db93, /* --color-teal */ -6px -6px 0 0 #ff6b6b; /* --color-orange */
+    box-shadow:
+        6px 6px 0 0 #16db93,
+        /* --color-teal */ -6px -6px 0 0 #ff6b6b; /* --color-orange */
 }
 
 .imageWrapper {
@@ -61,7 +63,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     text-decoration: none;
     border: 2px solid #e6007e; /* --color-magenta */
@@ -82,4 +84,66 @@
     color: #fff;
     transform: scale(1.05) rotate(-1deg);
     box-shadow: 4px 4px 0 0 #ff6b6b; /* --color-orange */
+}
+
+.imageWrapper {
+    position: relative; /* Ensure absolute arrows stay inside */
+    width: 100%;
+    /* overflow: hidden;  <-- Ensure this is set in your existing CSS */
+}
+
+/* New Arrow Styles */
+.navArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navArrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Optional Dot Indicators */
+.carouselIndicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.activeDot {
+    background-color: white;
 }

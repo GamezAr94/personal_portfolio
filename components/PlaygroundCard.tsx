@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./PlaygroundCard.module.css";
@@ -11,7 +11,7 @@ import AskAiButton from "./AskAiButton";
 gsap.registerPlugin(ScrollTrigger);
 
 type PlaygroundCardProps = {
-    imageUrl: string;
+    images: string[];
     imageAlt: string;
     title: string;
     description: string;
@@ -20,7 +20,7 @@ type PlaygroundCardProps = {
 };
 
 const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
-    imageUrl,
+    images,
     imageAlt,
     title,
     description,
@@ -28,6 +28,21 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
     linksGit,
 }) => {
     const cardRef = useRef<HTMLDivElement>(null);
+    const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+    const nextImage = (e: React.MouseEvent) => {
+        e.stopPropagation(); // Prevent triggering any card clicks
+        setCurrentImgIndex((prev) =>
+            prev === images.length - 1 ? 0 : prev + 1,
+        );
+    };
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImgIndex((prev) =>
+            prev === 0 ? images.length - 1 : prev - 1,
+        );
+    };
 
     useEffect(() => {
         const el = cardRef.current;
@@ -53,12 +68,40 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = ({
         <div className={styles.playgroundItem} ref={cardRef}>
             <div className={styles.imageWrapper}>
                 <Image
-                    src={imageUrl}
-                    alt={imageAlt}
+                    src={images[currentImgIndex]}
+                    alt={`${imageAlt} - view ${currentImgIndex + 1}`}
                     width={400}
                     height={300}
                     className={styles.playgroundImage}
                 />
+                {images.length > 1 && (
+                    <>
+                        <button
+                            className={`${styles.navArrow} ${styles.prev}`}
+                            onClick={prevImage}
+                            aria-label="Previous image"
+                        >
+                            &#10094; {/* Left Arrow Entity */}
+                        </button>
+                        <button
+                            className={`${styles.navArrow} ${styles.next}`}
+                            onClick={nextImage}
+                            aria-label="Next image"
+                        >
+                            &#10095; {/* Right Arrow Entity */}
+                        </button>
+
+                        {/* Optional: Indicator dots */}
+                        <div className={styles.carouselIndicators}>
+                            {images.map((_, idx) => (
+                                <span
+                                    key={idx}
+                                    className={`${styles.dot} ${idx === currentImgIndex ? styles.activeDot : ""}`}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
             </div>
             <div className={styles.playgroundItemContent}>
                 <h4>{title}</h4>
