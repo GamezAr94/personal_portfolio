@@ -7,7 +7,7 @@
     },
     "Hero": {
         "howdy": "👋 Hi, I'm Arturo Gamez",
-        "headline": "Software Developer. I build engaging and intelligent digital experiences.",
+        "headline": "Full-Stack Developer based in Vancouver. I build engaging and intelligent digital experiences.",
         "subtitle": "You're in my digital workshop. Explore my projects or ask my AI assistant about me and my work."
     },
     "HeroChat": {
@@ -22,11 +22,11 @@
         "title": "A Bit About Me",
         "p1": "I'm a software developer who thrives on understanding the \"why\"—the deep user and business needs behind every feature. I believe that <teal>great software is predictable</teal>, and I apply that principle by writing code that is clean, efficient, and reliable.",
         "p2": "While I specialize in <magenta>front-end architecture</magenta> and creating pixel-perfect UIs, my curiosity drives me deeper into the stack. I am passionate about understanding the \"metal,\" actively exploring **systems programming and graphics engineering**.",
-        "p3": "As a BCIT-trained developer based in Vancouver, I'm looking for a role with clear goals on a collaborative team. I'm excited to grow, learn, and build <teal>performant</teal>, <magenta>scalable</magenta> applications that solve real problems."
+        "p3": "As a BCIT-trained developer based in Vancouver, Canada. I'm looking for a role with clear goals on a collaborative team. I'm excited to grow, learn, and build <teal>performant</teal>, <magenta>scalable</magenta> applications that solve real problems."
     },
     "ToolkitSection": {
         "title": "My Toolkit",
-        "subtitle": "I'm always learning, but these are the technologies I'm most comfortable with.",
+        "subtitle": "Specializing in Next.js, PHP, Next.js and AI integration",
         "frontend": "Frontend",
         "backend": "Backend",
         "databases": "Databases & Tools"

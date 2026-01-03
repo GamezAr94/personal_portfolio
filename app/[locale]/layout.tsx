@@ -8,11 +8,64 @@ import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
-// REPLACE the existing 'metadata' object with this one:
 export const metadata: Metadata = {
-    title: "Arturo Gamez - Software Developer",
+    // 1. Base URL: Required for social images to work on Vercel
+    metadataBase: new URL("https://www.arturogamez.com"),
+
+    title: "Arturo Gamez - Software Developer | Vancouver, Canada",
     description:
-        "A full-stack developer building intelligent digital experiences.",
+        "Full-Stack Software Developer based in Vancouver, Canada. I build intelligent, scalable solutions using Next.js, PHP, Rust, and AI.",
+
+    // 2. Open Graph (This controls the look on LinkedIn!)
+    openGraph: {
+        title: "Arturo Gamez - Software Developer",
+        description:
+            "Building intelligent digital experiences in Vancouver. Ask my AI assistant about my work!",
+        url: "https://www.arturogamez.com",
+        siteName: "Arturo Gamez Portfolio",
+        locale: "en_US",
+        type: "website",
+        images: [
+            {
+                url: "/img/avatar_icon.png", // Uses your profile picture
+                width: 800,
+                height: 600,
+                alt: "Arturo Gamez - Software Developer",
+            },
+        ],
+    },
+
+    keywords: [
+        "Software Developer",
+        "Full Stack Developer",
+        "Vancouver",
+        "Canada",
+        "Halifax",
+        "Toronto",
+        "Next.js",
+        "JS",
+        "Game Developer",
+        "Unity",
+        "Unity3D",
+        "C#",
+        "Game development",
+        "PHP",
+        "Rust",
+        "Artificial Intelligence",
+        "Arturo Gamez",
+        "Web Development",
+        "React",
+        "System Architecture",
+    ],
+
+    // 3. Twitter Card (Kept so your link looks good if OTHERS share it)
+    twitter: {
+        card: "summary_large_image",
+        title: "Arturo Gamez - Software Developer",
+        description:
+            "Full-Stack Developer in Vancouver. Check out my interactive AI portfolio.",
+        images: ["/img/avatar_icon.png"],
+    },
 };
 
 export default async function RootLayout({
