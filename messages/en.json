@@ -152,9 +152,9 @@
         "q_playground_3": "Tell me how did Arturo implemented the Domain Health Dashboard from Magicmail",
         "q_playground_4": "Tell me how did Arturo implemented the Automated Spam Monitoring System from Magicmail",
         "q_playground_5": "Tell me how did Arturo implemented the MFA Mailbox Locking System from Magicmail",
-        "q_playground_6": "Tell me how did Arturo implemented the Full-Stack Online IDE from Magicmail",
-        "q_playground_7": "Tell me how did Arturo implemented the A* Pathfinding Visualizer from Magicmail",
-        "q_playground_8": "Tell me how did Arturo implemented the Cafe Local Custom Website from Magicmail",
-        "q_playground_9": "Tell me how did Arturo implemented the C# Game Mechanics Prototype from Magicmail"
+        "q_playground_6": "Tell me how did Arturo implemented the Full-Stack Online IDE for your personal project",
+        "q_playground_7": "Tell me how did Arturo implemented the A* Pathfinding Visualizer from Unity2D",
+        "q_playground_8": "Tell me how did Arturo implemented the Cafe Local Custom Website",
+        "q_playground_9": "Tell me how did Arturo implemented the C# Game Mechanics Prototype for Unity2D"
     }
 }
