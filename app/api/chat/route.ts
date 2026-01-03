@@ -108,7 +108,7 @@ export async function POST(request: Request) {
         );
         const recaptchaData = await recaptchaResponse.json();
 
-        if (!recaptchaData.success || recaptchaData.score < 0.8) {
+        if (!recaptchaData.success || recaptchaData.score < 0.5) {
             console.warn(
                 "Chat reCaptcha verification failed. Score:",
                 recaptchaData.score,
